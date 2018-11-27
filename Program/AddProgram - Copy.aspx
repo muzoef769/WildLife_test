@@ -1,326 +1,165 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="AddProgram - Copy.aspx.cs" Inherits="AddProgram" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="AddProgram.aspx.cs" Inherits="AddProgram" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
 
     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
+    <script>
+        $(document).ready(function () {
+            $("#home").removeClass('active');
+            $("#program").addClass('active');
+
+        });
+    </script>
+
+
     <%--Beginning container--%>
- 
-   <body>
-    <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="">
-                        <a href="Home.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
-                    </li>
-                     <li class="menu-item-has-children dropdown ">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Reports</a>
-                        <ul class="sub-menu children dropdown-menu">                           
-                            <li><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
-                            <li><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                            <li><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
-                          
-                        </ul>
-                    </li>
-                     <li class="">
-                         <a class="" href="Animal.aspx"> <i class="menu-icon fa fa-github-alt"></i>Animals</a>
-                    </li>
-                   <li class="">
-                        <a class="" href="Payment.aspx"><i class="menu-icon fa fa-dollar"></i>Payments</a>
-                    </li>
-                     <li class="active">
-                        <a class="" href="Program.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
-                    </li>
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-    <!-- Right Panel -->
-    <div id="right-panel" class="right-panel">
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 10px; margin-left: -10px;"></i></a>
-                   <a class="navbar-brand" href="Home.aspx">Wildlife Center of Virginia | <span style="color: #00c292;"> <%:Session["UserFullName"]%> </span></a>
-           
-                </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-                    <div class="header-left">
-                  
-                        <div class="dropdown for-notification">
-                            <ul style="list-style-type: none;">
-                             <li class="nav-item">
-                        <a class="nav-link" style="color: dimgrey;" href="#">Staff</a>
-                    </li>
-                                </ul>
-                        </div>
-
-                        <div class="dropdown for-notification">
-                            
-                                <ul style="list-style-type: none;">
-                        <li class="nav-item">
-                        <asp:Button ID="btnLogOut" runat="server"  Text="Logout" ForeColor="#fb9678" CssClass="btn btn-link" />
-                    
-                    </li>
-
-                        </ul>
-                         
-                        </div>
-                    </div>
-
-                  
-
-                </div>
-            </div>
-        </header>
-        <!-- /#header -->
-        <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
-
-                    
+    <br />
+    <br />
+    <br />
+    <h1 id="ProgramMonth" class=" CardTitle mx-auto d-flex justify-content-center ">Add Program</h1>
 
 
+    <div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card" data-toggle="modal" data-target="#AddModal">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="fa fa-github-alt"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Animal</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="row" style="">
+            <%--Program container--%>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="AddOrganization.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            
-                                            <div class="stat-heading">Add Organization</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                </a>
-                        </div>
-                       
-                    </div>
+            <div class="SimpleContainer card col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3" style="z-index: 100;">
+                <div class=" card-body text-left  rounded cart" style="">
+                    <h4>Programs
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="AddProgram.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Program</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-
-                      <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="Program.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                         <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">View Programs</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-
-                  
-                </div>
-
-
-
-                                <div class="row">
-
-                
-
-                      <div class="col-lg-6 col-md-6">
-                        <div class="card">
-                             <a href="Program.aspx"> 
-                            <div class="card-body">
-                                
-                                <div class=" AnimalReportCard text-left" style="padding-left:15px; padding-top:15px; padding-bottom:5px;">
-            <h4>Cart 
-
-                <span class="price" style="color: black"><i class="fa fa-shopping-cart"></i><b>
+                <span class="price" style="color: black"><b><i class="fa fa-shopping-basket"></i>
                     <asp:Label ID="lblCartTotal" runat="server" Text="0"></asp:Label></b></span>
 
-            </h4>
-            <div id ="programOne"  runat="server" visible="false">
-            <p><a href="#"><asp:Label ID ="lblProgramOne" runat="server" Text="Program One"></asp:Label></a> <span class="price">
-                <asp:Label ID="lblProgramCostOne" runat="server" Text="70"></asp:Label></span></p>
-                </div>
-            <div id ="programTwo"  runat="server" visible="false">
-            <p><a href="#"><asp:Label ID ="lblProgramTwo" runat="server" Text="Program Two"></asp:Label></a> <span class="price">
-                <asp:Label ID="lblProgramCostTwo" runat="server" Text="70"></asp:Label></span></p>
-                </div>
-            <div id="programThree"  runat="server" visible="false">
-            <p><a href="#"><asp:Label ID ="lblProgramThree" runat="server" Text="Program Three"></asp:Label></a> <span class="price">
-                <asp:Label ID="lblProgramCostThree" runat="server" Text="70"></asp:Label></span></p>
-                </div>
+                    </h4>
+                    <div id="programOne" runat="server" visible="false">
+                        <p>
+                            <a href="#">
+                                <asp:Label ID="lblProgramOne" runat="server" Text="Program One"></asp:Label></a> <span class="price">
+                                    <asp:Label ID="lblProgramCostOne" runat="server" Text="70"></asp:Label></span>
+                        </p>
+                    </div>
+                    <div id="programTwo" runat="server" visible="false">
+                        <p>
+                            <a href="#">
+                                <asp:Label ID="lblProgramTwo" runat="server" Text="Program Two"></asp:Label></a> <span class="price">
+                                    <asp:Label ID="lblProgramCostTwo" runat="server" Text="70"></asp:Label></span>
+                        </p>
+                    </div>
+                    <div id="programThree" runat="server" visible="false">
+                        <p>
+                            <a href="#">
+                                <asp:Label ID="lblProgramThree" runat="server" Text="Program Three"></asp:Label></a> <span class="price">
+                                    <asp:Label ID="lblProgramCostThree" runat="server" Text="70"></asp:Label></span>
+                        </p>
+                    </div>
 
-            <hr>
-            <p>
-                <asp:Label ID="lblSubtotal" runat="server" Text="Subtotal"></asp:Label>
-                <span class="price" style="color: black"><b>$
+                    <hr>
+                    <p>
+                        <asp:Label ID="lblSubtotal" runat="server" Text="Subtotal"></asp:Label>
+                        <span class="price" style="color: black"><b>$
                     <asp:Label ID="lblSubtotalCost" runat="server" Text="0"></asp:Label></b></span>
-            </p>
+                    </p>
 
-            <p>
-                <asp:Label ID="lblMileage" runat="server" Text="Mileage Cost"></asp:Label>
-                <span class="price" style="color: black"><b>$
+                    <p>
+                        <asp:Label ID="lblMileage" runat="server" Text="Mileage Cost"></asp:Label>
+                        <span class="price" style="color: black"><b>$
                     <asp:Label ID="lblMileageCost" runat="server" Text="0"></asp:Label></b></span>
-            </p>
-            
-            <p>
-               
-                <asp:Label ID="lblTotalCost" runat="server" Text="Total Cost"></asp:Label>
-                <span class="price" style="color: black"><b>$
+                    </p>
+
+                    <p>
+
+                        <asp:Label ID="lblTotalCost" runat="server" Text="Total Cost"></asp:Label>
+                        <span class="price" style="color: black"><b>$
                     <asp:Label ID="lblTotalCostPrice" runat="server" Text="0"></asp:Label></b></span>
-            </p>
-        </div>
-
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-
-                  
+                    </p>
                 </div>
+            </div>
+            <div class="SimpleContainer card col-sm-12 col-xs-12 col-md-9 col-lg-9 col-xl-9" style="z-index: 100;">
 
-
-                <!-- /Widgets -->
-                <!--  Traffic  -->
                 <div class="card-body">
-                                <h4 class="box-title">Add Program Info</h4>
+
+
+
+                    <div class="ProgramReportCard ">
+
+
+                        <br />
+
+                        <div class="row  ">
+
+
+
+                            <div class="col-md-6 text-center">
+                                <label for="txtOrgDrp" class="label-style">Organization</label>
+                                <br>
+
+
+                                <asp:DropDownList ID="drpOrganizationList" runat="server" CssClass="btn btn-default btn-sm dropdown-toggle" Style="background-color: whitesmoke;" AppendDataBoundItems="True" DataSourceID="SqlDataSource3" DataTextField="OrganizationName" DataValueField="OrganizationID" OnSelectedIndexChanged="DrpOrganizationList_IndexChanged" AutoPostBack="true">
+
+                                    <asp:ListItem Text="Select an Organization"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT OrganizationName, OrganizationID FROM Organization"></asp:SqlDataSource>
+
                             </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                            
-                                <div class=" " >
-                                                <script type="text/javascript">
-  $(document).ready(function(){
-  $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-    localStorage.setItem('activeTab', $(e.target).attr('href'));
-  });
-  var activeTab = localStorage.getItem('activeTab');
-  if(activeTab){
-    $('#myTab a[href="' + activeTab + '"]').tab('show');
-  }
- });
-</script> 
-            <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style=" padding-left:15px; border-bottom:none;"  role="tablist">
-                <li class="nav-item ">
-                    <a style=" margin-right:5px; color:black;"class="nav-link active " id="homee-tab" data-toggle="tab" href="#Program" role="tab" aria-controls="homee" aria-selected="true">Program Info</a>
-                </li>
-                <li class="nav-item ">
-                    <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#Contact" role="tab" aria-controls="profile" aria-selected="false">Contact Info</a>
-                </li>
-                <li class="nav-item ">
-                    <a style=" margin-right:5px; color:black;"class="nav-link" id="home-tab" data-toggle="tab" href="#programLoc" role="tab" aria-controls="home" aria-selected="false">Program Location</a>
-                </li>
-                
-               
-               
-            </ul>
-                                    <br />
-                           
-
-        </div>
-                                <br />
-
-
-                                <div class="row mx-auto d-flex justify-content-center ">
 
 
 
-                   <div class="col-md-4 text-center">
-                    <label for="txtOrgDrp" class="label-style">Organization</label> <br>
-                   
-                                                
-                    <asp:DropDownList ID="drpOrganizationList" runat="server"  CssClass="btn btn-default btn-sm dropdown-toggle" style="background-color:whitesmoke;" AppendDataBoundItems="True" DataSourceID="SqlDataSource3" DataTextField="OrganizationName" DataValueField="OrganizationID" OnSelectedIndexChanged="DrpOrganizationList_IndexChanged" AutoPostBack="true">
-
-                        <asp:ListItem Text="Select an Organization" ></asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT OrganizationName, OrganizationID FROM Organization"></asp:SqlDataSource>
-
-                       </div>
 
 
-                     <div class="col-4 ">
-            <div class="d-flex justify-content-center "> 
-   <a href="AddOrganization.aspx" id="btnAddOrg" class=" btn btn-success" runat="server" onclick="btnAddOrg_Click">Add Organization</a>
-       </div>
-        </div>
+                            <div class=" col-md-6 ">
+                                <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
+                                <asp:TextBox ID="txtInvoiceNumber" class="form-control" Style="background-color: whitesmoke;" runat="server"></asp:TextBox>
 
+                            </div>
 
-                    <div class=" col-md-4">
-                        <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
-                         <asp:TextBox ID ="txtInvoiceNumber"  class="form-control"  style="background-color:whitesmoke;" runat="server" ></asp:TextBox>
-                  
-                    </div>
+                        </div>
 
-                      </div>
+                        <br />
+                        <div class="row ">
+                            <div class="col-12  ">
 
-                             <div class="tab-content ">
-            <div id="Program" class="tab-pane fade show active ">
-                <div class="">
+                                <a href="AddOrganization.aspx" id="btnAddOrg" class=" btn btn-block btn-success" runat="server" onclick="btnAddOrg_Click">Add Organization</a>
 
-                    <div class="row mx-auto d-flex justify-content-center ">
-                        <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
-                        
-                            <div class="card-body">
+                            </div>
+                        </div>
+                        <br />
+                         <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                                            localStorage.setItem('activeTab', $(e.target).attr('href'));
+                                        });
+                                        var activeTab = localStorage.getItem('activeTab');
+                                        if (activeTab) {
+                                            $('#myTab a[href="' + activeTab + '"]').tab('show');
+                                        }
+                                    });
+                                </script>
+                                <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" id="myTab" role="tablist">
+                                    <li class="nav-item ">
+                                        <a style="margin-right: 5px; color: black;" class="nav-link active " id="homee-tab" data-toggle="tab" href="#All" role="tab" aria-controls="homee" aria-selected="true">Program Info</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a style="margin-right: 5px; color: black;" class="nav-link" id="home-tab" data-toggle="tab" href="#Online" role="tab" aria-controls="home" aria-selected="false">Contact Info</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a style="margin-right: 5px; color: black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#OnSite" role="tab" aria-controls="profile" aria-selected="false">Program Location</a>
+                                    </li>
+                                    
+
+                                </ul>
+
+                        <br />
+
+                        <div class="tab-content ">
+                                <div id="All" class="tab-pane fade show active ">
+                                    <div class="" id="">
+                            <div class="card">
+                                
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 ">
                                        <label>Select Program </label>
@@ -491,19 +330,23 @@
                             </div>
                             <br />
                             <div class="row">
-                                <div class="col-6  mx-auto  text-center">
-                                    <asp:Button ID="Button2" runat="server" CssClass="btn btn-success" Text="Add Program" OnClick="BtnAddProgram_Click" />
+                                <div class="col-12  mx-auto  text-center">
+                                    <asp:Button ID="Button2" runat="server" CssClass="btn btn-success btn-block" Text="Add Program" OnClick="BtnAddProgram_Click" />
 
                                 </div>
                             </div>
 
                         </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div id="Contact" class="tab-pane fade">
-                <div class="card-body">
+                                </div>
+                                <div id="Online" class="tab-pane fade">
+                                    <div class="card">
+                           
+                            <div id="" class="" aria-labelledby="headingTwo" >
+                                <div class="card-body">
                         <div class="container-fluid" style="padding-top: 20px;">
                             <asp:UpdatePanel runat="server" ID="clientPanel">
                                 <ContentTemplate>
@@ -584,262 +427,289 @@
                         </div>
 
                     </div>
-            </div>
-            <div id="programLoc" runat="server" class="tab-pane fade">
-                <div class="card-body" >
-                    <div class="container-fluid" style="padding-top: 20px;">
-
-                        <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
-                            <ContentTemplate>
-                                <div class="main-container">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtStreet" class="label-style">Street</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtStreet" runat="server" class="btn"  style="background-color:whitesmoke;" ></asp:TextBox>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtCity" class="label-style">City</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtCity" runat="server" class="btn"  style="background-color:whitesmoke;"></asp:TextBox>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtState" class="label-style">State</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtState" runat="server" class="btn"  style="background-color:whitesmoke;"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtCounty" class="label-style">County</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtCounty" runat="server" class="btn"  style="background-color:whitesmoke;"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtCountry" class="label-style">Country</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtCountry" runat="server" class="btn"  style="background-color:whitesmoke;"></asp:TextBox>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtZipCode" class="label-style">Zip Code</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtZipCode" runat="server" class="btn"  style="background-color:whitesmoke;"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="txtMileage" class="label-style">Mileage</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtMileage" runat="server" class="btn"  style="background-color:whitesmoke;"></asp:TextBox>
-                                        </div>
-                                    </div>
-
-                                    <div class="button-container">
-                                    </div>
-
-                                </div>
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="drpContact" />
-
-                            </Triggers>
-
-                        </asp:UpdatePanel>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
                             </div>
-                            
-                            <div class="card-body"></div>
                         </div>
-                    </div><!-- /# column -->
-                </div>  
-                <!--  /Traffic -->
-                <div class="clearfix"></div>
-                <!-- Orders -->
-              
-
-                <!-- /.orders -->
-                <!-- To Do and Live Chat -->
-               
-
-
-                <!-- /To Do and Live Chat -->
-                <!-- Calender Chart Weather  -->
-           
-
-
-                <!-- /Calender Chart Weather -->
-                <!-- Modal - Calendar - Add New Event -->
-             
-
-                <!-- /#event-modal -->
-                <!-- Modal - Calendar - Add Category -->
-             
-
-            <!-- /#add-category -->
-            </div>
-            <!-- .animated -->
-        </div>
-        <!-- /.content -->
-        <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6">
-                      Wildlife Center of Virginia
-                    </div>
-                  
-                </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
-    </div>
-    <!-- /#right-panel -->
-
-   
-
-    <!--Local Stuff-->
-    
-
-       
-
-    <div class="modal" id="ProgramDetailsModal" tabindex="-1" role="dialog"> 
-        <div class="modal-dialog" role="document" >
-            <div class="modal-content" style="width:100% !important;">
-                <div class="modal-header" style="background-color: whitesmoke">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body p-4" id="resultPrograms" style="background-color:#ffffff">
-
-                    <div class=" ">
-                        <div class="row d-flex justify-content-center ">
-
-                            <div class="col-xl-6 col-lg-12 text-left col-md-12 col-s-12 Spacing">
-                                 <label><b>Animals Involved</b> </label>
-                                <asp:GridView ID="GridView2" runat="server" Visible="True"  Class="table table-condensed table-bordered table-hover" BackColor="White" >
-                                    
-                                    <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
-                                </asp:GridView>
-                            </div>
-
-
-                            <script type="text/javascript">
-                                function openModal() {
-                                    $('#ProgramDetailsModal').modal('show');
-                                }
-                            </script>
+                                </div>
+                                <div id="OnSite" class="tab-pane fade">
+                                    <div class="card" id="programLoc" runat="server">
                         
-                         <div class="col-xl-6 col-lg-12  col-md-12 col-s-12 Spacing">
-                              <div class="col-md-4  ">
-                                     <label><b>Notes </b></label> <br />
-                                    <textarea runat="server" cols="23" rows="10"></textarea>
+                        <div id="" class="" aria-labelledby="headingThree" >
+                            <div class="card-body">
+                                <div class="container-fluid" style="padding-top: 20px;">
+
+                                    <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <div class="main-container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:CheckBox ID="chkLocation" runat="server" Text="  Select if event is at organization" CssClass="label-style " AutoPostBack="true" OnCheckedChanged="chkLocation_CheckedChanged" />
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="txtStreet" class="label-style">Street</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <asp:TextBox ID="txtStreet" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="txtCity" class="label-style">City</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <asp:TextBox ID="txtCity" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="txtState" class="label-style">State</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <asp:DropDownList ID="drpState" runat="server" class="btn btn-block"  style="background-color:whitesmoke;">
+                                                            <asp:ListItem Value="VA">Virginia</asp:ListItem>
+                                                            <asp:ListItem Value="AL">Alabama</asp:ListItem>
+                                                            <asp:ListItem Value="AK">Alaska</asp:ListItem>
+                                                            <asp:ListItem Value="AZ">Arizona</asp:ListItem>
+                                                            <asp:ListItem Value="AR">Arkansas</asp:ListItem>
+                                                            <asp:ListItem Value="CA">California</asp:ListItem>
+                                                            <asp:ListItem Value="CO">Colorado</asp:ListItem>
+                                                            <asp:ListItem Value="CT">Connecticut</asp:ListItem>
+                                                            <asp:ListItem Value="DC">District of Columbia</asp:ListItem>
+                                                            <asp:ListItem Value="DE">Delaware</asp:ListItem>
+                                                            <asp:ListItem Value="FL">Florida</asp:ListItem>
+                                                            <asp:ListItem Value="GA">Georgia</asp:ListItem>
+                                                            <asp:ListItem Value="HI">Hawaii</asp:ListItem>
+                                                            <asp:ListItem Value="ID">Idaho</asp:ListItem>
+                                                            <asp:ListItem Value="IL">Illinois</asp:ListItem>
+                                                            <asp:ListItem Value="IN">Indiana</asp:ListItem>
+                                                            <asp:ListItem Value="IA">Iowa</asp:ListItem>
+                                                            <asp:ListItem Value="KS">Kansas</asp:ListItem>
+                                                            <asp:ListItem Value="KY">Kentucky</asp:ListItem>
+                                                            <asp:ListItem Value="LA">Louisiana</asp:ListItem>
+                                                            <asp:ListItem Value="ME">Maine</asp:ListItem>
+                                                            <asp:ListItem Value="MD">Maryland</asp:ListItem>
+                                                            <asp:ListItem Value="MA">Massachusetts</asp:ListItem>
+                                                            <asp:ListItem Value="MI">Michigan</asp:ListItem>
+                                                            <asp:ListItem Value="MN">Minnesota</asp:ListItem>
+                                                            <asp:ListItem Value="MS">Mississippi</asp:ListItem>
+                                                            <asp:ListItem Value="MO">Missouri</asp:ListItem>
+                                                            <asp:ListItem Value="MT">Montana</asp:ListItem>
+                                                            <asp:ListItem Value="NE">Nebraska</asp:ListItem>
+                                                            <asp:ListItem Value="NV">Nevada</asp:ListItem>
+                                                            <asp:ListItem Value="NH">New Hampshire</asp:ListItem>
+                                                            <asp:ListItem Value="NJ">New Jersey</asp:ListItem>
+                                                            <asp:ListItem Value="NM">New Mexico</asp:ListItem>
+                                                            <asp:ListItem Value="NY">New York</asp:ListItem>
+                                                            <asp:ListItem Value="NC">North Carolina</asp:ListItem>
+                                                            <asp:ListItem Value="ND">North Dakota</asp:ListItem>
+                                                            <asp:ListItem Value="OH">Ohio</asp:ListItem>
+                                                            <asp:ListItem Value="OK">Oklahoma</asp:ListItem>
+                                                            <asp:ListItem Value="OR">Oregon</asp:ListItem>
+                                                            <asp:ListItem Value="PA">Pennsylvania</asp:ListItem>
+                                                            <asp:ListItem Value="RI">Rhode Island</asp:ListItem>
+                                                            <asp:ListItem Value="SC">South Carolina</asp:ListItem>
+                                                            <asp:ListItem Value="SD">South Dakota</asp:ListItem>
+                                                            <asp:ListItem Value="TN">Tennessee</asp:ListItem>
+                                                            <asp:ListItem Value="TX">Texas</asp:ListItem>
+                                                            <asp:ListItem Value="UT">Utah</asp:ListItem>
+                                                            <asp:ListItem Value="VT">Vermont</asp:ListItem>
+                                                            <asp:ListItem Value="WA">Washington</asp:ListItem>
+                                                            <asp:ListItem Value="WV">West Virginia</asp:ListItem>
+                                                            <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
+                                                            <asp:ListItem Value="WY">Wyoming</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="txtCounty" class="label-style">County</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <asp:TextBox ID="txtCounty" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="txtCountry" class="label-style">Country</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <asp:DropDownList ID="drpCountry" runat="server" class="btn btn-block"  style="background-color:whitesmoke;">
+                                                            <asp:ListItem>United States</asp:ListItem>
+                                                            <asp:ListItem>Canada</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="txtZipCode" class="label-style">Zip Code</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <asp:TextBox ID="txtZipCode" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="txtMileage" class="label-style">Mileage</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <asp:TextBox ID="txtMileage" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                                <div class="button-container">
+                                                </div>
+
+                                            </div>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="drpContact" />
+
+                                        </Triggers>
+
+                                    </asp:UpdatePanel>
                                 </div>
-                             </div>
-                    </div>
+                            </div>
                         </div>
-                </div>
-                <div class="modal-footer" style="background-color: whitesmoke">
-                    <button type="button" class="btn btn-success " data-dismiss="modal">Close</button>
+                    </div>
+                                </div>
+                                
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <br />
+                        
+
+                        
+                    </div>
+
+
+                    
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-9 mx-auto d-flex justify-content-center Spacing">
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success btn-block" OnClick="SubmitProgram" />
+
+
+                        </div>
+                        <div class="col-md-3 mx-auto d-flex justify-content-center Spacing">
+                            <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn  btn-block"  Style="background-color: #fb9678; color: #fff; " OnClick="Clear" />
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
+
+
+
+
         </div>
     </div>
-
-
-    <div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog " role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Animal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body p-4" id="resultAdd">
-
-
-
-                    <div class="row  ">
-
-                        <div class=" col-md-8">
-                            <h4>Animal Status: </h4>
-                            <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Active</asp:ListItem>
-                                <asp:ListItem>Inactive</asp:ListItem>
-                                <asp:ListItem>Temporarily Inactive</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Type: </h4>
-                            <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Bird</asp:ListItem>
-                                <asp:ListItem>Mammal</asp:ListItem>
-                                <asp:ListItem>Reptile</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Name: </h4>
-                            <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
-                            <h4>Add Image: </h4>
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
-                            <br>
-                        </div>
-                        <!-- End  Description -->
-
-
-                    </div>
-                    <div class="row">
-                        <br>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-md-2">
-                           <%-- <asp:Button ID="btnAddModal" runat="server" Text="Add" Class="btn btn-primary LoginButton FormButton" UseSubmitBehavior="false" OnClick="btnAddModal_Click"></asp:Button>
-                      --%>  </div>
-
-
-
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <%--                    <button type="button" data-toggle="modal" data-target="#EditModal" class="btn btn-secondary" data-dismiss="modal">Edit</button>--%>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
+    <!-- end accordion -->
 
 
 
 
 
-    
+
+    <!-- end container -->
+
+
+
+
+
+    <script>
+        //uses classList, setAttribute, and querySelectorAll
+        //if you want this to work in IE8/9 youll need to polyfill these
+        (function () {
+            var d = document,
+                accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
+                setAria,
+                setAccordionAria,
+                switchAccordion,
+                touchSupported = ('ontouchstart' in window),
+                pointerSupported = ('pointerdown' in window);
+
+            skipClickDelay = function (e) {
+                e.preventDefault();
+                e.target.click();
+            }
+
+            setAriaAttr = function (el, ariaType, newProperty) {
+                el.setAttribute(ariaType, newProperty);
+            };
+            setAccordionAria = function (el1, el2, expanded) {
+                switch (expanded) {
+                    case "true":
+                        setAriaAttr(el1, 'aria-expanded', 'true');
+                        setAriaAttr(el2, 'aria-hidden', 'false');
+                        break;
+                    case "false":
+                        setAriaAttr(el1, 'aria-expanded', 'false');
+                        setAriaAttr(el2, 'aria-hidden', 'true');
+                        break;
+                    default:
+                        break;
+                }
+            };
+
+
+            //function
+            switchAccordion = function (e) {
+                e.preventDefault();
+                var thisAnswer = e.target.parentNode.nextElementSibling;
+                var thisQuestion = e.target;
+                if (thisAnswer.classList.contains('is-collapsed')) {
+                    setAccordionAria(thisQuestion, thisAnswer, 'true');
+                } else {
+                    setAccordionAria(thisQuestion, thisAnswer, 'false');
+                }
+                thisQuestion.classList.toggle('is-collapsed');
+                thisQuestion.classList.toggle('is-expanded');
+                thisAnswer.classList.toggle('is-collapsed');
+                thisAnswer.classList.toggle('is-expanded');
+
+                thisAnswer.classList.toggle('animateIn');
+            };
+            for (var i = 0, len = accordionToggles.length; i < len; i++) {
+                if (touchSupported) {
+                    accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
+                }
+                if (pointerSupported) {
+                    accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+                }
+                accordionToggles[i].addEventListener('click', switchAccordion, false);
+            }
+        })();
+
+
+        $(document).ready(function () {
+            $('#sidebar').stickyMojo({ footerID: '#footer', contentID: '#main' });
+        });
+
+
+    </script>
 </asp:Content>
-
-
-
-
 
