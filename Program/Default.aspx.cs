@@ -159,10 +159,11 @@ public partial class Default : System.Web.UI.Page
             rdoPosition.SelectedValue,
             "Not Approved",
             DateTime.Now,
-            txtNewUsername.Text
+            txtNewUsername.Text,
+            txtEmail.Text
             );
 
-        String myQuery = "INSERT INTO [WildlifeCenter].[dbo].[User] (FirstName, LastName, Username, UserType, UserStatus, LastUpdated, LastUpdatedBy) VALUES (@firstName, @lastName, @userName, @userType, @status, @lastUpdated, @lastUpdatedBy)";
+        String myQuery = "INSERT INTO [WildlifeCenter].[dbo].[User] (FirstName, LastName, Username, UserType, UserStatus, LastUpdated, LastUpdatedBy, Email) VALUES (@firstName, @lastName, @userName, @userType, @status, @lastUpdated, @lastUpdatedBy, @Email)";
 
         try
         {
@@ -176,13 +177,10 @@ public partial class Default : System.Web.UI.Page
             myCommand.Parameters.AddWithValue("@status", newUser.getStatus());
             myCommand.Parameters.AddWithValue("@lastUpdated", newUser.getLastUpdated());
             myCommand.Parameters.AddWithValue("@lastUpdatedBy", newUser.getLastUpdatedBy());
+            myCommand.Parameters.AddWithValue("@Email", newUser.getEmail());
 
             myCommand.ExecuteNonQuery();
 
-
-        }
-        catch (Exception E)
-        {
 
         }
         finally

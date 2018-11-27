@@ -14,9 +14,10 @@ public class User
     private string userType;
     private DateTime lastUpdated;
     private string lastUpdatedBy;
+    private string email;
 
     //User constructor
-    public User(int userID, string userName, string firstName, string lastName, string userType, DateTime lastUpdated, string lastUpdatedBy)
+    public User(int userID, string userName, string firstName, string lastName, string userType, DateTime lastUpdated, string lastUpdatedBy, string email)
     {
         setUserID(userID);
         setUserName(userName);
@@ -25,8 +26,9 @@ public class User
         setUserType(userType);
         setLastUpdated(lastUpdated);
         setLastUpdatedBy(lastUpdatedBy);
+        setEmail(email);
     }
-    public User(string userName, string firstName, string lastName, string userType, string userStatus, DateTime lastUpdated, string lastUpdatedBy)
+    public User(string userName, string firstName, string lastName, string userType, string userStatus, DateTime lastUpdated, string lastUpdatedBy, string email)
     {
 
         setUserName(userName);
@@ -36,12 +38,17 @@ public class User
         setStatus(userStatus);
         setLastUpdated(lastUpdated);
         setLastUpdatedBy(lastUpdatedBy);
+        setEmail(email);
     }
 
     //Getters
     public int getUserID()
     {
         return this.userID;
+    }
+    public string getEmail()
+    {
+        return this.email;
     }
     public string getUserName()
     {
@@ -76,6 +83,10 @@ public class User
     public void setUserID(int x)
     {
         this.userID = x;
+    }
+    public void setEmail(string x)
+    {
+        this.email = x;
     }
     public void setUserName(string x)
     {

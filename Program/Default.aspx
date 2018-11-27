@@ -8,14 +8,11 @@
                 <h2 class=" CardTitle d-flex justify-content-center">Log In</h2>
                 <br />
                 <div class="form-group ">
-                    <%--<label>Username</label>--%>
                     <asp:TextBox ID="txtUsername" placeholder="Username" required="required" CssClass="form-control text-center " runat="server"></asp:TextBox>
                 </div>
                 <br />
                 <div class="form-group ">
-                    <%--<label>Password</label>--%>
                     <asp:TextBox ID="txtPassword" placeholder="Password" TextMode="Password" required="required" CssClass="form-control text-center " runat="server"></asp:TextBox>
-                    <%--<div class="text-center"><asp:Label ID="lblStatus" runat="server" Visible="false" ForeColor="White"></asp:Label></div>--%>
                 </div>
                 <div class="form-group ">
                     <div class="text-center">
@@ -34,7 +31,7 @@
                     
                 </div>
                 <br />
-                <asp:label ID="btnPass" runat="server"  OnClick="PasswordReset" Text="Password Reset" CausesValidation="true" UseSubmitBehavior="false" ForeColor="White" />
+                <asp:Button ID="btnPass" runat="server"  OnClick="PasswordReset" Text="Password Reset" CausesValidation="true" UseSubmitBehavior="false" CssClass="btn btn-success" />
             </div>
         </div>
     </div>
@@ -58,6 +55,12 @@
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                             <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server" MaxLength="50"></asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <asp:TextBox ID="txtEmail" class="form-control" placeholder="Email" required="required" runat="server" MaxLength="50"></asp:TextBox>
 
                                         </div>
                                     </div>
