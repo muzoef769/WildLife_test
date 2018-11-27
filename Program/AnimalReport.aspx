@@ -84,91 +84,7 @@
         </header>--%>
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card" data-toggle="modal" data-target="#AddModal">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="fa fa-github-alt"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-
-                                            <div class="stat-heading">Add Animal</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="AddOrganization.aspx">
-                                <div class="card-body">
-                                    <div class="stat-widget-five">
-                                        <div class="stat-icon col-2 dib flat-color-2">
-                                            <i class="pe-7s-add-user"></i>
-                                        </div>
-                                        <div class="stat-content">
-                                            <div class="text-left dib">
-
-                                                <div class="stat-heading">Add Organization</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="AddProgram.aspx">
-                                <div class="card-body">
-                                    <div class="stat-widget-five">
-                                        <div class="stat-icon dib flat-color-3">
-                                            <i class="pe-7s-browser"></i>
-                                        </div>
-                                        <div class="stat-content">
-                                            <div class="text-left dib">
-
-                                                <div class="stat-heading">Add Program</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="Program.aspx">
-                                <div class="card-body">
-                                    <div class="stat-widget-five">
-                                        <div class="stat-icon dib flat-color-4">
-                                            <i class="pe-7s-browser"></i>
-                                        </div>
-                                        <div class="stat-content">
-                                            <div class="text-left dib">
-
-                                                <div class="stat-heading">View Programs</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+       
 
 
 
@@ -319,7 +235,7 @@
                                                         <asp:Button ID="btnExportToExcel"
                                                             runat="server"
                                                             Text="Export To Excel"
-                                                            CssClass="btn mx-auto d-flex justify-content-center btn-success"
+                                                            CssClass="btn btn-block mx-auto d-flex justify-content-center btn-success"
                                                             UseSubmitBehavior="false"
                                                             CauseValidation="true"
                                                             OnClick="ExportToExcel" />
@@ -328,8 +244,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4 mx-auto">
-                                            </div>
+                                            
 
 
 

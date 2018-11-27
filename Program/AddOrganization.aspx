@@ -7,9 +7,7 @@
     <%--Beginning container--%>
 
     <!-- Content -->
-    <div class="content">
-        <!-- Animated -->
-        <div class="animated fadeIn">
+   
             <!-- /Widgets -->
             <!--  Traffic  -->
             <div class="card-body">
@@ -189,16 +187,15 @@
 
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="col-md-6 text-left mx-auto Spacing">
-                                                        <button id="btnReturn" type="button" class="btn btn-success" style="color: white;" onclick="javascript:history.go(-1)">Return</button>
+                                                <div class="form-group col-12">
+                                                        <button id="btnReturn" type="button" class="btn btn-success btn-block" style="color: white;" onclick="javascript:history.go(-1)">Return</button>
                                                     </div>
                                                     <%--                                                        <div class="col-md-6 text-right mx-auto Spacing">
                                                             <button id="btnNext" type="button" class="btn btn-success" style="color: white;">Next</button>
                                                         </div>--%>
                                                 </div>
 
-                                            </div>
+                                            
 
                                         </div>
 
@@ -275,8 +272,8 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn btn-success" OnClick="btnAddOrganization_Click" CausesValidation="true" ValidationGroup="addOrg" />
+                                            <div class="form-group col-12">
+                                                <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn btn-block btn-success" OnClick="btnAddOrganization_Click" CausesValidation="true" ValidationGroup="addOrg" />
                                             </div>
 
                                             <%--</div>--%>

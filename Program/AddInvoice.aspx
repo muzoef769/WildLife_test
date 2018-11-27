@@ -84,90 +84,7 @@
         </header>--%>
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card" data-toggle="modal" data-target="#AddModal">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="fa fa-github-alt"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Animal</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="AddOrganization.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            
-                                            <div class="stat-heading">Add Organization</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                </a>
-                        </div>
-                       
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="AddProgram.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Program</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="Program.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                         <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">View Programs</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-                </div>
+        
                 <!-- /Widgets -->
                 <!--  Traffic  -->
                 <div class="card-body">
@@ -189,20 +106,20 @@
                         <div class="mx-auto table-responsive">
                         <div class="row mx-auto">
             
-               <div class="col-xl-4 col-lg-4 col-md-4 col-s-12 ">
+               <div class="col-xl-3 col-lg-3 col-md-3 col-s-12 ">
                     <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
                  
                     <asp:TextBox ID="txtInvoice" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
                          </div>
-             <div class="col-xl-4 col-lg-4 col-md-4 col-s-12">
+             <div class="col-xl-6 col-lg-6 col-md-6 col-s-12">
                     <asp:Label ID="lblOrganization" runat="server" Text="Desired Organization: "></asp:Label>
                     <asp:DropDownList ID="drpInvoiceOrganization" runat="server" class="btn"  style="background-color:whitesmoke;" AutoPostBack="True" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="viewGridView" DataTextField="OrganizationName" DataValueField="OrganizationID"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString %>" SelectCommand="SELECT [OrganizationID], [OrganizationName] FROM [Organization]"></asp:SqlDataSource>
                      </div>
 
-                         <div class="col-xl-4 col-lg-4 col-md-4 col-s-12 ">
+                         <div class="col-xl-3 col-lg-3 col-md-3 col-s-12 ">
                              <asp:Label  runat="server" Text="Program Invoices "></asp:Label>  <br />
-                    <asp:DropDownList ID="ProgramListInvoice" runat="server" class="btn"  style="background-color:whitesmoke;"></asp:DropDownList>
+                    <asp:DropDownList ID="ProgramListInvoice" runat="server" class="btn btn-block"  style="background-color:whitesmoke;"></asp:DropDownList>
                               </div>
                     
                 
@@ -223,7 +140,7 @@
                 <asp:Button ID="btnAddProgram2Invoice"
                     runat="server"
                     Text="Add Program to Invoice"
-                    CssClass="btn mx-auto d-flex justify-content-center btn-success"
+                    CssClass="btn btn-block mx-auto d-flex justify-content-center btn-success"
                     UseSubmitBehavior="false"
                     CauseValidation="true"/>
               

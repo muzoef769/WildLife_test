@@ -190,70 +190,67 @@
                 <div class="animated fadeIn">
 
                     <div class="row">
-                        <!-- Widgets  -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card" data-toggle="modal" data-target="#AddModal">
-                                <div class="card-body">
-                                    <div class="stat-widget-five">
-                                        <div class="stat-icon dib flat-color-1">
-                                            <i class="fa fa-github-alt"></i>
-                                        </div>
-                                        <div class="stat-content">
-                                            <div class="text-left dib">
-
-                                                <div class="stat-heading" style="margin-top:10px;"><h3>Add Animal</h3></div>
-                                            </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card" data-toggle="modal" data-target="#AddModal">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-1">
+                                        <i class="fa fa-github-alt"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                           
+                                            <div class="stat-heading" style="font-size:130%;">Add Animal</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card">
-                                <a href="AddProgram.aspx">
-                                    <div class="card-body">
-                                        <div class="stat-widget-five">
-                                            <div class="stat-icon dib flat-color-3">
-                                                <i class="pe-7s-browser"></i>
-                                            </div>
-                                            <div class="stat-content">
-                                                <div class="text-left dib">
-
-                                                    <div class="stat-heading" style="margin-top:10px;"><h3>Add Program</h3></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card">
-                                <a href="AddOrganization.aspx">
-                                    <div class="card-body">
-                                        <div class="stat-widget-five">
-                                            <div class="stat-icon col-2 dib flat-color-2">
-                                                <i class="pe-7s-add-user"></i>
-                                            </div>
-                                            <div class="stat-content">
-                                                <div class="text-left dib">
-
-                                                    <div class="stat-heading" style="margin-top:10px;"><h3>Add Organization</h3></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-
-
-
-
                     </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <a href="AddOrganization.aspx"> 
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon col-2 dib flat-color-2">
+                                        <i class="pe-7s-add-user"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            
+                                            <div class="stat-heading" style="font-size:130%;">Add Organization</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </a>
+                        </div>
+                       
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                             <a href="AddProgram.aspx"> 
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-3">
+                                        <i class="pe-7s-browser"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                           
+                                            <div class="stat-heading" style="font-size:130%;">Add Program</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                  </a>
+                        </div>
+                    </div>
+                 </div>
+
+                   
                     <!-- /Widgets -->
 
 

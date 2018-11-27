@@ -86,90 +86,7 @@
         </header>--%>
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card" data-toggle="modal" data-target="#AddModal">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="fa fa-github-alt"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Animal</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="AddOrganization.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            
-                                            <div class="stat-heading">Add Organization</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                </a>
-                        </div>
-                       
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="AddProgram.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Program</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="Program.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                         <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">View Programs</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-                </div>
+        
                 <!-- /Widgets -->
                 <!--  Traffic  -->
                 <div class="card-body">
@@ -193,16 +110,17 @@
   }
  });
 </script> 
-            <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style=" padding-left:15px; border-bottom:none;" id="myTab" role="tablist">
+            <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style=" padding-left:15px; border-bottom:none;" role="tablist">
                 <li class="nav-item ">
-                    <a style=" margin-right:5px; color:black;"class="nav-link active " id="homee-tab" data-toggle="tab" href="#Outstanding" role="tab" aria-controls="homee" aria-selected="true">Outstanding Invoices</a>
+                    <a style=" margin-right:5px; color:black;" class="nav-link active" id="profile-tab" data-toggle="tab" href="#All" role="tab" aria-controls="profile" aria-selected="true">All Invoices</a>
+                </li>
+                <li class="nav-item ">
+                    <a style=" margin-right:5px; color:black;"class="nav-link  " id="homee-tab" data-toggle="tab" href="#Outstanding" role="tab" aria-controls="homee" aria-selected="false">Outstanding Invoices</a>
                 </li>
                 <li class="nav-item ">
                     <a style=" margin-right:5px; color:black;"class="nav-link" id="home-tab" data-toggle="tab" href="#Fufilled" role="tab" aria-controls="home" aria-selected="false">Fulfilled Invoices</a>
                 </li>
-                <li class="nav-item ">
-                    <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#All" role="tab" aria-controls="profile" aria-selected="false">All Invoices</a>
-                </li>
+                
                 
                
             </ul>
@@ -211,23 +129,23 @@
 
                         
                         <asp:TextBox ID="txtYear" runat="server" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" Style=" margin-right:5px;" placeholder="Filter By Year (e.g. '2018')"></asp:TextBox>
-                        <asp:Button ID="btnFilter" runat="server" class="btn btn-success" Style=" margin-right:5px;" Text="Filter" OnClick="btnFilter_Click" />
-                        <asp:Button runat="server" class="btn btn-primary" id="dateClear" OnClick="dateClear_Click" Text="Clear Filter"/>               
+                        <asp:Button ID="btnFilter" runat="server" class="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2" Style=" margin-right:5px;" Text="Filter" OnClick="btnFilter_Click" />
+                        <asp:Button runat="server" class="btn col-xl-2 col-md-2 col-lg-2 col-sm-2" style="background-color: #fb9678; color: #fff; margin-right:32px;" id="dateClear" OnClick="dateClear_Click" Text="Clear Filter"/>               
            
                                         </div>
 
         </div>
                                 <br />
                              <div class="tab-content ">
-            <div id="Outstanding" class="tab-pane fade show active ">
+            <div id="Outstanding" class="tab-pane fade  ">
                 <div class="">
-                    <div class="col-12 PayTable mx-auto d-flex justify-content-center  table table-condensed table-bordered table-hover">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                         <div id="outInvoices" style="overflow-x: auto;">
                                             <br />
                                             <asp:updatepanel id="outstandingPan" runat="server">
                                                 <ContentTemplate>
-                                                    <asp:GridView ID="outInvGrid" HeaderStyle-ForeColor="black" runat="server" DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" EnableSortingAndPagingCallbacks="false" AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="outstandingSource" AllowPaging="True" AllowSorting="True">
-                                                       <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                                    <asp:GridView ID="outInvGrid" HeaderStyle-ForeColor="black" runat="server"  Class="  table table-condensed table-bordered table-hover AnimalCard" DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" EnableSortingAndPagingCallbacks="false" AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="outstandingSource" AllowPaging="True" AllowSorting="True">
+                                                      <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                         <Columns>
                                                             <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
                                                             <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" ReadOnly="true" />
@@ -296,7 +214,7 @@ WHERE InvoiceStatus = 'Unpaid'"
                                             </asp:sqldatasource>
                             <br />
                             <br />
-                            <asp:button id="btnOutstanding" class=" btn btn-success" runat="server" onclick="Button2_Click" text="Export To Excel"></asp:button>
+                            <asp:button id="btnOutstanding" class=" btn btn-success btn-block" runat="server" onclick="Button2_Click" text="Export To Excel"></asp:button>
                                             <br />
                                             <br />
 
@@ -307,14 +225,14 @@ WHERE InvoiceStatus = 'Unpaid'"
             </div>
 
 
-            <div id="Fufilled" class="tab-pane fade">
-                <div class="col-md-12 PayTable mx-auto d-flex justify-content-center   table table-condensed table-bordered table-hover ">
+            <div id="Fufilled" class="tab-pane fade ">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                         <div id="paidInvoices" style="overflow-x: auto;">
                                             <br />
                                             <asp:updatepanel id="paidPan" runat="server">
                                                 <ContentTemplate>
-                                                    <asp:GridView ID="paidGrid" runat="server" HeaderStyle-ForeColor="black" DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="paidSource" AllowPaging="True" AllowSorting="True">
-                                                        <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                                    <asp:GridView ID="paidGrid" runat="server"  Class="  table table-condensed table-bordered table-hover AnimalCard" HeaderStyle-ForeColor="black" DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="paidSource" AllowPaging="True" AllowSorting="True">
+                                                         <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                         <Columns>
                                                             <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
                                                             <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" ReadOnly="true" />
@@ -379,7 +297,7 @@ WHERE InvoiceStatus = 'Paid'"
 
                             <br />
                             <br />
-                            <asp:button id="btnFulfilled" class=" btn btn-success" runat="server" onclick="Button3_Click" text="Export To Excel"></asp:button>
+                            <asp:button id="btnFulfilled" class=" btn btn-success btn-block" runat="server" onclick="Button3_Click" text="Export To Excel"></asp:button>
                                             <br />
                                             <br />
 
@@ -387,16 +305,16 @@ WHERE InvoiceStatus = 'Paid'"
                                     </div>
             </div>
 
-            <div id="All" class="tab-pane fade">
-                <div class="col-md-12 PayTable mx-auto d-flex justify-content-center  table table-condensed table-bordered table-hover ">
+            <div id="All" class="tab-pane fade show active">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                         <div id="allInvoices" style="overflow-x: auto;">
                                             <br />
                                             <asp:UpdatePanel runat="server" ID="updateAllInvoices">
                                 <ContentTemplate>
 
 
-                            <asp:gridview id="allInvGrid" runat="server" headerstyle-forecolor="black" datakeynames="InvoiceID" autogenerateeditbutton="True" OnRowUpdated="allInvGrid_RowUpdated" autogeneratecolumns="False" datasourceid="programSource" allowpaging="True" allowsorting="True">
-                                                        <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                            <asp:gridview id="allInvGrid" runat="server"  Class="  table table-condensed table-bordered table-hover AnimalCard" headerstyle-forecolor="black" datakeynames="InvoiceID" autogenerateeditbutton="True" OnRowUpdated="allInvGrid_RowUpdated" autogeneratecolumns="False" datasourceid="programSource" allowpaging="True" allowsorting="True">
+                                                         <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                         <Columns>
                                                             <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
                                                             <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" ReadOnly="true" />
@@ -461,7 +379,7 @@ FROM            Program INNER JOIN
 
                             <br />
 
-                            <asp:button id="btnAll" class=" btn btn-success" runat="server" onclick="Button1_Click" text="Export To Excel"></asp:button>
+                            <asp:button id="btnAll" class=" btn btn-success btn-block" runat="server" onclick="Button1_Click" text="Export To Excel"></asp:button>
                                             <br />
                                             <br />
 

@@ -116,97 +116,7 @@
         </header>--%>
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <div class="row">
-
-                    
-
-
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card" data-toggle="modal" data-target="#AddModal">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="fa fa-github-alt"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Animal</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="AddOrganization.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            
-                                            <div class="stat-heading">Add Organization</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                </a>
-                        </div>
-                       
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="AddProgram.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">Add Program</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-
-                      <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                             <a href="Program.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                         <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading">View Programs</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                  </a>
-                        </div>
-                    </div>
-
-                  
-                </div>
+        
                 <!-- /Widgets -->
                 <!--  Traffic  -->
                 <div class="card-body">
@@ -216,11 +126,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                            <div class="row">
-                                <asp:TextBox ID="txtYear" runat="server" class="form-control" placeholder="Filter By Year (e.g. '2018')"></asp:TextBox>
-                                    <asp:Button ID="btnFilter" runat="server" class="btn btn-success" Text="Filter By Year" OnClick="btnFilter_Click" />
-                                    <asp:Button runat="server" class="btn btn-primary" id="dateClear" OnClick="dateClear_Click" Text="Clear Filter"/>
-                                    <asp:RegularExpressionValidator ValidationExpression="^\d{4}$" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid year (e.g. '2018')" ControlToValidate="txtYear" /> </div>
+                            
                                <div class="row"></div>
                                 <div class=" " >
                                                 <script type="text/javascript">
@@ -241,16 +147,7 @@
                 <li class="nav-item ">
                     <a style=" margin-right:5px; color:black;"class="nav-link" id="home-tab" data-toggle="tab" href="#Annual" role="tab" aria-controls="home" aria-selected="false">Annual Animal View</a>
                 </li>
-                   <li class="nav-item ">
-<%--                       <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#ProgramView" role="tab" aria-controls="profile" aria-selected="false">Start Date</a>--%>
-
-                      <input runat="server" clientidmode="Static" width="100%" type="date" id="startDate" placeholder ="Start Date">
-<%--                      <label>End Date </label>--%>
-
-                       <input runat="server" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
-                                    
-                        <asp:Button runat="server" class="btn btn-primary" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
-                </li>
+                  
                 
                
                
@@ -262,6 +159,14 @@
                                 <br />
                              <div class="tab-content ">
             <div id="ProgramTotal" class="tab-pane fade show active ">
+                <div class="ml-auto d-flex justify-content-end row">
+                                <asp:TextBox ID="txtYear" runat="server" Style=" margin-right:5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" placeholder="Filter By Year (e.g. '2018')"></asp:TextBox>
+                                    <asp:Button ID="btnFilter" runat="server" Style=" margin-right:5px;" Class="btn btn-success col-xl-2 col-lg-2 col-md-2 col-sm-2" Text="Filter By Year" OnClick="btnFilter_Click" />
+                                    <asp:Button runat="server"  Style="background-color: #fb9678; color: #fff;" Class="btn col-xl-2 col-lg-2 col-md-2 col-sm-2" id="dateClear" OnClick="dateClear_Click" Text="Clear Filter"/>
+                                    <asp:RegularExpressionValidator ValidationExpression="^\d{4}$" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid year (e.g. '2018')" ControlToValidate="txtYear" />
+
+                            </div>
+
                 <div id="tab-toggle" style="margin-top: 15px;">
                                     <label for="tabCheckBox">Interactive View</label>
                                     <input id="tabCheckBox" type="checkbox" data-toggle="toggle">
@@ -269,7 +174,7 @@
                 <div id="simpleTab" class="row table-responsive" style="width: 85%;">
                      <div class='tableauPlaceholder' id='viz1543202166509' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ProgramTotals&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543202166509');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                     </div>
-                </div>
+                
                 <div class="">
 
                     <div class="row mx-auto d-flex justify-content-center table-responsive">
@@ -277,7 +182,7 @@
                         <div id="programTotals" class="row table-responsive" overflow-x: hidden">
                                         <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
                                             <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">
-                                                <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                               <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
                                                     <asp:BoundField HeaderStyle-Width="200px" DataField="LocationType" HeaderText="Program Totals" SortExpression="LocationType" />
@@ -583,10 +488,11 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <asp:button id="exportMonthly" class=" btn btn-success" text="Export To Excel" runat="server" onclick="exportMonthly_Click"></asp:button>
+                                                <asp:button id="exportMonthly" class=" btn btn-success btn-block" text="Export To Excel" runat="server" onclick="exportMonthly_Click"></asp:button>
                                             </div>
-                                        </div>
                                            
+                                        </div>
+                                            <br />
                                         </div>
                              <br />
                                     </div>
@@ -594,9 +500,21 @@
                     </div>
                 </div>
             <div id="Annual" class="tab-pane fade">
-                <div class="table-responsive">
-                    <div class="col-md-12  mx-auto   table-bordered table-hover AnimalCard ">
-                                            <asp:gridview id="animalGrid" runat="server" enablesortingandpagingcallbacks="True" autogeneratecolumns="False" width="100%" datasourceid="SqlDataSource48">
+
+                 <div class="ml-auto d-flex justify-content-end row" Style=" margin-right:16px;">
+<%--                       <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#ProgramView" role="tab" aria-controls="profile" aria-selected="false">Start Date</a>--%>
+
+                      <input runat="server" Class="btn col-xl-3 col-lg-3 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="startDate" placeholder ="Start Date">
+<%--                      <label>End Date </label>--%>
+
+                       <input runat="server" Class="btn col-xl-3 col-lg-3 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
+                                    
+                        <asp:Button runat="server" class="btn btn-primary" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
+                </div>
+                <br />
+                <div class="row mx-auto d-flex justify-content-center table-responsive">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                            <asp:gridview id="animalGrid" runat="server"  CssClass=" table-responsive-md table table-condensed table-bordered table-hover AnimalCard justify-content-center" enablesortingandpagingcallbacks="True" autogeneratecolumns="False" width="100%" datasourceid="SqlDataSource48">
                                           <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                             <Columns>
                                                 <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
@@ -615,7 +533,7 @@ GROUP BY AnimalName"></asp:sqldatasource>
             
         </div>
                             </div>
-                            
+                            </div>
                             <div class="card-body"></div>
                         </div>
                     </div><!-- /# column -->
