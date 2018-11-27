@@ -239,9 +239,6 @@
                     <a style=" margin-right:5px; color:black;"class="nav-link active " id="homee-tab" data-toggle="tab" href="#ProgramTotal" role="tab" aria-controls="homee" aria-selected="true">Program Totals</a>
                 </li>
                 <li class="nav-item ">
-                    <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#ProgramView" role="tab" aria-controls="profile" aria-selected="false">Program Total Visual</a>
-                </li>
-                <li class="nav-item ">
                     <a style=" margin-right:5px; color:black;"class="nav-link" id="home-tab" data-toggle="tab" href="#Annual" role="tab" aria-controls="home" aria-selected="false">Annual Animal View</a>
                 </li>
                    <li class="nav-item ">
@@ -265,6 +262,14 @@
                                 <br />
                              <div class="tab-content ">
             <div id="ProgramTotal" class="tab-pane fade show active ">
+                <div id="tab-toggle" style="margin-top: 15px;">
+                                    <label for="tabCheckBox">Interactive View</label>
+                                    <input id="tabCheckBox" type="checkbox" data-toggle="toggle">
+                                </div>
+                <div id="simpleTab" class="row table-responsive" style="width: 85%;">
+                     <div class='tableauPlaceholder' id='viz1543202166509' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ProgramTotals&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543202166509');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    </div>
+                </div>
                 <div class="">
 
                     <div class="row mx-auto d-flex justify-content-center table-responsive">
@@ -272,8 +277,9 @@
                         <div id="programTotals" class="row table-responsive" overflow-x: hidden">
                                         <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
                                             <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">
-                                                <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
+                                                <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
                                                 <Columns>
+                                                    <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
                                                     <asp:BoundField HeaderStyle-Width="200px" DataField="LocationType" HeaderText="Program Totals" SortExpression="LocationType" />
                                                     <asp:BoundField DataField="January" ItemStyle-Width="75px" HeaderText="Jan" SortExpression="January" />
                                                     <asp:BoundField DataField="February" ItemStyle-Width="75px" HeaderText="Feb" SortExpression="February" />
@@ -287,10 +293,10 @@
                                                     <asp:BoundField DataField="October" ItemStyle-Width="75px" HeaderText="Oct" SortExpression="October" />
                                                     <asp:BoundField DataField="November" ItemStyle-Width="75px" HeaderText="Nov" SortExpression="November" />
                                                     <asp:BoundField DataField="December" ItemStyle-Width="75px" HeaderText="Dec" SortExpression="December" />
-                                                    <asp:BoundField ItemStyle-Font-Bold="true" ItemStyle-Width="100px" DataField="2018 Total" HeaderText="2018 Total" SortExpression="2018 Total" />
+                                                    <asp:BoundField ItemStyle-Font-Bold="true" ItemStyle-Width="100px" DataField="2018 Total" HeaderText="Total" SortExpression="2018 Total" />
                                                 </Columns>
                                             </asp:gridview>
-                                            <asp:sqldatasource id="source6" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT LocationType,
+                                            <asp:sqldatasource id="source6" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT DISTINCT YEAR(DateCompleted) as 'DateCompleted', LocationType,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '1' and LocationType = 'Offsite') January, 
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '2' and LocationType = 'Offsite') February,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '3' and LocationType = 'Offsite') March,
@@ -304,10 +310,17 @@
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '11' and LocationType = 'Offsite') November,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '12' and LocationType = 'Offsite') December,
                             (select count(LocationType) from NewProgram where LocationType='Offsite') '2018 Total'
-                            from NewProgram where LocationType = 'Offsite' group by LocationType"></asp:sqldatasource>
+                            from NewProgram where LocationType = 'Offsite' group by LocationType, DateCompleted"
+                                                FilterExpression="Convert(DateCompleted, 'System.String') like '%{0}%'">
+                                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCompleted" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+                                                
+                                            </asp:sqldatasource>
                                             <asp:gridview id="onlineGrid" runat="server" autogeneratecolumns="False" datasourceid="source5" gridlines="Both" width="1200px" showheader="False">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
+                                                    <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
                                                     <asp:BoundField ItemStyle-Width="200px" DataField="LocationType" HeaderText="Type" SortExpression="LocationType" />
                                                     <asp:BoundField DataField="January" ItemStyle-Width="75px" HeaderText="January" SortExpression="January" />
                                                     <asp:BoundField DataField="February" ItemStyle-Width="75px" HeaderText="February" SortExpression="February" />
@@ -324,7 +337,7 @@
                                                     <asp:BoundField ItemStyle-Font-Bold="true" ItemStyle-Width="100px" DataField="2018 Total" HeaderText="2018 Total" SortExpression="2018 Total" />
                                                 </Columns>
                                             </asp:gridview>
-                                            <asp:sqldatasource id="source5" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT LocationType,
+                                            <asp:sqldatasource id="source5" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT DISTINCT YEAR(DateCompleted) as 'DateCompleted', LocationType,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '1' and LocationType = 'Online') January, 
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '2' and LocationType = 'Online') February,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '3' and LocationType = 'Online') March,
@@ -338,10 +351,17 @@
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '11' and LocationType = 'Online') November,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '12' and LocationType = 'Online') December,
                             (select count(LocationType) from NewProgram where LocationType='Online') '2018 Total'
-                            from NewProgram where LocationType = 'Online' group by LocationType"></asp:sqldatasource>
+                            from NewProgram where LocationType = 'Online' group by LocationType, DateCompleted"
+                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCompleted" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+
+                                            </asp:sqldatasource>
                                             <asp:gridview id="onsiteGrid" runat="server" autogeneratecolumns="False" datasourceid="source4" width="1200px" gridlines="Both" showheader="False">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
+                                                    <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
                                                     <asp:BoundField ItemStyle-Width="200px" DataField="LocationType" HeaderText="Type" SortExpression="LocationType" />
                                                     <asp:BoundField DataField="January" ItemStyle-Width="75px" HeaderText="January" SortExpression="January" />
                                                     <asp:BoundField DataField="February" ItemStyle-Width="75px" HeaderText="February" SortExpression="February" />
@@ -358,7 +378,7 @@
                                                     <asp:BoundField ItemStyle-Font-Bold="true" ItemStyle-Width="100px" DataField="2018 Total" HeaderText="2018 Total" SortExpression="2018 Total" />
                                                 </Columns>
                                             </asp:gridview>
-                                            <asp:sqldatasource id="source4" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT LocationType,
+                                            <asp:sqldatasource id="source4" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT DISTINCT YEAR(DateCompleted) as 'DateCompleted', LocationType,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '1' and LocationType = 'Onsite') January, 
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '2' and LocationType = 'Onsite') February,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '3' and LocationType = 'Onsite') March,
@@ -372,10 +392,17 @@
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '11' and LocationType = 'Onsite') November,
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '12' and LocationType = 'Onsite') December,
                             (select count(LocationType) from NewProgram where LocationType='Onsite') '2018 Total'
-                            from NewProgram where LocationType = 'Onsite' group by LocationType"></asp:sqldatasource>
+                            from NewProgram where LocationType = 'Onsite' group by LocationType, DateCompleted"
+                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCompleted" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+
+                                            </asp:sqldatasource>
                                             <asp:gridview id="totProgramsGrid" runat="server" autogeneratecolumns="False" datasourceid="source7" width="1200px" showheader="False">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
+                                                    <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
                                                     <asp:TemplateField ItemStyle-Font-Bold="true" ItemStyle-Width="200px">
                                                         <ItemTemplate>
                                                             Total Programs
@@ -396,7 +423,7 @@
                                                     <asp:BoundField ItemStyle-Font-Bold="true" ItemStyle-Width="100px" DataField="2018 Total" HeaderText="2018 Total" SortExpression="2018 Total" />
                                                 </Columns>
                                             </asp:gridview>
-                                            <asp:sqldatasource id="source7" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT 
+                                            <asp:sqldatasource id="source7" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT DISTINCT YEAR(DateCompleted) as 'DateCompleted',
                                 (select count(LocationType) from NewProgram where Month(DateCompleted) = '1') January, 
                                 (select count(LocationType) from NewProgram where Month(DateCompleted) = '2') February,
                                 (select count(LocationType) from NewProgram where Month(DateCompleted) = '3') March,
@@ -410,10 +437,17 @@
                                 (select count(LocationType) from NewProgram where Month(DateCompleted) = '11') November,
                                 (select count(LocationType) from NewProgram where Month(DateCompleted) = '12') December,
                                 (select count(LocationType) from NewProgram) '2018 Total'
-                                from NewProgram where LocationType = 'Online' group by LocationType"></asp:sqldatasource>
+                                from NewProgram where LocationType = 'Online' group by LocationType, DateCompleted"
+                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCompleted" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+
+                                            </asp:sqldatasource>
                                             <asp:gridview id="totKidsGrid" runat="server" autogeneratecolumns="False" datasourceid="source2" width="1200px" showheader="False">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
+                                                    <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
                                                     <asp:TemplateField ItemStyle-Width="200px">
                                                         <ItemTemplate>
                                                             Children
@@ -434,7 +468,7 @@
                                                     <asp:BoundField ItemStyle-Width="100px" ItemStyle-Font-Bold="true" DataField="2018 Total" HeaderText="2018 Total" SortExpression="2018 Total" ControlStyle-Width="100px" />
                                                 </Columns>
                                             </asp:gridview>
-                                            <asp:sqldatasource id="source2" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT
+                                            <asp:sqldatasource id="source2" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT DISTINCT YEAR(DateCompleted) as 'DateCompleted',
                             (select isnull(sum(TotalKids), 0) from NewProgram where Month(DateCompleted) = '1') January, 
                             (select isnull(sum(TotalKids), 0) from NewProgram where Month(DateCompleted) = '2') February,
                             (select isnull(sum(TotalKids), 0) from NewProgram where Month(DateCompleted) = '3') March,
@@ -448,10 +482,17 @@
                             (select isnull(sum(TotalKids), 0) from NewProgram where Month(DateCompleted) = '11') November,
                             (select isnull(sum(TotalKids), 0) from NewProgram where Month(DateCompleted) = '12') December,
                             (select isnull(sum(TotalKids), 0) from NewProgram) '2018 Total'
-                            from NewProgram where LocationType='Online' group by LocationType  "></asp:sqldatasource>
+                            from NewProgram where LocationType='Online' group by LocationType, DateCompleted"
+                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCompleted" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+
+                                            </asp:sqldatasource>
                                             <asp:gridview id="totAdultsGrid" runat="server" autogeneratecolumns="False" datasourceid="source3" width="1200px" showheader="false">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
+                                                    <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
                                                     <asp:TemplateField ItemStyle-Width="200px">
                                                         <ItemTemplate>
                                                             Adults
@@ -472,7 +513,7 @@
                                                     <asp:BoundField ItemStyle-Width="100px" ItemStyle-Font-Bold="true" DataField="2018 Total" HeaderText="2018 Total" SortExpression="2018 Total" />
                                                 </Columns>
                                             </asp:gridview>
-                                            <asp:sqldatasource id="source3" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT
+                                            <asp:sqldatasource id="source3" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT DISTINCT YEAR(DateCompleted) as 'DateCompleted',
                             (select isnull(sum(TotalAdults), 0) from NewProgram where Month(DateCompleted) = '1') January, 
                             (select isnull(sum(TotalAdults), 0) from NewProgram where Month(DateCompleted) = '2') February,
                             (select isnull(sum(TotalAdults), 0) from NewProgram where Month(DateCompleted) = '3') March,
@@ -486,10 +527,17 @@
                             (select isnull(sum(TotalAdults), 0) from NewProgram where Month(DateCompleted) = '11') November,
                             (select isnull(sum(TotalAdults), 0) from NewProgram where Month(DateCompleted) = '12') December,
                             (select isnull(sum(TotalAdults), 0) from NewProgram) '2018 Total'
-                            from NewProgram where LocationType='Online' group by LocationType "></asp:sqldatasource>
+                            from NewProgram where LocationType='Online' group by LocationType, DateCompleted"
+                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCompleted" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+
+                                            </asp:sqldatasource>
                                             <asp:gridview id="totPeopleGrid" runat="server" autogeneratecolumns="False" datasourceid="source1" width="1200px" showheader="false">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
+                                                    <asp:BoundField DataField="Year" Visible="false" />
                                                     <asp:TemplateField ItemStyle-Font-Bold="true" ItemStyle-Width="200px">
                                                         <ItemTemplate>
                                                             Total People
@@ -510,7 +558,7 @@
                                                     <asp:BoundField ItemStyle-Font-Bold="true" ItemStyle-Width="100px" DataField="2018 Total" HeaderText="2018 Total" SortExpression="2018 Total" />
                                                 </Columns>
                                             </asp:gridview>
-                                            <asp:sqldatasource id="source1" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT
+                                            <asp:sqldatasource id="source1" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT DISTINCT YEAR(DateCompleted) as 'DateCompleted',
                             (select isnull(sum(TotalPeople), 0) from NewProgram where Month(DateCompleted) = '1') January, 
                             (select isnull(sum(TotalPeople), 0) from NewProgram where Month(DateCompleted) = '2') February,
                             (select isnull(sum(TotalPeople), 0) from NewProgram where Month(DateCompleted) = '3') March,
@@ -524,13 +572,20 @@
                             (select isnull(sum(TotalPeople), 0) from NewProgram where Month(DateCompleted) = '11') November,
                             (select isnull(sum(TotalPeople), 0) from NewProgram where Month(DateCompleted) = '12') December,
                             (select isnull(sum(TotalPeople), 0) from NewProgram) '2018 Total'
-                            from NewProgram where LocationType='Online' group by LocationType"></asp:sqldatasource>
+                            from NewProgram where LocationType='Online' group by LocationType, DateCompleted"
+                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCompleted" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+
+                                            </asp:sqldatasource>
 
                                         </div>
-                                        <div class="row mx-auto d-flex justify-content-center">
+                                        <div class="row">
                                             <div class="col-md-12">
-                                                <asp:button id="exportMonthly" class=" btn btn-success btn-block" text="Export To Excel" runat="server" onclick="exportMonthly_Click"></asp:button>
+                                                <asp:button id="exportMonthly" class=" btn btn-success" text="Export To Excel" runat="server" onclick="exportMonthly_Click"></asp:button>
                                             </div>
+                                        </div>
                                            
                                         </div>
                              <br />
@@ -538,38 +593,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="ProgramView" class="tab-pane fade">
-                <div id="" class="row table-responsive" >
-                                        <div class='tableauPlaceholder' id='viz1542070211315' style='position: relative'>
-                                            <noscript>
-                                                <a href='#'>
-                                                    <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CF&#47;CFB865958&#47;1_rss.png' style='border: none' /></a>
-                                            </noscript>
-                                            <object class='tableauViz' style='display: none;'>
-                                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                                <param name='embed_code_version' value='3' />
-                                                <param name='path' value='shared&#47;CFB865958' />
-                                                <param name='toolbar' value='yes' />
-                                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CF&#47;CFB865958&#47;1.png' />
-                                                <param name='animate_transition' value='yes' />
-                                                <param name='display_static_image' value='yes' />
-                                                <param name='display_spinner' value='yes' />
-                                                <param name='display_overlay' value='yes' />
-                                                <param name='display_count' value='yes' />
-                                            </object>
-                                        </div>
-                                        <script type='text/javascript'>                  
-                                            var divElement = document.getElementById('viz1542070211315');
-                                            var vizElement = divElement.getElementsByTagName('object')[0];
-                                            vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-                                            var scriptElement = document.createElement('script');
-                                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-
-                                        </script>
-                                    </div>
-            </div>
             <div id="Annual" class="tab-pane fade">
                 <div class="table-responsive">
                     <div class="col-md-12  mx-auto   table-bordered table-hover AnimalCard ">
@@ -587,6 +610,8 @@ GROUP BY AnimalName"></asp:sqldatasource>
                                         </div>
                 </div>
             </div>
+            </div>
+            
             
         </div>
                             </div>

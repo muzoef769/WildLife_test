@@ -19,21 +19,6 @@ public partial class Payment : System.Web.UI.Page
 
     }
 
-    protected void gridRefresh_Click(object sender, EventArgs e)
-    {
-        outstandingSource.EnableCaching = false;
-        outInvGrid.DataBind();
-        outstandingSource.EnableCaching = true;
-
-        paidSource.EnableCaching = false;
-        paidGrid.DataBind();
-        paidSource.EnableCaching = true;
-
-        programSource.EnableCaching = false;
-        allInvGrid.DataBind();
-        programSource.EnableCaching = true;
-    }
-
     public override void VerifyRenderingInServerForm(Control control)
     {
         /* Verifies that the control is rendered */
@@ -71,7 +56,7 @@ public partial class Payment : System.Web.UI.Page
             row.Cells[0].Visible = false;
         }
 
-        ExportToExcel(outInvGrid, "Outstanding");
+        ExportToExcel(allInvGrid, "All");
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -86,7 +71,7 @@ public partial class Payment : System.Web.UI.Page
             row.Cells[0].Visible = false;
         }
 
-        ExportToExcel(paidGrid, "Completed");
+        ExportToExcel(outInvGrid, "Outstanding");
     }
 
     protected void Button3_Click(object sender, EventArgs e)
@@ -101,7 +86,7 @@ public partial class Payment : System.Web.UI.Page
             row.Cells[0].Visible = false;
         }
 
-        ExportToExcel(allInvGrid, "All");
+        ExportToExcel(paidGrid, "Fulfilled");
     }
 
     protected void outInvGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -162,4 +147,68 @@ public partial class Payment : System.Web.UI.Page
         paidGrid.DataBind();
 
     }
+
+
+
+    protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //DropDownList ddl = (DropDownList)sender;
+        //if (ddl.SelectedItem.Text == "Unpaid")
+        //{
+        //    using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+        //    {
+        //        string updatePayType = "UPDATE dbo.Payment set PaymentType = 'TBD' where Payment.InvoiceID = @InvoiceID";
+
+        //        using (SqlCommand command = new SqlCommand(updatePayType, connection))
+        //        {
+        //            command.Parameters.AddWithValue("@InvoiceID", );
+        //        }
+        //    }
+        //}
+
+        DropDownList ddl = (DropDownList)sender;
+        GridViewRow row = (GridViewRow)ddl.NamingContainer;
+        DropDownList ddlPaymentType = (row.Cells[2].FindControl("ddlPayTypeAll") as DropDownList);
+
+        if (ddl.SelectedItem.Text == "Unpaid")
+        {
+            ddlPaymentType.SelectedValue = "TBD";
+        }
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropDownList ddl = (DropDownList)sender;
+        GridViewRow row = (GridViewRow)ddl.NamingContainer;
+        DropDownList ddlPaymentType = (row.Cells[2].FindControl("ddlPayTypeOut") as DropDownList);
+
+        if (ddl.SelectedItem.Text == "Unpaid")
+        {
+            ddlPaymentType.SelectedValue = "TBD";
+        }
+        
+    }
+
+    protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropDownList ddl = (DropDownList)sender;
+        GridViewRow row = (GridViewRow)ddl.NamingContainer;
+        DropDownList ddlPaymentType = (row.Cells[2].FindControl("ddlPayType") as DropDownList);
+
+        if (ddl.SelectedItem.Text == "Unpaid")
+        {
+            ddlPaymentType.SelectedValue = "TBD";
+        }
+        
+    }
+
+
+
+    protected void allInvGrid_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+    {
+        allInvGrid.DataBind();
+        outInvGrid.DataBind();
+        paidGrid.DataBind();
+    }
+
 }
