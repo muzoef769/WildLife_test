@@ -664,10 +664,10 @@ public partial class AddProgram : System.Web.UI.Page
         txtMiscNotes.InnerText = null;
         drpLocationTypeList.SelectedValue = null;
         drpProgramList.SelectedValue = null;
-        CheckBoxList1.Text = null;
-        CheckBoxList2.Text = null;
-        CheckBoxList3.Text = null;
-        CheckBoxList4.Text = null;
+        //CheckBoxList1.Text = null;
+        //CheckBoxList2.Text = null;
+        //CheckBoxList3.Text = null;
+        //CheckBoxList4.Text = null;
 
         NewProgram.baseCost = 250 + (160 * (NewProgram.programList.Count - 1));
 

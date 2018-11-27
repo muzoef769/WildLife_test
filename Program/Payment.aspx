@@ -151,7 +151,7 @@
                                                             <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" ReadOnly="true" />
                                                             <asp:TemplateField HeaderText="Payment Type" SortExpression="PaymentType">
                                                                 <EditItemTemplate>
-                                                                    <asp:DropDownList ID="ddlPayTypeOut" runat="server" SelectedValue='<%# Bind ("PaymentType") %>'>
+                                                                    <asp:DropDownList ID="ddlPayTypeOut" runat="server" SelectedValue='<%# Bind ("PaymentType") %>' OnSelectedIndexChanged="ddlPayTypeOut_SelectedIndexChanged" AutoPostBack="true">
                                                                         <asp:ListItem Value="TBD">TBD</asp:ListItem>
                                                                         <asp:ListItem Value="Cash">Cash</asp:ListItem>
                                                                         <asp:ListItem Value="Check">Check</asp:ListItem>
@@ -238,7 +238,7 @@ WHERE InvoiceStatus = 'Unpaid'"
                                                             <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" ReadOnly="true" />
                                                             <asp:TemplateField HeaderText="Payment Type" SortExpression="PaymentType">
                                                                 <EditItemTemplate>
-                                                                    <asp:DropDownList ID="ddlPayType" runat="server" SelectedValue='<%# Bind ("PaymentType") %>'>
+                                                                    <asp:DropDownList ID="ddlPayType" runat="server" SelectedValue='<%# Bind ("PaymentType") %>' OnSelectedIndexChanged="ddlPayType_SelectedIndexChanged" AutoPostBack="true">
                                                                         <asp:ListItem Value="TBD">TBD</asp:ListItem>
                                                                         <asp:ListItem Value="Cash">Cash</asp:ListItem>
                                                                         <asp:ListItem Value="Check">Check</asp:ListItem>
@@ -320,7 +320,7 @@ WHERE InvoiceStatus = 'Paid'"
                                                             <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" ReadOnly="true" />
                                                             <asp:TemplateField HeaderText="Payment Type" SortExpression="PaymentType">
                                                                 <EditItemTemplate>
-                                                                    <asp:DropDownList ID="ddlPayTypeAll" runat="server" SelectedValue='<%# Bind ("PaymentType") %>'>
+                                                                    <asp:DropDownList ID="ddlPayTypeAll" runat="server" SelectedValue='<%# Bind ("PaymentType") %>' OnSelectedIndexChanged="ddlPayTypeAll_SelectedIndexChanged" AutoPostBack="true">
                                                                         <asp:ListItem Value="TBD">TBD</asp:ListItem>
                                                                         <asp:ListItem Value="Cash">Cash</asp:ListItem>
                                                                         <asp:ListItem Value="Check">Check</asp:ListItem>
