@@ -67,10 +67,7 @@ $(document).ready(function() {
 
 </head>
 <body>
-
-
     <form id="form1" runat="server" class="needs-validation" novalidate>
-
         <!-- Left Panel -->
         <aside id="left-panel" class="left-panel">
             <nav class="navbar navbar-expand-sm navbar-default">
@@ -80,19 +77,22 @@ $(document).ready(function() {
                             <a class="" href="VolunteerHome.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
                         </li>
                         <li class="">
-                            <a class="" href="VolunteerProgram.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
+                            <a class="" href="VolunteerProgram.aspx"><i class="menu-icon fa fa-book"></i>Program</a>
                         </li>
                         <li class="">
-                            <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#fb9678" OnClick="Clear_Session" CssClass="nav-link">Logout</asp:LinkButton>
+                            <a class="" href="VolunteerOrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organization</a>
                         </li>
-
-
+                        <li class="">
+                            <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#ff3333" OnClick="Clear_Session" CssClass=""><i class="menu-icon fa fa-sign-out"></i>Logout</asp:LinkButton>
+                            <%--<a class="text-danger" href="#" runat="server" onserverclick="Clear_Session"><i class="menu-icon fa fa-sign-out"></i>Logout</a>--%>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </nav>
         </aside>
         <!-- /#left-panel -->
+
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
             <!-- Header-->
@@ -100,7 +100,7 @@ $(document).ready(function() {
                 <div class="top-left">
                     <div class="navbar-header">
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 21px; margin-left: 0px; font-size: large"></i></a>
-                        <a class="navbar-brand" href="VolunteerHome.aspx">Wildlife Center of Virginia | <span style="color: #00c292;"><%:Session["UserFullName"]%> </span></a>
+                        <a class="navbar-brand text-dark" href="VolunteerHome.aspx">Wildlife Center of Virginia <b>|</b> <span style="color: #00c292;"><%:Session["UserFullName"]%> </span></a>
 
                     </div>
                 </div>
@@ -111,12 +111,90 @@ $(document).ready(function() {
                     </div>
                 </div>
             </header>
+            <!-- /#header -->
 
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+            <!-- Content -->
+            <div class="content bg-light" >
+                <!-- Animated -->
+                <div class="animated fadeIn">
+
+                    <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <a href="VolunteerAddAnimal.aspx"> 
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon col-2 dib flat-color-2">
+                                        <i class="fa fa-github-alt"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            
+                                            <div class="stat-heading" style="font-size:130%;">Add Animal</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <a href="VolunteerAddOrganization.aspx"> 
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon col-2 dib flat-color-2">
+                                        <i class="pe-7s-add-user"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            
+                                            <div class="stat-heading" style="font-size:130%;">Add Organization</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </a>
+                        </div>
+                       
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                             <a href="VolunteerAddProgram.aspx"> 
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-3">
+                                        <i class="pe-7s-browser"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                           
+                                            <div class="stat-heading" style="font-size:130%;">Add Program</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                  </a>
+                        </div>
+                    </div>
+                 </div>
+
+                   
+                    <!-- /Widgets -->
+
+
+
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+                <!-- .animated -->
+            </div>
+            <!-- /.content -->
 
         </div>
-
     </form>
 
 
