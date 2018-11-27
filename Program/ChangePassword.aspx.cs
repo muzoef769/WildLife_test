@@ -78,6 +78,6 @@ public partial class ChangePassword : System.Web.UI.Page
 
     protected void btnReturn_Click(object sender, EventArgs e)
     {
-        Server.TransferRequest("Default.aspx");
+        Server.Transfer("Default.aspx",false);
     }
 }

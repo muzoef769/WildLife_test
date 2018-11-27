@@ -69,6 +69,6 @@ public partial class PasswordReset : System.Web.UI.Page
 
     protected void btnHome_Click(object sender, EventArgs e)
     {
-        Server.Transfer("Default.aspx");
+        Server.Transfer("Default.aspx",false);
     }
 }
