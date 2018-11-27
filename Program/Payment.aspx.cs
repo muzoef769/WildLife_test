@@ -211,4 +211,40 @@ public partial class Payment : System.Web.UI.Page
         paidGrid.DataBind();
     }
 
+
+    protected void ddlPayTypeOut_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropDownList ddl = (DropDownList)sender;
+        GridViewRow row = (GridViewRow)ddl.NamingContainer;
+        DropDownList ddlPaymentType = (row.Cells[7].FindControl("DropDownList1") as DropDownList);
+
+        if (ddlPaymentType.SelectedItem.Text == "Unpaid")
+        {
+            ddl.SelectedValue = "TBD";
+        }
+    }
+
+    protected void ddlPayType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropDownList ddl = (DropDownList)sender;
+        GridViewRow row = (GridViewRow)ddl.NamingContainer;
+        DropDownList ddlPaymentType = (row.Cells[7].FindControl("DropDownList2") as DropDownList);
+
+        if (ddlPaymentType.SelectedItem.Text == "Unpaid")
+        {
+            ddl.SelectedValue = "TBD";
+        }
+    }
+
+    protected void ddlPayTypeAll_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropDownList ddl = (DropDownList)sender;
+        GridViewRow row = (GridViewRow)ddl.NamingContainer;
+        DropDownList ddlPaymentType = (row.Cells[7].FindControl("DropDownList3") as DropDownList);
+
+        if (ddlPaymentType.SelectedItem.Text == "Unpaid")
+        {
+            ddl.SelectedValue = "TBD";
+        }
+    }
 }

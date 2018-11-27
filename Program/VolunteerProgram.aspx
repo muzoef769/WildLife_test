@@ -26,50 +26,6 @@
     <div class="content">
         <!-- Animated -->
         <div class="animated fadeIn">
-            <!-- Widgets  -->
-            <div class="row">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <a href="VolunteerAddProgram.aspx">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-
-                                            <div class="stat-heading">Add Program</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <a href="VolunteerAddOrganization.aspx">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-
-                                            <div class="stat-heading">Add Organization</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /Widgets -->
             <!--  Traffic  -->
             <div class="card-body">
                 <h4 class="box-title">View Program Info</h4>

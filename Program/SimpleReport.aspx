@@ -1,10 +1,7 @@
 ﻿<%@ Page Title="Simple Reports" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="SimpleReport.aspx.cs" Inherits="SimpleReport" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-    
-
-
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
      <script type="text/javascript">
          $(document).ready(function () {
              $("#simpleTab").hide();
@@ -536,8 +533,10 @@
 <%--                      <label>End Date </label>--%>
 
                        <input runat="server" Class="btn col-xl-3 col-lg-3 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
-                                    
-                        <asp:Button runat="server" class="btn btn-primary" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
+
+                                <asp:Button runat="server" class="btn btn-primary" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
+                                <asp:Button runat="server" CssClass="btn btn-warning" id="dateClear" OnClick="dateClear_Click" Text ="Clear Filter" />
+
                 </div>
                 <br />
                 <div class="row mx-auto d-flex justify-content-center table-responsive">
@@ -545,15 +544,15 @@
                                             <asp:GridView ID="animalGrid" runat="server" EnableSortingAndPagingCallbacks="true" AutoGenerateColumns="False" Width="100%" DataSourceID="SqlDataSource48" AllowSorting="True">
                                             <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
                                             <Columns>
-                                                <asp:BoundField DataField="DateCompleted" HeaderText="Date" SortExpression="DateCompleted" />
+                                                <%--<asp:BoundField DataField="DateCompleted" HeaderText="Date" SortExpression="DateCompleted" />--%>
                                                 <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
                                                 <asp:BoundField DataField="Programs" HeaderText="Programs" ReadOnly="True" SortExpression="Programs" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
                                             </Columns>
                                         </asp:gridview>
-                                            <asp:sqldatasource id="SqlDataSource48" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="SELECT distinct Format(DateCompleted, 'MM/dd/yyyy') as 'DateCompleted', AnimalName, count(a.AnimalID) as Programs, sum(TotalPeople) as TotalPeople from Animal a inner join AssignAnimal aa on a.AnimalID = aa.AnimalID
-inner join NewProgram np on np.NewProgramID = aa.NewProgramID
-GROUP BY AnimalName, DateCompleted"></asp:sqldatasource>
+                                            <asp:sqldatasource id="SqlDataSource48" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="Select distinct AnimalName, count(aa.NewProgramID) as 'Programs', sum(TotalPeople) as 'TotalPeople' from dbo.AssignAnimal aa left outer join dbo.Animal a on a.AnimalID=aa.AnimalID 
+inner join dbo.NewProgram np on np.NewProgramID = aa.NewProgramID
+group by AnimalName"></asp:sqldatasource>
                                         </div>
                                     </div>
                                 </div>

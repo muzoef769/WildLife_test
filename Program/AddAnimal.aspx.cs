@@ -11,4 +11,11 @@ public partial class AddAnimal : System.Web.UI.Page
     {
 
     }
+    protected void BtnAddAnimal(object sender, EventArgs e)
+    {
+        Animals animal = new Animals(null, null, 
+            txtName.Text, drpAnimalType.SelectedValue, 
+            drpStatus.SelectedValue, DateTime.Today,
+            Session["UserFullName"].ToString());
+    }
 }

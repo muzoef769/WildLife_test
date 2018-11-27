@@ -143,7 +143,7 @@ public partial class SimpleReport : System.Web.UI.Page
         DateTime start = Convert.ToDateTime(startDate.Value);
         DateTime end = Convert.ToDateTime(endDate.Value);
 
-        SqlDataSource48.SelectCommand = "SELECT distinct Format(DateCompleted, 'MM/dd/yyyy') as 'DateCompleted', AnimalName, count(a.AnimalID) as Programs, sum(TotalPeople) as TotalPeople from Animal a inner join AssignAnimal aa on a.AnimalID = aa.AnimalID inner join NewProgram np on np.NewProgramID = aa.NewProgramID WHERE DateCompleted >= '" + start + "' and DateCompleted <= '" + end + "' GROUP BY AnimalName, DateCompleted";
+        SqlDataSource48.SelectCommand = "Select distinct AnimalName, count(aa.NewProgramID) as 'Programs', sum(TotalPeople) as 'TotalPeople' from dbo.AssignAnimal aa left outer join dbo.Animal a on a.AnimalID=aa.AnimalID inner join dbo.NewProgram np on np.NewProgramID = aa.NewProgramID WHERE np.DateCompleted >='" + start + "' and np.DateCompleted <='" + end + "' group by AnimalName";
         animalGrid.DataBind();
     }
     //public string HighlightText(string InputTxt)
@@ -185,4 +185,11 @@ public partial class SimpleReport : System.Web.UI.Page
     {
 
     }
+
+    protected void dateClear_Click(object sender, EventArgs e)
+    {
+        SqlDataSource48.SelectCommand = "Select distinct AnimalName, count(aa.NewProgramID) as 'Programs', sum(TotalPeople) as 'TotalPeople' from dbo.AssignAnimal aa left outer join dbo.Animal a on a.AnimalID=aa.AnimalID inner join dbo.NewProgram np on np.NewProgramID = aa.NewProgramID group by AnimalName";
+        animalGrid.DataBind();
+    }
+
 }

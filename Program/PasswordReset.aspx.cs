@@ -47,7 +47,7 @@ public partial class PasswordReset : System.Web.UI.Page
         emailBody.Append("Dear " + UserName + ", <br /><br />");
         emailBody.Append("Please click on the following link to reset your password.");
         emailBody.Append("<br /><br />");
-        emailBody.Append("http://localhost:55158//ChangePassword.aspx?uid=" + UniqueId);
+        emailBody.Append("http://wildlife-site-test.us-east-1.elasticbeanstalk.com//ChangePassword.aspx?uid=" + UniqueId);
 
         mailMessage.IsBodyHtml = true;
 
