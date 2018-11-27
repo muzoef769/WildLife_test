@@ -502,9 +502,30 @@ public partial class AddProgram : System.Web.UI.Page
 
                 }
 
+            //INSERT INTO THE PAYMENT TABLE
+            int orgID;
+            string findOrgID = "SELECT OrganizationID from Organization where OrganizationName = @selectedOrg";
+            using (SqlCommand command = new SqlCommand(findOrgID, connection))
+            {
+                command.Parameters.AddWithValue("@selectedOrg", Convert.ToString(drpOrganizationList.SelectedItem.Text));
+                orgID = Convert.ToInt32(command.ExecuteScalar());
+            }
+
+            string insertIntoPayment = "Insert into Payment([PaymentType],[OrganizationID],[InvoiceID],[LastUpdated],[LastUpdatedBy]) VALUES (@paymentType, @organizationID, @invoiceID, @lastUpdated, @lastUpdatedBy)";
+            using (SqlCommand command = new SqlCommand(insertIntoPayment, connection))
+            {
+                command.Parameters.AddWithValue("@paymentType", "TBD");
+                command.Parameters.AddWithValue("@organizationID", orgID);
+                command.Parameters.AddWithValue("@invoiceID", invoiceID);
+                command.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+                command.Parameters.AddWithValue("@lastUpdatedBy", Session["UserFullName"]);
+
+                command.ExecuteNonQuery();
+            }
+            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-                connection.Close();
+            connection.Close();
         }
 
        

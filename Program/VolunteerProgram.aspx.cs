@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Web.Configuration;
-using System.Drawing;
 using System.Text.RegularExpressions;
 
 public partial class VolunteerProgram : System.Web.UI.Page
@@ -16,14 +11,13 @@ public partial class VolunteerProgram : System.Web.UI.Page
     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString);
     public static Int32 id;
     private string SearchString = "";
-
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
     protected void redirectProgram(object sender, EventArgs e)
     {
-        Response.Redirect("VolunteerAddProgram.aspx");
+        Response.Redirect("AddProgram.aspx");
     }
 
     protected void GridView1_RowDataBound1(object sender, GridViewRowEventArgs e)
