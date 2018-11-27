@@ -331,6 +331,17 @@
                                                         <asp:TextBox ID="txtZipCode" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="col-md-6 text-left mx-auto Spacing">
+                                                            <button id="btnReturn" type="button" class="btn btn-success" style="color: white;" onclick="javascript:history.go(-1)">Return</button>
+                                                        </div>
+<%--                                                        <div class="col-md-6 text-right mx-auto Spacing">
+                                                            <button id="btnNext" type="button" class="btn btn-success" style="color: white;">Next</button>
+                                                        </div>--%>
+                                                    </div>
+
+                                                </div>
 
                                             </div>
 
@@ -401,180 +412,188 @@
 
                                                 <%--</div>--%>
                                             </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="card-body"></div>
+                            </div>
+                        </div>
+                        <!-- /# column -->
+                    </div>
+                    <!--  /Traffic -->
+                    <div class="clearfix"></div>
+                    <!-- Orders -->
+
+
+                    <!-- /.orders -->
+                    <!-- To Do and Live Chat -->
+
+
+
+                    <!-- /To Do and Live Chat -->
+                    <!-- Calender Chart Weather  -->
+
+
+
+                    <!-- /Calender Chart Weather -->
+                    <!-- Modal - Calendar - Add New Event -->
+
+
+                    <!-- /#event-modal -->
+                    <!-- Modal - Calendar - Add Category -->
+
+
+                    <!-- /#add-category -->
+                </div>
+                <!-- .animated -->
+            </div>
+            <!-- /.content -->
+            <div class="clearfix"></div>
+            <!-- Footer -->
+            <footer class="site-footer">
+                <div class="footer-inner bg-white">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            Wildlife Center of Virginia
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+            <!-- /.site-footer -->
+            <%--</div>--%>
+            <!-- /#right-panel -->
+
+
+
+            <!--Local Stuff-->
+
+
+
+
+            <div class="modal" id="ProgramDetailsModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="width: 100% !important;">
+                        <div class="modal-header" style="background-color: whitesmoke">
+                            <h5 class="modal-title"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body p-4" id="resultPrograms" style="background-color: #ffffff">
+
+                            <div class=" ">
+                                <div class="row d-flex justify-content-center ">
+
+                                    <div class="col-xl-6 col-lg-12 text-left col-md-12 col-s-12 Spacing">
+                                        <label><b>Animals Involved</b> </label>
+                                        <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover" BackColor="White">
+
+                                            <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                        </asp:GridView>
                                     </div>
 
 
-                                </div>
-                            </div>
+                                    <script type="text/javascript">
+                                        function openModal() {
+                                            $('#ProgramDetailsModal').modal('show');
+                                        }
+                                    </script>
 
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                </div>
-                <!--  /Traffic -->
-                <div class="clearfix"></div>
-                <!-- Orders -->
-
-
-                <!-- /.orders -->
-                <!-- To Do and Live Chat -->
-
-
-
-                <!-- /To Do and Live Chat -->
-                <!-- Calender Chart Weather  -->
-
-
-
-                <!-- /Calender Chart Weather -->
-                <!-- Modal - Calendar - Add New Event -->
-
-
-                <!-- /#event-modal -->
-                <!-- Modal - Calendar - Add Category -->
-
-
-                <!-- /#add-category -->
-            </div>
-            <!-- .animated -->
-        </div>
-        <!-- /.content -->
-        <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6">
-                        Wildlife Center of Virginia
-                    </div>
-
-                </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
-        <%--</div>--%>
-        <!-- /#right-panel -->
-
-
-
-        <!--Local Stuff-->
-
-
-
-
-        <div class="modal" id="ProgramDetailsModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width: 100% !important;">
-                    <div class="modal-header" style="background-color: whitesmoke">
-                        <h5 class="modal-title"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body p-4" id="resultPrograms" style="background-color: #ffffff">
-
-                        <div class=" ">
-                            <div class="row d-flex justify-content-center ">
-
-                                <div class="col-xl-6 col-lg-12 text-left col-md-12 col-s-12 Spacing">
-                                    <label><b>Animals Involved</b> </label>
-                                    <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover" BackColor="White">
-
-                                        <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
-                                    </asp:GridView>
-                                </div>
-
-
-                                <script type="text/javascript">
-                                    function openModal() {
-                                        $('#ProgramDetailsModal').modal('show');
-                                    }
-                                </script>
-
-                                <div class="col-xl-6 col-lg-12  col-md-12 col-s-12 Spacing">
-                                    <div class="col-md-4  ">
-                                        <label><b>Notes </b></label>
-                                        <br />
-                                        <textarea runat="server" cols="23" rows="10"></textarea>
+                                    <div class="col-xl-6 col-lg-12  col-md-12 col-s-12 Spacing">
+                                        <div class="col-md-4  ">
+                                            <label><b>Notes </b></label>
+                                            <br />
+                                            <textarea runat="server" cols="23" rows="10"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer" style="background-color: whitesmoke">
-                        <button type="button" class="btn btn-success " data-dismiss="modal">Close</button>
+                        <div class="modal-footer" style="background-color: whitesmoke">
+                            <button type="button" class="btn btn-success " data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog " role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add Animal</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body p-4" id="resultAdd">
+            <div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Animal</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body p-4" id="resultAdd">
 
 
 
-                        <div class="row  ">
+                            <div class="row  ">
 
-                            <div class=" col-md-8">
-                                <h4>Animal Status: </h4>
-                                <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                    <asp:ListItem>Active</asp:ListItem>
-                                    <asp:ListItem>Inactive</asp:ListItem>
-                                    <asp:ListItem>Temporarily Inactive</asp:ListItem>
-                                </asp:DropDownList>
-                                <h4>Type: </h4>
-                                <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                    <asp:ListItem>Bird</asp:ListItem>
-                                    <asp:ListItem>Mammal</asp:ListItem>
-                                    <asp:ListItem>Reptile</asp:ListItem>
-                                </asp:DropDownList>
-                                <h4>Name: </h4>
-                                <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
-                                <h4>Add Image: </h4>
-                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                                <div class=" col-md-8">
+                                    <h4>Animal Status: </h4>
+                                    <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
+                                        <asp:ListItem>Active</asp:ListItem>
+                                        <asp:ListItem>Inactive</asp:ListItem>
+                                        <asp:ListItem>Temporarily Inactive</asp:ListItem>
+                                    </asp:DropDownList>
+                                    <h4>Type: </h4>
+                                    <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
+                                        <asp:ListItem>Bird</asp:ListItem>
+                                        <asp:ListItem>Mammal</asp:ListItem>
+                                        <asp:ListItem>Reptile</asp:ListItem>
+                                    </asp:DropDownList>
+                                    <h4>Name: </h4>
+                                    <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
+                                    <h4>Add Image: </h4>
+                                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                                    <br>
+                                </div>
+                                <!-- End  Description -->
+
+
+                            </div>
+                            <div class="row">
                                 <br>
                             </div>
-                            <!-- End  Description -->
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <%-- <asp:Button ID="btnAddModal" runat="server" Text="Add" Class="btn btn-primary LoginButton FormButton" UseSubmitBehavior="false" OnClick="btnAddModal_Click"></asp:Button>
+                                    --%>
+                                </div>
 
 
-                        </div>
-                        <div class="row">
-                            <br>
-                        </div>
-                        <div class="row">
 
-                            <div class="col-md-2">
-                                <%-- <asp:Button ID="btnAddModal" runat="server" Text="Add" Class="btn btn-primary LoginButton FormButton" UseSubmitBehavior="false" OnClick="btnAddModal_Click"></asp:Button>
-                                --%>
                             </div>
 
-
-
                         </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <%--                    <button type="button" data-toggle="modal" data-target="#EditModal" class="btn btn-secondary" data-dismiss="modal">Edit</button>--%>
+                        <div class="modal-footer">
+                            <%--                    <button type="button" data-toggle="modal" data-target="#EditModal" class="btn btn-secondary" data-dismiss="modal">Edit</button>--%>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
     </body>
 
 
 
+    <script>
+$(function(){
 
+    $('#btnNext').click(function(e){
+        e.preventDefault();
+        $('#myTab a[href="#Contact"]').tab('show');
+    })
+
+})
+</script>
 
 
 </asp:Content>
