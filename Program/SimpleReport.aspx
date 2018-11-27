@@ -27,123 +27,26 @@
 
 
          });
+         <div class="card-body">
+             <h4 class="box-title">View Report Info</h4>
+         </div>
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="card">
+                         <div class="card-body">
 
-        //function changeView() {
-        //    var x = document.getElementById("myCheck").checked;
-
-        //    if (x === true) {
-        //        document.getElementById('simpleTab').style.display = 'block';
-        //        document.getElementById('programTotals').style.display = 'none';
-        //    }
-        //    else {
-        //        document.getElementById('simpleTab').style.display = 'none';
-        //        document.getElementById('programTotals').style.display = 'block';
-        //    }
-        //}
-    </script>
-
-
-    <!-- Left Panel -->
-   <%-- <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="">
-                        <a href="Home.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
-                    </li>
-                     <li class="menu-item-has-children dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Reports</a>
-                        <ul class="sub-menu children dropdown-menu">                           
-                            <li><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
-                            <li><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                            <li><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
-                          
-                        </ul>
-                    </li>
-                     <li class="">
-                         <a class="" href="Animal.aspx"> <i class="menu-icon fa fa-github-alt"></i>Animals</a>
-                    </li>
-                   <li class="">
-                        <a class="" href="Payment.aspx"><i class="menu-icon fa fa-dollar"></i>Payments</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="Program.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
-                    </li>
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-    <!-- Right Panel -->
-    <div id="right-panel" class="right-panel">
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 10px; margin-left: -10px;"></i></a>
-                   <a class="navbar-brand" href="Home.aspx">Wildlife Center of Virginia | <span style="color: #00c292;"> <%:Session["UserFullName"]%> </span></a>
-           
-                </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-                    <div class="header-left">
-                  
-                        <div class="dropdown for-notification">
-                            <ul style="list-style-type: none;">
-                             <li class="nav-item">
-                        <a class="nav-link" style="color: dimgrey;" href="#">Staff</a>
-                    </li>
-                                </ul>
-                        </div>
-
-                        <div class="dropdown for-notification">
-                            
-                                <ul style="list-style-type: none;">
-                        <li class="nav-item">
-                        <asp:Button ID="btnLogOut" runat="server"  Text="Logout" ForeColor="#fb9678" CssClass="btn btn-link" />
-                    
-                    </li>
-
-                        </ul>
-                         
-                        </div>
-                    </div>
-
-                  
-
-                </div>
-            </div>
-        </header>--%>
-        <!-- /#header -->
-        <!-- Content -->
-        
-                <!-- /Widgets -->
-                <!--  Traffic  -->
-                <div class="card-body">
-                                <h4 class="box-title">View Report Info</h4>
-                            </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                            
-                               <div class="row"></div>
-                                <div class=" " >
-                                                <script type="text/javascript">
-                                                    $(document).ready(function () {
-                                                        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-                                                            localStorage.setItem('activeTab', $(e.target).attr('href'));
-                                                        });
-                                                        var activeTab = localStorage.getItem('activeTab');
+                             <div class="row"></div>
+                             <div class=" " >
+                                 <script type="text/javascript">
+                                     $(document).ready(function () {
+                                         $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                                             localStorage.setItem('activeTab', $(e.target).attr('href'));
+                                         });
+                                     var activeTab = localStorage.getItem('activeTab');
                                                         if (activeTab) {
-                                                            $('#myTab a[href="' + activeTab + '"]').tab('show');
+                                         $('#myTab a[href="' + activeTab + '"]').tab('show');
                                                         }
-                                                    });
+                                 });
 </script> 
             <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style=" padding-left:15px; border-bottom:none;"  role="tablist">
                 <li class="nav-item ">
@@ -548,8 +451,8 @@
 
                        <input runat="server" Class="btn col-xl-3 col-lg-3 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
 
-                                <asp:Button runat="server" class="btn btn-primary" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
-                                <asp:Button runat="server" CssClass="btn btn-warning" id="dateClear" OnClick="dateClear_Click" Text ="Clear Filter" />
+                                <asp:Button runat="server" class="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2" Style="margin-right: 5px;" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Dates"/>
+                                <asp:Button runat="server" CssClass="btn col-xl-1 col-md-2 col-lg-2 col-sm-2" Style="background-color: #fb9678; color: #fff; margin-right: 5px;" id="dateClear" OnClick="dateClear_Click" Text ="Clear" />
 
                 </div>
                 <br />
@@ -664,7 +567,7 @@ group by AnimalName"></asp:sqldatasource>
 
                             <script type="text/javascript">
                                 function openModal() {
-                                    $('#ProgramDetailsModal').modal('show');
+                                            $('#ProgramDetailsModal').modal('show');
                                 }
                             </script>
                         
