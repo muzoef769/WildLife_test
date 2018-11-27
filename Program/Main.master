@@ -191,7 +191,7 @@
 
                     <div class="row">
                         <!-- Widgets  -->
-                        <div class="col-lg-4 col-md-6">
+                        <%--<div class="col-lg-4 col-md-6">
                             <div class="card" data-toggle="modal" data-target="#AddModal">
                                 <div class="card-body">
                                     <div class="stat-widget-five">
@@ -206,6 +206,25 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>--%>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <a href="AddAnimal.aspx">
+                                    <div class="card-body">
+                                        <div class="stat-widget-five">
+                                            <div class="stat-icon dib flat-color-3">
+                                                <i class="pe-7s-browser"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="text-left dib">
+
+                                                    <div class="stat-heading" style="margin-top:10px;"><h3>Add Animal</h3></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 
