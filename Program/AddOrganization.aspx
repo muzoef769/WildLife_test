@@ -393,45 +393,51 @@
                                                     <asp:TextBox ID="txtSecondaryPhone" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <%--</div>--%>
-                                        </div>
+
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn btn-success" OnClick="btnAddOrganization_Click" />
+                                                </div>
+
+                                                <%--</div>--%>
+                                            </div>
+                                    </div>
+
+
                                 </div>
-
-
                             </div>
+
+                            <div class="card-body"></div>
                         </div>
-
-                        <div class="card-body"></div>
                     </div>
+                    <!-- /# column -->
                 </div>
-                <!-- /# column -->
+                <!--  /Traffic -->
+                <div class="clearfix"></div>
+                <!-- Orders -->
+
+
+                <!-- /.orders -->
+                <!-- To Do and Live Chat -->
+
+
+
+                <!-- /To Do and Live Chat -->
+                <!-- Calender Chart Weather  -->
+
+
+
+                <!-- /Calender Chart Weather -->
+                <!-- Modal - Calendar - Add New Event -->
+
+
+                <!-- /#event-modal -->
+                <!-- Modal - Calendar - Add Category -->
+
+
+                <!-- /#add-category -->
             </div>
-            <!--  /Traffic -->
-            <div class="clearfix"></div>
-            <!-- Orders -->
-
-
-            <!-- /.orders -->
-            <!-- To Do and Live Chat -->
-
-
-
-            <!-- /To Do and Live Chat -->
-            <!-- Calender Chart Weather  -->
-
-
-
-            <!-- /Calender Chart Weather -->
-            <!-- Modal - Calendar - Add New Event -->
-
-
-            <!-- /#event-modal -->
-            <!-- Modal - Calendar - Add Category -->
-
-
-            <!-- /#add-category -->
-        </div>
-        <!-- .animated -->
+            <!-- .animated -->
         </div>
         <!-- /.content -->
         <div class="clearfix"></div>

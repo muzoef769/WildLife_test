@@ -6,7 +6,7 @@ using System.Web;
 /// <summary>
 /// Summary description for User
 /// </summary>
-public class User
+public class Users
 {
     //Attributes
     private int userID;
@@ -15,9 +15,10 @@ public class User
     private DateTime lastUpdated;
     private string lastUpdatedBy;
     private string email;
+    public static string USER_NAME;
 
     //User constructor
-    public User(int userID, string userName, string firstName, string lastName, string userType, DateTime lastUpdated, string lastUpdatedBy, string email)
+    public Users(int userID, string userName, string firstName, string lastName, string userType, DateTime lastUpdated, string lastUpdatedBy, string email)
     {
         setUserID(userID);
         setUserName(userName);
@@ -28,7 +29,7 @@ public class User
         setLastUpdatedBy(lastUpdatedBy);
         setEmail(email);
     }
-    public User(string userName, string firstName, string lastName, string userType, string userStatus, DateTime lastUpdated, string lastUpdatedBy, string email)
+    public Users(string userName, string firstName, string lastName, string userType, string userStatus, DateTime lastUpdated, string lastUpdatedBy, string email)
     {
 
         setUserName(userName);

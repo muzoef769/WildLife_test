@@ -247,8 +247,8 @@
                                                             <asp:TemplateField HeaderText="Payment Status" SortExpression="InvoiceStatus">
                                                                 <EditItemTemplate>
                                                                     <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind ("InvoiceStatus") %>'>
-                                                                        <asp:ListItem>Incompleted</asp:ListItem>
-                                                                        <asp:ListItem>Completed</asp:ListItem>
+                                                                        <asp:ListItem>Unpaid</asp:ListItem>
+                                                                        <asp:ListItem>Paid</asp:ListItem>                                                        
                                                                     </asp:DropDownList>
                                                                 </EditItemTemplate>
                                                                 <ItemTemplate>
@@ -270,7 +270,7 @@
                                                     inner join dbo.Address a on a.AddressID = np.AddressID
                                                     inner join dbo.Organization o on o.AddressID = a.AddressID
 													inner join dbo.Invoice i on i.InvoiceID = ai.InvoiceID
-                                                    WHERE InvoiceStatus = 'Incompleted'
+                                                    WHERE InvoiceStatus = 'Unpaid'
                                                     GROUP BY i.InvoiceID, InvoiceNumber, FORMAT(DateCreated, 'MM/dd/yyyy'), ProgramName, OrganizationName, ProgramCost, InvoiceStatus"
                                                 UpdateCommand="UPDATE dbo.Invoice set InvoiceStatus = @InvoiceStatus where InvoiceID = @InvoiceID "
                                                 DeleteCommand="DELETE from dbo.AssignInvoice where NewProgramID = @NewProgramID">
@@ -316,8 +316,8 @@
                                                             <asp:TemplateField HeaderText="Payment Status" SortExpression="InvoiceStatus">
                                                                 <EditItemTemplate>
                                                                     <asp:DropDownList ID="DropDownList2" runat="server" SelectedValue='<%# Bind ("InvoiceStatus") %>'>
-                                                                        <asp:ListItem>Incompleted</asp:ListItem>
-                                                                        <asp:ListItem>Completed</asp:ListItem>
+                                                                        <asp:ListItem>Unpaid</asp:ListItem>
+                                                                        <asp:ListItem>Paid</asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </EditItemTemplate>
                                                                 <ItemTemplate>
@@ -341,7 +341,7 @@
                                                     inner join dbo.Address a on a.AddressID = np.AddressID
                                                     inner join dbo.Organization o on o.AddressID = a.AddressID
 													inner join dbo.Invoice i on i.InvoiceID = ai.InvoiceID
-                                                    WHERE InvoiceStatus = 'Completed'"
+                                                    WHERE InvoiceStatus = 'Paid'"
                                                 UpdateCommand="UPDATE dbo.Invoice set InvoiceStatus = @InvoiceStatus where InvoiceID = @InvoiceID ">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCreated" ControlID="txtYear" PropertyName="Text" />
@@ -379,8 +379,8 @@
                                                             <asp:TemplateField HeaderText="Payment Status" SortExpression="InvoiceStatus">
                                                                 <EditItemTemplate>
                                                                     <asp:DropDownList ID="DropDownList3" runat="server" SelectedValue='<%# Bind ("InvoiceStatus") %>'>
-                                                                        <asp:ListItem>Incompleted</asp:ListItem>
-                                                                        <asp:ListItem>Completed</asp:ListItem>
+                                                                        <asp:ListItem>Unpaid</asp:ListItem>
+                                                                        <asp:ListItem>Paid</asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </EditItemTemplate>
                                                                 <ItemTemplate>

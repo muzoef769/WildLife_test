@@ -189,15 +189,16 @@
                                 <div class=" " >
           
                                      <div class=" ml-auto d-flex justify-content-end row" Style=" margin-right:16px;">
-                     <asp:TextBox  Placeholder=" Search by Animal" runat="server" ></asp:TextBox> <br class="d-md-none" />
+                     <asp:TextBox ID="txtSearchAnimal"  Placeholder=" Search by Animal" runat="server" ></asp:TextBox> <br class="d-md-none" />
                     <asp:Button
                         ID="btnSearchAll"
                         runat="server" 
                         CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
                         Text="Search"
                          Style="margin-right:5px;"
+                        onclick="btnSearchAll_Click"
                         />
-                                         <br class="d-md-none" />
+                         <br class="d-md-none" />
                 
 
                 </div>

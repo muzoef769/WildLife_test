@@ -70,14 +70,13 @@ public partial class Home : System.Web.UI.Page
 
 
         Animals newAnimal = new Animals(
-           "Red Falcon",
-           "Buddy",
+           "",
+           "",
            txtAddName.Text,
            ddlAddType.SelectedValue.ToString(),
           ddlAddStatus.SelectedValue,
            DateTime.Today,
-           "Staff"
-           
+           Convert.ToString(Session["Fullname"])
            );
 
         FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));

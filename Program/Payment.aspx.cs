@@ -151,4 +151,15 @@ public partial class Payment : System.Web.UI.Page
     {
         return ("<span class=highlight>" + m.Value + "</span>");
     }
+
+    protected void dateClear_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtYear.Text = "";
+        SearchString = "";
+        allInvGrid.DataBind();
+        outInvGrid.DataBind();
+        paidGrid.DataBind();
+
+    }
 }
