@@ -80,7 +80,7 @@ $(document).ready(function() {
                             <a class="" href="VolunteerHome.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
                         </li>
                         <li class="">
-                            <a class="" href="Program.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
+                            <a class="" href="VolunteerProgram.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
                         </li>
                         <li class="">
                             <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#fb9678" OnClick="Clear_Session" CssClass="nav-link">Logout</asp:LinkButton>
