@@ -19,6 +19,7 @@ public partial class OrganizationView : System.Web.UI.Page
     public static Int32 id;
     private string SearchString = "";
     string ImageString;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -49,6 +50,20 @@ public partial class OrganizationView : System.Web.UI.Page
     {
         //  Set the value of the SearchString so it gets
         SearchString = txtSearchAll.Text;
+        grdOrganizations.DataSourceID = null;
+        using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+        {
+            connection.Open();
+            string sql = "SELECT Organization.OrganizationName, Address.Street, Address.State, Address.County, CONCAT(Contact.FirstName + ' ', Contact.LastName) as Name, Contact.Email, Contact.PrimaryPhoneNumber FROM Address INNER JOIN Organization ON Address.AddressID = Organization.AddressID INNER JOIN Contact ON Organization.OrganizationID = Contact.OrganizationID WHERE Organization.OrganizationName LIKE '%" + SearchString + "%'";
+            using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
+            {
+                DataSet data = new DataSet();
+                sda.Fill(data);
+                this.grdOrganizations.DataSource = data;
+                grdOrganizations.DataBind();
+            }
+        }
+
     }
 
     protected void btnClearAll_Click(object sender, EventArgs e)
@@ -56,7 +71,25 @@ public partial class OrganizationView : System.Web.UI.Page
         //  Simple clean up text to return the Gridview to it's default state
         txtSearchAll.Text = "";
         SearchString = "";
-        grdOrganizations.DataBind();
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT Organization.OrganizationName, Address.Street, Address.State, Address.County, CONCAT(Contact.FirstName + ' ', Contact.LastName) as Name, Contact.Email, Contact.PrimaryPhoneNumber FROM Address INNER JOIN Organization ON Address.AddressID = Organization.AddressID INNER JOIN Contact ON Organization.OrganizationID = Contact.OrganizationID";
+                using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
+                {
+                    DataSet data = new DataSet();
+                    sda.Fill(data);
+                    this.grdOrganizations.DataSource = data;
+                    grdOrganizations.DataBind();
+                }
+            }
+        }
+        catch (Exception E)
+        {
+
+        }
     }
 
     protected void txtSearchAll_TextChanged(object sender, EventArgs e)
