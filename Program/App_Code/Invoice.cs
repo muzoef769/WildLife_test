@@ -10,12 +10,11 @@ public class Invoice
 {
     //Attributes
     private int invoiceID;
-    private int newProgramID;
     private string invoiceNumber;
     private double total;
     private DateTime dateCreated;
     private string status;
-
+    private int mileage;
     private DateTime lastUpdated;
     private string lastUpdatedBy;
 
@@ -32,33 +31,31 @@ public class Invoice
     //    setLastUpdatedBy(lastUpdatedBy);
     //}
 
-    public Invoice(string invoiceNumber, double total, DateTime dateCreated, string status, DateTime lastUpdated, string lastUpdatedBy)
+    public Invoice(string invoiceNumber, double total, DateTime dateCreated, string status, DateTime lastUpdated, string lastUpdatedBy, int mileage)
     {
-        this.invoiceNumber = invoiceNumber;
-        this.total = total;
-        this.dateCreated = dateCreated;
-        this.status = status;
-        this.lastUpdated = lastUpdated;
-        this.lastUpdatedBy = lastUpdatedBy;
+        setInvoiceNumber(invoiceNumber);
+        setTotal(total);
+        setDateCreated(dateCreated);
+        setInvoiceStatus(status);
+        setLastUpdated(lastUpdated);
+        setLastUpdatedBy(lastUpdatedBy);
+        setMileage(mileage);
     }
 
     //Getters
-    public int getInvoiceID()
+    public string getInvoiceNumber()
     {
-        return this.invoiceID;
+        return this.invoiceNumber;
     }
-    public int getNewProgramID()
-    {
-        return this.newProgramID;
-    }
+    //public int getNewProgramID()
+    //{
+    //    return this.newProgramID;
+    //}
     public double getTotal()
     {
         return this.total;
     }
-    public DateTime getDateCreated()
-    {
-        return this.dateCreated;
-    }
+
     public string getInvoiceStatus()
     {
         return this.status;
@@ -71,20 +68,26 @@ public class Invoice
     {
         return this.lastUpdatedBy;
     }
-    public string getInvoiceNumber()
+    public DateTime getDateCreated()
     {
-        return this.invoiceNumber;
+        return this.dateCreated;
     }
+
+    public int getMileage()
+    {
+        return this.mileage;
+    }
+
 
     //Setters
     public void setInvoiceID(int x)
     {
         this.invoiceID = x;
     }
-    public void setNewProgramID(int x)
-    {
-        this.newProgramID = x;
-    }
+    //public void setNewProgramID(int x)
+    //{
+    //    this.newProgramID = x;
+    //}
     public void setTotal(double x)
     {
         this.total = x;
@@ -108,5 +111,9 @@ public class Invoice
     public void setInvoiceNumber(string x)
     {
         this.invoiceNumber = x;
+    }
+    public void setMileage(int x)
+    {
+        this.mileage = x;
     }
 }

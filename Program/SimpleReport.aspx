@@ -216,7 +216,12 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                            
+                            <div class="row">
+                                <asp:TextBox ID="txtYear" runat="server" class="form-control" placeholder="Filter By Year (e.g. '2018')"></asp:TextBox>
+                                    <asp:Button ID="btnFilter" runat="server" class="btn btn-success" Text="Filter By Year" OnClick="btnFilter_Click" />
+                                    <asp:Button runat="server" class="btn btn-primary" id="dateClear" OnClick="dateClear_Click" Text="Clear Filter"/>
+                                    <asp:RegularExpressionValidator ValidationExpression="^\d{4}$" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid year (e.g. '2018')" ControlToValidate="txtYear" /> </div>
+                               <div class="row"></div>
                                 <div class=" " >
                                                 <script type="text/javascript">
                                                     $(document).ready(function () {
@@ -239,6 +244,16 @@
                 <li class="nav-item ">
                     <a style=" margin-right:5px; color:black;"class="nav-link" id="home-tab" data-toggle="tab" href="#Annual" role="tab" aria-controls="home" aria-selected="false">Annual Animal View</a>
                 </li>
+                   <li class="nav-item ">
+<%--                       <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#ProgramView" role="tab" aria-controls="profile" aria-selected="false">Start Date</a>--%>
+
+                      <input runat="server" clientidmode="Static" width="100%" type="date" id="startDate" placeholder ="Start Date">
+<%--                      <label>End Date </label>--%>
+
+                       <input runat="server" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
+                                    
+                        <asp:Button runat="server" class="btn btn-primary" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
+                </li>
                 
                
                
@@ -254,7 +269,7 @@
 
                     <div class="row mx-auto d-flex justify-content-center table-responsive">
                         <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
-                        <div id="programTotals" class="row table-responsive" overflow-x: hidden;">
+                        <div id="programTotals" class="row table-responsive" overflow-x: hidden">
                                         <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
                                             <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">
                                                 <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>

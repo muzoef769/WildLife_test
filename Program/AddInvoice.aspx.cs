@@ -49,7 +49,7 @@ public partial class AddInvoice : System.Web.UI.Page
     protected void AddProgram(object sender, EventArgs e)
     {
         //Invoice ID, New ProgramID, DateCreated, InvoiceStatus, LastUpdated, LUB
-        Invoice addInvoice = new Invoice(txtInvoice.Text, 150, DateTime.Now, "Incomplete", DateTime.Now, Session["UserFullName"].ToString());
+        Invoice addInvoice = new Invoice(txtInvoice.Text, 150, DateTime.Now, "Incomplete", DateTime.Now, Session["UserFullName"].ToString(), 100);
 
         using (SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
         {
