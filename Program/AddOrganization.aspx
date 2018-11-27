@@ -208,8 +208,11 @@
                                         <label class="label-style font-weight-bold">Organization Name</label>
                                     </div>
                                     <div class="form-group col-md-6">
+
                                         <asp:TextBox ID="txtOrgName" runat="server" class="form-control" Style="background-color: whitesmoke; margin-left: -8px;"></asp:TextBox>
                                     </div>
+                                <asp:RequiredFieldValidator ID="OrgValidator" runat="server" ControlToValidate="txtOrgName" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                 </div>
                                 <hr />
                                 <div class="tab-content ">
@@ -225,7 +228,10 @@
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <asp:TextBox ID="txtStreet" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                     </div>
+                                                                                                            <asp:RequiredFieldValidator ID="streetValidator" runat="server" ControlToValidate="txtStreet" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                                 </div>
 
 
@@ -311,7 +317,10 @@
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <asp:TextBox ID="txtCity" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                     </div>
+                                                                                                           <asp:RequiredFieldValidator ID="OrgCityValidator" runat="server" ControlToValidate="txtCity" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                                 </div>
 
                                                 <div class="row">
@@ -320,7 +329,10 @@
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <asp:TextBox ID="txtCounty" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                     </div>
+                                                                                                          <asp:RequiredFieldValidator ID="OrgCountyValidator" runat="server" ControlToValidate="txtCounty" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                                 </div>
 
                                                 <div class="row">
@@ -329,7 +341,10 @@
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <asp:TextBox ID="txtZipCode" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                     </div>
+                                                                                                            <asp:RequiredFieldValidator ID="OrgZipValidator" runat="server" ControlToValidate="txtZipCode" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                                 </div>
 
                                             </div>
@@ -355,7 +370,10 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <asp:TextBox ID="txtFirstName" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                 </div>
+                                                                                                    <asp:RequiredFieldValidator ID="conFirstValidator" runat="server" ControlToValidate="txtFirstName" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                             </div>
 
                                             <div class="row">
@@ -364,7 +382,10 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <asp:TextBox ID="txtLastName" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                 </div>
+                                                                                                    <asp:RequiredFieldValidator ID="conLastValidator" runat="server" ControlToValidate="txtLastName" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                             </div>
 
                                             <div class="row">
@@ -373,7 +394,10 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <asp:TextBox ID="txtEmail" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                 </div>
+                                                                                                     <asp:RequiredFieldValidator ID="conEmailValidator" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                             </div>
 
                                             <div class="row">
@@ -382,7 +406,10 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <asp:TextBox ID="txtPrimaryPhone" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
                                                 </div>
+                                                                                                    <asp:RequiredFieldValidator ID="conPrimaryValidator" runat="server" ControlToValidate="txtPrimaryPhone" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                             </div>
 
                                             <div class="row">
@@ -396,7 +423,7 @@
 
                                             <div class="row">
                                                 <div class="form-group col-md-6">
-                                                    <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn btn-success" OnClick="btnAddOrganization_Click" />
+                                                    <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn btn-success" OnClick="btnAddOrganization_Click" CausesValidation="true"  ValidationGroup="addOrg" />
                                                 </div>
 
                                                 <%--</div>--%>
