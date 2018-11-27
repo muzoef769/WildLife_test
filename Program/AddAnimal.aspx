@@ -1,7 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="AddAnimal.aspx.cs" Inherits="AddAnimal" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <script>
+        $(document).ready(function () {
+           $("#home").removeClass('active');
+                    $("#animal").addClass('active');
+
+        });
+    </script>
+
 
     <div class="content">
         <div class="animated fadeIn">
@@ -86,7 +94,7 @@
                                                 <label for="FileUpload1" class="label-style">Upload Image</label>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <asp:FileUpload ID="FileUpload1" runat="server"/>
+                                                <asp:FileUpload ID="FileUpload1" runat="server" />
                                             </div>
                                         </div>
                                     </div>

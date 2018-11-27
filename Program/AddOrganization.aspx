@@ -4,6 +4,15 @@
 
     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
+        <script>
+        $(document).ready(function () {
+           $("#home").removeClass('active');
+                    $("#org").addClass('active');
+
+        });
+    </script>
+
+
     <%--Beginning container--%>
 
     <!-- Content -->

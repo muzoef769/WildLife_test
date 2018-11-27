@@ -124,38 +124,38 @@
             <nav class="navbar navbar-expand-sm navbar-default">
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li class="active" id="home">
                             <a class="" href="Home.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
                         </li>
-                        <li class="menu-item-has-children dropdown">
+                        <li class="menu-item-has-children dropdown" id="report">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-bar-chart-o"></i>Reports</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
-                                <li><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                                <li><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
+                                <li id="animalreport"><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
+                                <li id="simplereport"><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
+                                <li id="paymentreport"><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
 
                             </ul>
                         </li>
-                        <li class="">
+                        <li class="" id="animal">
                             <a class="" href="Animal.aspx"><i class="menu-icon fa fa-github-alt"></i>Animals</a>
                         </li>
-                        <li class="">
+                        <li class="" id="payment">
                             <a class="" href="Payment.aspx"><i class="menu-icon fa fa-dollar"></i>Payments</a>
                         </li>
-                        <li class="menu-item-has-children dropdown">
+                        <li class="menu-item-has-children dropdown" id="program">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-bar-chart-o"></i>Programs</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-book"></i><a href="Program.aspx">View Programs</a></li>
-                                <li><i class="fa fa-book"></i><a href="Themes.aspx">Themes</a></li>
+                                <li id="view"><i class="fa fa-book"></i><a href="Program.aspx">View Programs</a></li>
+                                <li id="theme"><i class="fa fa-book"></i><a href="Themes.aspx">Themes</a></li>
                             </ul>
                         </li>
-                        <li class="">
+                        <li class="" id="org">
                             <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
                         </li>
-                        <li class="">
+                        <li class="" id="user">
                             <a class="" href="Manage.aspx"><i class="menu-icon fa fa-group"></i>Manage Users</a>
                         </li>
-                        <li class="">
+                        <li class="" id="logout">
                             <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#ff3333" OnClick="Clear_Session" CssClass=""><i class="menu-icon fa fa-sign-out"></i>Logout</asp:LinkButton>
                             <%--<a class="text-danger" href="#" runat="server" onserverclick="Clear_Session"><i class="menu-icon fa fa-sign-out"></i>Logout</a>--%>
                         </li>
@@ -195,7 +195,8 @@
 
                     <div class="row">
                     <div class="col-lg-4 col-md-6">
-                        <div class="card" data-toggle="modal" data-target="#AddModal">
+                        <div class="card">
+                            <a href="AddAnimal.aspx"> 
                             <div class="card-body">
                                 <div class="stat-widget-five">
                                     <div class="stat-icon dib flat-color-1">
@@ -209,6 +210,7 @@
                                     </div>
                                 </div>
                             </div>
+                                </a>
                         </div>
                     </div>
 

@@ -4,6 +4,15 @@
 
     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
+        <script>
+        $(document).ready(function () {
+           $("#home").removeClass('active');
+                    $("#program").addClass('active');
+
+        });
+    </script>
+
+
     <%--Beginning container--%>
     <br />
     <br />
@@ -67,7 +76,7 @@
                     </p>
                 </div>
             </div>
-            <div class="SimpleContainer card col-sm-12 col-xs-12 col-md-9 col-lg-9 col-xl-9" style="z-index: 100; ">
+            <div class="SimpleContainer card col-sm-12 col-xs-12 col-md-9 col-lg-9 col-xl-9" style="z-index: 100;">
 
                 <div class="card-body">
 
@@ -83,36 +92,37 @@
 
 
                             <div class="col-md-6 text-center">
-                    <label for="txtOrgDrp" class="label-style">Organization</label> <br>
-                   
-                                                
-                    <asp:DropDownList ID="drpOrganizationList" runat="server"  CssClass="btn btn-default btn-sm dropdown-toggle" style="background-color:whitesmoke;" AppendDataBoundItems="True" DataSourceID="SqlDataSource3" DataTextField="OrganizationName" DataValueField="OrganizationID" OnSelectedIndexChanged="DrpOrganizationList_IndexChanged" AutoPostBack="true">
-
-                        <asp:ListItem Text="Select an Organization" ></asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT OrganizationName, OrganizationID FROM Organization"></asp:SqlDataSource>
-
-                       </div>
+                                <label for="txtOrgDrp" class="label-style">Organization</label>
+                                <br>
 
 
-                
+                                <asp:DropDownList ID="drpOrganizationList" runat="server" CssClass="btn btn-default btn-sm dropdown-toggle" Style="background-color: whitesmoke;" AppendDataBoundItems="True" DataSourceID="SqlDataSource3" DataTextField="OrganizationName" DataValueField="OrganizationID" OnSelectedIndexChanged="DrpOrganizationList_IndexChanged" AutoPostBack="true">
+
+                                    <asp:ListItem Text="Select an Organization"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT OrganizationName, OrganizationID FROM Organization"></asp:SqlDataSource>
+
+                            </div>
+
+
+
 
 
                             <div class=" col-md-6 ">
-                        <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
-                         <asp:TextBox ID ="txtInvoiceNumber"  class="form-control"  style="background-color:whitesmoke;" runat="server" ></asp:TextBox>
-                  
-                    </div>
+                                <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
+                                <asp:TextBox ID="txtInvoiceNumber" class="form-control" Style="background-color: whitesmoke;" runat="server"></asp:TextBox>
+
+                            </div>
 
                         </div>
 
                         <br />
                         <div class="row ">
-                                        <div class="col-12  ">
-            
-   <a href="AddOrganization.aspx" id="btnAddOrg" class=" btn btn-block btn-success" runat="server" onclick="btnAddOrg_Click">Add Organization</a>
-     
-        </div>
+                            <div class="col-12  ">
+
+                                <a href="AddOrganization.aspx" id="btnAddOrg" class=" btn btn-block btn-success" runat="server" onclick="btnAddOrg_Click">Add Organization</a>
+
+                            </div>
                         </div>
 
 
