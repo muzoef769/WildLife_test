@@ -4,7 +4,7 @@
 
 
 
-    <body>
+    
         <!-- Left Panel -->
         <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -242,11 +242,11 @@
 
 
                 <!-- /#add-category -->
-            </div>
+<%--            </div>
             <!-- .animated -->
-        </div>
+        </div>--%>
         <!-- /.content -->
-        <div class="clearfix"></div>
+<%--        <div class="clearfix"></div>
         <!-- Footer -->
         <footer class="site-footer">
             <div class="footer-inner bg-white">
@@ -257,7 +257,7 @@
 
                 </div>
             </div>
-        </footer>
+        </footer>--%>
         <!-- /.site-footer -->
         <%--</div>--%>
         <!-- /#right-panel -->
@@ -490,7 +490,7 @@
         </div>
 
 
-    </body>
+  
 
 
 

@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
-        <script>
+    <script>
         $(document).ready(function () {
-           $("#home").removeClass('active');
-                    $("#animal").addClass('active');
+            $("#home").removeClass('active');
+            $("#animal").addClass('active');
 
         });
     </script>

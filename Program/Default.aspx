@@ -5,7 +5,7 @@
     <div class="container-fluid LoginContainer">
         <div class="card mx-auto  LoginCard" style="width: 25rem;">
             <div class="card-body ">
-                <h2 class=" CardTitle d-flex justify-content-center">Log In</h2>
+                <h2 class=" CardTitle d-flex justify-content-center">Login</h2>
                 <br />
                 <div class="form-group ">
                     <asp:TextBox ID="txtUsername" placeholder="Username" required="required" CssClass="form-control text-center " runat="server"></asp:TextBox>
@@ -14,13 +14,17 @@
                 <div class="form-group ">
                     <asp:TextBox ID="txtPassword" placeholder="Password" TextMode="Password" required="required" CssClass="form-control text-center " runat="server"></asp:TextBox>
                 </div>
+               
                 <div class="form-group ">
                     <div class="text-center">
-                        <asp:TextBox ID="txtStatus" runat="server" Visible="true" ForeColor="Transparent" BackColor="Black" BorderStyle="None" ReadOnly="true" OnTextChanged="txtStatus_TextChanged" CssClass="text-center"></asp:TextBox>
+                        <asp:TextBox ID="txtStatus" runat="server" Visible="true" ForeColor="Transparent"  BorderStyle="None" ReadOnly="true" OnTextChanged="txtStatus_TextChanged" CssClass="text-center status"></asp:TextBox>
                     </div>
                 </div>
-
+                 <asp:LinkButton ID="btnPass" runat="server" OnClick="PasswordReset" CausesValidation="true" UseSubmitBehavior="false" CssClass="btn-link">Password Reset</asp:LinkButton>
+                <br />
+                <br />
                 <div class="row">
+
                     <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 offset-2">
                         <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-success btn-block" OnClick="btnLogin_Click" Text="Login" CausesValidation="true" UseSubmitBehavior="false" />
                     </div>
@@ -28,10 +32,9 @@
                         <a class="btn btn-success btn-block" data-toggle="modal" data-target="#RegisterModal" href="index.html" role="button" runat="server">Register
                         </a>
                     </div>
-                    
+
                 </div>
-                <br />
-                <asp:Button ID="btnPass" runat="server"  OnClick="PasswordReset" Text="Password Reset" CausesValidation="true" UseSubmitBehavior="false" CssClass="btn btn-success" />
+
             </div>
         </div>
     </div>

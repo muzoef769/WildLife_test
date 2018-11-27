@@ -19,14 +19,16 @@ body {
 }
 
 body {
-    background-image: url("img_girl.jpg");
+    /*background-image: url("img_girl.jpg");*/
+    background-image: url('../Images/KBBG.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .b {
     /* The image used */
-    background-image: url("img_girl.jpg");
+    /*background-image: url("img_girl.jpg");*/
+    background-image: url('../Images/KBBG.jpg');
     position: static;
     /* Full height */
     height: 100%;
@@ -83,9 +85,12 @@ body {
         }
 
 
+.status {
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .LoginCard {
-    /*opacity: .92;*/
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
     border: 2px;
     display: block;
@@ -94,6 +99,8 @@ body {
     vertical-align: middle;
     font-family: 'Raleway', sans-serif !important;
 }
+
+
 
 .WelcomeCard {
     /*opacity: .92 !important;*/

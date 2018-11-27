@@ -7,7 +7,7 @@
     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
 
-<body>
+
     <!-- Left Panel -->
     <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -418,7 +418,7 @@ FROM            Program INNER JOIN
              
 
             <!-- /#add-category -->
-            </div>
+     <%--       </div>
             <!-- .animated -->
         </div>
         <!-- /.content -->
@@ -433,7 +433,7 @@ FROM            Program INNER JOIN
                   
                 </div>
             </div>
-        </footer>
+        </footer>--%>
         <!-- /.site-footer -->
     <%--</div>--%>
     <!-- /#right-panel -->
@@ -550,7 +550,7 @@ FROM            Program INNER JOIN
         </div>
     </div>
 
-</body>
+
 
     
 

@@ -1,4 +1,12 @@
-﻿
+﻿.login {
+    height: auto; /* You must set a specified height */
+    background-image: url('../Images/KBBG.jpg');
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-color: red;
+}
+
 span.price {
     float: right;
     color: grey;

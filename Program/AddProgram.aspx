@@ -4,10 +4,10 @@
 
     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
-        <script>
+    <script>
         $(document).ready(function () {
-           $("#home").removeClass('active');
-                    $("#program").addClass('active');
+            $("#home").removeClass('active');
+            $("#program").addClass('active');
 
         });
     </script>
