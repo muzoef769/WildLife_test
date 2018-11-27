@@ -6,23 +6,23 @@
 
 
      <script type="text/javascript">
-        $(document).ready(function () {
-            $("#simpleTab").hide();
-            $(function () {
-                $("#tabCheckBox").change(function () {
-                    if ($(this).is(":checked")) {
-                        $("#simpleTab").show(10000);
-                        $("#programTotals").hide(10000);
-                        $("#programTitle").hide(10000);
+         $(document).ready(function () {
+             $("#simpleTab").hide();
+             $(function () {
+                 $("#tabCheckBox").change(function () {
+                     if ($(this).is(":checked")) {
+                         $("#simpleTab").show(10000);
+                         $("#programTotals").hide(10000);
+                         $("#programTitle").hide(10000);
 
-                    } else {
-                        $("#simpleTab").hide(10000);
-                        $("#programTotals").show(10000);
-                        $("#programTitle").show(10000);
-                    }
-                });
-            });
-        });
+                     } else {
+                         $("#simpleTab").hide(10000);
+                         $("#programTotals").show(10000);
+                         $("#programTitle").show(10000);
+                     }
+                 });
+             });
+         });
         //function changeView() {
         //    var x = document.getElementById("myCheck").checked;
 
@@ -39,7 +39,7 @@
 
 <body>
     <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
+   <%-- <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -113,7 +113,7 @@
 
                 </div>
             </div>
-        </header>
+        </header>--%>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
@@ -219,15 +219,15 @@
                             
                                 <div class=" " >
                                                 <script type="text/javascript">
-  $(document).ready(function(){
-  $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-    localStorage.setItem('activeTab', $(e.target).attr('href'));
-  });
-  var activeTab = localStorage.getItem('activeTab');
-  if(activeTab){
-    $('#myTab a[href="' + activeTab + '"]').tab('show');
-  }
- });
+                                                    $(document).ready(function () {
+                                                        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                                                            localStorage.setItem('activeTab', $(e.target).attr('href'));
+                                                        });
+                                                        var activeTab = localStorage.getItem('activeTab');
+                                                        if (activeTab) {
+                                                            $('#myTab a[href="' + activeTab + '"]').tab('show');
+                                                        }
+                                                    });
 </script> 
             <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style=" padding-left:15px; border-bottom:none;"  role="tablist">
                 <li class="nav-item ">
@@ -257,7 +257,7 @@
                         <div id="programTotals" class="row table-responsive" overflow-x: hidden;">
                                         <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
                                             <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">
-                                                <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                                                <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 <Columns>
                                                     <asp:BoundField HeaderStyle-Width="200px" DataField="LocationType" HeaderText="Program Totals" SortExpression="LocationType" />
                                                     <asp:BoundField DataField="January" ItemStyle-Width="75px" HeaderText="Jan" SortExpression="January" />
@@ -550,7 +550,7 @@
                                             vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
                                             var scriptElement = document.createElement('script');
                                             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                                            vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
 
                                         </script>
                                     </div>
@@ -559,7 +559,7 @@
                 <div class="table-responsive">
                     <div class="col-md-12  mx-auto   table-bordered table-hover AnimalCard ">
                                             <asp:gridview id="animalGrid" runat="server" enablesortingandpagingcallbacks="True" autogeneratecolumns="False" width="100%" datasourceid="SqlDataSource48">
-                                          <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                                          <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                             <Columns>
                                                 <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
                                                 <asp:BoundField DataField="Programs" HeaderText="Programs" ReadOnly="True" SortExpression="Programs" />
@@ -621,7 +621,7 @@ GROUP BY AnimalName"></asp:sqldatasource>
             </div>
         </footer>
         <!-- /.site-footer -->
-    </div>
+    <%--</div>--%>
     <!-- /#right-panel -->
 
    

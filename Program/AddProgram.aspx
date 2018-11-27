@@ -13,14 +13,14 @@
 
     <div>
         
-    <div class="row">
+    <div class="row" style="">
     <%--Program container--%>
        
        <div class="SimpleContainer col-sm-12 col-xs-12 col-md-4 col-lg-4 col-xl-4" style="z-index: 100;">
-        <div class=" AnimalReportCard text-left" style="padding-left:15px; padding-top:15px; padding-bottom:5px;">
-            <h4>Cart 
+        <div class=" AnimalReportCard text-left bg-light rounded cart" style="">
+            <h4>Programs
 
-                <span class="price" style="color: black"><i class="fa fa-shopping-cart"></i><b>
+                <span class="price" style="color: black"><b><i class="fa fa-shopping-basket"></i>
                     <asp:Label ID="lblCartTotal" runat="server" Text="0"></asp:Label></b></span>
 
             </h4>

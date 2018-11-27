@@ -6,7 +6,7 @@
 
 <body>
     <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
+    <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav" >
@@ -82,7 +82,7 @@
 
                 </div>
             </div>
-        </header>
+        </header>--%>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
@@ -235,7 +235,7 @@
                         </asp:ImageField>
                     </Columns>
 
- <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+ <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                 </asp:GridView>
             </div>
 
@@ -340,7 +340,7 @@
             </div>
         </footer>
         <!-- /.site-footer -->
-    </div>
+    <%--</div>--%>
     <!-- /#right-panel -->
 
    

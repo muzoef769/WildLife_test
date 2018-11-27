@@ -829,7 +829,7 @@ aside.left-panel {
   .right-panel .top-left {
     width: 350px;
     float: left; }
-  .right-panel .top-rigth {
+  .right-panel .top-right {
     float: left; }
   .right-panel .breadcrumbs {
     float: left;
@@ -1650,7 +1650,7 @@ header .form-inline {
   vertical-align: middle;
   -webkit-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out;
-  border-radius: 3;
+  border-radius: 3px;
   cursor: pointer; }
 
 /* Icons */
@@ -2511,5 +2511,6 @@ footer.site-footer {
 
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    color: #fff !important;
     background-color: #FB9678 !important;
 }

@@ -6,7 +6,7 @@
 
 <body>
     <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
+    <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -80,7 +80,7 @@
 
                 </div>
             </div>
-        </header>
+        </header>--%>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
@@ -186,15 +186,15 @@
                             
                                 <div class=" " >
                                                 <script type="text/javascript">
-  $(document).ready(function(){
-  $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-    localStorage.setItem('activeTab', $(e.target).attr('href'));
-  });
-  var activeTab = localStorage.getItem('activeTab');
-  if(activeTab){
-    $('#myTab a[href="' + activeTab + '"]').tab('show');
-  }
- });
+                                                    $(document).ready(function () {
+                                                        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                                                            localStorage.setItem('activeTab', $(e.target).attr('href'));
+                                                        });
+                                                        var activeTab = localStorage.getItem('activeTab');
+                                                        if (activeTab) {
+                                                            $('#myTab a[href="' + activeTab + '"]').tab('show');
+                                                        }
+                                                    });
 </script> 
             <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style=" padding-left:15px; border-bottom:none;"  role="tablist">
                 <li class="nav-item ">
@@ -269,7 +269,7 @@
                                    <div id="ann" class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12  ">
 
                 <asp:gridview id="annualGrid" runat="Server" class="   table table-condensed table-bordered table-hover AnimalCard" headerstyle-forecolor="black" autogeneratecolumns="False" datasourceid="SqlDataSource1" enablesortingandpagingcallbacks="true" allowpaging="True" allowsorting="True">
-                     <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                     <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                     <Columns>
                         <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" />
                         <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" />
@@ -342,7 +342,7 @@
             </div>
         </footer>
         <!-- /.site-footer -->
-    </div>
+    <%--</div>--%>
     <!-- /#right-panel -->
 
    

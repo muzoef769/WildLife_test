@@ -6,7 +6,7 @@
 
 
 <body>
-    <!-- Left Panel -->
+<%--    <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -81,7 +81,7 @@
 
                 </div>
             </div>
-        </header>
+        </header>--%>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
@@ -203,7 +203,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
-                                <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                                <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                             </asp:GridView>
 
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>"
@@ -274,7 +274,7 @@
             </div>
         </footer>
         <!-- /.site-footer -->
-    </div>
+    <%--</div>--%>
     <!-- /#right-panel -->
 
    

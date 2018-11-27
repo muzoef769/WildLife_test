@@ -7,7 +7,7 @@
 
 <body>
     <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
+    <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -81,7 +81,7 @@
 
                 </div>
             </div>
-        </header>
+        </header>--%>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
@@ -289,7 +289,7 @@
             </div>
         </footer>
         <!-- /.site-footer -->
-    </div>
+    <%--</div>--%>
     <!-- /#right-panel -->
 
    

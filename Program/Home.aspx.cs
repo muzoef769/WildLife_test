@@ -138,9 +138,9 @@ public partial class Home : System.Web.UI.Page
 
     }
 
-    protected void btnLogOut_Click(object sender, EventArgs e)
-    {
-        Session.Clear();
-        Response.Redirect("Default.aspx", true);
-    }
+    //protected void btnLogOut_Click(object sender, EventArgs e)
+    //{
+    //    Session.Clear();
+    //    Response.Redirect("Default.aspx", true);
+    //}
 }

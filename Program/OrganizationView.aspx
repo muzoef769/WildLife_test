@@ -6,7 +6,7 @@
 
 <body>
     <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
+    <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav" >
@@ -80,7 +80,7 @@
 
                 </div>
             </div>
-        </header>
+        </header>--%>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
@@ -200,7 +200,7 @@
                         CssClass="btn col-xl-1 col-lg-2 col-md-2 col-sm-2"
                         runat="server"
                         Text="Clear"
-                        Style="background-color:#fb9678; margin-right:47px;"
+                        Style="background-color:#fb9678;color: #fff; margin-right:47px;"
                         OnClick="btnClearAll_Click" />
 
 
@@ -227,7 +227,7 @@
         <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
         <asp:BoundField DataField="PrimaryPhoneNumber" HeaderText="Primary Phone"  SortExpression="PrimaryPhoneNumber" HeaderStyle-Width="200px" />
     </Columns>
-                <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
         
               </asp:GridView>
             </div>
@@ -298,7 +298,7 @@ FROM            Address INNER JOIN
             </div>
         </footer>
         <!-- /.site-footer -->
-    </div>
+    <%--</div>--%>
     <!-- /#right-panel -->
 
    

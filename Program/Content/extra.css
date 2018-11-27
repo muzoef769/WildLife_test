@@ -1,0 +1,18 @@
+﻿
+
+span.price {
+    float: right;
+    color: grey;
+    
+}
+
+
+.cart {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
