@@ -76,15 +76,15 @@
             <nav class="navbar navbar-expand-sm navbar-default">
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active" id="home">
+                        <li class="" id="home">
                             <a class="" href="Home.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
                         </li>
                         <li class="menu-item-has-children dropdown" id="report">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-bar-chart-o"></i>Reports</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li id="animalreport"><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
-                                <li id="simplereport"><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                                <li id="paymentreport"><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
+                                <li id="animalreport" class=""><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
+                                <li id="simplereport" class=""><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
+                                <li id="paymentreport" class=""><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
 
                             </ul>
                         </li>
@@ -97,8 +97,8 @@
                         <li class="menu-item-has-children dropdown" id="program">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-bar-chart-o"></i>Programs</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li id="view"><i class="fa fa-book"></i><a href="Program.aspx">View Programs</a></li>
-                                <li id="theme"><i class="fa fa-book"></i><a href="Themes.aspx">Themes</a></li>
+                                <li id="view" class=""><i class="fa fa-book"></i><a href="Program.aspx">View Programs</a></li>
+                                <li id="theme" class=""><i class="fa fa-book"></i><a href="Themes.aspx">Themes</a></li>
                             </ul>
                         </li>
                         <li class="" id="org">

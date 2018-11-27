@@ -1,10 +1,17 @@
 ﻿<%@ Page Title="Payment Report" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="PaymentReport.aspx.cs" Inherits="PaymentReport" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-    
+    <script>
+        $(document).ready(function () {
+            
+            $("#report").addClass('active');
+            
+
+        });
+    </script>
 
 
-<body>
+
     <!-- Left Panel -->
     <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -235,7 +242,7 @@
              
 
             <!-- /#add-category -->
-            </div>
+            <%--</div>
             <!-- .animated -->
         </div>
         <!-- /.content -->
@@ -250,7 +257,7 @@
                   
                 </div>
             </div>
-        </footer>
+        </footer>--%>
         <!-- /.site-footer -->
     <%--</div>--%>
     <!-- /#right-panel -->
@@ -367,7 +374,7 @@
         </div>
     </div>
 
-</body>
+
 
     
 

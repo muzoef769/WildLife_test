@@ -3,9 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
+    <script>
+        $(document).ready(function () {
+            
+            $("#report").addClass('active');
+            
+
+        });
+    </script>
 
 
-    <body>
         <!-- Left Panel -->
         <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -285,7 +292,7 @@
 
 
                 <!-- /#add-category -->
-            </div>
+       <%--     </div>
             <!-- .animated -->
         </div>
         <!-- /.content -->
@@ -300,7 +307,7 @@
 
                 </div>
             </div>
-        </footer>
+        </footer>--%>
         <!-- /.site-footer -->
         <%--</div>--%>
         <!-- /#right-panel -->
@@ -372,7 +379,7 @@
 
 
 
-    </body>
+
 
 
 

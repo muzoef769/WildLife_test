@@ -20,6 +20,14 @@
                  });
              });
          });
+
+
+         $(document).ready(function () {
+             $("#report").addClass('active');
+
+
+         });
+
         //function changeView() {
         //    var x = document.getElementById("myCheck").checked;
 
@@ -34,7 +42,7 @@
         //}
     </script>
 
-<body>
+
     <!-- Left Panel -->
    <%-- <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -149,31 +157,26 @@
                
                
             </ul>
-                                    <br />
+                                  
                            
 
         </div>
-                                <br />
+                    
                              <div class="tab-content ">
             <div id="ProgramTotal" class="tab-pane fade show active ">
-                <div class="ml-auto d-flex justify-content-end row">
-                    <asp:DropDownList ID="ddlYearFilter" CssClass="btn-sm" runat="server" OnSelectedIndexChanged="ddlYearFilter_SelectedIndexChanged" AutoPostBack="true">
-                        <asp:ListItem Value="2015">2015</asp:ListItem>
-                        <asp:ListItem Value="2016">2016</asp:ListItem>
-                        <asp:ListItem Value="2017">2017</asp:ListItem>
-                        <asp:ListItem Value="2018">2018</asp:ListItem>
-                    </asp:DropDownList>
+                <div class="ml-auto d-flex justify-content-center row">
+                    
+                    <div id="tab-toggle" style="margin-top: 15px;">
+                                    <label for="tabCheckBox">Interactive View</label>
+                                    <input id="tabCheckBox" type="checkbox" data-toggle="toggle">
+                                </div>
                                 <%--<asp:TextBox ID="txtYear" runat="server" Style=" margin-right:5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" placeholder="Filter By Year (e.g. '2018')"></asp:TextBox>
                                     <asp:Button ID="btnFilter" runat="server" Style=" margin-right:5px;" Class="btn btn-success col-xl-2 col-lg-2 col-md-2 col-sm-2" Text="Filter By Year" OnClick="btnFilter_Click" />
                                     <asp:Button runat="server"  Style="background-color: #fb9678; color: #fff;" Class="btn col-xl-2 col-lg-2 col-md-2 col-sm-2" id="dateClear" OnClick="dateClear_Click" Text="Clear Filter"/>
                                     <asp:RegularExpressionValidator ValidationExpression="^\d{4}$" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid year (e.g. '2018')" ControlToValidate="txtYear" />--%>
 
                             </div>
-
-                <div id="tab-toggle" style="margin-top: 15px;">
-                                    <label for="tabCheckBox">Interactive View</label>
-                                    <input id="tabCheckBox" type="checkbox" data-toggle="toggle">
-                                </div>
+               
                 <div id="simpleTab" class="row table-responsive" style="width: 85%;">
                      <div class='tableauPlaceholder' id='viz1543202166509' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ProgramTotals&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543202166509'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                     </div>
@@ -183,6 +186,17 @@
                     <div class="row mx-auto d-flex justify-content-center table-responsive">
                         <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
                         <div id="programTotals" class="row table-responsive" overflow-x: hidden">
+
+
+                             <a class="col-form-label">Year:</a>
+                <asp:DropDownList ID="ddlYearFilter" CssClass="btn-sm" runat="server" OnSelectedIndexChanged="ddlYearFilter_SelectedIndexChanged" AutoPostBack="true">
+                        <asp:ListItem Value="2015">2015</asp:ListItem>
+                        <asp:ListItem Value="2016">2016</asp:ListItem>
+                        <asp:ListItem Value="2017">2017</asp:ListItem>
+                        <asp:ListItem Value="2018">2018</asp:ListItem>
+                    </asp:DropDownList>
+                <br />
+
                                         <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
                                             <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">
                                                <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
@@ -599,7 +613,7 @@ group by AnimalName"></asp:sqldatasource>
 
             <!-- /#add-category -->
             </div>
-            <!-- .animated -->
+            <%--<!-- .animated -->
         </div>
         <!-- /.content -->
         <div class="clearfix"></div>
@@ -613,7 +627,7 @@ group by AnimalName"></asp:sqldatasource>
                   
                 </div>
             </div>
-        </footer>
+        </footer>--%>
         <!-- /.site-footer -->
     <%--</div>--%>
     <!-- /#right-panel -->
@@ -730,7 +744,7 @@ group by AnimalName"></asp:sqldatasource>
         </div>
     </div>
 
-</body>
+
 
     
 
