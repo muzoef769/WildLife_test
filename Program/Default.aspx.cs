@@ -74,7 +74,7 @@ public partial class Default : System.Web.UI.Page
                     getVolunteer.CommandText = "SELECT UserType, UserStatus from [dbo].[User] where Username = @Username and UserType = @UserType and UserStatus = @UserStatus";
                     getVolunteer.Parameters.AddWithValue("@Username", txtUsername.Text);
                     getVolunteer.Parameters.AddWithValue("UserType", "Volunteer");
-                    getVolunteer.Parameters.AddWithValue("UserStatus", "Approved");
+                    getVolunteer.Parameters.AddWithValue("UserStatus", "Active");
 
                     SqlDataReader volunteerReader = getVolunteer.ExecuteReader();
 
@@ -241,7 +241,7 @@ public partial class Default : System.Web.UI.Page
         }
     protected void PasswordReset(object sender, EventArgs e)
     {
-        Response.Redirect("PasswordReset.aspx", false);
+       Server.Transfer("PasswordReset.aspx", false);
     }
 
 

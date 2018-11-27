@@ -148,6 +148,14 @@ $(document).ready(function() {
                         <li class="">
                             <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
                         </li>
+                        <li class="">
+                            <a class="" href="Manage.aspx"><i class="menu-icon fa fa-group"></i>Manage Users</a>
+                        </li>
+                        <li class="">
+                            <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#fb9678" OnClick="Clear_Session" CssClass="nav-link">Logout</asp:LinkButton>
+                            <%--<a class="" href="Manage.aspx"><i class="menu-icon fa fa-group"></i>Manage Users</a>--%>
+                        </li>
+
 
                     </ul>
                 </div>

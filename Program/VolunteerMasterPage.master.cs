@@ -16,4 +16,9 @@ public partial class VolunteerMasterPage : System.Web.UI.MasterPage
         Session["Username"] = "";
         Session["UserFullName"] = "";
     }
+    protected void Clear_Session(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Response.Redirect("Default.aspx", true);
+    }
 }
