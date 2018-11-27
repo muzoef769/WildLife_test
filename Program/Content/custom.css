@@ -1,0 +1,1548 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+
+
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+body, html {
+    height: 100%;
+    max-width: 100%;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("img_girl.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.b {
+    /* The image used */
+    background-image: url("img_girl.jpg");
+    position: static;
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+body {
+    
+    height: auto; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.navbar {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+}
+
+.nav-link {
+    color: white;
+}
+
+.sidenav {
+    height: 100%;
+    width: 105px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: seagreen;
+    overflow-x: hidden;
+    padding-top: 13px;
+    border-radius: 7px;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 1em;
+        color: White;
+        display: block;
+        font-family: 'Raleway', sans-serif !important;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+
+.LoginCard {
+    /*opacity: .92;*/
+    background-color: black;
+    border-radius: 15px;
+    border: 2px;
+    display: block;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.WelcomeCard {
+    /*opacity: .92 !important;*/
+    background-color: black;
+    border-radius: 15px;
+    border: 2px;
+    display: block;
+    height: auto;
+    
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.ProgramCard {
+    border-style: none;
+    border-color: inherit;
+    border-width: 2px;
+    /*opacity: .92 !important;*/
+    background-color: whitesmoke;
+    border-radius: 15px;
+    display: block;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Raleway', sans-serif !important;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    
+}
+
+.SpeciesCard {
+    /*opacity: .92 !important;*/
+    background-color: whitesmoke;
+    border-radius: 15px;
+    border: 2px;
+    display: block;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.SpeciesContainer {
+    padding-top: 10%;
+}
+
+@media only screen and (max-width: 2700px) {
+
+    .ProgramContainer {
+        padding-left: 22%;
+        padding-right: 25%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 2200px) {
+
+    .ProgramContainer {
+        padding-left: 22%;
+        padding-right: 25%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+
+    .ProgramContainer {
+        padding-left: 25%;
+        padding-right: 15%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .ProgramContainer {
+        padding-left: 30%;
+        padding-right: 15%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .ProgramContainer {
+        padding-left: 30%;
+        padding-right: 15%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+
+    .ProgramContainer {
+        padding-left: 30%;
+        padding-right: 5%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 200px) {
+
+    .ProgramContainer {
+        padding-left: 30%;
+        padding-right: 2%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .ProgramContainer {
+        padding-left: 30%;
+        padding-right: 15%;
+        padding-top: 10%;
+    }
+}
+
+
+
+
+
+
+
+
+
+.WelcomeContainer {
+    padding-left: 30% ;
+    padding-right: 20% ;
+    padding-top: 10%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+
+
+
+.LoginContainer {
+    padding-top: 10%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.MonthContainer {
+    padding-left: 5%;
+    padding-right: 80%;
+    padding-top: 10%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+
+.card .row {
+    margin: 0 auto;
+}
+
+.form-group {
+    color: white;
+    text-align: left !important;
+}
+
+.form-control {
+    border-radius: 12px;
+    border: 2px;
+    padding: 20px;
+    height: 15px;
+}
+
+.CardTitle {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.OpenCardTitle {
+    color: Black;
+    font-family: 'Raleway', sans-serif;
+}
+
+.ProgramCardTitle {
+    color: black;
+}
+
+.CardTitle.form-check-label {
+    text-align: left;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.LoginButton {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    border-color: #099708;
+    font-family: 'Raleway', sans-serif !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+    .LoginButton:hover {
+        background-color: green;
+        /*opacity: 100;*/
+    }
+
+
+.WelcomeButton {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    border-color: #099708;
+    font-family: 'Raleway', sans-serif !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    margin-bottom: 40px !important;
+    align-content: center;
+    width: 150px;
+    height: 50px;
+    padding-top: 3%;
+}
+
+    .WelcomeButton:hover {
+        background-color: green;
+        /*opacity: 100;*/
+    }
+
+.WelcomeTitle {
+    margin-bottom: 40px;
+}
+
+.SpeciesButton {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    padding: 10px 70px;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+    .SpeciesButton:hover {
+        background-color: green;
+        /*opacity: 100;*/
+    }
+
+
+.modal {
+    min-width: 100%;
+    margin: 0;
+    
+
+    padding-top: 5%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+
+@media only screen and (max-width: 2600px) {
+    .modal-full {
+        min-width: 100%;
+        margin: 0;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 5%;
+        font-family: 'Raleway', sans-serif !important;
+    }
+
+    .modal-half {
+        min-width: 60%;
+        margin: 0;
+        padding-left: 30%;
+        padding-right: 5%;
+        padding-top: 5%;
+        font-family: 'Raleway', sans-serif !important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .modal-full {
+        min-width: 100%;
+        margin: 0;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 13%;
+        font-family: 'Raleway', sans-serif !important;
+    }
+
+    .modal-half {
+        min-width: 60%;
+        margin: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 15%;
+        font-family: 'Raleway', sans-serif !important;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .modal-full {
+        min-width: 100%;
+        margin: 0;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 10%;
+        font-family: 'Raleway', sans-serif !important;
+    }
+
+
+    .modal-half {
+        min-width: 60%;
+        margin: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 12%;
+        font-family: 'Raleway', sans-serif !important;
+    }
+}
+
+
+.modal-full .modal-content {
+    min-height: 80vh;
+  
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.Animal {
+    text-decoration: underline;
+}
+
+.ProgramMoney {
+    border: thin;
+}
+
+
+
+
+.WelcomeName {
+    color: green;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.UpcomingPro {
+    color: white;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.UpcomingThin {
+    /*font-stretch: semi-condensed;*/
+    color: lightslategray;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.WelcomeLine {
+    border-color: white;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.DDMonth {
+    color: white;
+    padding-left: 5%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+ul {
+    list-style: none;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.MonthNav {
+    width: 130px;
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    position: fixed;
+    top: 45%;
+    left: -.5em;
+    transform: translateY(-50%);
+    color: #005D00;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.MonthLi {
+    height: auto;
+    text-align: left;
+    line-height: 2em;
+    flex-grow: 1;
+    font-size: .94em;
+    color: white;
+    transition: .5s;
+    transition-timing-function: linear, ease-out;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+    .MonthLi:hover {
+        /*    -webkit-transform: scale(1.0);
+    -ms-trasform: scale(1.0);
+    transform: scale(1.0);*/
+        color: lightsalmon;
+        line-height: 1.8em;
+        flex-grow: 3;
+        max-width: 100%;
+        font-size: 1.5em;
+        transition: .3s;
+        transform-origin: left;
+        align-items: center;
+        font-weight: bold;
+    }
+
+
+.AnimalNav {
+    position: relative;
+    padding-top: 5%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.AnimalLi {
+    margin: 5%;
+    Width: auto;
+    text-align: center;
+    line-height: 2em;
+    flex-grow: 1;
+    font-size: 2.5em;
+    color: Black;
+    transition: .5s;
+    transition-timing-function: linear, ease-out;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+    .AnimalLi:hover {
+        /*    -webkit-transform: scale(1.0);
+    -ms-trasform: scale(1.0);
+    transform: scale(1.0);*/
+        color: #057F24;
+        line-height: 1.8em;
+        flex-grow: 3;
+        max-height: 100%;
+        font-size: 3em;
+        transition: .3s;
+        transform-origin: right;
+        align-items: center;
+        text-decoration: underline;
+    }
+
+.MonthBreak {
+    font-size: .2em;
+}
+
+.AnimalIcons {
+    padding-left: 5%;
+    padding-right: 5%
+}
+
+
+a.ProgramCaption {
+    color: black;
+    background-color: whitesmoke;
+    border-radius: 12%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.AnimalIcons {
+    padding-top: 2%
+}
+
+@media only screen and (min-width: 600px) {
+
+    .AnimalIcons {
+        padding-top: 8%
+    }
+}
+
+
+.btn-AddAnimal {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    align-content: center;
+    width: 140px !important;
+    font-family: 'Raleway', sans-serif !important;
+    margin-bottom:5px;
+    margin-right:15px !important;
+}
+
+   
+
+@media only screen and (min-width: 1200px) {
+
+    .AnimalIcons {
+        padding-top: 8%
+    }
+}
+
+
+.btn-AddAnimal {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    align-content: center;
+    width: 50%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+@media only screen and (min-width: 800px) {
+
+    .AnimalIcons {
+        padding-top: 8%
+    }
+}
+
+
+.btn-AddAnimal {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    align-content: center;
+    width: 60%;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.SpeciesButton {
+    color: white;
+    width: 45%;
+    padding-top: 5%
+}
+
+
+thumbnail {
+    border: 2px;
+    border-color: whitesmoke;
+}
+
+.thumbnail {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+    .thumbnail .animalImg {
+        width: 100%;
+    }
+
+.animalImg {
+    width: 150px;
+    height: 150px;
+}
+
+WelcomeInfoDiv {
+}
+
+.AnimalInfoDiv {
+    background-color: whitesmoke;
+    border-radius: 12px;
+}
+
+.WelcomeInfoDiv {
+    background-color: whitesmoke;
+    border-radius: 12px;
+    display: block;
+}
+
+.btn-AnimalInfo {
+    padding-bottom: 5px;
+}
+
+.AnimalPopUp {
+    width: 30%;
+    height: auto;
+    padding-top: 30%;
+    text-align: center;
+    transform: translateY(-50%);
+    color: #005D00;
+}
+
+.Underline {
+    text-decoration: underline;
+}
+
+.DropdownAnimal {
+    color: black;
+    padding-left: 4%;
+}
+
+.form-group {
+    color: black;
+}
+
+.form-control {
+    border: #099708;
+}
+
+.caption {
+    text-align: center;
+}
+
+.attributeDropDown {
+    height: 2.5em;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.ProgramReportCard {
+    border-style: none;
+    border-color: inherit;
+    border-width: 2px;
+    /*opacity: .92 !important;*/
+    background-color: whitesmoke;
+    border-radius: 15px;
+    display: block;
+    height: auto;
+    vertical-align: middle;
+    font-family: 'Raleway', sans-serif !important;
+    margin-bottom: 40px;
+}
+
+
+/*START OF .AnimalReportCard*/
+.AnimalReportCard {
+    border-style: none;
+    border-color: inherit;
+    border-width: 2px;
+    /*opacity: .92 !important;*/
+    background-color: whitesmoke;
+    border-radius: 15px;
+    display: block;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Raleway', sans-serif !important;
+    margin-bottom: 40px;
+}
+/*END OF .AnimalReportCard*/
+
+
+/*START OF .AnimalReportContainer*/
+@media only screen and (max-width: 2700px) {
+
+    .AnimalReportContainer {
+        padding-left: 22%;
+        padding-right: 25%;
+        padding-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 2500px) {
+
+    .AnimalReportContainer {
+        padding-left: 22%;
+        padding-right: 25%;
+        padding-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 2200px) {
+
+    .AnimalReportContainer {
+        padding-left: 20%;
+        padding-right: 25%;
+        padding-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+
+    .AnimalReportContainer {
+        padding-left: 20%;
+        padding-right: 15%;
+        padding-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .AnimalReportContainer {
+        padding-left: 20%;
+        padding-right: 15%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .AnimalReportContainer {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 15%;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+
+    .AnimalReportContainer {
+        padding-left: 20%;
+        padding-right: 5%;
+        padding-top: 15%;
+    }
+}
+
+@media only screen and (max-width: 200px) {
+
+    .AnimalReportContainer {
+        padding-left: 25%;
+        padding-right: 2%;
+        padding-top: 15%;
+    }
+}
+
+
+
+/*End OF .AnimalReportContainer*/
+
+
+.PayButton {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    border-color: #099708;
+    font-family: 'Raleway', sans-serif !important;
+    margin-bottom: 5px;
+    margin-right: 2px;
+    width: 100px;
+}
+
+    .PayButton:hover {
+        background-color: green;
+        /*opacity: 100;*/
+    }
+
+.PayButton2 {
+    /*opacity: 100 !important;*/
+    background-color: #00c292 !Important;
+    border: 0px;
+    border-color: #099708;
+    font-family: 'Raleway', sans-serif !important;
+    margin-bottom: 5px;
+    margin-right: 2px;
+}
+
+    .PayButton2:hover {
+        background-color: green;
+        /*opacity: 100;*/
+    }
+
+.fixed-bottom {
+    margin-top: 40px;
+}
+
+/*table-responsive {
+    overflow-x: scroll;
+    height: 100px;
+    display: block;
+    
+}*/
+
+.PayTable {
+    width: 100%;
+    
+}
+
+/*.table-responsive {
+    -ms-overflow-style: scrollbar !important;
+}*/
+
+
+@media only screen and (max-width: 2700px) {
+
+    .PaymentContainer {
+        padding-left: 22%;
+        padding-right: 25%;
+        padding-top: 100px !important;
+    }
+}
+
+@media only screen and (max-width: 2200px) {
+
+    .PaymentContainer {
+        padding-left: 22%;
+        padding-right: 25%;
+        padding-top: 100px !important;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+
+    .PaymentContainer {
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 100px !important;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .PaymentContainer {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 100px !important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .PaymentContainer {
+        padding-left: 30%;
+        padding-right: 15%;
+        padding-top: 100px !important;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+
+    .PaymentContainer {
+        padding-left: 30%;
+        padding-right: 5%;
+        padding-top: 100px !important;
+    }
+}
+
+@media only screen and (max-width: 200px) {
+
+    .PaymentContainer {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 20%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .PaymentContainer {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 20%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.accordion dl,
+.accordion-list {
+    border: 1px solid #ddd;
+}
+
+
+
+.accordion dd,
+.accordion__panel {
+    background-color: #eee;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.accordion p {
+    padding: 1em 2em 1em 2em;
+}
+
+.accordion {
+    position: relative;
+    background-color: #eee;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2em 0 2em 0;
+}
+
+.accordionTitle,
+.accordion__Heading {
+    background-color: #099DF6;
+    /*text-align: center; */
+    text-indent: 3px;
+    font-weight: 700;
+    padding: 2em;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+    border-bottom: 1px solid #30bb64;
+}
+
+    .accordionTitle:before,
+    .accordion__Heading:before {
+        content: "+";
+        font-size: 1.5em;
+        line-height: 0.9em;
+        float: left;
+        -webkit-transition: -webkit-transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .accordionTitle:hover,
+    .accordion__Heading:hover {
+        background-color: #38CC70;
+    }
+
+    .accordionTitleActive,
+    .accordionTitle.is-expanded {
+        background-color: #38CC70;
+    }
+
+        .accordionTitleActive:before,
+        .accordionTitle.is-expanded:before {
+            -webkit-transform: rotate(-225deg);
+            -ms-transform: rotate(-225deg);
+            transform: rotate(-225deg);
+        }
+
+.accordionItem {
+    height: auto;
+    overflow: auto;
+    max-height: 900px;
+    -webkit-transition: max-height 1s;
+    transition: max-height 1s;
+}
+
+@media screen and (min-width: 48em) {
+    .accordionItem {
+        max-height: 900px;
+        -webkit-transition: max-height 0.5s;
+        transition: max-height 0.5s;
+    }
+}
+
+.accordionItem.is-collapsed {
+    max-height: 0;
+}
+
+.no-js .accordionItem.is-collapsed {
+    max-height: 900px;
+}
+
+.animateIn {
+    -webkit-animation: accordionIn 0.65s normal ease-in-out both 1;
+    animation: accordionIn 0.65s normal ease-in-out both 1;
+}
+
+.animateOut {
+    -webkit-animation: accordionOut 0.75s alternate ease-in-out both 1;
+    animation: accordionOut 0.75s alternate ease-in-out both 1;
+}
+
+@-webkit-keyframes accordionIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.9) rotateX(-60deg);
+        transform: scale(0.9) rotateX(-60deg);
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes accordionIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.9) rotateX(-60deg);
+        transform: scale(0.9) rotateX(-60deg);
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes accordionOut {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0.9) rotateX(-60deg);
+        transform: scale(0.9) rotateX(-60deg);
+    }
+}
+
+@keyframes accordionOut {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0.9) rotateX(-60deg);
+        transform: scale(0.9) rotateX(-60deg);
+    }
+}
+/*label styles */
+
+.label-style {
+    float: left;
+    margin-right: 15px;
+    padding-top: 5px;
+    padding-left: 100px;
+}
+/* form headings */
+
+.headings {
+    text-align: center;
+    font-weight: bold;
+}
+/* button styles */
+
+.button-container {
+    text-align: center;
+    margin-bottom: 5px;
+}
+/* position of the hint */
+
+.hint {
+    display: inline-block;
+    position: relative;
+    margin-left: 0.5em;
+    margin-top: 0.3em;
+}
+/* background style for 'i' */
+
+.hint-icon {
+    background: #099DF6;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    font-family: 'Libre Baskerville';
+    height: 20px;
+    line-height: 1.3em;
+    text-align: center;
+    width: 20px;
+}
+    /* hint icon hover style */
+
+    .hint-icon:hover {
+        background: #1f8ac9;
+    }
+/* Displays the hint. important! Do not remove. */
+
+.hint:hover .hint-description,
+.hint:focus .hint-description {
+    display: inline-block;
+}
+/* position of the hint  */
+
+.hint-description {
+    display: none;
+    background: #3b3b3b;
+    border: 1px solid #099DF6;
+    border-radius: 3px;
+    font-size: 0.8em;
+    color: #ffffff;
+    font-weight: bold;
+    /*padding: 1em; */
+    position: absolute;
+    left: 30px;
+    top: -15px;
+    width: 180px;
+    height: auto;
+}
+    /* styling for the arrow */
+
+    .hint-description:before,
+    .hint-description:after {
+        content: "";
+        position: absolute;
+        left: -11px;
+        top: 15px;
+        border-style: solid;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #099DF6;
+    }
+    /* overlay styling */
+
+    .hint-description:after {
+        left: -10px;
+        border-right-color: #3b3b3b;
+    }
+
+
+.Spacing {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.attributeDropDown{border:thin;}
+
+.table{
+       background-color:whitesmoke !important;
+
+}
+
+.SmallTop{padding-top:20px;}
+
+.PaddingCard{padding-top: 10%;}
+
+@media screen and (min-width: 200px) {
+    .ContactContainer {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 20% ;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .ContactContainer {
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 10%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .ContactContainer {
+        padding-left: 30%;
+        padding-right: 30%;
+        padding-top: 10%;
+    }
+}
+
+
+
+/*.btn:active {
+    background-color: mediumseagreen;
+}*/
+
+.AnimalCard {
+    border-style: none;
+    border-color: inherit;
+    /*opacity: .92 !important;*/
+    background-color: whitesmoke;
+    /*border-radius: 15px;*/
+    height: auto;
+    text-align: center;
+   
+    font-family: 'Raleway', sans-serif !important;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    /*padding-left: 20px;*/
+    padding-top: 20px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #FB9678 !important;
+}
+
+a.MonthTable:hover{ background-color:whitesmoke;}
+
+.ContainerProgram{background-color: whitesmoke;}
+}
+
+.modal-backdrop {
+    /*opacity: 0.8 !important;*/
+}
+
+.modal-content{/*background-color:darkgrey;*/}
+
+
+@media only screen and (max-width: 2700px) {
+
+    .SimpleContainer {
+        padding-left: 22%;
+        padding-right: 20%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 2200px) {
+
+    .SimpleContainer {
+        padding-left: 18%;
+        padding-right: 13%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+
+    .SimpleContainer {
+        padding-left: 13%;
+        padding-right: 10%;
+        padding-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+
+    .SimpleContainer {
+        padding-left: 5%;
+        padding-right: 7%;
+        padding-top: 10%;
+    }
+}
+    @media only screen and (max-width: 1200px) {
+
+        .SimpleContainer {
+            padding-left: 5%;
+            padding-right: 7%;
+            padding-top: 10%;
+        }
+    }
+        @media only screen and (max-width: 800px) {
+
+            .SimpleContainer {
+                padding-left: 18%;
+                padding-right: 13%;
+                padding-top: 10%;
+            }
+        }
+
+        @media only screen and (max-width: 300px) {
+
+            .SimpleContainer {
+                padding-left: 18%;
+                padding-right: 13%;
+                padding-top: 10%;
+            }
+        }
+
+        @media only screen and (max-width: 200px) {
+
+            .SimpleContainer {
+                padding-left: 6%;
+                padding-right: 5%;
+                padding-top: 10%;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+
+            .SimpleContainer {
+                padding-left: 6%;
+                padding-right: 5%;
+                padding-top: 10%;
+            }
+        }
+
+        .NotActive {
+            background-color: lightgray !important;
+        }
+
+        .TabHover:hover {
+            background-color: #339933 !important;
+        }
+
+     
+        #tabCheckBox:checked {
+            background-color: green !important;
+        }
+
+
+
+
+        @media only screen and (max-width: 2700px) {
+
+            .AnimalSimpleContainer {
+                padding-left: 22%;
+                padding-right: 20%;
+                padding-top: 10%;
+            }
+        }
+
+        @media only screen and (max-width: 2200px) {
+
+            .AnimalSimpleContainer {
+                padding-left: 18%;
+                padding-right: 13%;
+                padding-top: 10%;
+            }
+        }
+
+        @media only screen and (max-width: 1800px) {
+
+            .AnimalSimpleContainer {
+                padding-left: 13%;
+                padding-right: 10%;
+                padding-top: 10%;
+            }
+        }
+
+        @media only screen and (max-width: 1600px) {
+
+            .AnimalSimpleContainer {
+                padding-left: 5%;
+                padding-right: 7%;
+                padding-top: 10%;
+            }
+        }
+            @media only screen and (max-width: 1200px) {
+
+                .AnimalSimpleContainer {
+                    padding-left: 5%;
+                    padding-right: 7%;
+                    padding-top: 10%;
+                }
+            }
+                @media only screen and (max-width: 800px) {
+
+                    .AnimalSimpleContainer {
+                        padding-left: 18%;
+                        padding-right: 13%;
+                        padding-top: 10%;
+                    }
+                }
+
+                @media only screen and (max-width: 300px) {
+
+                    .AnimalSimpleContainer {
+                        padding-left: 18%;
+                        padding-right: 13%;
+                        padding-top: 10%;
+                    }
+                }
+
+                @media only screen and (max-width: 200px) {
+
+                    .AnimalSimpleContainer {
+                        padding-left: 6%;
+                        padding-right: 5%;
+                        padding-top: 10%;
+                    }
+                }
+
+                @media only screen and (max-width: 800px) {
+
+                    .AnimalSimpleContainer {
+                        padding-left: 6%;
+                        padding-right: 5%;
+                        padding-top: 10%;
+                    }
+                }
+
+
+                #PrgramCart {
+                    height: 50px;
+                    width: 50px;
+                    background: #F00; /* Just so we can see it */
+                    position: absolute;
+                    top: 150px;
+                    left: 50%; /* Put the left edge on the horizontal center */
+                    margin-left: 148px; /* Move it 148px to the right of the horizontal center, placing it over the lightswitch */
+                }
+
+                .ProgramCartContainer {
+                    padding: 5px 20px 15px 20px;
+                }
+
+
+                .AddProgramCard {
+                    border-style: none;
+                    border-color: inherit;
+                    border-width: 2px;
+                    opacity: 1 !important;
+                    background-color: whitesmoke;
+                    border-radius: 15px;
+                    display: block;
+                    height: auto;
+                    text-align: center;
+                    vertical-align: middle;
+                    font-family: 'Raleway', sans-serif !important;
+                    margin-bottom: 40px;
+                    padding-top:100px;
+                }
+
+
+span.price {
+    float: right;
+    color: grey;
+    margin-right:20px;
+}
+
+
+.btn-accordion {
+    background-color: transparent;
+    font-size: 18pt;
+}
+
+
+
+
+
+
+
+/* TEMPLATE */
+
+#weatherWidget .currentDesc {
+    color: #ffffff !important;
+}
+
+.traffic-chart {
+    min-height: 335px;
+}
+
+#flotPie1 {
+    height: 150px;
+}
+
+    #flotPie1 td {
+        padding: 3px;
+    }
+
+    #flotPie1 table {
+        top: 20px !important;
+        right: -10px !important;
+    }
+
+.chart-container {
+    display: table;
+    min-width: 270px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#flotLine5 {
+    height: 105px;
+}
+
+#flotBarChart {
+    height: 150px;
+}
+
+#cellPaiChart {
+    height: 160px;
+}
+
+
