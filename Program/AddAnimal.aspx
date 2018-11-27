@@ -84,6 +84,7 @@
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
+                                            <button id="btnReturn" type="button" class="btn btn-success btn-block" style="color: white;" onclick="javascript:history.go(-1)">Submit</button>
                                         </div>
                                     </div>
                                 </div>
