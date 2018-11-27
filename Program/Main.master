@@ -142,8 +142,12 @@
                         <li class="">
                             <a class="" href="Payment.aspx"><i class="menu-icon fa fa-dollar"></i>Payments</a>
                         </li>
-                        <li class="">
-                            <a class="" href="Program.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-bar-chart-o"></i>Programs</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-book"></i><a href="Program.aspx">View Programs</a></li>
+                                <li><i class="fa fa-book"></i><a href="Themes.aspx">Themes</a></li>
+                            </ul>
                         </li>
                         <li class="">
                             <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
