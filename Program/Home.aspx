@@ -3,85 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-
-
-<body>
-<%--    <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="Home.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
-                    </li>
-                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Reports</a>
-                        <ul class="sub-menu children dropdown-menu">                           
-                            <li><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
-                            <li><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                            <li><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
-                          
-                        </ul>
-                    </li>
-                     <li class="">
-                         <a class="" href="Animal.aspx"> <i class="menu-icon fa fa-github-alt"></i>Animals</a>
-                    </li>
-                   <li class="">
-                        <a class="" href="Payment.aspx"><i class="menu-icon fa fa-dollar"></i>Payments</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="Program.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
-                    </li>
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-    <!-- Right Panel -->
-    <div id="right-panel" class="right-panel">
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 10px; margin-left: -10px;"></i></a>
-                   <a class="navbar-brand" href="Home.aspx">Wildlife Center of Virginia | <span style="color: #00c292;"> <%:Session["UserFullName"]%> </span></a>
-           
-                </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-                    <div class="header-left">
-                  
-                        <div class="dropdown for-notification">
-                            <ul style="list-style-type: none;">
-                             <li class="nav-item">
-                        <a class="nav-link" style="color: dimgrey;" href="#">Staff</a>
-                    </li>
-                                </ul>
-                        </div>
-
-                        <div class="dropdown for-notification">
-                            
-                                <ul style="list-style-type: none;">
-                        <li class="nav-item">
-                        <asp:Button ID="btnLogOut" runat="server"  Text="Logout" ForeColor="#fb9678" CssClass="btn btn-link" OnClick="btnLogOut_Click"/>
-                    
-                    </li>
-
-                        </ul>
-                         
-                        </div>
-                    </div>
-
-                  
-
-                </div>
-            </div>
-        </header>--%>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
@@ -340,15 +261,5 @@
             </div>
         </div>
     </div>
-
-
-
-</body>
-
-
-
-
-
-
 
 </asp:Content>
