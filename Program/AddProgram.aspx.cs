@@ -308,9 +308,9 @@ public partial class AddProgram : System.Web.UI.Page
             for (int j = 0; j < NewProgram.programList.Count; j++)
             {
                 string insertIntoNewProgram = "INSERT INTO NewProgram([TotalKids], [TotalAdults]," +
-               "[TotalPeople], [AgeLevel], [TotalMileage], [NewProgramStatus], [TimeSlot]," +
+               "[TotalPeople], [AgeLevel], [NewProgramStatus], [TimeSlot]," +
                "[DateCompleted], [LocationType], [MiscNotes], [ProgramID], [AddressID],[LastUpdated], [LastUpdatedBy]) VALUES (" +
-               "@kid, @adult, @totalPeople, @age, @mileage, @status, @time, @complete," +
+               "@kid, @adult, @totalPeople, @age, @status, @time, @complete," +
                "@location, @miscNotes, @programid, @addressid, @LU, @LUB)";
 
                 using (SqlCommand command = new SqlCommand(insertIntoNewProgram, connection))
@@ -319,7 +319,6 @@ public partial class AddProgram : System.Web.UI.Page
                     command.Parameters.AddWithValue("@adult", NewProgram.programList[j].getNumAdults());
                     command.Parameters.AddWithValue("@totalpeople", NewProgram.programList[j].getTotalPeople());
                     command.Parameters.AddWithValue("@age", NewProgram.programList[j].getAgeLevel());
-                    command.Parameters.AddWithValue("@mileage", NewProgram.programList[j].getTotalMileage());
                     command.Parameters.AddWithValue("@status", NewProgram.programList[j].getProgramStatus());
                     command.Parameters.AddWithValue("@time", NewProgram.programList[j].getTimeSlot());
                     command.Parameters.AddWithValue("@complete", NewProgram.programList[j].getDateCompleted());
@@ -537,6 +536,7 @@ public partial class AddProgram : System.Web.UI.Page
             string findOrgID = "SELECT OrganizationID from Organization where OrganizationName = @selectedOrg";
             using (SqlCommand command = new SqlCommand(findOrgID, connection))
             {
+                connection.Open();
                 command.Parameters.AddWithValue("@selectedOrg", Convert.ToString(drpOrganizationList.SelectedItem.Text));
                 orgID = Convert.ToInt32(command.ExecuteScalar());
             }

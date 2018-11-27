@@ -146,38 +146,43 @@ public partial class SimpleReport : System.Web.UI.Page
         SqlDataSource48.SelectCommand = "SELECT distinct Format(DateCompleted, 'MM/dd/yyyy') as 'DateCompleted', AnimalName, count(a.AnimalID) as Programs, sum(TotalPeople) as TotalPeople from Animal a inner join AssignAnimal aa on a.AnimalID = aa.AnimalID inner join NewProgram np on np.NewProgramID = aa.NewProgramID WHERE DateCompleted >= '" + start + "' and DateCompleted <= '" + end + "' GROUP BY AnimalName, DateCompleted";
         animalGrid.DataBind();
     }
-    public string HighlightText(string InputTxt)
-    {
-        string Search_Str = txtYear.Text;
-        // Setup the regular expression and add the Or operator.
-        Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
-        // Highlight keywords by calling the
-        //delegate each time a keyword is found.
-        return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
-    }
+    //public string HighlightText(string InputTxt)
+    //{
+    //    string Search_Str = txtYear.Text;
+    //    // Setup the regular expression and add the Or operator.
+    //    Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
+    //    // Highlight keywords by calling the
+    //    //delegate each time a keyword is found.
+    //    return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
+    //}
 
     public string ReplaceKeyWords(Match m)
     {
         return ("<span class=highlight>" + m.Value + "</span>");
     }
-    protected void btnFilter_Click(object sender, EventArgs e)
-    {
-        //  Set the value of the SearchString so it gets
-        SearchString = Convert.ToString(txtYear.Text);
-    }
+    //protected void btnFilter_Click(object sender, EventArgs e)
+    //{
+    //    //  Set the value of the SearchString so it gets
+    //    SearchString = Convert.ToString(txtYear.Text);
+    //}
 
-    protected void dateClear_Click(object sender, EventArgs e)
+    //protected void dateClear_Click(object sender, EventArgs e)
+    //{
+    //    //  Simple clean up text to return the Gridview to it's default state
+    //    txtYear.Text = "";
+    //    SearchString = "";
+    //    offsiteGrid.DataBind();
+    //    onsiteGrid.DataBind();
+    //    onlineGrid.DataBind();
+    //    totAdultsGrid.DataBind();
+    //    totKidsGrid.DataBind();
+    //    totPeopleGrid.DataBind();
+    //    totProgramsGrid.DataBind();
+
+    //}
+
+    protected void ddlYearFilter_SelectedIndexChanged(object sender, EventArgs e)
     {
-        //  Simple clean up text to return the Gridview to it's default state
-        txtYear.Text = "";
-        SearchString = "";
-        offsiteGrid.DataBind();
-        onsiteGrid.DataBind();
-        onlineGrid.DataBind();
-        totAdultsGrid.DataBind();
-        totKidsGrid.DataBind();
-        totPeopleGrid.DataBind();
-        totProgramsGrid.DataBind();
 
     }
 }
