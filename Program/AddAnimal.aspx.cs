@@ -15,7 +15,7 @@ public partial class AddAnimal : System.Web.UI.Page
     {
         Animals animal = new Animals(null, null, 
             txtName.Text, drpAnimalType.SelectedValue, 
-            drpStatus.SelectedValue, DateTime.Toda
+            drpStatus.SelectedValue, DateTime.Today,
             Session["UserFullName"].ToString());
     }
 }
