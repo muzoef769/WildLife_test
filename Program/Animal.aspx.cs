@@ -281,7 +281,34 @@ public partial class Animal : System.Web.UI.Page
 
 
     }
-}
+
+    protected void btnClearAll_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchAnimal.Text = "";
+            SearchString = "";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+                {
+                    connection.Open();
+                    string sql = "SELECT Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.Image, SUM(ISNULL(NewProgram.TotalKids, '0')) AS TotalKids, SUM(ISNULL(NewProgram.TotalAdults, '0')) AS TotalAdults, SUM(ISNULL(NewProgram.TotalPeople, '0')) AS TotalPeople, COUNT(AssignAnimal.AssignAnimalID) AS TotalPrograms FROM Animal LEFT OUTER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID LEFT OUTER JOIN NewProgram ON AssignAnimal.NewProgramID = NewProgram.NewProgramID GROUP BY Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.LastUpdatedBy, Animal.Image";
+                using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
+                    {
+                        DataSet data = new DataSet();
+                        sda.Fill(data);
+                        this.GridView1.DataSource = data;
+                        GridView1.DataBind();
+                    }
+                }
+            }
+            catch (Exception E)
+            {
+
+            }
+        }
+    }
+
 
 
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="OrganizationView.aspx.cs" Inherits="OrganizationView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="OrganizationView.aspx.cs" EnableEventValidation="false" Inherits="OrganizationView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     
@@ -186,15 +186,23 @@
                             
                                 <div class=" ml-auto d-flex justify-content-end row" >
           
-                                  <asp:TextBox ID="txtSearchAll" Placeholder="Search by Org Name"  Style="margin-right:5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" runat="server" AutoPostBack="True"
+                                  <asp:TextBox ID="txtSearchAll" Placeholder="Search by Organization Name"  Style="margin-right:5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" runat="server" AutoPostBack="True"
                                     OnTextChanged="txtSearchAll_TextChanged"></asp:TextBox>
-                    <asp:Button
+                                    <asp:Button ID="btnSearchAll" 
+                                        runat="server" 
+                                        Text="Search"
+                                        CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
+                                        Style ="margin-right: 5px;"
+                                        OnClick ="btnSearchAll_Click"/>
+<%--                    <asp:Button
                         ID="btnSearchAll"
                         runat="server" 
                         CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
                         Text="Search"
-                         Style="margin-right:5px;"
-                        OnClick="btnSearchAll_Click"/>
+                        Style="margin-right:5px;"
+                        OnClick="btnSearchAll_Click"
+                        role ="button"
+                        AutoPostBack ="false"/>--%>
                     <asp:Button
                         ID="btnClearAll"
                         CssClass="btn col-xl-1 col-lg-2 col-md-2 col-sm-2"
