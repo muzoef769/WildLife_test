@@ -11,13 +11,13 @@ public class Programs
     private int ProgramID;
     private string ProgramName;
     private string ProgramType;
-    private int ProgramCost;
+    private double ProgramCost;
     private int Capacity;
     private DateTime LastUpdated;
     private string LastUpdatedBy;
 
     public Programs(string programName,string programType,
-        int programCost, int capacity,
+        double programCost, int capacity,
         DateTime lastUpdated, string lastUpdatedBy)
     {
         ProgramName = programName;
@@ -29,7 +29,7 @@ public class Programs
     }
 
     public Programs(int programID, string programName,
-        string programType, int programCost,int capacity,
+        string programType, double programCost,int capacity,
         DateTime lastUpdated, string lastUpdatedBy)
     {
         ProgramID = programID;
@@ -44,7 +44,7 @@ public class Programs
     public int ProgramID1 { get => ProgramID; set => ProgramID = value; }
     public string ProgramName1 { get => ProgramName; set => ProgramName = value; }
     public string ProgramType1 { get => ProgramType; set => ProgramType = value; }
-    public int ProgramCost1 { get => ProgramCost; set => ProgramCost = value; }
+    public double ProgramCost1 { get => ProgramCost; set => ProgramCost = value; }
     public int Capacity1 { get => Capacity; set => Capacity = value; }
     public DateTime LastUpdated1 { get => LastUpdated; set => LastUpdated = value; }
     public string LastUpdatedBy1 { get => LastUpdatedBy; set => LastUpdatedBy = value; }
