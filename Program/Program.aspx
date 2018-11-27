@@ -22,12 +22,12 @@
             }
         });</script>
 
-    <!-- Content -->
+    <%--<!-- Content -->
     <div class="content">
         <!-- Animated -->
-        <div class="animated fadeIn">
+        <div class="animated fadeIn">--%>
             <!-- Widgets  -->
-            <div class="row">
+            <%--<div class="row">
 
                 <div class="col-lg-4 col-md-6">
                     <div class="card" data-toggle="modal" data-target="#AddModal">
@@ -91,7 +91,7 @@
 
 
 
-            </div>
+            </div>--%>
             <!-- /Widgets -->
             <!--  Traffic  -->
             <div class="card-body">
@@ -479,7 +479,7 @@
 
 
             <!-- /#add-category -->
-        </div>
+       <%-- </div>
         <!-- .animated -->
     </div>
     <!-- /.content -->
@@ -494,7 +494,7 @@
 
             </div>
         </div>
-    </footer>
+    </footer>--%>
     <!-- /.site-footer -->
     <%--</div>--%>
     <!-- /#right-panel -->

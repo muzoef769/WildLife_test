@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-        <!-- /#header -->
-        <!-- Content -->
+        
+        <%--<!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /Widgets -->
+                <!-- /Widgets -->--%>
                 <!--  Traffic  -->
                 <div class="card-body">
                                 <h4 class="box-title">Pending Volunteers </h4>
@@ -178,7 +178,7 @@
              
 
             <!-- /#add-category -->
-            </div>
+           <%-- </div>
             <!-- .animated -->
         </div>
         <!-- /.content -->
@@ -193,7 +193,7 @@
                   
                 </div>
             </div>
-        </footer>
+        </footer>--%>
         <!-- /.site-footer -->
     <%--</div>--%>
     <!-- /#right-panel -->

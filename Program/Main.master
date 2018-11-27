@@ -48,22 +48,22 @@
     --%>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-<script>
-$(document).ready(function() {
-    var url = window.location;                
-    $('ul.nav li a').each(function () {
-         if (this.href == url) {
-              $("ul.nav li").each(function () {
-                   if ($(this).hasClass("active")) {
-                        $(this).removeClass("active");
-                   }
-              });
-              $(this).parent().addClass('active');
-         }
-    });
-});
-</script>
-    
+    <script>
+        $(document).ready(function () {
+            var url = window.location;
+            $('ul.nav li a').each(function () {
+                if (this.href == url) {
+                    $("ul.nav li").each(function () {
+                        if ($(this).hasClass("active")) {
+                            $(this).removeClass("active");
+                        }
+                    });
+                    $(this).parent().addClass('active');
+                }
+            });
+        });
+    </script>
+
 
 
 </head>
@@ -152,8 +152,8 @@ $(document).ready(function() {
                             <a class="" href="Manage.aspx"><i class="menu-icon fa fa-group"></i>Manage Users</a>
                         </li>
                         <li class="">
-                            <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#fb9678" OnClick="Clear_Session" CssClass="nav-link">Logout</asp:LinkButton>
-                            <%--<a class="" href="Manage.aspx"><i class="menu-icon fa fa-group"></i>Manage Users</a>--%>
+                            <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#ff3333" OnClick="Clear_Session" CssClass=""><i class="menu-icon fa fa-sign-out"></i>Logout</asp:LinkButton>
+                            <%--<a class="text-danger" href="#" runat="server" onserverclick="Clear_Session"><i class="menu-icon fa fa-sign-out"></i>Logout</a>--%>
                         </li>
 
 
@@ -163,6 +163,7 @@ $(document).ready(function() {
             </nav>
         </aside>
         <!-- /#left-panel -->
+
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
             <!-- Header-->
@@ -170,7 +171,7 @@ $(document).ready(function() {
                 <div class="top-left">
                     <div class="navbar-header">
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 21px; margin-left: 0px; font-size: large"></i></a>
-                        <a class="navbar-brand" href="Home.aspx">Wildlife Center of Virginia | <span style="color: #00c292;"><%:Session["UserFullName"]%> </span></a>
+                        <a class="navbar-brand text-dark" href="Home.aspx">Wildlife Center of Virginia <b>|</b> <span style="color: #00c292;"><%:Session["UserFullName"]%> </span></a>
 
                     </div>
                 </div>
@@ -181,15 +182,92 @@ $(document).ready(function() {
                     </div>
                 </div>
             </header>
+            <!-- /#header -->
+
+            <!-- Content -->
+            <div class="content bg-light" >
+                <!-- Animated -->
+                <div class="animated fadeIn">
+
+                    <div class="row">
+                        <!-- Widgets  -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card" data-toggle="modal" data-target="#AddModal">
+                                <div class="card-body">
+                                    <div class="stat-widget-five">
+                                        <div class="stat-icon dib flat-color-1">
+                                            <i class="fa fa-github-alt"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="text-left dib">
+
+                                                <div class="stat-heading" style="margin-top:10px;"><h3>Add Animal</h3></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <a href="AddProgram.aspx">
+                                    <div class="card-body">
+                                        <div class="stat-widget-five">
+                                            <div class="stat-icon dib flat-color-3">
+                                                <i class="pe-7s-browser"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="text-left dib">
+
+                                                    <div class="stat-heading" style="margin-top:10px;"><h3>Add Program</h3></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <a href="AddOrganization.aspx">
+                                    <div class="card-body">
+                                        <div class="stat-widget-five">
+                                            <div class="stat-icon col-2 dib flat-color-2">
+                                                <i class="pe-7s-add-user"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="text-left dib">
+
+                                                    <div class="stat-heading" style="margin-top:10px;"><h3>Add Organization</h3></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
 
 
 
 
+                    </div>
+                    <!-- /Widgets -->
 
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+
+
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+                <!-- .animated -->
+            </div>
+            <!-- /.content -->
 
         </div>
+
 
     </form>
 
