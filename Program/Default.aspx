@@ -1,7 +1,12 @@
 ﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-
+        <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <div class="container-fluid LoginContainer">
         <div class="card mx-auto  LoginCard" style="width: 25rem;">
             <div class="card-body ">
@@ -14,24 +19,27 @@
                 <div class="form-group ">
                     <asp:TextBox ID="txtPassword" placeholder="Password" TextMode="Password" required="required" CssClass="form-control text-center " runat="server"></asp:TextBox>
                 </div>
-               
+
                 <div class="form-group ">
                     <div class="text-center">
-                        <asp:TextBox ID="txtStatus" runat="server" Visible="true" ForeColor="Transparent"  BorderStyle="None" ReadOnly="true" OnTextChanged="txtStatus_TextChanged" CssClass="text-center status"></asp:TextBox>
+                        <asp:TextBox ID="txtStatus" runat="server" Visible="true" ForeColor="Transparent" BorderStyle="None" ReadOnly="true" OnTextChanged="txtStatus_TextChanged" CssClass="text-center status"></asp:TextBox>
                     </div>
                 </div>
-                 <asp:LinkButton ID="btnPass" runat="server" OnClick="PasswordReset" CausesValidation="true" UseSubmitBehavior="false" CssClass="btn-link">Password Reset</asp:LinkButton>
+                <asp:LinkButton ID="btnPass" runat="server" OnClick="PasswordReset" CausesValidation="true" UseSubmitBehavior="false" CssClass="btn-link">Password Reset</asp:LinkButton>
                 <br />
                 <br />
                 <div class="row">
 
-                    <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 offset-2">
+                    <div class="col col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 mb-1 row">
                         <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-success btn-block" OnClick="btnLogin_Click" Text="Login" CausesValidation="true" UseSubmitBehavior="false" />
                     </div>
-                    <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 ">
+
+                    <div class="col col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 mb-1 justify-content-end row ">
                         <a class="btn btn-success btn-block" data-toggle="modal" data-target="#RegisterModal" href="index.html" role="button" runat="server">Register
                         </a>
                     </div>
+
+
 
                 </div>
 

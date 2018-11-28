@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Net.Mail;
 using System.Text;
 using System.Web.Configuration;
@@ -28,12 +29,13 @@ public partial class PasswordReset : System.Web.UI.Page
                 if (Convert.ToBoolean(reader["ReturnCode"]))
                 {
                     SendPasswordResetEmail(reader["Email"].ToString(), txtUserName.Text, reader["UniqueId"].ToString());
-                    lblMessage.Text = "An email with instructions to reset your password is sent to your email.";
+                    txtMessage.Text = "An email with instructions to reset your password has been sent to your email.";
+                    txtMessage.ForeColor = Color.White;
                 }
                 else
                 {
-                    lblMessage.ForeColor = System.Drawing.Color.Red;
-                    lblMessage.Text = "UserName not found!";
+                    txtMessage.ForeColor = System.Drawing.Color.White;
+                    txtMessage.Text = "UserName not found!";
                 }
             }
         }
