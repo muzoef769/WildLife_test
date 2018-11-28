@@ -332,9 +332,9 @@
                         <li class="" id="org">
                             <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
                         </li>
-<%--                        <li class="" id="user">
+                        <li class="" id="user">
                             <a class="" href="Manage.aspx"><i class="menu-icon fa fa-group"></i>Manage Users</a>
-                        </li>--%>
+                        </li>
                         <li class="" id="logout">
                             <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#ff3333" OnClick="Clear_Session" CssClass=""><i class="menu-icon fa fa-sign-out"></i>Logout</asp:LinkButton>
                             <%--<a class="text-danger" href="#" runat="server" onserverclick="Clear_Session"><i class="menu-icon fa fa-sign-out"></i>Logout</a>--%>
