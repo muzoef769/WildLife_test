@@ -40,48 +40,48 @@ public partial class Animal : System.Web.UI.Page
 
 
 
-    protected void btnAddModal_Click(object sender, EventArgs e)
-    {
+    //protected void btnAddModal_Click(object sender, EventArgs e)
+    //{
 
 
-        Animals newAnimal = new Animals(
-           "",
-           "",
-           txtAddName.Text,
-           ddlAddType.SelectedValue.ToString(),
-          ddlAddStatus.SelectedValue,
-           DateTime.Today,
-           "Staff"
+    //    Animals newAnimal = new Animals(
+    //       "",
+    //       "",
+    //       txtAddName.Text,
+    //       ddlAddType.SelectedValue.ToString(),
+    //      ddlAddStatus.SelectedValue,
+    //       DateTime.Today,
+    //       "Staff"
 
 
 
 
-           );
+    //       );
         
-        FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
-        ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
-        string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
-        SqlCommand addAnimal = new SqlCommand(creatAnimal, sc);
-        sc.Open();
-        addAnimal.Parameters.AddWithValue("@Species", DBNull.Value);
-        addAnimal.Parameters.AddWithValue("@ScientificName", DBNull.Value);
-        addAnimal.Parameters.AddWithValue("@AnimalName", newAnimal.getAnimalName());
-        addAnimal.Parameters.AddWithValue("@AnimalType", newAnimal.getAnimalType());
-        addAnimal.Parameters.AddWithValue("@Status", newAnimal.getStatus());
-        addAnimal.Parameters.AddWithValue("@LastUpdated", newAnimal.getLastUpdated());
-        addAnimal.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"]);
-        addAnimal.Parameters.AddWithValue("@Image", ImageString);
+    //    FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
+    //    ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
+    //    string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
+    //    SqlCommand addAnimal = new SqlCommand(creatAnimal, sc);
+    //    sc.Open();
+    //    addAnimal.Parameters.AddWithValue("@Species", DBNull.Value);
+    //    addAnimal.Parameters.AddWithValue("@ScientificName", DBNull.Value);
+    //    addAnimal.Parameters.AddWithValue("@AnimalName", newAnimal.getAnimalName());
+    //    addAnimal.Parameters.AddWithValue("@AnimalType", newAnimal.getAnimalType());
+    //    addAnimal.Parameters.AddWithValue("@Status", newAnimal.getStatus());
+    //    addAnimal.Parameters.AddWithValue("@LastUpdated", newAnimal.getLastUpdated());
+    //    addAnimal.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"]);
+    //    addAnimal.Parameters.AddWithValue("@Image", ImageString);
         
-        addAnimal.ExecuteNonQuery();
+    //    addAnimal.ExecuteNonQuery();
 
-        txtAddName.Text = " ";
+    //    txtAddName.Text = " ";
 
-        GridView1.DataBind();
-
-
+    //    GridView1.DataBind();
 
 
-    }
+
+
+    //}
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
