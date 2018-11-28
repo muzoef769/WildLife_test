@@ -91,7 +91,7 @@ public partial class Default : System.Web.UI.Page
                     {
                         while (volunteerReader.Read())
                         {
-                            Response.Redirect("VolunteerHome.aspx", false);
+                            Response.Redirect("VolunteerProgram.aspx", false);
                         }
 
                     }

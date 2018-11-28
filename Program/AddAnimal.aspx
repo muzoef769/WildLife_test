@@ -63,7 +63,7 @@
                                                     <label for="drpAnimalType" class="label-style">Animal Type</label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <asp:DropDownList ID="drpAnimalType" runat="server" CssClass="btn dropdown-toggle" Style="background-color: whitesmoke;">
+                                                    <asp:DropDownList ID="drpAnimalType" runat="server" CssClass="btn btn-block dropdown-toggle" Style="background-color: whitesmoke;">
                                                         <asp:ListItem></asp:ListItem>
                                                         <asp:ListItem>Bird</asp:ListItem>
                                                         <asp:ListItem>Mammal</asp:ListItem>
@@ -76,7 +76,7 @@
                                                     <label for="drpStatus" class="label-style">Animal Status</label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <asp:DropDownList ID="drpStatus" runat="server" CssClass="btn dropdown-toggle" Style="background-color: whitesmoke;">
+                                                    <asp:DropDownList ID="drpStatus" runat="server" CssClass="btn btn-block dropdown-toggle" Style="background-color: whitesmoke;">
                                                         <asp:ListItem></asp:ListItem>
                                                         <asp:ListItem>Active</asp:ListItem>
                                                         <asp:ListItem>Inactive</asp:ListItem>
