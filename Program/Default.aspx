@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-
+     
+   
     <div class="container-fluid LoginContainer">
         <div class="card mx-auto  LoginCard" style="width: 25rem;">
             <div class="card-body ">
@@ -14,24 +15,30 @@
                 <div class="form-group ">
                     <asp:TextBox ID="txtPassword" placeholder="Password" TextMode="Password" required="required" CssClass="form-control text-center " runat="server"></asp:TextBox>
                 </div>
-               
+
                 <div class="form-group ">
                     <div class="text-center">
-                        <asp:TextBox ID="txtStatus" runat="server" Visible="true" ForeColor="Transparent"  BorderStyle="None" ReadOnly="true" OnTextChanged="txtStatus_TextChanged" CssClass="text-center status"></asp:TextBox>
+                        <asp:TextBox ID="txtStatus" runat="server" Visible="true" ForeColor="Transparent" BorderStyle="None" ReadOnly="true" OnTextChanged="txtStatus_TextChanged" CssClass="text-center status"></asp:TextBox>
                     </div>
                 </div>
-                 <asp:LinkButton ID="btnPass" runat="server" OnClick="PasswordReset" CausesValidation="true" UseSubmitBehavior="false" CssClass="btn-link">Password Reset</asp:LinkButton>
+                <asp:LinkButton ID="btnPass" runat="server" OnClick="PasswordReset" CausesValidation="true" UseSubmitBehavior="false" CssClass="btn-link">Password Reset</asp:LinkButton>
                 <br />
                 <br />
                 <div class="row">
 
-                    <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 offset-2">
-                        <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-success btn-block" OnClick="btnLogin_Click" Text="Login" CausesValidation="true" UseSubmitBehavior="false" />
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 ">
-                        <a class="btn btn-success btn-block" data-toggle="modal" data-target="#RegisterModal" href="index.html" role="button" runat="server">Register
+                    <div class="col col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 mb-1 row">
+                       <a class="btn  btn-block" Style="background-color: #fb9678; color: #fff; " data-toggle="modal" data-target="#RegisterModal" href="index.html" role="button" runat="server">Register
                         </a>
+                        
+                        
+                          </div>
+
+                    <div class="col col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 mb-1 justify-content-end row ">
+                        <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-success btn-block" OnClick="btnLogin_Click" Text="Login" CausesValidation="true" UseSubmitBehavior="false" />
+                  
                     </div>
+
+
 
                 </div>
 
@@ -52,39 +59,43 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <asp:TextBox ID="txtFirstName" class="form-control" placeholder="First name" required="required" runat="server" MaxLength="50"></asp:TextBox>
+                                            <asp:TextBox ID="txtFirstName" class="form-control" Style="background-color: whitesmoke;" placeholder="First name" required="required" runat="server" MaxLength="50"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server" MaxLength="50"></asp:TextBox>
+                                            <asp:TextBox ID="txtLastName" class="form-control" Style="background-color: whitesmoke;" placeholder="Last name" required="required" runat="server" MaxLength="50"></asp:TextBox>
 
                                         </div>
+                                    </div> </div>
+                                <br />
+
+                                 <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                           <asp:TextBox ID="txtEmail" class="form-control" Style="background-color: whitesmoke;" placeholder="Email" required="required" runat="server" MaxLength="50"></asp:TextBox>
+  </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <asp:TextBox ID="txtEmail" class="form-control" placeholder="Email" required="required" runat="server" MaxLength="50"></asp:TextBox>
+                                            <asp:TextBox ID="txtNewUsername" class="form-control" Style="background-color: whitesmoke;" placeholder="Username" required="required" runat="server" MaxLength="50"></asp:TextBox>
 
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-label-group">
-                                    <asp:TextBox ID="txtNewUsername" class="form-control" placeholder="Username" required="required" runat="server" MaxLength="50"></asp:TextBox>
+                                    </div> </div>
 
-                                </div>
+                                   
                             </div>
+                            
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <input id="txtNewPassword" type="password" class="form-control" placeholder="Password" autocomplete="off" runat="server" clientidmode="Static" required>
+                                            <input id="txtNewPassword" type="password" class="form-control" Style="background-color: whitesmoke;" placeholder="Password" autocomplete="off" runat="server" clientidmode="Static" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <input id="txtConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" autocomplete="off" runat="server" clientidmode="Static" required>
+                                            <input id="txtConfirmPassword" type="password" class="form-control" Style="background-color: whitesmoke;" placeholder="Confirm Password" autocomplete="off" runat="server" clientidmode="Static" required>
                                             <div id="errors" class="text-center well" style="font-size: inherit"></div>
 
                                             <asp:CompareValidator
@@ -117,7 +128,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="form-group col-md-4 mx-auto">
+                            <div class="form-group col-12 mx-auto">
                                 <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-success btn-block" OnClick="btnRegister_Click" UseSubmitBehavior="false" ValidationGroup="registerValidation" />
 
                                 <div class="text-center">

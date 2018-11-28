@@ -3,30 +3,46 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+using System.Drawing;
+using System.Threading.Tasks;
 
 public partial class ChangePassword : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (IsPostBack)
+        {
+            txtMessage.ForeColor = Color.Transparent;
+
+
+        }
+
         if (!IsPostBack)
         {
             if (!IsPasswordResetLinkValid())
             {
-                lblMessage1.ForeColor = System.Drawing.Color.Red;
-                lblMessage1.Text = "Password Reset link has expired or is invalid";
+                txtMessage.ForeColor = Color.White;
+                txtMessage.Text = "Password Reset link has expired or is invalid";
             }
         }
     }
+
+
+        
+ 
+
     protected void ChangeResetPassword(object sender, EventArgs e)
     {
         if (ChangePasswords())
         {
-            lblMessage1.Text = "Password Changed Successfully";
+            txtMessage.ForeColor = Color.White;
+            txtMessage.Text = "Password Changed Successfully";
+            Response.AddHeader("REFRESH", "3;URL=Default.aspx");
         }
         else
         {
-            lblMessage1.ForeColor = System.Drawing.Color.Red;
-            lblMessage1.Text = "Password Reset link has expired or is invalid";
+            txtMessage.ForeColor = Color.White;
+            txtMessage.Text = "Password Reset link has expired or is invalid";
         }
     }
     private bool ChangePasswords()
@@ -78,6 +94,6 @@ public partial class ChangePassword : System.Web.UI.Page
 
     protected void btnReturn_Click(object sender, EventArgs e)
     {
-        Server.Transfer("Default.aspx",false);
+        Server.Transfer("Default.aspx", false);
     }
 }

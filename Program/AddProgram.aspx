@@ -14,10 +14,9 @@
 
 
     <%--Beginning container--%>
-    <br />
-    <br />
-    <br />
-    <h1 id="ProgramMonth" class=" CardTitle mx-auto d-flex justify-content-center ">Add Program</h1>
+    <div class="card-body">
+                <h3 class="box-title">Add Program</h3>
+            </div>
 
 
     <div>

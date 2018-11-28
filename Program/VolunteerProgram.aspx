@@ -23,9 +23,7 @@
         });</script>
 
     <!-- Content -->
-    <div class="content">
-        <!-- Animated -->
-        <div class="animated fadeIn">
+    
             <!--  Traffic  -->
             <div class="card-body">
                 <h4 class="box-title">View Program Info</h4>
@@ -412,22 +410,11 @@
 
 
             <!-- /#add-category -->
-        </div>
-        <!-- .animated -->
-    </div>
+       
     <!-- /.content -->
     <div class="clearfix"></div>
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-inner bg-white">
-            <div class="row">
-                <div class="col-sm-6">
-                    Wildlife Center of Virginia
-                </div>
-
-            </div>
-        </div>
-    </footer>
+  
     <!-- /.site-footer -->
     <%--</div>--%>
     <!-- /#right-panel -->

@@ -209,6 +209,7 @@ public partial class Payment : System.Web.UI.Page
         allInvGrid.DataBind();
         outInvGrid.DataBind();
         paidGrid.DataBind();
+        canceledInvGrid.DataBind();
     }
 
 
@@ -246,5 +247,20 @@ public partial class Payment : System.Web.UI.Page
         {
             ddl.SelectedValue = "TBD";
         }
+    }
+
+    protected void btnCanceled_Click(object sender, EventArgs e)
+    {
+        // Hides the first column in the grid (zero-based index)
+        canceledInvGrid.HeaderRow.Cells[0].Visible = false;
+
+        // Loop through the rows and hide the cell in the first column
+        for (int i = 0; i < canceledInvGrid.Rows.Count; i++)
+        {
+            GridViewRow row = canceledInvGrid.Rows[i];
+            row.Cells[0].Visible = false;
+        }
+
+        ExportToExcel(canceledInvGrid, "Canceled");
     }
 }

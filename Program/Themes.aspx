@@ -25,26 +25,14 @@
      <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 ">
          <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProgramID" DataSourceID="themeDatasource" BackColor="White" HorizontalAlign="Left"  Class="  table table-condensed table-bordered table-hover AnimalCard" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
              <Columns>
-                 <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" InsertVisible="False" ReadOnly="True" SortExpression="ProgramID" />
-                 <asp:BoundField DataField="ProgramName" HeaderText="ProgramName" SortExpression="ProgramName" />
-                 <asp:BoundField DataField="ProgramType" HeaderText="ProgramType" SortExpression="ProgramType" />
+                 <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" InsertVisible="False" SortExpression="ProgramID" />
+                 <asp:BoundField DataField="ProgramName" HeaderText="Theme Name" SortExpression="ProgramName" />
+                 <asp:BoundField DataField="ProgramType" HeaderText="Theme Type" SortExpression="ProgramType" />
                  <asp:BoundField DataField="Capacity" HeaderText="Capacity" SortExpression="Capacity" />
-                 <asp:BoundField DataField="ProgramCost" HeaderText="ProgramCost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}"/>
+                 <asp:BoundField DataField="ProgramCost" HeaderText="Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}"/>
              </Columns>
-             <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+             <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
          </asp:GridView>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
          <asp:SqlDataSource ID="themeDatasource" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT [ProgramID], [ProgramName], [ProgramType], [Capacity], [ProgramCost] FROM [Program]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND (([ProgramType] = @original_ProgramType) OR ([ProgramType] IS NULL AND @original_ProgramType IS NULL)) AND (([Capacity] = @original_Capacity) OR ([Capacity] IS NULL AND @original_Capacity IS NULL)) AND (([ProgramCost] = @original_ProgramCost) OR ([ProgramCost] IS NULL AND @original_ProgramCost IS NULL))" InsertCommand="INSERT INTO [Program] ([ProgramName], [ProgramType], [Capacity], [ProgramCost]) VALUES (@ProgramName, @ProgramType, @Capacity, @ProgramCost)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName, [ProgramType] = @ProgramType, [Capacity] = @Capacity, [ProgramCost] = @ProgramCost WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND (([ProgramType] = @original_ProgramType) OR ([ProgramType] IS NULL AND @original_ProgramType IS NULL)) AND (([Capacity] = @original_Capacity) OR ([Capacity] IS NULL AND @original_Capacity IS NULL)) AND (([ProgramCost] = @original_ProgramCost) OR ([ProgramCost] IS NULL AND @original_ProgramCost IS NULL))">

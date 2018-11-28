@@ -14,7 +14,7 @@
     <div class="content">
         <div class="animated fadeIn">
             <div class="card-body">
-                <h4 class="box-title">Add Animal</h4>
+                <h3 class="box-title">Add Animal</h3>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -63,8 +63,8 @@
                                                     <label for="drpAnimalType" class="label-style">Animal Type</label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <asp:DropDownList ID="drpAnimalType" runat="server" CssClass="btn dropdown-toggle" Style="background-color: whitesmoke;">
-                                                        <asp:ListItem></asp:ListItem>
+                                                    <asp:DropDownList ID="drpAnimalType" runat="server" CssClass="btn btn-block dropdown-toggle" Style="background-color: whitesmoke;">
+                                                        <asp:ListItem Value="0" Text=" "> </asp:ListItem>
                                                         <asp:ListItem>Bird</asp:ListItem>
                                                         <asp:ListItem>Mammal</asp:ListItem>
                                                         <asp:ListItem>Repitle</asp:ListItem>
@@ -76,15 +76,15 @@
                                                     <label for="drpStatus" class="label-style">Animal Status</label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <asp:DropDownList ID="drpStatus" runat="server" CssClass="btn dropdown-toggle" Style="background-color: whitesmoke;">
-                                                        <asp:ListItem></asp:ListItem>
+                                                    <asp:DropDownList ID="drpStatus" runat="server" CssClass="btn btn-block dropdown-toggle" Style="background-color: whitesmoke;">
+                                                        <asp:ListItem Value="0" Text=" "> </asp:ListItem>
                                                         <asp:ListItem>Active</asp:ListItem>
                                                         <asp:ListItem>Inactive</asp:ListItem>
                                                         <asp:ListItem>Temporarily Inactive</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
-                                            <button id="btnReturn" type="button" class="btn btn-success btn-block" style="color: white;" onclick="javascript:history.go(-1)">Submit</button>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <asp:Button ID="btnReturn" runat="server" CssClass="btn btn-success btn-block" style="color: white;" OnClick="BtnAddAnimal" Text ="Submit" UseSubmitBehavior="false"/>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
