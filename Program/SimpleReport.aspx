@@ -195,7 +195,7 @@
                         <asp:ListItem Value="2017">2017</asp:ListItem>
                         <asp:ListItem Value="2018">2018</asp:ListItem>
                     </asp:DropDownList>
-                <br />
+                <br /><br />
 
                                         <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
                                             <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">

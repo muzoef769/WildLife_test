@@ -29,7 +29,7 @@
                         <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-success btn-block" OnClick="btnLogin_Click" Text="Login" CausesValidation="true" UseSubmitBehavior="false" />
                     </div>
                     <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 ">
-                        <a class="btn btn-success btn-block" data-toggle="modal" data-target="#RegisterModal" href="index.html" role="button" runat="server">Register
+                        <a class="btn  btn-block" data-toggle="modal" data-target="#RegisterModal"  Style="background-color: #fb9678; color: #fff; " href="index.html" role="button" runat="server">Register
                         </a>
                     </div>
 

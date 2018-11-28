@@ -2,16 +2,16 @@
 
 <asp:Content ID="ContentBody" ContentPlaceHolderID="MainContent" runat="Server">
 
-    <div>
+    
         <%--<h2 class="display-3 text-center text-white mb-3">Create User</h2>--%>
 
-        <div class="container-fluid ProgramContainer">
+        <div class="">
             <div class=" card mx-auto ProgramCard">
                 <div class="card-body">
                 <div class="text-left form-group row">
-                    <label for="userType" class="col-4 font-weight-bold">Type:</label>
+                    <label for="userType" class="col-4 ">Type:</label>
                     <div class="col-6">
-                        <asp:DropDownList ID="userType" runat="server">
+                        <asp:DropDownList ID="userType" runat="server"  CssClass="btn btn-block  dropdown-toggle" Style="background-color: whitesmoke;">
                             <asp:ListItem></asp:ListItem>
                             <asp:ListItem>Staff</asp:ListItem>
                             <asp:ListItem>Volunteer</asp:ListItem>
@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div class="text-left form-group row">
-                    <label for="userName" class="col-4 col-form-label font-weight-bold">Username:</label>
+                    <label for="userName" class="col-4 col-form-label ">Username:</label>
                     <div class="col-6">
-                        <asp:TextBox runat="server"
+                        <asp:TextBox runat="server" Style="background-color: whitesmoke;"
                             ID="txtUsername"
                             name="userName"
                             type="text"
@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 <div class="text-left form-group row">
-                    <label for="firstName" class="col-4 col-form-label font-weight-bold">First Name:</label>
+                    <label for="firstName" class="col-4 col-form-label ">First Name:</label>
                     <div class="col-6">
-                        <asp:TextBox runat="server"
+                        <asp:TextBox runat="server" Style="background-color: whitesmoke;"
                             ID="txtFirstName"
                             name="firstName"
                             type="text"
@@ -65,9 +65,9 @@
                     </div>
                 </div>
                 <div class="text-left form-group row">
-                    <label for="lastName" class="col-4 col-form-label font-weight-bold">Last Name:</label>
+                    <label for="lastName" class="col-4 col-form-label">Last Name:</label>
                     <div class="col-6">
-                        <asp:TextBox runat="server"
+                        <asp:TextBox runat="server" Style="background-color: whitesmoke;"
                             ID="txtLastName"
                             name="lastName"
                             type="text"
@@ -83,21 +83,37 @@
                     </div>
                 </div>
                 <div class="text-left form-group row">
-                    <label for="password" class="col-4 col-form-label font-weight-bold">Password:</label>
+                    <label for="password" class="col-4 col-form-label ">Password:</label>
                     <div class="col-6">
 
-                        <input id="txtPassword" type="password" class="form-control" autocomplete="off" runat="server" clientidmode="Static" required>
+                        <input id="txtPassword" Style="background-color: whitesmoke;" type="password" class="form-control" autocomplete="off" runat="server" clientidmode="Static" required>
                         <div class="invalid-feedback">Enter Password</div>
 
                     </div>
                 </div>
                 <div class="text-left form-group row">
-                    <label for="confirmPW" class="col-4 col-form-label font-weight-bold">Confirm Password:</label>
+                    <label for="confirmPW" class="col-4 col-form-label ">Confirm Password:</label>
                     <div class="col-6">
 
-                        <input id="txtConfirmPw" type="password" class="form-control mt-2" autocomplete="off" runat="server" clientidmode="Static" required>
+                        <input id="txtConfirmPw" Style="background-color: whitesmoke;" type="password" class="form-control mt-2" autocomplete="off" runat="server" clientidmode="Static" required>
                     </div>
                 </div>
+                    <br />
+                          <div class="row">
+                        <div class="col-md-9 mx-auto d-flex justify-content-center Spacing">
+                            <asp:Button ID="btnCreate" runat="server" Text="Create" CssClass="btn btn-success btn-block" OnClick="btnCreate_Click" />
+
+
+                        </div>
+                        <div class="col-md-3 mx-auto d-flex justify-content-center Spacing">
+                            <asp:Button  runat="server" Text="Back" CssClass="btn  btn-block" href="javascript:history.go(-1)" Style="background-color: #fb9678; color: #fff; "/>
+
+                        </div>
+                    </div>
+
+
+
+
             </div>
 
             <div id="errors" class="text-center well" style="font-size: inherit"></div>
@@ -105,7 +121,7 @@
                 <asp:Label runat="server" ID="lblUserStatus" Text=" "></asp:Label>
                 <br />
                 <asp:CompareValidator
-                    ID="cmpConfirmPw"
+                    ID="cmpConfirmPw" Style="background-color: whitesmoke;"
                     runat="server"
                     ControlToValidate="txtConfirmPw"
                     ControlToCompare="txtPassword"
@@ -116,13 +132,9 @@
             </div>
             
 
-            <div class="text-center container">
-                <div class="btn-group">
-                    <asp:Button ID="btnCreate" runat="server" Text="Create" CssClass="btn btn-primary rounded shadow mr-4" CausesValidation="true" OnClick="btnCreate_Click" />
-
-                    <a class="btn btn-primary rounded shadow" href="javascript:history.go(-1)" role="button">Back</a>
-                </div>
-            </div>
+            
+             
+            
                 </div>
 
             <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
@@ -146,7 +158,7 @@
 
         </div>
         <asp:ScriptManager runat="server"></asp:ScriptManager>
-    </div>
+    
 
     <script>
         $(document).ready(function () {
