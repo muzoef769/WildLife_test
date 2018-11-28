@@ -84,7 +84,7 @@
                             <ul class="sub-menu children dropdown-menu">
                                 <li id="animalreport" class=""><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
                                 <li id="simplereport" class=""><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                                <li id="paymentreport" class=""><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
+                                
 
                             </ul>
                         </li>

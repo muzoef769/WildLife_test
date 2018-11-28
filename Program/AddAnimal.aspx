@@ -14,7 +14,7 @@
     <div class="content">
         <div class="animated fadeIn">
             <div class="card-body">
-                <h4 class="box-title">Add Animal</h4>
+                <h3 class="box-title">Add Animal</h3>
             </div>
             <div class="row">
                 <div class="col-md-12">

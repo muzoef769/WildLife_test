@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-     <script type="text/javascript">
+<script type="text/javascript">
          $(document).ready(function () {
              $("#simpleTab").hide();
              $(function () {
@@ -24,9 +24,9 @@
 
          $(document).ready(function () {
              $("#report").addClass('active');
+});
 
-
-         });
+</script>
          <div class="card-body">
              <h4 class="box-title">View Report Info</h4>
          </div>
@@ -47,7 +47,7 @@
                                          $('#myTab a[href="' + activeTab + '"]').tab('show');
                                                         }
                                  });
-</script> 
+                                </script> 
             <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style=" padding-left:15px; border-bottom:none;"  role="tablist">
                 <li class="nav-item ">
                     <a style=" margin-right:5px; color:black;"class="nav-link active " id="homee-tab" data-toggle="tab" href="#ProgramTotal" role="tab" aria-controls="homee" aria-selected="true">Program Totals</a>
