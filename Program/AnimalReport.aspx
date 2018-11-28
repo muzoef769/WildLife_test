@@ -105,7 +105,7 @@
                                 <a style="margin-right: 5px; color: black;" class="nav-link" id="home-tab" data-toggle="tab" href="#Online" role="tab" aria-controls="home" aria-selected="false">Online</a>
                             </li>
                             <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#Live" role="tab" aria-controls="profile" aria-selected="false">Offsite</a>
+                                <a style="margin-right: 5px; color: black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#Live" role="tab" aria-controls="profile" aria-selected="false">Live</a>
                             </li>
 
                         </ul>
