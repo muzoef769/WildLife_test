@@ -556,7 +556,7 @@
                 <div class="row mx-auto d-flex justify-content-center table-responsive">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                             <asp:GridView ID="animalGrid" runat="server" EnableSortingAndPagingCallbacks="true" AutoGenerateColumns="False" Width="100%" DataSourceID="SqlDataSource48" AllowSorting="True">
-                                            <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                            <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                             <Columns>
                                                 <%--<asp:BoundField DataField="DateCompleted" HeaderText="Date" SortExpression="DateCompleted" />--%>
                                                 <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
@@ -657,7 +657,7 @@ group by AnimalName"></asp:sqldatasource>
                                  <label><b>Animals Involved</b> </label>
                                 <asp:GridView ID="GridView2" runat="server" Visible="True"  Class="table table-condensed table-bordered table-hover" BackColor="White" >
                                     
-                                    <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                    <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                 </asp:GridView>
                             </div>
 

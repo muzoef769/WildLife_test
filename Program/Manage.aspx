@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Manage.aspx.cs" Inherits="Manage" %>
+﻿<%@ Page Title="Manage Users" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Manage.aspx.cs" Inherits="Manage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    <style>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
+    <style> /*input this input extra.css*/
         .vertical-menu {
             width: 200px;
             padding-top: 93px;
@@ -43,10 +43,11 @@
         </div>
     </div>
 
-    <div class="vertical-menu text-center" role="tablist" style="display: inline-block">
+    <%--<div class="vertical-menu text-center" role="tablist" style="display: inline-block">
         <ul class="nav flex-column border border-dark rounded">
             <li class="nav-item border border-dark ">
-                <a id="volunteer-tab" class="nav-link active rounded-top" data-toggle="tab" href="#Volunteer" role="tab" aria-controls="approve" aria-selected="True">Approve Volunteers</a>
+                <a id="all-tab" class="nav-link active rounded-top" data-toggle="tab" href="#All" role="tab" aria-controls="all" aria-selected="false">User Permissions</a>
+                
             </li>
 
             <li class="nav-item border border-dark ">
@@ -54,50 +55,73 @@
             </li>
 
             <li class="nav-item border border-dark ">
-                <a id="all-tab" class="nav-link rounded-bottom" data-toggle="tab" href="#All" role="tab" aria-controls="all" aria-selected="false">User Permissions</a>
-
+                
+                <a id="volunteer-tab" class="nav-link rounded-bottom" data-toggle="tab" href="#Volunteer" role="tab" aria-controls="approve" aria-selected="True">Approve Volunteers</a>
             </li>
 
 
         </ul>
 
 
-    </div>
+    </div>--%>
+
+    <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
+                            <li class="nav-item ">
+                                <a style="margin-right: 5px; color: black;" class="nav-link active " id="all-tab" data-toggle="tab" href="#All" role="tab" aria-controls="all" aria-selected="true">User Permissions</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a style="margin-right: 5px; color: black;" class="nav-link " id="staff-tab" data-toggle="tab" href="#Staff" role="tab" aria-controls="staff" aria-selected="false">Approve Staff</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a style="margin-right: 5px; color: black;" class="nav-link " id="volunteer-tab" data-toggle="tab" href="#Volunteer" role="tab" aria-controls="volunteer" aria-selected="false">Approve Volunteers</a>
+                            </li>
+                        </ul>
+
+
 
     <div class="tab-content" style="display: inline-block; width: 100%;">
-        <div id="Volunteer" class="tab-pane fade show active">
+        <div id="Volunteer" class="tab-pane fade ">
             <div class="table-responsive">
 
                 <div class="row mx-auto d-flex justify-content-center">
                     <div class="col-xl-7 col-lg-12 col-md-12 col-s-12 ">
 
+                        <asp:UpdatePanel runat="server" ID="updateVolunteer" >
+                            <ContentTemplate>
 
-                        <%--<div class="mx-auto table-responsive">--%>
-                        <asp:GridView
-                            ID="volGridView"
-                            runat="server"
-                            AllowSorting="True"
-                            AutoGenerateColumns="False"
-                            DataSourceID="SqlDataSource1"
-                            HeaderStyle-ForeColor="black"
-                            ItemStyle-ForeColor="black"
-                            CssClass="table table-condensed table-bordered table-hover AnimalCard"
-                            BackColor="White"
-                            HorizontalAlign="Left"
-                            Width="900px">
-                            <Columns>
-                                <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" InsertVisible="False" Visible="false" ReadOnly="True" />--%>
-                                <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" />
-                                <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
-                                <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
-                                <asp:TemplateField HeaderText="Approve Volunteer?">
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="chkStatus" runat="server" Style="text-align: center" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                            <HeaderStyle ForeColor="White" BackColor="#339933" Height="20px"></HeaderStyle>
-                        </asp:GridView>
+                                <%--<div class="mx-auto table-responsive">--%>
+                                <asp:GridView
+                                    ID="volGridView"
+                                    runat="server"
+                                    AllowSorting="True"
+                                    AutoGenerateColumns="False"
+                                    DataSourceID="SqlDataSource1"
+                                    HeaderStyle-ForeColor="black"
+                                    ItemStyle-ForeColor="black"
+                                    CssClass="table table-condensed table-bordered table-hover AnimalCard"
+                                    BackColor="White"
+                                    HorizontalAlign="Left"
+                                    Width="900px">
+                                    <Columns>
+                                        <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" InsertVisible="False" Visible="false" ReadOnly="True" />--%>
+                                        <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" />
+                                        <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
+                                        <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
+                                        <asp:TemplateField HeaderText="Approve Volunteer?">
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="chkStatus" runat="server" Style="text-align: center" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <HeaderStyle ForeColor="White" BackColor="#339933" Height="20px"></HeaderStyle>
+                                </asp:GridView>
+
+                            </ContentTemplate>
+                            <Triggers>
+                                
+                                
+                            </Triggers>
+                        </asp:UpdatePanel>
 
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>"
                             SelectCommand="SELECT [FirstName], [LastName], [Username] FROM [User] WHERE ([UserStatus] = @UserStatus) AND ([UserType] = @UserType)">
@@ -121,6 +145,10 @@
 
                 <div class="row mx-auto d-flex justify-content-center">
                     <div class="col-xl-7 col-lg-12 col-md-12 col-s-12 ">
+
+                         <asp:UpdatePanel runat="server" ID="updateStaff" >
+                            <ContentTemplate>
+
                         <asp:GridView ID="staffGridView"
                             runat="server"
                             HeaderStyle-ForeColor="black"
@@ -152,6 +180,14 @@
                             <HeaderStyle ForeColor="White" BackColor="#339933" Height="20px"></HeaderStyle>
 
                         </asp:GridView>
+
+                        </ContentTemplate>
+                            <Triggers>
+                                
+                                
+                            </Triggers>
+                        </asp:UpdatePanel>
+
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>"
                             SelectCommand="SELECT [FirstName], [LastName], [Username] FROM [User] WHERE ([UserStatus] = @UserStatus) AND ([UserType] = @UserType)">
                             <SelectParameters>
@@ -168,12 +204,14 @@
                 </div>
             </div>
         </div>
-        <div id="All" class="tab-pane fade">
+        <div id="All" class="tab-pane fade show active">
             <div class="table-responsive">
 
                 <div class="row mx-auto d-flex justify-content-center">
                     <div class="col-xl-7 col-lg-12 col-md-12 col-s-12 ">
 
+                         <asp:UpdatePanel runat="server" ID="updateAll" UpdateMode="Conditional">
+                                            <ContentTemplate>
 
                         <asp:GridView ID="allGridView"
                             runat="server"
@@ -186,7 +224,8 @@
                             HorizontalAlign="Left"
                             AllowSorting="True"
                             Width="900px"
-                            Class="table table-condensed table-bordered table-hover AnimalCard">
+                            Class="table table-condensed table-bordered table-hover AnimalCard"
+                            OnRowDataBound="OnRowDataBound">
 
 
                             <Columns>
@@ -194,15 +233,15 @@
                                 <asp:BoundField DataField="FirstName" HeaderText="First Name" ReadOnly="True" SortExpression="FirstName" />
                                 <asp:BoundField DataField="LastName" HeaderText="Last Name" ReadOnly="True" SortExpression="LastName" />
                                 <asp:BoundField DataField="UserType" HeaderText="User Type" SortExpression="UserType" />
-                                <asp:BoundField DataField="UserStatus" HeaderText="User Status" SortExpression="UserStatus" />
+                                <%--<asp:BoundField DataField="UserStatus" HeaderText="User Status" SortExpression="UserStatus" />--%>
 
                                 <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
-                                        <asp:UpdatePanel runat="server" ID="updateAll" UpdateMode="Conditional">
+                                        <asp:UpdatePanel runat="server" ID="updateDropDown" UpdateMode="Conditional">
                                             <ContentTemplate>
-                                                <asp:DropDownList runat="server" ID="ddlStatus" OnSelectedIndexChanged="Unnamed_SelectedIndexChanged"
-                                                    CssClass=" btn-sm text-center" AutoPostBack="true">
-                                                    <asp:ListItem Value = ""></asp:ListItem>
+                                                <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("UserStatus") %>' Visible="false" />
+                                                <asp:DropDownList runat="server" ID="ddlStatus" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged"
+                                                    CssClass="form-control-plaintext btn-sm " AutoPostBack="true">
                                                     <asp:ListItem Value="Active">Active</asp:ListItem>
                                                     <asp:ListItem Value="Inactive">Inactive</asp:ListItem>
                                                     <asp:ListItem Value="Temporarily Inactive">Temporarily Inactive</asp:ListItem>
@@ -211,7 +250,7 @@
                                             </ContentTemplate>
                                             <Triggers>
                                                 <asp:AsyncPostBackTrigger ControlID="ddlStatus" EventName="SelectedIndexChanged" />
-                                                
+
                                             </Triggers>
                                         </asp:UpdatePanel>
                                     </ItemTemplate>
@@ -225,6 +264,12 @@
 
                         </asp:GridView>
 
+                                                </ContentTemplate>
+                                            <Triggers>
+                                                
+
+                                            </Triggers>
+                                        </asp:UpdatePanel>
 
                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT [User].Username, [User].FirstName, [User].LastName, [User].UserType, [User].UserStatus, [User].UserID  FROM [User] INNER JOIN Password ON [User].UserID = Password.UserID "></asp:SqlDataSource>
                     </div>

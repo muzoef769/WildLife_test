@@ -29,7 +29,7 @@
                  <asp:BoundField DataField="ProgramName" HeaderText="ProgramName" SortExpression="ProgramName" />
                  <asp:BoundField DataField="ProgramType" HeaderText="ProgramType" SortExpression="ProgramType" />
                  <asp:BoundField DataField="Capacity" HeaderText="Capacity" SortExpression="Capacity" />
-                 <asp:BoundField DataField="ProgramCost" HeaderText="ProgramCost" SortExpression="ProgramCost" />
+                 <asp:BoundField DataField="ProgramCost" HeaderText="ProgramCost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}"/>
              </Columns>
              <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
          </asp:GridView>
