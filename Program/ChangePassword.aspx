@@ -3,9 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <br />
     <br />
-    <br />
-    <br />
-    <br />
+   
     <%--<div>
         <fieldset>
             <asp:Label ID="lblPass" runat="server" Text="New Password: "></asp:Label>
@@ -52,7 +50,7 @@
                             Text="Return" CausesValidation="true" UseSubmitBehavior="false" />--%>
                     </div>
                     <div class="col col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 mb-1 justify-content-end row ">
-                        <asp:Button ID="btnChangePassword" runat="server" CssClass="btn btn-primary btn-block" OnClick="ChangeResetPassword" 
+                        <asp:Button ID="btnChangePassword" runat="server" CssClass="btn btn-success btn-block" OnClick="ChangeResetPassword" 
                             Text="Confirm" CausesValidation="true" UseSubmitBehavior="false" />
                     </div>
 

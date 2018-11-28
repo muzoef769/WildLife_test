@@ -3,10 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  
 
     <%--<div>
         <asp:Label ID="lblUserName" runat="server" Text="User Name"></asp:Label>
@@ -40,11 +37,16 @@
                 <div class="row">
 
                     <div class="col col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 mb-1 row">
-                        <asp:Button ID="btnHome" runat="server" CssClass="btn btn-block " OnClick="btnHome_Click" Text="Cancel" CausesValidation="true" UseSubmitBehavior="false" />
-                    </div>
+                       
+                         <asp:Button ID="btnHome" runat="server" 
+                             class="btn  btn-block" Style="background-color: #fb9678; color: #fff; "
+                             OnClick="btnHome_Click" Text="Cancel" CausesValidation="true" UseSubmitBehavior="false" />
+                  
+                          </div>
                     <div class="col col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 col-xl-4 mb-1 justify-content-end row ">
-                        <asp:Button ID="btnPass" runat="server" CssClass="btn btn-primary btn-block" OnClick="btnPass_Click" Text="Submit" CausesValidation="true" UseSubmitBehavior="false" />
-                    </div>
+                        <asp:Button ID="btnPass" runat="server" CssClass="btn btn-block btn-success" OnClick="btnPass_Click" Text="Submit" CausesValidation="true" UseSubmitBehavior="false" />
+                  
+                        </div>
 
                 </div>
 
