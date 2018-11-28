@@ -195,7 +195,7 @@
                         <asp:ListItem Value="2017">2017</asp:ListItem>
                         <asp:ListItem Value="2018">2018</asp:ListItem>
                     </asp:DropDownList>
-                <br />
+                <br /><br />
 
                                         <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
                                             <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">
@@ -556,7 +556,7 @@
                 <div class="row mx-auto d-flex justify-content-center table-responsive">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                             <asp:GridView ID="animalGrid" runat="server" EnableSortingAndPagingCallbacks="true" AutoGenerateColumns="False" Width="100%" DataSourceID="SqlDataSource48" AllowSorting="True">
-                                            <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                            <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                             <Columns>
                                                 <%--<asp:BoundField DataField="DateCompleted" HeaderText="Date" SortExpression="DateCompleted" />--%>
                                                 <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
@@ -657,7 +657,7 @@ group by AnimalName"></asp:sqldatasource>
                                  <label><b>Animals Involved</b> </label>
                                 <asp:GridView ID="GridView2" runat="server" Visible="True"  Class="table table-condensed table-bordered table-hover" BackColor="White" >
                                     
-                                    <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                    <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                 </asp:GridView>
                             </div>
 

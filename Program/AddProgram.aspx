@@ -126,6 +126,24 @@
                         </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <br />
                         <div class="accordion" id="accordionExample">
                             <div class="card">
@@ -140,184 +158,183 @@
 
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-4 ">
-                                                <label>Select Program </label>
-                                                <asp:DropDownList ID="drpProgramList" runat="server" CssClass="btn btn-light dropdown-toggle" DataSourceID="SqlDataSource1" DataTextField="ProgramName" DataValueField="ProgramID" AppendDataBoundItems="True" OnSelectedIndexChanged="DrpProgramList_SelectedIndexChanged" AutoPostBack="true">
+                            <div class="row">
+                                <div class="col-md-4 ">
+                                       <label>Select Program </label>
+                                    <asp:DropDownList ID="drpProgramList" runat="server" CssClass="btn  dropdown-toggle" style="background-color:whitesmoke;" DataSourceID="SqlDataSource1" DataTextField="ProgramName" DataValueField="ProgramID" AppendDataBoundItems="True" OnSelectedIndexChanged="DrpProgramList_SelectedIndexChanged" AutoPostBack="true">
 
-                                                    <asp:ListItem Text="Program Name"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
+                                        <asp:ListItem Text="Program Name"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                 </div>
+                            <br />
+                            <div class="row">
+                                
+                                <div class="col-md-4">
+                                       <label>Select a Location Type </label>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT [ProgramID], [ProgramName] FROM [Program]"></asp:SqlDataSource>
 
-                                            <div class="col-md-4">
-                                                <label>Select a Location Type </label>
-                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT [ProgramID], [ProgramName] FROM [Program]"></asp:SqlDataSource>
+                                    <asp:DropDownList ID="drpLocationTypeList" runat="server" CssClass="btn  dropdown-toggle" style="background-color:whitesmoke;" AutoPostBack="true" OnSelectedIndexChanged="drpLocationTypeList_SelectedIndexChanged">
+                                        <asp:ListItem Text="Location Type"></asp:ListItem>
+                                        <asp:ListItem Value="Onsite" Text="Onsite"></asp:ListItem>
+                                        <asp:ListItem Value="Offsite" Text="Offsite"></asp:ListItem>
+                                        <asp:ListItem Value="Online" Text="Online"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-md-4 mx-auto  Spacing">
+                                   <label>Date </label>
 
-                                                <asp:DropDownList ID="drpLocationTypeList" runat="server" CssClass="btn  btn-light dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="drpLocationTypeList_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Location Type"></asp:ListItem>
-                                                    <asp:ListItem Value="Onsite" Text="Onsite"></asp:ListItem>
-                                                    <asp:ListItem Value="Offsite" Text="Offsite"></asp:ListItem>
-                                                    <asp:ListItem Value="Online" Text="Online"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                            <div class="col-md-4 mx-auto  Spacing">
-                                                <label>Date </label>
-
-                                                <input runat="server" clientidmode="Static" width="100%" type="date" id="datepicker">
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-md-4 mx-auto  Spacing">
-                                                <label>Program Time: </label>
-                                                &nbsp&nbsp
-                                    <asp:TextBox ID="programTime" runat="server" type="time" step="900" min="8:00" max="17:00"></asp:TextBox>
-
-
-                                            </div>
+                                    <input runat="server" clientidmode="Static" class="btn"  style="background-color:whitesmoke;" width="100%" type="date" id="datepicker">
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4 mx-auto  Spacing">
+                                    <label>Program Time: </label> &nbsp&nbsp <br />
+                                    <asp:TextBox ID="programTime" runat="server" class="btn"  style="background-color:whitesmoke;" type="time" step="900" min="8:00" max="17:00"></asp:TextBox>
 
 
-
-                                            <div class="col-md-4 mx-auto  Spacing">
-                                                <label>Adults </label>
-                                                <asp:TextBox ID="txtAdults" runat="server" Width="100%"></asp:TextBox>
-
-                                            </div>
+                                </div>
 
 
-                                            <div class="col-md-4 mx-auto  Spacing">
-                                                <label>Children </label>
-                                                <asp:TextBox ID="txtKids" runat="server" Width="100%"></asp:TextBox>
+
+                                <div class="col-md-4 mx-auto  Spacing">
+                                    <label>Adults </label>
+                                    <asp:TextBox ID="txtAdults" runat="server"  class="form-control"  style="background-color:whitesmoke;" Width="100%"></asp:TextBox>
+
+                                </div>
 
 
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
+                                <div class="col-md-4 mx-auto  Spacing">
+                                    <label>Children </label>
+                                    <asp:TextBox ID="txtKids" runat="server"  class="form-control"  style="background-color:whitesmoke;" Width="100%" ></asp:TextBox>
 
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
-                                                <label>Birds </label>
-                                                <asp:UpdatePanel ID="UpdateBirds" runat="server">
-                                                    <ContentTemplate>
-                                                        <div class="border" style="overflow-y: scroll; width: 100px; height: 200px">
 
-                                                            <asp:CheckBoxList ID="CheckBoxList2" runat="server" DataSourceID="SqlDataSource4" DataTextField="AnimalName" DataValueField="AnimalID"></asp:CheckBoxList>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
 
-                                                        </div>
-                                                        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT AnimalName, AnimalID FROM Animal Where AnimalType = 'Bird'"></asp:SqlDataSource>
-                                                        <br />
-                                                        <asp:Button ID="btnAllBirds" runat="server" Text="Select All" OnClick="BtnAllBirds_Click" />
-                                                        <br />
-                                                    </ContentTemplate>
-                                                    <Triggers>
-                                                        <asp:AsyncPostBackTrigger ControlID="btnAllBirds" EventName="Click" />
-                                                    </Triggers>
-                                                </asp:UpdatePanel>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
+                                    <label>Birds </label>
+                                    <asp:UpdatePanel ID="UpdateBirds" runat="server">
+                                        <ContentTemplate>
+                                            <div class="border" style="overflow-y: scroll; width: 100px; height: 200px">
+
+                                                <asp:CheckBoxList ID="CheckBoxList2" runat="server" DataSourceID="SqlDataSource4" DataTextField="AnimalName" DataValueField="AnimalID"></asp:CheckBoxList>
 
                                             </div>
-
-
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
-                                                <asp:UpdatePanel ID="UpdateReptiles" runat="server">
-                                                    <ContentTemplate>
-                                                        <label>Reptiles </label>
-                                                        <div class="border" style="overflow-y: scroll; width: 100px; height: 200px">
-                                                            <asp:CheckBoxList ID="CheckBoxList3" runat="server" DataSourceID="SqlDataSource5" DataTextField="AnimalName" DataValueField="AnimalID"></asp:CheckBoxList>
-                                                        </div>
-                                                        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT AnimalName, AnimalID FROM Animal Where AnimalType = 'Reptile'"></asp:SqlDataSource>
-                                                        <br />
-                                                        <asp:Button ID="btnAllReptiles" runat="server" Text="Select All" OnClick="BtnAllReptiles_Click" />
-                                                        <br />
-                                                    </ContentTemplate>
-                                                    <Triggers>
-                                                        <asp:AsyncPostBackTrigger ControlID="btnAllReptiles" EventName="Click" />
-                                                    </Triggers>
-                                                </asp:UpdatePanel>
-
-                                            </div>
-
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
-                                                <label>Mammals </label>
-                                                <asp:UpdatePanel ID="UpdateMammals" runat="server">
-                                                    <ContentTemplate>
-                                                        <div class="border" style="overflow-y: scroll; width: 100px; height: 200px">
-                                                            <asp:CheckBoxList ID="CheckBoxList4" runat="server" DataSourceID="SqlDataSource6" DataTextField="AnimalName" DataValueField="AnimalID"></asp:CheckBoxList>
-                                                        </div>
-                                                        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT AnimalName, AnimalID FROM Animal Where AnimalType = 'Mammal'"></asp:SqlDataSource>
-                                                        <br />
-                                                        <asp:Button ID="btnAllMammals" runat="server" Text="Select All" OnClick="BtnAllMammals_Click" />
-                                                        <br />
-                                                    </ContentTemplate>
-                                                    <Triggers>
-                                                        <asp:AsyncPostBackTrigger ControlID="btnAllMammals" EventName="Click" />
-                                                    </Triggers>
-                                                </asp:UpdatePanel>
-
-                                            </div>
+                                            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT AnimalName, AnimalID FROM Animal Where AnimalType = 'Bird'"></asp:SqlDataSource>
                                             <br />
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-md-4 mx-auto Spacing">
-
-                                                <label>Select Grade </label>
-
-
-
-
-                                                <asp:DropDownList ID="drpAgeLevel" runat="server">
-                                                    <asp:ListItem>Grade Level</asp:ListItem>
-                                                    <asp:ListItem>1st Grade</asp:ListItem>
-                                                    <asp:ListItem>2nd Grade</asp:ListItem>
-                                                    <asp:ListItem>3rd Grade</asp:ListItem>
-                                                    <asp:ListItem>4th Grade</asp:ListItem>
-                                                    <asp:ListItem>5th Grade</asp:ListItem>
-                                                    <asp:ListItem>6th Grade</asp:ListItem>
-                                                    <asp:ListItem>7th Grade</asp:ListItem>
-                                                    <asp:ListItem>8th Grade</asp:ListItem>
-                                                    <asp:ListItem>9th Grade</asp:ListItem>
-                                                    <asp:ListItem>10th Grade</asp:ListItem>
-                                                    <asp:ListItem>11th Grade</asp:ListItem>
-                                                    <asp:ListItem>12th Grade</asp:ListItem>
-
-                                                    <asp:ListItem>Elementary School</asp:ListItem>
-                                                    <asp:ListItem>Middle School</asp:ListItem>
-                                                    <asp:ListItem>High School</asp:ListItem>
-                                                    <asp:ListItem>Familes</asp:ListItem>
-                                                    <asp:ListItem>Adults Only</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-
-                                            <div class="col-md-4 mx-auto Spacing">
-                                                <label>Select Educators </label>
-                                                <div class="border" style="overflow-y: scroll; width: 200px; height: 200px">
-                                                    <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="UserID"></asp:CheckBoxList>
-                                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT UserID, CONCAT(FirstName, ' ', LastName) as name FROM [User] "></asp:SqlDataSource>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mx-auto Spacing">
-                                                <label>Notes </label>
-                                                <textarea id="txtMiscNotes" runat="server" cols="20" rows="3"></textarea>
-                                            </div>
-
-
+                                            <asp:Button ID="btnAllBirds" runat="server" Text="Select All" OnClick="BtnAllBirds_Click" />
                                             <br />
-                                            <br />
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="btnAllBirds" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
 
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-6  mx-auto  text-center">
-                                                <asp:Button ID="Button2" runat="server" CssClass="btn btn-success" Text="Add Program" OnClick="BtnAddProgram_Click" />
+                                </div>
 
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
+                                    <asp:UpdatePanel ID="UpdateReptiles" runat="server">
+                                        <ContentTemplate>
+                                            <label>Reptiles </label>
+                                            <div class="border" style="overflow-y: scroll; width: 100px; height: 200px">
+                                                <asp:CheckBoxList ID="CheckBoxList3" runat="server" DataSourceID="SqlDataSource5" DataTextField="AnimalName" DataValueField="AnimalID"></asp:CheckBoxList>
                                             </div>
-                                        </div>
+                                            <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT AnimalName, AnimalID FROM Animal Where AnimalType = 'Reptile'"></asp:SqlDataSource>
+                                            <br />
+                                            <asp:Button ID="btnAllReptiles" runat="server" Text="Select All" OnClick="BtnAllReptiles_Click" />
+                                            <br />
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="btnAllReptiles" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
 
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
+                                     <label>Mammals </label>
+                                    <asp:UpdatePanel ID="UpdateMammals" runat="server">
+                                        <ContentTemplate>
+                                            <div class="border" style="overflow-y: scroll; width: 100px; height: 200px">
+                                                <asp:CheckBoxList ID="CheckBoxList4" runat="server" DataSourceID="SqlDataSource6" DataTextField="AnimalName" DataValueField="AnimalID"></asp:CheckBoxList>
+                                            </div>
+                                            <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT AnimalName, AnimalID FROM Animal Where AnimalType = 'Mammal'"></asp:SqlDataSource>
+                                            <br />
+                                            <asp:Button ID="btnAllMammals" runat="server" Text="Select All" OnClick="BtnAllMammals_Click" />
+                                            <br />
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="btnAllMammals" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+
+                                </div>
+                                <br />
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4 mx-auto Spacing">
+
+                                    <label>Select Grade </label>
+
+
+
+
+                                    <asp:DropDownList ID="drpAgeLevel" class="btn" style="background-color:whitesmoke;" runat="server">
+                                        <asp:ListItem>Grade Level</asp:ListItem>
+                                        <asp:ListItem>1st Grade</asp:ListItem>
+                                        <asp:ListItem>2nd Grade</asp:ListItem>
+                                        <asp:ListItem>3rd Grade</asp:ListItem>
+                                        <asp:ListItem>4th Grade</asp:ListItem>
+                                        <asp:ListItem>5th Grade</asp:ListItem>
+                                        <asp:ListItem>6th Grade</asp:ListItem>
+                                        <asp:ListItem>7th Grade</asp:ListItem>
+                                        <asp:ListItem>8th Grade</asp:ListItem>
+                                        <asp:ListItem>9th Grade</asp:ListItem>
+                                        <asp:ListItem>10th Grade</asp:ListItem>
+                                        <asp:ListItem>11th Grade</asp:ListItem>
+                                        <asp:ListItem>12th Grade</asp:ListItem>
+                                        
+                                        <asp:ListItem>Elementary School</asp:ListItem>
+                                        <asp:ListItem>Middle School</asp:ListItem>
+                                        <asp:ListItem>High School</asp:ListItem>
+                                        <asp:ListItem>Familes</asp:ListItem>
+                                        <asp:ListItem>Adults Only</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+
+                                <div class="col-md-4 mx-auto Spacing">
+                                     <label>Select Educators </label>
+                                    <div class="border" style="overflow-y: scroll; width: 200px; height: 200px">
+                                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="UserID"></asp:CheckBoxList>
+                                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT UserID, CONCAT(FirstName, ' ', LastName) as name FROM [User] "></asp:SqlDataSource>
                                     </div>
+                                </div>
+
+                                <div class="col-md-4 mx-auto Spacing">
+                                     <label>Notes </label>
+                                    <textarea id="txtMiscNotes" runat="server" cols="20" rows="3"></textarea>
+                                </div>
+
+
+                                <br />
+                                <br />
+
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-6  mx-auto  text-center">
+                                    <asp:Button ID="Button2" runat="server" CssClass="btn btn-success" Text="Add Program" OnClick="BtnAddProgram_Click" />
+
+                                </div>
+                            </div>
+
+                        </div>
 
                                 </div>
                             </div>
@@ -332,86 +349,86 @@
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <div class="container-fluid" style="padding-top: 20px;">
-                                        <asp:UpdatePanel runat="server" ID="clientPanel">
-                                            <ContentTemplate>
-                                                <asp:DropDownList ID="drpContact" runat="server" CssClass="btn btn-default btn-sm dropdown-toggle" OnSelectedIndexChanged="DrpContact_SelectedIndexChanged" AutoPostBack="True">
-                                                    <asp:ListItem Text="Select a Contact"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </ContentTemplate>
-                                            <Triggers>
-                                                <asp:AsyncPostBackTrigger ControlID="drpOrganizationList" EventName="SelectedIndexChanged" />
+                        <div class="container-fluid" style="padding-top: 20px;">
+                            <asp:UpdatePanel runat="server" ID="clientPanel">
+                                <ContentTemplate>
+                                    <asp:DropDownList ID="drpContact" runat="server"  class="btn"  style="background-color:whitesmoke;" OnSelectedIndexChanged="DrpContact_SelectedIndexChanged" AutoPostBack="True">
+                                        <asp:ListItem Text="Select a Contact"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="drpOrganizationList" EventName="SelectedIndexChanged" />
 
-                                            </Triggers>
+                                </Triggers>
 
-                                        </asp:UpdatePanel>
-
-
-
-                                        <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Always">
-                                            <ContentTemplate>
-                                                <div class="main-container">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label for="txtFirstName" class="label-style">First Name</label>
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
-
-                                                        </div>
-
-                                                    </div>
+                            </asp:UpdatePanel>
+                            <br />
 
 
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label for="txtLastName" class="label-style">Last Name</label>
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
-                                                        </div>
+                            <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Always">
+                                <ContentTemplate>
+                                    <div class="main-container">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="txtFirstName" class="label-style">First Name</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:TextBox ID="txtFirstName"  class="form-control"  style="background-color:whitesmoke;" runat="server"></asp:TextBox>
 
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label for="txtEmail" class="label-style">Email Address</label>
-                                                        </div>
-                                                        <div class="form-group  col-md-6">
-                                                            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                                                        </div>
+                                            </div>
 
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label for="txtPrimaryNumber" class="label-style">Primary Phone </label>
-                                                        </div>
-                                                        <div class="form-group  col-md-6">
-                                                            <asp:TextBox ID="txtPrimaryNumber" runat="server"></asp:TextBox>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label for="txtSecondaryNumber" class="label-style">Secondary Phone </label>
-                                                        </div>
-                                                        <div class="form-group  col-md-6">
-                                                            <asp:TextBox ID="txtSecondaryNumber" runat="server"></asp:TextBox>
-                                                        </div>
-
-                                                    </div>
-                                            </ContentTemplate>
-                                            <Triggers>
-                                                <asp:AsyncPostBackTrigger ControlID="drpContact" EventName="SelectedIndexChanged" />
-
-                                            </Triggers>
-
-                                        </asp:UpdatePanel>
-                                        <div class="button-container">
                                         </div>
 
-                                    </div>
 
-                                </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="txtLastName" class="label-style">Last Name</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:TextBox ID="txtLastName"  class="form-control"  style="background-color:whitesmoke;" runat="server"></asp:TextBox>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="txtEmail" class="label-style">Email Address</label>
+                                            </div>
+                                            <div class="form-group  col-md-6">
+                                                <asp:TextBox ID="txtEmail"  class="form-control"  style="background-color:whitesmoke;" runat="server"></asp:TextBox>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="txtPrimaryNumber" class="label-style">Primary Phone </label>
+                                            </div>
+                                            <div class="form-group  col-md-6">
+                                                <asp:TextBox ID="txtPrimaryNumber"  class="form-control"  style="background-color:whitesmoke;" runat="server"></asp:TextBox>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="txtSecondaryNumber" class="label-style">Secondary Phone </label>
+                                            </div>
+                                            <div class="form-group  col-md-6">
+                                                <asp:TextBox ID="txtSecondaryNumber" class="form-control"  style="background-color:whitesmoke;"  runat="server"></asp:TextBox>
+                                            </div>
+
+                                        </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="drpContact" EventName="SelectedIndexChanged" />
+
+                                </Triggers>
+
+                            </asp:UpdatePanel>
+                            <div class="button-container">
+                            </div>
+
+                        </div>
+
+                    </div>
                             </div>
                         </div>
                     </div>
@@ -433,16 +450,17 @@
                                         <ContentTemplate>
                                             <div class="main-container">
                                                 <div class="row">
-                                                    <div class="col-md-4">
-                                                        <asp:CheckBox ID="chkLocation" runat="server" Text="Select if event is at organization" CssClass="label-style" AutoPostBack="true" OnCheckedChanged="chkLocation_CheckedChanged" />
+                                                    <div class="col-md-12">
+                                                        <asp:CheckBox ID="chkLocation" runat="server" Text="  Select if event is at organization" CssClass="label-style " AutoPostBack="true" OnCheckedChanged="chkLocation_CheckedChanged" />
                                                     </div>
                                                 </div>
+                                                <br />
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label for="txtStreet" class="label-style">Street</label>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtStreet" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
                                                     </div>
                                                 </div>
 
@@ -451,7 +469,7 @@
                                                         <label for="txtCity" class="label-style">City</label>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCity" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
                                                     </div>
                                                 </div>
 
@@ -460,7 +478,7 @@
                                                         <label for="txtState" class="label-style">State</label>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <asp:DropDownList ID="drpState" runat="server">
+                                                        <asp:DropDownList ID="drpState" runat="server" class="btn btn-block"  style="background-color:whitesmoke;">
                                                             <asp:ListItem Value="VA">Virginia</asp:ListItem>
                                                             <asp:ListItem Value="AL">Alabama</asp:ListItem>
                                                             <asp:ListItem Value="AK">Alaska</asp:ListItem>
@@ -520,7 +538,7 @@
                                                         <label for="txtCounty" class="label-style">County</label>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <asp:TextBox ID="txtCounty" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCounty" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -528,7 +546,7 @@
                                                         <label for="txtCountry" class="label-style">Country</label>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <asp:DropDownList ID="drpCountry" runat="server">
+                                                        <asp:DropDownList ID="drpCountry" runat="server" class="btn btn-block"  style="background-color:whitesmoke;">
                                                             <asp:ListItem>United States</asp:ListItem>
                                                             <asp:ListItem>Canada</asp:ListItem>
                                                         </asp:DropDownList>
@@ -540,7 +558,7 @@
                                                         <label for="txtZipCode" class="label-style">Zip Code</label>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <asp:TextBox ID="txtZipCode" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtZipCode" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -548,7 +566,7 @@
                                                         <label for="txtMileage" class="label-style">Mileage</label>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <asp:TextBox ID="txtMileage" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMileage" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
                                                     </div>
                                                 </div>
 

@@ -1,62 +1,113 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class Manage : System.Web.UI.Page
 {
+
     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString);
 
 
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //if (!IsPostBack)
+        //{
+        //    foreach (GridViewRow row in allGridView.Rows)
+        //    {
+        //        DropDownList ddl = (row.Cells[5].FindControl("ddlStatus") as DropDownList);
+        //        String status = (row.Cells[5].Text);
 
-        if (!IsPostBack)
+
+        //        if (status == "Active")
+        //        {
+        //            ddlStatus.SelectedValue = "Active";
+
+        //        }
+
+        //        if (status == "Inactive")
+        //        {
+        //            ddlStatus.SelectedValue = "Inactive";
+
+
+        //        }
+
+        //        if (status == "Temporarily Inactive")
+        //        {
+        //            ddlStatus.SelectedValue = "Temporarily Inactive";
+
+        //        }
+
+        //        if (status == "Not Approved")
+        //        {
+        //            ddlStatus.SelectedValue = "Not Approved";
+
+        //        }
+
+        //        allGridView.Columns[4].Visible = false;
+        //        ddl.DataBind();
+        //    }
+        //}
+
+
+    }
+    protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
         {
+            //Find the DropDownList in the Row.
+            DropDownList ddl = (e.Row.FindControl("ddlStatus") as DropDownList);
+            //ddl.DataSource = GetData("SELECT DISTINCT UserStatus FROM [dbo].[User]");
+            //ddl.DataTextField = "UserStatus";
+            //ddl.DataValueField = "UserStatus";
+            ddl.DataBind();
 
+            //Add Default Item in the DropDownList.
+            //ddl.Items.Insert(0, new ListItem("Inactive"));
+            //ddl.Items.Insert(1, new ListItem("Temporarily Inactive"));
 
-            foreach (GridViewRow row in allGridView.Rows)
+            //Select the Status of User in DropDownList.
+            string status = (e.Row.FindControl("lblStatus") as Label).Text;
+
+            if (status == "Active")
             {
-                DropDownList ddl = (row.Cells[5].FindControl("ddlStatus") as DropDownList);
-                String status = (row.Cells[4].Text);
 
-                if (status == "Active")
-                {
-                    ddlStatus.SelectedValue = "Active";
+                ddl.Items.FindByValue(status).Selected = true;
 
+            }
 
+            if (status == "Inactive")
+            {
 
-                }
-
-                if (status == "Inactive")
-                {
-                    ddlStatus.SelectedValue = "Inactive";
+                ddl.Items.FindByValue(status).Selected = true;
 
 
-                }
+            }
 
-                if (status == "Temporarily Inactive")
-                {
-                    ddlStatus.SelectedValue = "Temporarily Inactive";
+            if (status == "Temporarily Inactive")
+            {
 
-                }
+                ddl.Items.FindByValue(status).Selected = true;
 
-                if (status == "Not Approved")
-                {
-                    ddlStatus.SelectedValue = "Not Approved";
+            }
 
-                }
+            if (status == "Not Approved")
+            {
 
-                allGridView.Columns[4].Visible = false;
-                ddl.DataBind();
+                ddl.Items.FindByValue(status).Selected = true;
 
             }
 
 
+            //ddl.Items.FindByValue(status).Selected = true;
         }
-
     }
 
     protected void btnStatusUpdate_Click(object sender, EventArgs e)
@@ -86,14 +137,18 @@ public partial class Manage : System.Web.UI.Page
     protected void updateRow(String userName, String MarkStatus)
     {
         sc.Close();
-        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus WHERE Username = @Username";
+        //string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus WHERE Username = @Username";
+        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus, LastUpdated = @LastUpdated, LastUpdatedBy = @LastUpdatedBy WHERE Username = @Username";
         sc.Open();
         SqlCommand statusUpdate = new SqlCommand(updateStatus, sc);
         statusUpdate.Parameters.AddWithValue("@MarkStatus", MarkStatus);
         statusUpdate.Parameters.AddWithValue("@Username", userName);
+        statusUpdate.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+        statusUpdate.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"].ToString());
         statusUpdate.ExecuteNonQuery();
         volGridView.DataBind();
-        Page.DataBind();
+        staffGridView.DataBind();
+        allGridView.DataBind();
 
     }
 
@@ -132,14 +187,29 @@ public partial class Manage : System.Web.UI.Page
         statusUpdate.Parameters.AddWithValue("@Username", userName);
         statusUpdate.ExecuteNonQuery();
         staffGridView.DataBind();
-        Page.DataBind();
+        volGridView.DataBind();
+        allGridView.DataBind();
+    }
+
+    protected void updateRow3(String userName, String MarkStatus)
+    {
+        sc.Close();
+        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus WHERE Username = @Username";
+        sc.Open();
+        SqlCommand statusUpdate = new SqlCommand(updateStatus, sc);
+        statusUpdate.Parameters.AddWithValue("@MarkStatus", MarkStatus);
+        statusUpdate.Parameters.AddWithValue("@Username", userName);
+        statusUpdate.ExecuteNonQuery();
+        allGridView.DataBind();
+        volGridView.DataBind();
+        staffGridView.DataBind();
+
 
     }
 
 
-    protected void Unnamed_SelectedIndexChanged(object sender, EventArgs e)
+    protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
     {
-
         //try
         //{
 
@@ -155,21 +225,24 @@ public partial class Manage : System.Web.UI.Page
         //{
 
         //}
-
-
     }
 
-    protected void updateRow3(String userName, String MarkStatus)
+    private DataSet GetData(string query)
     {
-        sc.Close();
-        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus WHERE Username = @Username";
-        sc.Open();
-        SqlCommand statusUpdate = new SqlCommand(updateStatus, sc);
-        statusUpdate.Parameters.AddWithValue("@MarkStatus", MarkStatus);
-        statusUpdate.Parameters.AddWithValue("@Username", userName);
-        statusUpdate.ExecuteNonQuery();
-        allGridView.DataBind();
-        Page.DataBind();
-
+        string conString = ConfigurationManager.ConnectionStrings["connString"].ConnectionString;
+        SqlCommand cmd = new SqlCommand(query);
+        using (SqlConnection con = new SqlConnection(conString))
+        {
+            using (SqlDataAdapter sda = new SqlDataAdapter())
+            {
+                cmd.Connection = con;
+                sda.SelectCommand = cmd;
+                using (DataSet ds = new DataSet())
+                {
+                    sda.Fill(ds);
+                    return ds;
+                }
+            }
+        }
     }
 }

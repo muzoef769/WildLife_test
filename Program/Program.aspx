@@ -253,7 +253,7 @@
                                                         <asp:BoundField DataField="NewProgramID" HeaderText="NewProgramID" InsertVisible="False" ReadOnly="True" SortExpression="NewProgramID" Visible="false" />
 
                                                     </Columns>
-                                                    <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                                                    <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 </asp:GridView>
 
                                                 <asp:SqlDataSource
@@ -324,7 +324,7 @@
                                                         <asp:BoundField DataField="NewProgramID" HeaderText="NewProgramID" InsertVisible="False" ReadOnly="True" SortExpression="NewProgramID" Visible="false" />
 
                                                     </Columns>
-                                                    <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                                                    <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 </asp:GridView>
 
                                                 <asp:SqlDataSource
@@ -396,7 +396,7 @@
                                                         <asp:BoundField DataField="NewProgramID" HeaderText="NewProgramID" InsertVisible="False" ReadOnly="True" SortExpression="NewProgramID" Visible="false" />
 
                                                     </Columns>
-                                                    <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                                                    <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 </asp:GridView>
 
                                                 <asp:SqlDataSource

@@ -3,16 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
-     <div class="row">
-        <div class="col-md-6 mx-auto text-center">
-
-            <h1 class="CardTitle">Program Themes</h1>
-        </div>
-    </div>
-
+      <div class="card-body">
+                <h4 class="box-title">Program Themes</h4>
+            </div>
+      <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
     <div class="row">
         <br />
-        <div id="btnAddTheme" class="col-lg-2 col-md-4 col-s-4 col-xs-4 mx-auto">
+        <div id="btnAddTheme" class="col-12">
             <a class="  btn-block  btn btn-success" href="#" data-toggle="modal" data-target="#ThemeModal" role="button">Add Theme</a>
         </div>
     
@@ -22,15 +22,16 @@
     </div>
     <br />
   <div class="row mx-auto">
-     <div class="col-xl-8 col-lg-12 col-md-12 col-s-12 ">
-         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProgramID" DataSourceID="themeDatasource" BackColor="White" HorizontalAlign="Left" Width="900px" Height="600px" Class="  table table-condensed table-bordered table-hover AnimalCard" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 ">
+         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProgramID" DataSourceID="themeDatasource" BackColor="White" HorizontalAlign="Left"  Class="  table table-condensed table-bordered table-hover AnimalCard" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
              <Columns>
                  <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" InsertVisible="False" ReadOnly="True" SortExpression="ProgramID" />
                  <asp:BoundField DataField="ProgramName" HeaderText="ProgramName" SortExpression="ProgramName" />
                  <asp:BoundField DataField="ProgramType" HeaderText="ProgramType" SortExpression="ProgramType" />
                  <asp:BoundField DataField="Capacity" HeaderText="Capacity" SortExpression="Capacity" />
-                 <asp:BoundField DataField="ProgramCost" HeaderText="ProgramCost" SortExpression="ProgramCost" />
+                 <asp:BoundField DataField="ProgramCost" HeaderText="ProgramCost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}"/>
              </Columns>
+             <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
          </asp:GridView>
 
 
@@ -139,7 +140,10 @@
       </div>
 
       </div>
-
+</div>
+                        </div>
+                    </div>
+          </div>
      <div class="modal" id="ProgramModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
