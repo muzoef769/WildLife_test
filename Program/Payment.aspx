@@ -120,6 +120,9 @@
                 <li class="nav-item ">
                     <a style=" margin-right:5px; color:black;"class="nav-link" id="home-tab" data-toggle="tab" href="#Fufilled" role="tab" aria-controls="home" aria-selected="false">Fulfilled Invoices</a>
                 </li>
+                <li class="nav-item ">
+                    <a style=" margin-right:5px; color:black;"class="nav-link" id="cancel-tab" data-toggle="tab" href="#Canceled" role="tab" aria-controls="cancel" aria-selected="false">Canceled Invoices</a>
+                </li>
                 
                 
                
@@ -165,13 +168,14 @@
                                                             <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" />
                                                             <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
                                                             <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
-                                                            <asp:BoundField DataField="TotalCost" HeaderText="Total Cost" DataFormatString="${0:###,###,###.00}" SortExpression="TotalCost" ReadOnly="true" />
+                                                            <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="${0:###,###,###.00}" SortExpression="TotalCost" ReadOnly="true" />
                                                             
                                                             <asp:TemplateField HeaderText="Payment Status" SortExpression="InvoiceStatus">
                                                                 <EditItemTemplate>
                                                                     <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind ("InvoiceStatus") %>' OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
                                                                         <asp:ListItem>Unpaid</asp:ListItem>
                                                                         <asp:ListItem>Paid</asp:ListItem>
+                                                                        <asp:ListItem>Canceled</asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </EditItemTemplate>
                                                                 <ItemTemplate>
@@ -252,12 +256,13 @@ WHERE InvoiceStatus = 'Unpaid'"
                                                             <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" />
                                                             <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
                                                             <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
-                                                            <asp:BoundField DataField="TotalCost" HeaderText="Total Cost" DataFormatString="${0:###,###,###.00}" SortExpression="TotalCost" ReadOnly="true" />
+                                                            <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="${0:###,###,###.00}" SortExpression="TotalCost" ReadOnly="true" />
                                                             <asp:TemplateField HeaderText="Payment Status" SortExpression="InvoiceStatus">
                                                                 <EditItemTemplate>
                                                                     <asp:DropDownList ID="DropDownList2" runat="server" SelectedValue='<%# Bind ("InvoiceStatus") %>' OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" AutoPostBack="True">
                                                                         <asp:ListItem>Unpaid</asp:ListItem>
                                                                         <asp:ListItem>Paid</asp:ListItem>
+                                                                        <asp:ListItem>Canceled</asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </EditItemTemplate>
                                                                 <ItemTemplate>
@@ -334,12 +339,13 @@ WHERE InvoiceStatus = 'Paid'"
                                                             <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" />
                                                             <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
                                                             <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
-                                                            <asp:BoundField DataField="TotalCost" HeaderText="Total Cost" DataFormatString="${0:###,###,###.00}" SortExpression="TotalCost" ReadOnly="true" />
+                                                            <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="${0:###,###,###.00}" SortExpression="TotalCost" ReadOnly="true" />
                                                             <asp:TemplateField HeaderText="Payment Status" SortExpression="InvoiceStatus">
                                                                 <EditItemTemplate>
                                                                     <asp:DropDownList ID="DropDownList3" runat="server" SelectedValue='<%# Bind ("InvoiceStatus") %>' OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" AutoPostBack="True">
                                                                         <asp:ListItem>Unpaid</asp:ListItem>
                                                                         <asp:ListItem>Paid</asp:ListItem>
+                                                                        <asp:ListItem>Canceled</asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </EditItemTemplate>
                                                                 <ItemTemplate>
@@ -363,7 +369,8 @@ FROM            Program INNER JOIN
                          AssignInvoice ON NewProgram.NewProgramID = AssignInvoice.NewProgramID FULL OUTER JOIN
                          Invoice ON AssignInvoice.AssignInvoiceID = Invoice.InvoiceID FULL OUTER JOIN 
                          Payment ON Invoice.InvoiceID = Payment.InvoiceID LEFT OUTER JOIN
-                         Organization ON Payment.OrganizationID = Organization.OrganizationID"
+                         Organization ON Payment.OrganizationID = Organization.OrganizationID
+                                WHERE InvoiceStatus != 'Canceled'"
                                 UpdateCommandType="StoredProcedure"
                                 updatecommand="updatePaymentInvoice">
                                 <FilterParameters>
@@ -380,6 +387,90 @@ FROM            Program INNER JOIN
                             <br />
 
                             <asp:button id="btnAll" class=" btn btn-success btn-block" runat="server" onclick="Button1_Click" text="Export To Excel"></asp:button>
+                                            <br />
+                                            <br />
+
+                                        </div>
+                                    </div>
+            </div>
+
+            <div id="Canceled" class="tab-pane fade">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                        <div id="canceledInv" style="overflow-x: auto;">
+                                            <br />
+                                            <asp:UpdatePanel runat="server" ID="UpdatePanel1">
+                                <ContentTemplate>
+
+
+                            <asp:gridview id="canceledInvGrid" runat="server"  Class="  table table-condensed table-bordered table-hover AnimalCard" headerstyle-forecolor="black" datakeynames="InvoiceID" autogenerateeditbutton="True" OnRowUpdated="allInvGrid_RowUpdated" autogeneratecolumns="False" datasourceid="Sqldatasource92" allowpaging="True" allowsorting="True">
+                                                         <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
+                                                        <Columns>
+                                                            <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
+                                                            <asp:BoundField DataField="InvoiceNumber" HeaderText="Invoice #" SortExpression="InvoiceNumber" ReadOnly="true" />
+                                                            <asp:TemplateField HeaderText="Payment Type" SortExpression="PaymentType">
+                                                                <EditItemTemplate>
+                                                                    <asp:DropDownList ID="ddlPayTypeAll" runat="server" SelectedValue='<%# Bind ("PaymentType") %>' OnSelectedIndexChanged="ddlPayTypeAll_SelectedIndexChanged" AutoPostBack="true">
+                                                                        <asp:ListItem Value="TBD">TBD</asp:ListItem>
+                                                                        <asp:ListItem Value="Cash">Cash</asp:ListItem>
+                                                                        <asp:ListItem Value="Check">Check</asp:ListItem>
+                                                                        <asp:ListItem Value="Credit/Debit">Credit/Debit</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </EditItemTemplate>
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblPayTypeAll" runat="server" Text='<%# Bind("PaymentType") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" />
+                                                            <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
+                                                            <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
+                                                            <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="${0:###,###,###.00}" SortExpression="TotalCost" ReadOnly="true" />
+                                                            <asp:TemplateField HeaderText="Payment Status" SortExpression="InvoiceStatus">
+                                                                <EditItemTemplate>
+                                                                    <asp:DropDownList ID="DropDownList3" runat="server" SelectedValue='<%# Bind ("InvoiceStatus") %>' OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" AutoPostBack="True">
+                                                                        <asp:ListItem>Unpaid</asp:ListItem>
+                                                                        <asp:ListItem>Paid</asp:ListItem>
+                                                                        <asp:ListItem>Canceled</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </EditItemTemplate>
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("InvoiceStatus") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:gridview>
+
+                                    </ContentTemplate>
+
+                            </asp:UpdatePanel>
+
+
+                            <asp:sqldatasource id="Sqldatasource92" runat="server" connectionstring="<%$ ConnectionStrings:connString %>"
+                                filterexpression="Convert(DateCreated, 'System.String') LIKE '%{0}%'"
+                                selectcommand="SELECT        Invoice.InvoiceID, Invoice.InvoiceNumber, Payment.PaymentType, Format(Invoice.DateCreated, 'MM/dd/yyyy') as 'DateCreated', Program.ProgramName, Organization.OrganizationName, Invoice.TotalCost, Invoice.InvoiceStatus
+                        
+FROM            Program INNER JOIN
+                         NewProgram ON Program.ProgramID = NewProgram.ProgramID INNER JOIN
+                         AssignInvoice ON NewProgram.NewProgramID = AssignInvoice.NewProgramID FULL OUTER JOIN
+                         Invoice ON AssignInvoice.AssignInvoiceID = Invoice.InvoiceID FULL OUTER JOIN 
+                         Payment ON Invoice.InvoiceID = Payment.InvoiceID LEFT OUTER JOIN
+                         Organization ON Payment.OrganizationID = Organization.OrganizationID
+                                WHERE InvoiceStatus = 'Canceled'"
+                                UpdateCommandType="StoredProcedure"
+                                updatecommand="updatePaymentInvoice">
+                                <FilterParameters>
+                                                    <asp:ControlParameter Name="DateCreated" ControlID="txtYear" PropertyName="Text" />
+                                                </FilterParameters>
+                                                <UpdateParameters>
+                                                    <asp:Parameter Name="InvoiceStatus" Type="String" />
+                                                    <asp:Parameter Name="InvoiceID" Type="String" />
+                                                    <asp:Parameter Name="PaymentType" Type="String" />
+                                                </UpdateParameters>
+
+                                            </asp:sqldatasource>
+
+                            <br />
+
+                            <asp:button id="btnCanceled" class=" btn btn-success btn-block" runat="server" onclick="btnCanceled_Click" text="Export To Excel"></asp:button>
                                             <br />
                                             <br />
 
