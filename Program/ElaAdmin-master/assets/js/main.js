@@ -1,4 +1,4 @@
-$.noConflict();
+//$.noConflict();
 
 jQuery(document).ready(function($) {
 
@@ -29,8 +29,8 @@ jQuery(document).ready(function($) {
 		property: 'max-height'
 	});
 
-	// var chartsheight = $('.flotRealtime2').height();
-	// $('.traffic-chart').css('height', chartsheight-122);
+	 var chartsheight = $('.flotRealtime2').height();
+	 $('.traffic-chart').css('height', chartsheight-122);
 
 
 	// Counter Number
