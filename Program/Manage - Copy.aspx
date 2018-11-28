@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Users" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Manage.aspx.cs" Inherits="Manage" %>
+﻿<%@ Page Title="Manage Users" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Manage - Copy.aspx.cs" Inherits="Manage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <style> /*input this input extra.css*/
@@ -70,12 +70,11 @@
                 
                
             </ul>
-                              
-                              
+                              <br />      
                                 
 
         </div>
-                                
+                                <br />
                              <div class="tab-content ">
             
                                  <div id="All" class="tab-pane fade show active">

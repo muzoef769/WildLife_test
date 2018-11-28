@@ -187,18 +187,19 @@
                         <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
                         <div id="programTotals" class="row table-responsive" overflow-x: hidden">
 
-
+                            <div style="margin-left:16px;">
                              <a class="col-form-label">Year:</a>
-                <asp:DropDownList ID="ddlYearFilter" CssClass="btn-sm" runat="server" OnSelectedIndexChanged="ddlYearFilter_SelectedIndexChanged" AutoPostBack="true">
+                <asp:DropDownList ID="ddlYearFilter" class="form-control" Style="background-color: whitesmoke; width:10%;" runat="server" OnSelectedIndexChanged="ddlYearFilter_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Value="2015">2015</asp:ListItem>
                         <asp:ListItem Value="2016">2016</asp:ListItem>
                         <asp:ListItem Value="2017">2017</asp:ListItem>
                         <asp:ListItem Value="2018">2018</asp:ListItem>
                     </asp:DropDownList>
+                                </div>
                 <br />
 
-                                        <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
-                                            <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" width="1200px">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12  mx-auto table  table-bordered table-hover AnimalCard " >
+                                            <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both">
                                                <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
@@ -543,19 +544,19 @@
                  <div class="ml-auto d-flex justify-content-end row" Style=" margin-right:16px;">
 <%--                       <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#ProgramView" role="tab" aria-controls="profile" aria-selected="false">Start Date</a>--%>
 
-                      <input runat="server" Class="btn col-xl-3 col-lg-3 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="startDate" placeholder ="Start Date">
+                      <input runat="server" Class="btn col-xl-2 col-lg-2 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="startDate" placeholder ="Start Date">
 <%--                      <label>End Date </label>--%>
 
-                       <input runat="server" Class="btn col-xl-3 col-lg-3 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
+                       <input runat="server" Class="btn col-xl-2 col-lg-2 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
 
-                                <asp:Button runat="server" class="btn btn-primary" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
-                                <asp:Button runat="server" CssClass="btn btn-warning" id="dateClear" OnClick="dateClear_Click" Text ="Clear Filter" />
+                                <asp:Button runat="server" class="btn btn-success" style="margin-right:5px;" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
+                                <asp:Button runat="server" CssClass="btn " style="background-color: #fb9678; color: #fff; " id="dateClear" OnClick="dateClear_Click" Text ="Clear Filter" />
 
                 </div>
                 <br />
                 <div class="row mx-auto d-flex justify-content-center table-responsive">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
-                                            <asp:GridView ID="animalGrid" runat="server" EnableSortingAndPagingCallbacks="true" AutoGenerateColumns="False" Width="100%" DataSourceID="SqlDataSource48" AllowSorting="True">
+                                            <asp:GridView ID="animalGrid" runat="server" Class=" table table-condensed table-bordered table-hover AnimalCard" EnableSortingAndPagingCallbacks="true" AutoGenerateColumns="False" Width="100%" DataSourceID="SqlDataSource48" AllowSorting="True">
                                             <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                             <Columns>
                                                 <%--<asp:BoundField DataField="DateCompleted" HeaderText="Date" SortExpression="DateCompleted" />--%>

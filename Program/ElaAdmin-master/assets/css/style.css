@@ -1368,13 +1368,7 @@ header .form-inline {
       text-align: center; }
   .card .nav-tabs {
     margin-bottom: -1px; }
-    .card .nav-tabs a {
-      border-radius: 0;
-      color: #b5bcc2;
-      font-size: 12px;
-      font-weight: 700;
-      padding: .25em .5em;
-      text-transform: uppercase; }
+  
       .card .nav-tabs a:hover {
         border-color: transparent; }
     .card .nav-tabs .active a {
