@@ -13,12 +13,12 @@ public partial class AddAnimal : System.Web.UI.Page
     {
         FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
         ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
-        Animals animal = new Animals(null, null, 
+        Animals animal = new Animals("", "", 
             txtName.Text, drpAnimalType.SelectedValue, 
             drpStatus.SelectedValue, DateTime.Today,
             Session["UserFullName"].ToString(), ImageString);
 
-        string insertIntoAnimal = "INSERT INTO Animal(Species, ScientifcName, AnimalName, AnimalType, Status, Image, LastUpdated, LastUpdatedBy) VALUES" +
+        string insertIntoAnimal = "INSERT INTO Animal(Species, ScientificName, AnimalName, AnimalType, Status, Image, LastUpdated, LastUpdatedBy) VALUES" +
             "(@Species, @Scientific, @Animal, @AnimalType, @Status, @Image, @LastUpdated, @LUB)";
         using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
         {
@@ -26,7 +26,7 @@ public partial class AddAnimal : System.Web.UI.Page
             using(SqlCommand command = new SqlCommand(insertIntoAnimal, connection))
             {
                 command.Parameters.AddWithValue("@Species", animal.getSpecies());
-                command.Parameters.AddWithValue("@ScientifcName", animal.getScientificName());
+                command.Parameters.AddWithValue("@Scientific", animal.getScientificName());
                 command.Parameters.AddWithValue("@Animal", animal.getAnimalName());
                 command.Parameters.AddWithValue("@AnimalType", animal.getAnimalType());
                 command.Parameters.AddWithValue("@Status", animal.getStatus());
@@ -35,8 +35,15 @@ public partial class AddAnimal : System.Web.UI.Page
                 command.Parameters.AddWithValue("@LUB", animal.getLastUpdatedBy());
 
                 command.ExecuteNonQuery();
-
+                clearField();
             }
         }
+    }
+    protected void clearField()
+    {
+        txtName.Text = "";
+        drpAnimalType.SelectedValue = "0";
+        drpStatus.SelectedValue = "0";
+
     }
 }
