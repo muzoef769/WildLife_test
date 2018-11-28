@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
     <link rel="stylesheet" href="ElaAdmin-master/assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="ElaAdmin-master/assets/css/style.css">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> 
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
 
@@ -43,10 +43,9 @@
     <script src="Scripts/jquery.password-validation.js"></script>--%>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-   <%-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    --%>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 
     <script>
         $(document).ready(function () {
@@ -62,6 +61,17 @@
                 }
             });
         });
+
+        $(document).ready(function () {
+
+
+
+
+        });
+
+
+
+
     </script>
 
 
@@ -84,7 +94,7 @@
                             <ul class="sub-menu children dropdown-menu">
                                 <li id="animalreport" class=""><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
                                 <li id="simplereport" class=""><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                                <li id="paymentreport" class=""><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
+
 
                             </ul>
                         </li>
@@ -133,7 +143,7 @@
                 </div>
                 <div class="text-right">
                     <div class="navbar-header mt-1 ">
-                        <a class="nav-item" style="color: dimgrey ; font-weight:600;">Staff</a>
+                        <a class="nav-item" style="color: dimgrey; font-weight: 600;">Staff</a>
                         <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#fb9678" OnClick="Clear_Session" CssClass="nav-link">Logout</asp:LinkButton>
                     </div>
                 </div>
@@ -141,74 +151,74 @@
             <!-- /#header -->
 
             <!-- Content -->
-            <div class="content bg-light" >
+            <div class="content bg-light">
                 <!-- Animated -->
                 <div class="animated fadeIn">
 
                     <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card btn-link">
-                            <a href="AddAnimal.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="fa fa-github-alt"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            
-                                            <div class="stat-heading" style="font-size:130%;">Add Animal</div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card btn-link">
+                                <a href="AddAnimal.aspx">
+                                    <div class="card-body">
+                                        <div class="stat-widget-five">
+                                            <div class="stat-icon col-2 dib flat-color-2">
+                                                <i class="fa fa-github-alt"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="text-left dib">
+
+                                                    <div class="stat-heading" style="font-size: 130%;">Add Animal</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
                                 </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card btn-link">
-                            <a href="AddOrganization.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            
-                                            <div class="stat-heading" style="font-size:130%;">Add Organization</div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card btn-link">
+                                <a href="AddOrganization.aspx">
+                                    <div class="card-body">
+                                        <div class="stat-widget-five">
+                                            <div class="stat-icon col-2 dib flat-color-2">
+                                                <i class="pe-7s-add-user"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="text-left dib">
+
+                                                    <div class="stat-heading" style="font-size: 130%;">Add Organization</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
                                 </a>
-                        </div>
-                       
-                    </div>
+                            </div>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card btn-link">
-                             <a href="AddProgram.aspx"> 
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                           
-                                            <div class="stat-heading" style="font-size:130%;">Add Program</div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card btn-link">
+                                <a href="AddProgram.aspx">
+                                    <div class="card-body">
+                                        <div class="stat-widget-five">
+                                            <div class="stat-icon dib flat-color-3">
+                                                <i class="pe-7s-browser"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="text-left dib">
+
+                                                    <div class="stat-heading" style="font-size: 130%;">Add Program</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                                  </a>
                         </div>
                     </div>
-                 </div>
 
-                   
+
                     <!-- /Widgets -->
 
 
@@ -228,29 +238,31 @@
 
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <%--<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>--%>
+  <%--  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>--%>
+    
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
     <script src="ElaAdmin-master/assets/js/main.js"></script>
 
-    <!--  Chart js -->
+<%--    <!--  Chart js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
 
     <!--Chartist Chart-->
     <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>--%>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
+<%--    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
     <script src="ElaAdmin-master/assets/js/init/weather-init.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="ElaAdmin-master/assets/js/init/fullcalendar-init.js"></script>
+    <script src="ElaAdmin-master/assets/js/init/fullcalendar-init.js"></script>--%>
 
 
     <script>

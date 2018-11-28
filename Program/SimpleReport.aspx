@@ -63,11 +63,11 @@
                 <div class="tab-content ">
                     <div id="ProgramTotal" class="tab-pane fade show active ">
                         <div class="ml-auto d-flex justify-content-center row">
-
-                            <div id="tab-toggle" style="margin-top: 15px;">
+                            <div id="tab-toggle" style="">
                                 <label for="tabCheckBox">Interactive View</label>
                                 <input id="tabCheckBox" type="checkbox" data-toggle="toggle">
                             </div>
+                            
                         </div>
 
                         <div id="simpleTab" class="row table-responsive" style="width: 85%;">
@@ -96,7 +96,7 @@
                                 <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
                                     <div id="programTotals" class="row table-responsive" overflow-x: hidden">
 
-
+                                <div style="padding-left: 20px;">
                                     <a class="col-form-label">Year:</a>
                                     <asp:DropDownList ID="ddlYearFilter" CssClass="btn-sm" runat="server" OnSelectedIndexChanged="ddlYearFilter_SelectedIndexChanged" AutoPostBack="true">
                                         <asp:ListItem Value="2015">2015</asp:ListItem>
@@ -104,7 +104,9 @@
                                         <asp:ListItem Value="2017">2017</asp:ListItem>
                                         <asp:ListItem Value="2018">2018</asp:ListItem>
                                     </asp:DropDownList>
-                                    <br />
+                                    
+                                </div>
+                                    
                                     <br />
 
                                     <div class="col-md-12  table  table-bordered table-hover AnimalCard " style="min-width: 113% !important;">
