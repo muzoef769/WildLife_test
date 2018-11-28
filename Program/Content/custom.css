@@ -20,7 +20,7 @@ body {
 
 body {
     /*background-image: url("img_girl.jpg");*/
-    background-image: url('../Images/KBBG.jpg');
+    background-image: url('../Images/KBBG-min.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -28,7 +28,7 @@ body {
 .b {
     /* The image used */
     /*background-image: url("img_girl.jpg");*/
-    background-image: url('../Images/KBBG.jpg');
+    background-image: url('../Images/KBBG-min.jpg');
     position: static;
     /* Full height */
     height: 100%;
@@ -87,6 +87,7 @@ body {
 
 .status {
     background-color: rgba(0, 0, 0, 0);
+    resize:none;
 }
 
 .LoginCard {

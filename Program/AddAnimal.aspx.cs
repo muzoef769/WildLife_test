@@ -17,5 +17,6 @@ public partial class AddAnimal : System.Web.UI.Page
             txtName.Text, drpAnimalType.SelectedValue, 
             drpStatus.SelectedValue, DateTime.Today,
             Session["UserFullName"].ToString());
+
     }
 }
