@@ -178,8 +178,8 @@
                             </div>
                
                 <div id="simpleTab" class="row table-responsive" style="width: 85%;">
-                     <div class='tableauPlaceholder' id='viz1543202166509' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ProgramTotals&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;ProgramTotals&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543202166509'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-                    </div>
+                    <div class='tableauPlaceholder' id='viz1543367766939' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;JW&#47;JW83YTYM2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;JW83YTYM2' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;JW&#47;JW83YTYM2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543367766939');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
                 
                 <div class="">
 
@@ -233,7 +233,7 @@
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '12' and LocationType = 'Offsite' and YEAR(DateCompleted) = @year) December,
                             (select count(LocationType) from NewProgram where LocationType='Offsite' and YEAR(DateCompleted) = @year) 'Total'
                             from NewProgram where LocationType = 'Offsite' group by LocationType, DateCompleted"
-                                                FilterExpression="Convert(DateCompleted, 'System.String') like '%{0}%'">
+                                                FilterExpression="Convert(DateCompleted, 'System.String') = '{0}'">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCompleted" ControlID="ddlYearFilter" PropertyName="SelectedValue" />
                                                 </FilterParameters>
@@ -277,7 +277,7 @@
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '12' and LocationType = 'Online' and YEAR(DateCompleted) = @year) December,
                             (select count(LocationType) from NewProgram where LocationType='Online' and YEAR(DateCompleted) = @year) 'Total'
                             from NewProgram where LocationType = 'Online' group by LocationType, DateCompleted"
-                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                FilterExpression="Convert(DateCompleted, 'System.String') = '{0}'">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCompleted" ControlID="ddlYearFilter" PropertyName="SelectedValue" />
                                                 </FilterParameters>
@@ -321,7 +321,7 @@
                             (select count(LocationType) from NewProgram where Month(DateCompleted) = '12' and LocationType = 'Onsite' and YEAR(DateCompleted) = @year) December,
                             (select count(LocationType) from NewProgram where LocationType='Onsite' and YEAR(DateCompleted) = @year) 'Total'
                             from NewProgram where LocationType = 'Onsite' group by LocationType, DateCompleted"
-                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                FilterExpression="Convert(DateCompleted, 'System.String') = '{0}'">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCompleted" ControlID="ddlYearFilter" PropertyName="SelectedValue" />
                                                 </FilterParameters>
@@ -369,7 +369,7 @@
                                 (select count(LocationType) from NewProgram where Month(DateCompleted) = '12' and YEAR(DateCompleted) = @year) December,
                                 (select count(LocationType) from NewProgram where YEAR(DateCompleted) = @year) 'Total'
                                 from NewProgram group by LocationType, DateCompleted"
-                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                FilterExpression="Convert(DateCompleted, 'System.String') = '{0}'">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCompleted" ControlID="ddlYearFilter" PropertyName="SelectedValue" />
                                                 </FilterParameters>
@@ -417,7 +417,7 @@
                             (select isnull(sum(TotalKids), 0) from NewProgram where Month(DateCompleted) = '12' and YEAR(DateCompleted) = @year) December,
                             (select isnull(sum(TotalKids), 0) from NewProgram where YEAR(DateCompleted) = @year) 'Total'
                             from NewProgram group by LocationType, DateCompleted"
-                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                FilterExpression="Convert(DateCompleted, 'System.String') = '{0}'">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCompleted" ControlID="ddlYearFilter" PropertyName="SelectedValue" />
                                                 </FilterParameters>
@@ -466,7 +466,7 @@
                             (select isnull(sum(TotalAdults), 0) from NewProgram where Month(DateCompleted) = '12' and YEAR(DateCompleted) = @year) December,
                             (select isnull(sum(TotalAdults), 0) from NewProgram where YEAR(DateCompleted) = @year) 'Total'
                             from NewProgram group by LocationType, DateCompleted"
-                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                FilterExpression="Convert(DateCompleted, 'System.String') = '{0}'">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCompleted" ControlID="ddlYearFilter" PropertyName="SelectedValue" />
                                                 </FilterParameters>
@@ -514,7 +514,7 @@
                             (select isnull(sum(TotalPeople), 0) from NewProgram where Month(DateCompleted) = '12' and YEAR(DateCompleted) = @year) December,
                             (select isnull(sum(TotalPeople), 0) from NewProgram where YEAR(DateCompleted) = @year) 'Total'
                             from NewProgram group by LocationType, DateCompleted"
-                                                FilterExpression="Convert(DateCompleted, 'System.String') LIKE '%{0}%'">
+                                                FilterExpression="Convert(DateCompleted, 'System.String') = '{0}'">
                                                 <FilterParameters>
                                                     <asp:ControlParameter Name="DateCompleted" ControlID="ddlYearFilter" PropertyName="SelectedValue" />
                                                 </FilterParameters>
@@ -528,8 +528,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <asp:button id="exportMonthly" class=" btn btn-success btn-block" text="Export To Excel" runat="server" onclick="exportMonthly_Click"></asp:button>
-                                            </div>
-                                           
+                                            </div> 
                                         </div>
                                             <br />
                                         </div>
@@ -567,14 +566,15 @@
                                             <asp:sqldatasource id="SqlDataSource48" runat="server" connectionstring="<%$ ConnectionStrings:connString %>" selectcommand="Select distinct AnimalName, count(aa.NewProgramID) as 'Programs', sum(TotalPeople) as 'TotalPeople' from dbo.AssignAnimal aa left outer join dbo.Animal a on a.AnimalID=aa.AnimalID 
 inner join dbo.NewProgram np on np.NewProgramID = aa.NewProgramID
 group by AnimalName"></asp:sqldatasource>
+                        <div class="row">
+                                    <div class="col-md-12">
+                                        <asp:button id="Button1" class=" btn btn-success btn-block" text="Export To Excel" runat="server" onclick="Button1_Click"></asp:button>
+                                    </div>
+                                </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <asp:button id="Button1" class=" btn btn-success" text="Export To Excel" runat="server" onclick="Button1_Click"></asp:button>
-                                    </div>
-                                </div>
+                                
                                         </div>
                 </div>
             </div>

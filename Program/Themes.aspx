@@ -25,11 +25,11 @@
      <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 ">
          <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProgramID" DataSourceID="themeDatasource" BackColor="White" HorizontalAlign="Left"  Class="  table table-condensed table-bordered table-hover AnimalCard" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
              <Columns>
-                 <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" InsertVisible="False" ReadOnly="True" SortExpression="ProgramID" />
-                 <asp:BoundField DataField="ProgramName" HeaderText="ProgramName" SortExpression="ProgramName" />
-                 <asp:BoundField DataField="ProgramType" HeaderText="ProgramType" SortExpression="ProgramType" />
+                 <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" InsertVisible="False" SortExpression="ProgramID" />
+                 <asp:BoundField DataField="ProgramName" HeaderText="Theme Name" SortExpression="ProgramName" />
+                 <asp:BoundField DataField="ProgramType" HeaderText="Theme Type" SortExpression="ProgramType" />
                  <asp:BoundField DataField="Capacity" HeaderText="Capacity" SortExpression="Capacity" />
-                 <asp:BoundField DataField="ProgramCost" HeaderText="ProgramCost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}"/>
+                 <asp:BoundField DataField="ProgramCost" HeaderText="Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}"/>
              </Columns>
              <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
          </asp:GridView>
