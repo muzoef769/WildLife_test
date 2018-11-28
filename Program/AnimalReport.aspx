@@ -263,8 +263,7 @@
                                 <%--  <asp:Button ID="btnStatusUpdate" class="btn btn-success btn-block" runat="server" Text="Update Status" OnClick="btnStatusUpdate_Click" />--%>
                             </div>
 
-                            <div class="card-body"></div>
-                        </div>
+                          
                     </div>
                     <!-- /# column -->
                 </div>

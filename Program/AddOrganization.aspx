@@ -195,6 +195,7 @@
                                         <asp:RequiredFieldValidator ID="OrgZipValidator" runat="server" ControlToValidate="txtZipCode" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
 
                                     </div>
+                                    <br />
                                     <div class="row">
                                         <div class="form-group col-12">
                                             <button id="btnReturn" type="button" class="btn btn-success btn-block" style="color: white;" onclick="javascript:history.go(-1)">Return</button>
@@ -279,7 +280,7 @@
                                         <asp:TextBox ID="txtSecondaryPhone" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                     </div>
                                 </div>
-
+                                <br />
                                 <div class="row">
                                     <div class="form-group col-12">
                                         <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn btn-block btn-success" OnClick="btnAddOrganization_Click" CausesValidation="true" ValidationGroup="addOrg" />
@@ -293,8 +294,7 @@
                         </div>
                     </div>
 
-                    <div class="card-body"></div>
-                </div>
+                  
             </div>
             <!-- /# column -->
         </div>
@@ -329,16 +329,7 @@
     <!-- /.content -->
     <div class="clearfix"></div>
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-inner bg-white">
-            <div class="row">
-                <div class="col-sm-6">
-                    Wildlife Center of Virginia
-                </div>
-
-            </div>
-        </div>
-    </footer>
+ 
 
 
 
