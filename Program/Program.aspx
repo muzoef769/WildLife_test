@@ -116,17 +116,17 @@
                             });
                         </script>
                         <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
-                            <li class="nav-item ">
+                            <li class="nav-item active ">
                                 <a style="margin-right: 5px; color: black;" class="nav-link " id="homee-tab" data-toggle="tab" href="#All" role="tab" aria-controls="homee" aria-selected="true">All</a>
                             </li>
                             <li class="nav-item ">
                                 <a style="margin-right: 5px; color: black;" class="nav-link" id="home-tab" data-toggle="tab" href="#Online" role="tab" aria-controls="home" aria-selected="false">Online</a>
                             </li>
                             <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#OnSite" role="tab" aria-controls="profile" aria-selected="false">OnSite</a>
+                                <a style="margin-right: 5px; color: black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#OnSite" role="tab" aria-controls="profile" aria-selected="false">Onsite</a>
                             </li>
                             <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link  " id="contact-tab" data-toggle="tab" href="#OffSite" role="tab" aria-controls="contact" aria-selected="false">OffSite</a>
+                                <a style="margin-right: 5px; color: black;" class="nav-link  " id="contact-tab" data-toggle="tab" href="#OffSite" role="tab" aria-controls="contact" aria-selected="false">Offsite</a>
                             </li>
 
                         </ul>
