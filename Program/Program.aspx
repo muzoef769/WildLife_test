@@ -116,8 +116,8 @@
                             });
                         </script>
                         <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
-                            <li class="nav-item active ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link " id="homee-tab" data-toggle="tab" href="#All" role="tab" aria-controls="homee" aria-selected="true">All</a>
+                            <li class="nav-item ">
+                                <a style="margin-right: 5px; color: black;" class="nav-link active " id="homee-tab" data-toggle="tab" href="#All" role="tab" aria-controls="homee" aria-selected="true">All</a>
                             </li>
                             <li class="nav-item ">
                                 <a style="margin-right: 5px; color: black;" class="nav-link" id="home-tab" data-toggle="tab" href="#Online" role="tab" aria-controls="home" aria-selected="false">Online</a>
@@ -165,7 +165,8 @@
                                            HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="SqlDataSource1" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView5_RowDataBound1" OnSelectedIndexChanged="GridView5_SelectedIndexChanged">
+                                            AllowSorting="True" OnRowDataBound="GridView5_RowDataBound1" OnSelectedIndexChanged="GridView5_SelectedIndexChanged"
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" >
 
                                             <Columns>
 
@@ -243,7 +244,8 @@
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                            AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
 
@@ -314,7 +316,8 @@
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL1" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView3_RowDataBound1" OnSelectedIndexChanged="GridView3_SelectedIndexChanged">
+                                            AllowSorting="True" OnRowDataBound="GridView3_RowDataBound1" OnSelectedIndexChanged="GridView3_SelectedIndexChanged"
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
 
@@ -386,7 +389,8 @@
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL2" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView4_RowDataBound1" OnSelectedIndexChanged="GridView4_SelectedIndexChanged">
+                                            AllowSorting="True" OnRowDataBound="GridView4_RowDataBound1" OnSelectedIndexChanged="GridView4_SelectedIndexChanged"
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
 
@@ -513,30 +517,37 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="width: 100% !important;">
                 <div class="modal-header" style="background-color: whitesmoke">
-                    <h5 class="modal-title"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
+                    <h3 class="modal-title" style="font-family: 'Open Sans',sans-serif">
+                        <asp:Label runat="server" ID="pName"></asp:Label>
+
+                    </h3>
                 </div>
                 <div class="modal-body p-4" id="resultPrograms" style="background-color: #ffffff">
 
                     <div class=" ">
                         <div class="row d-flex justify-content-center ">
 
-                            <div class="col-xl-12 col-lg-12 text-center col-md-12 col-s-12 Spacing">
-                                <label><b>Animals Involved</b> </label>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 Spacing mx-auto">
+                                <label class=""><b>Animals Involved</b> </label>
 
 
                                 <asp:UpdatePanel runat="server" ID="updateModal">
                                     <ContentTemplate>
 
 
-                                  
+                                  <div class="text-center">
                                 <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover"
-                                            BackColor="White" AllowPaging="True" AllowSorting="true" OnSorting="GridView2_Sorting" >
+                                    BackColor="White" AllowPaging="True" AllowSorting="true" OnSorting="GridView2_Sorting" 
+                                    HeaderStyle-BackColor="#00c292" HeaderStyle-ForeColor="White" SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                    SortedAscendingCellStyle-BackColor="#fddfd6">
 
-                                            <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
+                                            <%--<HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>--%>
                                         </asp:GridView>
+
+                                  </div>
                                           </ContentTemplate>
 
                                 </asp:UpdatePanel>
@@ -554,7 +565,7 @@
                                 <div class=" ">
                                     <label><b>Notes </b></label>
                                     <br />
-                                    <textarea runat="server" style="resize: inherit; min-height: 245px; min-width: 100%;" readonly="readonly"></textarea>
+                                    <textarea runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="readonly"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -568,7 +579,7 @@
     </div>
 
 
-    <div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <%--<div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -609,6 +620,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
 </asp:Content>

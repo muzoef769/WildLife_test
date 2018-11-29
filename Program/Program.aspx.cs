@@ -6,20 +6,21 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Drawing;
 
 public partial class Program : System.Web.UI.Page
 {
     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString);
     public static Int32 id;
     private string SearchString = "";
-    
+
 
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            
+
             ViewState["direction"] = 0;
         }
     }
@@ -47,7 +48,7 @@ public partial class Program : System.Web.UI.Page
     {
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView1.SelectedValue.ToString());
-        
+
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
@@ -89,8 +90,23 @@ public partial class Program : System.Web.UI.Page
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView5.SelectedValue.ToString());
 
-        string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
+        String programString = "SELECT Program.ProgramName FROM Program INNER JOIN NewProgram ON NewProgram.ProgramID = Program.ProgramID WHERE NewProgram.NewProgramID = @NewProgramID";
+        SqlCommand commProgramName = sc.CreateCommand();
+        commProgramName.CommandType = CommandType.Text;
+        commProgramName.CommandText = programString;
+
+        commProgramName.Parameters.AddWithValue("@NewProgramID", id);
+        sc.Open();
+        String progName = Convert.ToString(commProgramName.ExecuteScalar());
+        
+        ViewState["pName"] = progName;
+        pName.Text = (String)ViewState["pName"];
+        sc.Close();
+
+
+
+        String AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
 
         SqlCommand cmd3 = sc.CreateCommand();
@@ -249,6 +265,7 @@ public partial class Program : System.Web.UI.Page
             case 0:
                 newSortDirection = "DESC";
                 ViewState["direction"] = 1;
+
                 break;
 
             case 1:
