@@ -94,25 +94,32 @@
                         <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
 
                             <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link  " id="contact-tab" data-toggle="tab" href="#OrganizationInformation" role="tab" aria-controls="contact" aria-selected="true">Organization Information</a>
+                                <a style="margin-right: 5px; color: black;" class="nav-link active" id="organization-tab" data-toggle="tab" href="#OrganizationInformation" role="tab" aria-controls="org" aria-selected="true">Organization Information</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a style="margin-right: 5px; color: black;" class="nav-link" id="program-tab" data-toggle="tab" href="#ProgramInformation" role="tab" aria-controls="program" aria-selected="false">Program Information</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a style="margin-right: 5px; color: black;" class="nav-link" id="more-tab" data-toggle="tab" href="#MoreInformation" role="tab" aria-controls="more" aria-selected="false">More Information</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a style="margin-right: 5px; color: black;" class="nav-link" id="animal-tab" data-toggle="tab" href="#AnimalInformation" role="tab" aria-controls="animal" aria-selected="false">Animal Information</a>
                             </li>
                             <li class="nav-item " id="locationtab" runat="server">
                                 <a style="margin-right: 5px; color: black;" class="nav-link" id="location-tab" data-toggle="tab" href="#ProgramLocation" role="tab" aria-controls="location" aria-selected="false">Program Location</a>
                             </li>
 
-
-
                         </ul>
                     </div>
 
                     <div class="tab-content ">
-                        <div id="ContactInformation" class="tab-pane fade show active">
+                        <div id="OrganizationInformation" class="tab-pane fade show active">
                             <div class="card-body">
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="form-group col-md-6">
                                         <asp:TextBox ID="txtInvoice" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                     </div>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
@@ -120,12 +127,13 @@
                                         ErrorMessage="*" ForeColor="Red" ValidationGroup="addProgram">
                                     </asp:RequiredFieldValidator>
                                 </div>
+                                <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblOrganization" runat="server" Text="Organization"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
-                                        <asp:DropDownList ID="drpOrganizationList" runat="server" CssClass="btn btn-default btn-sm dropdown-toggle" Style="background-color: whitesmoke;" AppendDataBoundItems="True" DataSourceID="SqlDataSource3"
+                                    <div class="form-group col-md-6">
+                                        <asp:DropDownList ID="drpOrganizationList" runat="server" CssClass="form-control" Style="background-color: whitesmoke;" AppendDataBoundItems="True" DataSourceID="SqlDataSource3"
                                             DataTextField="OrganizationName" DataValueField="OrganizationID"  AutoPostBack="true">
 
                                             <asp:ListItem Text="Select an Organization"></asp:ListItem>
@@ -138,61 +146,121 @@
                                         </asp:RequiredFieldValidator>
                                     </div>
                                 </div>
-
+                                <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblContact" runat="server" Text="Contact"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
-                                        <asp:DropDownList ID="drpContact" runat="server" CssClass="btn"
+                                    <div class="form-group col-md-6">
+                                        <asp:DropDownList ID="drpContact" runat="server" CssClass="form-control"
                                             Style="background-color: whitesmoke;" AutoPostBack="true"
                                             >
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-
+                                <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="form-group col-md-6">
                                         <asp:TextBox ID="txtFirstName" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                     </div>
                                 </div>
-
+                                <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="form-group col-md-6">
                                         <asp:TextBox ID="txtLastName" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                     </div>
                                 </div>
-
+                                <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblEmail" runat="server" Text="Email Address"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="form-group col-md-6">
                                         <asp:TextBox ID="txtEmail" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                     </div>
                                 </div>
-
+                                <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblPrimaryPhone" runat="server" Text="Primary Phone Number"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="form-group col-md-6">
                                         <asp:TextBox ID="txtPrimaryPhone" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
                                     </div>
                                 </div>
-
+                                <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-6">
                                         <asp:Label ID="lblSecondaryPhone" runat="server" Text="Secondary Phone Number"></asp:Label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="form-group col-md-6">
                                         <asp:TextBox ID="txtSecondaryPhone" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="ProgramInformation" class="tab-pane fade">
+                            <div class="card-body">
+                                <div class="row mx-auto">
+                                    <div class="col-md-6">
+                                        <asp:Label ID="lblProgramType" runat="server" Text="Program Type"></asp:Label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <asp:DropDownList ID="drpProgramType" runat="server" Style="background-color: whitesmoke;">
+                                            <asp:ListItem>Live</asp:ListItem>
+                                            <asp:ListItem>Online</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="row mx-auto">
+                                    <div class="col-md-6">
+                                        <asp:Label ID="lblProgramName" runat="server" Text="Program Name"></asp:Label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <asp:DropDownList ID="drpProgramList" runat="server" Style="background-color: whitesmoke;">
+                                            <asp:ListItem>Program 1</asp:ListItem>
+                                            <asp:ListItem>Program 2</asp:ListItem>
+                                            <asp:ListItem>Program 3</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="row mx-auto">
+                                    <div class="col-md-6">
+                                        <asp:Label ID="lblDate" runat="server" Text="Program Date"></asp:Label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <asp:TextBox ID="txtProgramDate" runat="server" Style="background-color: whitesmoke;"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mx-auto">
+                                    <div class="col-md-6">
+                                        <asp:Label ID="lblProgramTime" runat="server" Text="Program Time"></asp:Label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <asp:TextBox ID="txtProgramTime" runat="server" Style="background-color: whitesmoke;"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mx-auto">
+                                    <div class="col-md-6">
+                                        <asp:Label ID="lblLocationType" runat="server" Text="Location Type"></asp:Label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <asp:TextBox ID="txtLocationType" runat="server" Style="background-color: whitesmoke;"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mx-auto">
+                                    <div class="col-md-6">
+                                        <asp:Label ID="lblTotalMileage" runat="server" Text="Mileage"></asp:Label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <asp:TextBox ID="txtTotalMileage" runat="server" Style="background-color: whitesmoke;"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
