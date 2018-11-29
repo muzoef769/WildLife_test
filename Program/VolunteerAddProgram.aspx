@@ -277,6 +277,15 @@
                                 <br />
                                 <div class="row mx-auto">
                                     <div class="col-md-4 mx-auto">
+                                        <asp:Label ID="lblEducators" runat="server" Text="Select Educators"></asp:Label>
+                                        <br />
+                                        <div class="border" style="overflow-y: scroll; width: 200px; height: 200px">
+                                            <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="UserID"></asp:CheckBoxList>
+                                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT UserID, CONCAT(FirstName, ' ', LastName) as name FROM [User] "></asp:SqlDataSource>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 mx-auto">
                                         <asp:Label ID="lblGrade" runat="server" Text="Select Grade"></asp:Label>
                                         <br />
                                         <asp:DropDownList ID="drpAgeLevel" class="col col-md-2 col-md-4 col-md-6 col-md-8 form-control" Style="background-color: whitesmoke;" runat="server">
@@ -302,15 +311,6 @@
                                             <asp:ListItem>College/University</asp:ListItem>
 
                                         </asp:DropDownList>
-                                    </div>
-
-                                    <div class="col-md-4 mx-auto">
-                                        <asp:Label ID="lblEducators" runat="server" Text="Select Educators"></asp:Label>
-                                        <br />
-                                        <div class="border" style="overflow-y: scroll; width: 200px; height: 200px">
-                                            <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="UserID"></asp:CheckBoxList>
-                                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT UserID, CONCAT(FirstName, ' ', LastName) as name FROM [User] "></asp:SqlDataSource>
-                                        </div>
                                     </div>
 
                                     <div class="col-md-4 mx-auto">
