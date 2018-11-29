@@ -107,9 +107,6 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
                             txtEmail.Text = reader.GetString(2);
                             txtPrimaryNumber.Text = reader.GetString(3);
                             txtSecondaryNumber.Text = reader.GetString(4);
-
-
-
                         }
                     }
                     connection.Close();
@@ -140,7 +137,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
             drpLocationTypeList.Items.Add(("Online"));
             drpLocationTypeList.SelectedValue = "Online";
             txtMileage.Visible = false;
-            programLoc.Visible = false;
+            locationtab.Visible = false;
         }
         else
         {
@@ -238,7 +235,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
         {
 
             connection.Open();
-            Address address = new Address(txtStreet.Text, txtState.Text, txtCity.Text, txtCounty.Text, txtCountry.Text, txtZipCode.Text, "Program Location", DateTime.Today, "Raina");
+            Address address = new Address(txtStreet.Text, drpState.SelectedValue, txtCity.Text, txtCounty.Text, drpCountry.SelectedValue, txtZipCode.Text, "Program Location", DateTime.Today, "Raina");
             int newAddressID;
 
             if (drpLocationTypeList.SelectedValue == "Onsite")
@@ -294,10 +291,6 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
                     newAddressID = Convert.ToInt32(command.ExecuteScalar());
 
                 }
-
-
-
-
             }
 
             for (int j = 0; j < NewProgram.programList.Count; j++)
@@ -439,7 +432,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
         }
 
         int miles;
-        if (programLoc.Visible == true)
+        if (locationtab.Visible == true)
         {
             miles = Convert.ToInt32(txtMileage.Text);
             mileageCost = miles * .57;
@@ -449,10 +442,6 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
         {
             miles = 0;
         }
-
-
-        //lblSubtotalCost.Text = totalCost.ToString();
-
         NewProgram.programList.Clear();
 
 
@@ -462,37 +451,23 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
             if (z == 0)
             {
-                //    lblProgramCostOne.Text = Convert.ToString(NewProgram.programList[z].getPrgCost());
                 totalCost += 250;
-                //    programOne.Visible = true;
-                //    programTwo.Visible = false;
-                //    programThree.Visible = false;
             }
 
             if (z == 1)
             {
-                //    lblProgramCostTwo.Text = Convert.ToString(NewProgram.programList[z].getPrgCost());
-                //    totalCost += NewProgram.programList[z].getPrgCost();
-                //    programTwo.Visible = true;
                 totalCost += 160;
             }
 
 
             if (z == 2)
             {
-                //    lblProgramCostThree.Text = Convert.ToString(NewProgram.programList[z].getPrgCost());
-                //    totalCost += NewProgram.programList[z].getPrgCost();
-                //    programThree.Visible = true;
+
                 totalCost += 160;
             }
 
-
-            //lblSubtotalCost.Text = totalCost.ToString();
-
-
         }
-        //totalCost = totalCost + mileageCost;
-        //lblTotalCostPrice.Text = totalCost.ToString();
+
         double totalReal;
         totalReal = Convert.ToDouble(lblSubtotalCost.Text) + mileageCost;
         lblTotalCostPrice.Text = totalReal.ToString();
@@ -500,31 +475,10 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
     }
 
-
     protected void BtnAddProgram_Click(object sender, EventArgs e)
     {
         NewProgram.btnCount++;
         programID = Convert.ToInt32(drpOrganizationList.SelectedValue); /*Grab ProgramID*/
-
-
-
-        //if (txtMileage.Visible == true)
-        //{
-        //    NewProgram newProgram = new NewProgram(Int32.Parse(txtKids.Text), Int32.Parse(txtAdults.Text),
-        //        /* people*/ 50, drpAgeLevel.SelectedValue, /*mileage*/ Int32.Parse(txtMileage.Text), "Completed",
-        //        /*time*/DateTime.Now, Convert.ToDateTime(datepicker.Value), txtMiscNotes.Value, drpLocationTypeList.SelectedValue,
-        //         programID, /*addressID*/10, DateTime.Now, "Raina");
-        //    NewProgram.programList.Add(newProgram);
-        //}
-        //else if (txtMileage.Visible == false)
-        //{
-        //    NewProgram newProgram = new NewProgram(Int32.Parse(txtKids.Text), Int32.Parse(txtAdults.Text),
-        //        /* people*/ 50, drpAgeLevel.SelectedValue, /*mileage*/ 0, "Completed",
-        //        /*time*/DateTime.Now, Convert.ToDateTime(datepicker.Value), txtMiscNotes.Value, drpLocationTypeList.SelectedValue,
-        //         programID, /*addressID*/10, DateTime.Now, "Raina");
-        //    NewProgram.programList.Add(newProgram);
-        //}
-
         int totalPeople;
         totalPeople = Convert.ToInt32(txtAdults.Text) + Convert.ToInt32(txtKids.Text);
 
@@ -556,8 +510,8 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
             }
         }
         NewProgram newProgram = new NewProgram(Int32.Parse(txtKids.Text), Int32.Parse(txtAdults.Text),
-                totalPeople, drpAgeLevel.SelectedValue, "Completed", Convert.ToDateTime(programTime.Text),
-                Convert.ToDateTime(datepicker.Value), txtMiscNotes.Value, drpLocationTypeList.SelectedValue,
+                totalPeople, drpAgeLevel.SelectedValue, "Completed", Convert.ToDateTime(txtProgramTime.Text),
+                Convert.ToDateTime(txtDatePicker.Text), txtMiscNotes.Text, drpLocationTypeList.SelectedValue,
                 programID, DateTime.Now, "Raina", programCost);
 
 
@@ -567,24 +521,15 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
         drpAgeLevel.SelectedValue = null;
         txtAdults.Text = null;
         txtKids.Text = null;
-        txtMiscNotes.InnerText = null;
+        txtMiscNotes.Text = null;
         drpLocationTypeList.SelectedValue = null;
         drpProgramList.SelectedValue = null;
         NewProgram.baseCost = 250 + (160 * (NewProgram.programList.Count - 1));
-        //txtBaseCost.Text = NewProgram.baseCost.ToString();
-
-        //Assigning to textboxes for testing
-        //totalCost = NewProgram.baseCost + (Convert.ToDouble(txtMileage.Text) * .57);
-        ////txtProgramCost.Text = NewProgram.baseCost.ToString();
-        //txtMileage.Text = NewProgram.programList.Count.ToString();
-        //txtTotalCost.Text = totalCost.ToString();()
-
-
 
         string location = NewProgram.programList[0].getLocationType();
         if (location == "Offsite" && NewProgram.btnCount >= 1)
         {
-            datepicker.Disabled = true;
+            txtDatePicker.Enabled = true;
 
 
             drpOrganizationList.Enabled = false;
@@ -623,9 +568,6 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
 
         lblCartTotal.Text = Convert.ToString(NewProgram.programList.Count);
-        //lblProgramCostOne.Text = NewProgram.programList
-        //lblProgramCostTwo.Text = Convert.ToString(programCost);
-        //lblProgramCostThree.Text = Convert.ToString(programCost);
 
 
         lblSubtotalCost.Text = totalCost.ToString();
@@ -635,22 +577,64 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
     }
 
-
     protected void drpLocationTypeList_SelectedIndexChanged(object sender, EventArgs e)
     {
         string locationType = drpLocationTypeList.SelectedValue;
         if (locationType == "Onsite" || locationType == "Online")
         {
-            programLoc.Visible = false;
+            locationtab.Visible = false;
         }
         else
         {
-            programLoc.Visible = true;
+            locationtab.Visible = true;
         }
     }
-protected void Clear(object sender, EventArgs e)
-{
-    NewProgram.programList.Clear();
-    NewProgram.btnCount = 0;
-}
+
+    protected void chkLocation_CheckedChanged(object sender, EventArgs e)
+    {
+        if (chkLocation.Checked)
+        {
+            using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+
+                connection.Open();
+                string locationQuery = "Select Address.* FROM Address INNER JOIN Organization ON Address.AddressID = Organization.AddressID WHERE OrganizationID = @OrganizationID";
+                SqlCommand locationCommand = new SqlCommand(locationQuery, connection);
+
+                locationCommand.Parameters.AddWithValue("@OrganizationID", drpOrganizationList.SelectedValue);
+                SqlDataReader locationReader = locationCommand.ExecuteReader();
+
+                if (locationReader.HasRows)
+                {
+                    while (locationReader.Read())
+                    {
+                        txtStreet.Text = locationReader.GetString(1);
+                        txtCity.Text = locationReader.GetString(2);
+                        drpState.Text = locationReader.GetString(3);
+                        txtCounty.Text = locationReader.GetString(4);
+                        drpCountry.Text = locationReader.GetString(5);
+                        txtZipCode.Text = locationReader.GetString(6);
+                    }
+                }
+
+            }
+        }
+        else
+        {
+            txtStreet.Text = null;
+            txtCity.Text = null;
+            drpState.Text = null;
+            txtCounty.Text = null;
+            drpCountry.Text = null;
+            txtZipCode.Text = null;
+        }
+    }
+
+    protected void Clear(object sender, EventArgs e)
+    {
+        NewProgram.programList.Clear();
+        NewProgram.btnCount = 0;
+
+    }
+
 }
