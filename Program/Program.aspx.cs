@@ -5,16 +5,25 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Text.RegularExpressions;
+using System.Web;
 
 public partial class Program : System.Web.UI.Page
 {
     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString);
     public static Int32 id;
     private string SearchString = "";
+    
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            
+            ViewState["direction"] = 0;
+        }
     }
+
     protected void redirectProgram(object sender, EventArgs e)
     {
         Response.Redirect("AddProgram.aspx");
@@ -38,6 +47,7 @@ public partial class Program : System.Web.UI.Page
     {
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView1.SelectedValue.ToString());
+        
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
@@ -50,9 +60,28 @@ public partial class Program : System.Web.UI.Page
         SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
         DataTable dt3 = new DataTable();
         da3.Fill(dt3);
+        ViewState["modalDataTable"] = dt3;
         GridView2.DataSource = dt3;
         GridView2.DataBind();
     }
+
+
+
+
+    protected void GridView5_RowDataBound1(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView5, "Select$" + e.Row.RowIndex);
+            e.Row.ToolTip = "Click to select this row.";
+
+
+
+        }
+
+    }
+
 
     protected void GridView5_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -71,8 +100,26 @@ public partial class Program : System.Web.UI.Page
         SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
         DataTable dt3 = new DataTable();
         da3.Fill(dt3);
+        ViewState["modalDataTable"] = dt3;
         GridView2.DataSource = dt3;
         GridView2.DataBind();
+    }
+
+
+
+
+    protected void GridView3_RowDataBound1(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView3, "Select$" + e.Row.RowIndex);
+            e.Row.ToolTip = "Click to select this row.";
+
+
+
+        }
+
     }
 
     protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,8 +140,25 @@ public partial class Program : System.Web.UI.Page
         SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
         DataTable dt3 = new DataTable();
         da3.Fill(dt3);
+        ViewState["modalDataTable"] = dt3;
         GridView2.DataSource = dt3;
         GridView2.DataBind();
+    }
+
+
+
+    protected void GridView4_RowDataBound1(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView4, "Select$" + e.Row.RowIndex);
+            e.Row.ToolTip = "Click to select this row.";
+
+
+
+        }
+
     }
 
     protected void GridView4_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,13 +179,14 @@ public partial class Program : System.Web.UI.Page
         SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
         DataTable dt3 = new DataTable();
         da3.Fill(dt3);
+        ViewState["modalDataTable"] = dt3;
         GridView2.DataSource = dt3;
         GridView2.DataBind();
     }
 
     public string HighlightText(string InputTxt)
     {
-        string Search_Str = txtSearchAll.Text;
+        string Search_Str = HttpUtility.HtmlEncode(txtSearchAll.Text);
         // Setup the regular expression and add the Or operator.
         Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
         // Highlight keywords by calling the
@@ -137,7 +202,7 @@ public partial class Program : System.Web.UI.Page
     protected void btnSearchAll_Click(object sender, EventArgs e)
     {
         //  Set the value of the SearchString so it gets
-        SearchString = txtSearchAll.Text;
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
     }
 
     protected void btnClearAll_Click(object sender, EventArgs e)
@@ -150,7 +215,49 @@ public partial class Program : System.Web.UI.Page
 
     protected void txtSearchAll_TextChanged(object sender, EventArgs e)
     {
-        SearchString = txtSearchAll.Text;
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
+    }
+
+
+    protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView2.PageIndex = e.NewPageIndex;
+        GridView2.DataBind();
+
+    }
+
+    protected void GridView2_Sorting(object sender, GridViewSortEventArgs e)
+    {
+        DataTable dataTable = (DataTable)ViewState["modalDataTable"];
+
+        if (dataTable != null)
+        {
+            DataView dataView = new DataView(dataTable);
+            dataView.Sort = e.SortExpression + " " + ConvertSortDirectionToSql(e.SortDirection);
+
+            GridView2.DataSource = dataView;
+            GridView2.DataBind();
+        }
+    }
+
+    private string ConvertSortDirectionToSql(SortDirection sortDirection)
+    {
+        string newSortDirection = String.Empty;
+
+        switch ((Int32)ViewState["direction"])
+        {
+            case 0:
+                newSortDirection = "DESC";
+                ViewState["direction"] = 1;
+                break;
+
+            case 1:
+                newSortDirection = "ASC";
+                ViewState["direction"] = 0;
+                break;
+        }
+
+        return newSortDirection;
     }
 
 }

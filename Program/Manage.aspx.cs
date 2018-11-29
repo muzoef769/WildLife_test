@@ -117,15 +117,12 @@ public partial class Manage : System.Web.UI.Page
             foreach (GridViewRow row in volGridView.Rows)
             {
                 CheckBox chkStatus = (row.Cells[3].FindControl("chkStatus") as CheckBox);
-                String userName = (row.Cells[2].Text);
+                String userName = (row.Cells[0].Text);
                 if (chkStatus.Checked)
                 {
                     updateRow(userName, "Active");
                 }
-                //else
-                //{
-                //    updateRow(userName, "Not Approved");
-                //}
+
             }
         }
         catch (Exception)
@@ -160,15 +157,12 @@ public partial class Manage : System.Web.UI.Page
             foreach (GridViewRow row in staffGridView.Rows)
             {
                 CheckBox chkStatus = (row.Cells[3].FindControl("chkStatus") as CheckBox);
-                String userName = (row.Cells[2].Text);
+                String userName = (row.Cells[0].Text);
                 if (chkStatus.Checked)
                 {
-                    updateRow2(userName, "Active");
+                    updateRow(userName, "Active");
                 }
-                //else
-                //{
-                //    updateRow(userName, "Not Approved");
-                //}
+
             }
         }
         catch (Exception)
@@ -180,32 +174,20 @@ public partial class Manage : System.Web.UI.Page
     protected void updateRow2(String userName, String MarkStatus)
     {
         sc.Close();
-        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus WHERE Username = @Username";
+        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus, LastUpdated = @LastUpdated, LastUpdatedBy = @LastUpdatedBy WHERE Username = @Username";
         sc.Open();
         SqlCommand statusUpdate = new SqlCommand(updateStatus, sc);
         statusUpdate.Parameters.AddWithValue("@MarkStatus", MarkStatus);
         statusUpdate.Parameters.AddWithValue("@Username", userName);
+        statusUpdate.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+        statusUpdate.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"].ToString());
         statusUpdate.ExecuteNonQuery();
         staffGridView.DataBind();
         volGridView.DataBind();
         allGridView.DataBind();
     }
 
-    protected void updateRow3(String userName, String MarkStatus)
-    {
-        sc.Close();
-        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus WHERE Username = @Username";
-        sc.Open();
-        SqlCommand statusUpdate = new SqlCommand(updateStatus, sc);
-        statusUpdate.Parameters.AddWithValue("@MarkStatus", MarkStatus);
-        statusUpdate.Parameters.AddWithValue("@Username", userName);
-        statusUpdate.ExecuteNonQuery();
-        allGridView.DataBind();
-        volGridView.DataBind();
-        staffGridView.DataBind();
 
-
-    }
 
 
     protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -227,22 +209,39 @@ public partial class Manage : System.Web.UI.Page
         //}
     }
 
-    private DataSet GetData(string query)
+    protected void updateRow3(String userName, String MarkStatus)
     {
-        string conString = ConfigurationManager.ConnectionStrings["connString"].ConnectionString;
-        SqlCommand cmd = new SqlCommand(query);
-        using (SqlConnection con = new SqlConnection(conString))
-        {
-            using (SqlDataAdapter sda = new SqlDataAdapter())
-            {
-                cmd.Connection = con;
-                sda.SelectCommand = cmd;
-                using (DataSet ds = new DataSet())
-                {
-                    sda.Fill(ds);
-                    return ds;
-                }
-            }
-        }
+        sc.Close();
+        string updateStatus = "UPDATE [dbo].[User] SET UserStatus = @MarkStatus WHERE Username = @Username";
+        sc.Open();
+        SqlCommand statusUpdate = new SqlCommand(updateStatus, sc);
+        statusUpdate.Parameters.AddWithValue("@MarkStatus", MarkStatus);
+        statusUpdate.Parameters.AddWithValue("@Username", userName);
+        statusUpdate.ExecuteNonQuery();
+        allGridView.DataBind();
+        volGridView.DataBind();
+        staffGridView.DataBind();
+
+
     }
+
+
+    //private DataSet GetData(string query)
+    //{
+    //    string conString = ConfigurationManager.ConnectionStrings["connString"].ConnectionString;
+    //    SqlCommand cmd = new SqlCommand(query);
+    //    using (SqlConnection con = new SqlConnection(conString))
+    //    {
+    //        using (SqlDataAdapter sda = new SqlDataAdapter())
+    //        {
+    //            cmd.Connection = con;
+    //            sda.SelectCommand = cmd;
+    //            using (DataSet ds = new DataSet())
+    //            {
+    //                sda.Fill(ds);
+    //                return ds;
+    //            }
+    //        }
+    //    }
+    //}
 }

@@ -11,6 +11,7 @@ public partial class Main : System.Web.UI.MasterPage
     {
 
     }
+
     protected void Session_Start(object sender, EventArgs e)
     {
         Session["Username"] = "";

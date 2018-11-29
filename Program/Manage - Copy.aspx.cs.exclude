@@ -112,8 +112,8 @@ public partial class Manage : System.Web.UI.Page
 
     protected void btnStatusUpdate_Click(object sender, EventArgs e)
     {
-        try
-        {
+        //try
+        //{
             foreach (GridViewRow row in volGridView.Rows)
             {
                 CheckBox chkStatus = (row.Cells[3].FindControl("chkStatus") as CheckBox);
@@ -127,11 +127,11 @@ public partial class Manage : System.Web.UI.Page
                 //    updateRow(userName, "Not Approved");
                 //}
             }
-        }
-        catch (Exception)
-        {
+        //}
+        //catch (Exception)
+        //{
 
-        }
+        //}
     }
 
     protected void updateRow(String userName, String MarkStatus)

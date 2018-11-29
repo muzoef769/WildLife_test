@@ -59,13 +59,13 @@
                         </script>
                         <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
                             <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link active" id="all-tab" data-toggle="tab" href="#All" role="tab" aria-controls="all" aria-selected="true">User Permissions</a>
+                                <a style="margin-right: 5px; color: black;" class="nav-link active" id="profile-tab" data-toggle="tab" href="#All" role="tab" aria-controls="profile" aria-selected="true">User Permissions</a>
                             </li>
                             <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link  " id="staff-tab" data-toggle="tab" href="#Staff" role="tab" aria-controls="staff" aria-selected="false">Approve Staff</a>
+                                <a style="margin-right: 5px; color: black;" class="nav-link  " id="homee-tab" data-toggle="tab" href="#Staff" role="tab" aria-controls="homee" aria-selected="false">Approve Staff</a>
                             </li>
                             <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link" id="volunteer-tab" data-toggle="tab" href="#Volunteer" role="tab" aria-controls="volunteer" aria-selected="false">Approve Volunteers</a>
+                                <a style="margin-right: 5px; color: black;" class="nav-link" id="home-tab" data-toggle="tab" href="#Volunteer" role="tab" aria-controls="home" aria-selected="false">Approve Volunteers</a>
                             </li>
 
 
@@ -168,14 +168,12 @@
                                                     ItemStyle-ForeColor="black"
                                                     CssClass="table table-condensed table-bordered table-hover AnimalCard"
                                                     BackColor="White"
-                                                    HorizontalAlign="Left"
-                                                    EmptyDataText="NO VOLUNTEERS NEED TO BE APPROVED"
-                                                    EmptyDataRowStyle-HorizontalAlign="Center">
+                                                    HorizontalAlign="Left">
                                                     <Columns>
                                                         <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" InsertVisible="False" Visible="false" ReadOnly="True" />--%>
-                                                        <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
                                                         <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" />
                                                         <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
+                                                        <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
                                                         <asp:TemplateField HeaderText="Approve Volunteer?">
                                                             <ItemTemplate>
                                                                 <asp:CheckBox ID="chkStatus" runat="server" Style="text-align: center" />
@@ -202,7 +200,7 @@
                                 </div>
                                 <br />
                                 <div class="row">
-                                    <div class="col col-3 col-xl-2 col-lg-2 col-md-2 col-s-2 mx-auto p-1">
+                                    <div class="col-12 mx-auto">
                                         <asp:Button ID="btnStatusUpdate" class="btn btn-success btn-block" runat="server" Text="Update Status" OnClick="btnStatusUpdate_Click" />
                                     </div>
                                 </div>
@@ -231,9 +229,7 @@
                                                     BackColor="White"
                                                     HorizontalAlign="Left"
                                                     AllowSorting="True"
-                                                    Class="table table-condensed table-bordered table-hover AnimalCard"
-                                                    EmptyDataText="NO STAFF MEMBERS NEED TO BE APPROVED"
-                                                    EmptyDataRowStyle-HorizontalAlign="Center">
+                                                    Class="table table-condensed table-bordered table-hover AnimalCard">
 
 
                                                     <Columns>
@@ -272,13 +268,14 @@
                                 </div>
                                 <br />
                                 <div class="row">
-                                    <div class="col col-3 col-xl-2 col-lg-2 col-md-2 col-s-2 mx-auto p-1">
-                                        <asp:Button ID="btnUpdateStaff" class="btn btn-success btn-block" runat="server" Text="Update" OnClick="btnStatusUpdate2_Click" />
+                                    <div class="col-12 mx-auto">
+                                        <asp:Button ID="btnUpdateStaff" class="btn btn-success btn-block" runat="server" Text="Update Status" OnClick="btnStatusUpdate_Click" />
                                     </div>
                                 </div>
                                 <br />
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
