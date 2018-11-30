@@ -97,22 +97,26 @@
 
                                 <asp:DropDownList ID="drpOrganizationList" runat="server" CssClass="btn btn-default btn-sm dropdown-toggle" Style="background-color: whitesmoke;" AppendDataBoundItems="True" DataSourceID="SqlDataSource3" DataTextField="OrganizationName" DataValueField="OrganizationID" OnSelectedIndexChanged="DrpOrganizationList_IndexChanged" AutoPostBack="true">
 
-                                    <asp:ListItem Text="Select an Organization"></asp:ListItem>
+                                    <asp:ListItem Value="0" Text="Select an Organization"></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT OrganizationName, OrganizationID FROM Organization"></asp:SqlDataSource>
-
+                                           <asp:RequiredFieldValidator ID="orgValidator" runat="server" ControlToValidate="drpOrganizationList" 
+                            InitialValue="0" ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>             
                             </div>
-
+                          
 
 
 
 
                             <div class=" col-md-6 ">
                                 <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
+                                <asp:RequiredFieldValidator ID="InvoiceValidator" runat="server" ControlToValidate="txtInvoiceNumber" 
+                             ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
                                 <asp:TextBox ID="txtInvoiceNumber" class="form-control" Style="background-color: whitesmoke;" runat="server"></asp:TextBox>
-
+                               
+   
                             </div>
-
+                          
                         </div>
 
                         <br />
@@ -162,9 +166,13 @@
                                        <label>Select Program </label>
                                     <asp:DropDownList ID="drpProgramList" runat="server" CssClass="btn  dropdown-toggle" style="background-color:whitesmoke;" DataSourceID="SqlDataSource1" DataTextField="ProgramName" DataValueField="ProgramID" AppendDataBoundItems="True" OnSelectedIndexChanged="DrpProgramList_SelectedIndexChanged" AutoPostBack="true">
 
-                                        <asp:ListItem Text="Program Name"></asp:ListItem>
+                                        <asp:ListItem Value="0" Text="Program Name"></asp:ListItem>
+
                                     </asp:DropDownList>
+                                      <asp:RequiredFieldValidator ID="rfvType" runat="server" ControlToValidate="drpProgramList" 
+                            InitialValue="0"  ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
                                 </div>
+                               
                                  </div>
                             <br />
                             <div class="row">
@@ -174,42 +182,57 @@
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT [ProgramID], [ProgramName] FROM [Program]"></asp:SqlDataSource>
 
                                     <asp:DropDownList ID="drpLocationTypeList" runat="server" CssClass="btn  dropdown-toggle" style="background-color:whitesmoke;" AutoPostBack="true" OnSelectedIndexChanged="drpLocationTypeList_SelectedIndexChanged">
-                                        <asp:ListItem Text="Location Type"></asp:ListItem>
+                                        <asp:ListItem Value="0" Text="Location Type"></asp:ListItem>
                                         <asp:ListItem Value="Onsite" Text="Onsite"></asp:ListItem>
                                         <asp:ListItem Value="Offsite" Text="Offsite"></asp:ListItem>
                                         <asp:ListItem Value="Online" Text="Online"></asp:ListItem>
                                     </asp:DropDownList>
+                                    
+<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="drpLocationTypeList" 
+                            InitialValue="0"  ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
                                 </div>
+                                
                                 <div class="col-md-4 mx-auto  Spacing">
                                    <label>Date </label>
 
                                     <input runat="server" clientidmode="Static" class="btn"  style="background-color:whitesmoke;" width="100%" type="date" id="datepicker">
+                                    <asp:RequiredFieldValidator ID ="RequieredFieldValidator10" runat="server" ControlToValidate="datepicker"
+                                        ErrorMessage ="*" ForeColor="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
+                                    
                                 </div>
+                                 
                             </div>
                             <br />
                             <div class="row">
                                 <div class="col-md-4 mx-auto  Spacing">
                                     <label>Program Time: </label> &nbsp&nbsp <br />
                                     <asp:TextBox ID="programTime" runat="server" class="btn"  style="background-color:whitesmoke;" type="time" step="900" min="8:00" max="17:00"></asp:TextBox>
-
-
+                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="programTime" 
+                             ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
+                                    
                                 </div>
-
+                             
 
 
                                 <div class="col-md-4 mx-auto  Spacing">
                                     <label>Adults </label>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAdults" 
+                             ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
                                     <asp:TextBox ID="txtAdults" runat="server"  class="form-control"  style="background-color:whitesmoke;" Width="100%"></asp:TextBox>
-
+                                     
                                 </div>
-
+                               
 
                                 <div class="col-md-4 mx-auto  Spacing">
                                     <label>Children </label>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtKids" 
+                             ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
                                     <asp:TextBox ID="txtKids" runat="server"  class="form-control"  style="background-color:whitesmoke;" Width="100%" ></asp:TextBox>
-
+                                    
+ 
 
                                 </div>
+                                
                             </div>
                             <br />
                             <div class="row">
@@ -285,7 +308,7 @@
 
 
                                     <asp:DropDownList ID="drpAgeLevel" class="btn" style="background-color:whitesmoke;" runat="server">
-                                        <asp:ListItem>Grade Level</asp:ListItem>
+                                        <asp:ListItem Value ="0" Text ="Select Age Level"></asp:ListItem>
                                         <asp:ListItem>1st Grade</asp:ListItem>
                                         <asp:ListItem>2nd Grade</asp:ListItem>
                                         <asp:ListItem>3rd Grade</asp:ListItem>
@@ -305,11 +328,16 @@
                                         <asp:ListItem>Familes</asp:ListItem>
                                         <asp:ListItem>Adults Only</asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="drpAgeLevel" 
+                            InitialValue="0"  ErrorMessage="*" ForeColor ="Red" ValidationGroup="addProgram"></asp:RequiredFieldValidator>
                                 </div>
-
+                                 
                                 <div class="col-md-4 mx-auto Spacing">
                                      <label>Select Educators </label>
+                                    <asp:CustomValidator ID="CustomValidator1" ErrorMessage="*"
+    ClientValidationFunction="ValidateCheckBoxList" ValidationGroup="addProgram" runat="server" ForeColor="Red" />
                                     <div class="border" style="overflow-y: scroll; width: 200px; height: 200px">
+                                        
                                         <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="UserID"></asp:CheckBoxList>
                                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:connString %>" SelectCommand="SELECT UserID, CONCAT(FirstName, ' ', LastName) as name FROM [User] "></asp:SqlDataSource>
                                     </div>
@@ -328,7 +356,7 @@
                             <br />
                             <div class="row">
                                 <div class="col-6  mx-auto  text-center">
-                                    <asp:Button ID="Button2" runat="server" CssClass="btn btn-success" Text="Add Program" OnClick="BtnAddProgram_Click" />
+                                    <asp:Button ID="Button2" runat="server" CssClass="btn btn-success" Text="Add Program" OnClick="BtnAddProgram_Click" ValidationGroup="addProgram"/>
 
                                 </div>
                             </div>
@@ -694,5 +722,22 @@
 
 
     </script>
+
+   
+
+    <script type="text/javascript">
+    function ValidateCheckBoxList(sender, args) {
+        var checkBoxList = document.getElementById("<%=CheckBoxList1.ClientID %>");
+        var checkboxes = checkBoxList.getElementsByTagName("input");
+        var isValid = false;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                isValid = true;
+                break;
+            }
+        }
+        args.IsValid = isValid;
+    }
+</script>
 </asp:Content>
 

@@ -156,7 +156,7 @@ public partial class AddProgram : System.Web.UI.Page
             drpLocationTypeList.Items.Remove(drpLocationTypeList.Items.FindByValue("Online"));
             drpLocationTypeList.SelectedIndex = 0;
             txtMileage.Visible = true;
-            txtMileage.ReadOnly = false;
+            txtMileage.ReadOnly=false;
         }
 
         if (value == "13" || value == "14" || value == "15" || value == "16" || value == "17" || value == "18")
@@ -619,7 +619,8 @@ public partial class AddProgram : System.Web.UI.Page
 
     protected void BtnAddProgram_Click(object sender, EventArgs e)
     {
-
+        if (Page.IsValid)
+        {
         programID = Convert.ToInt32(drpProgramList.SelectedValue); /*Grab ProgramID*/
 
         int totalPeople;
@@ -652,8 +653,7 @@ public partial class AddProgram : System.Web.UI.Page
                 programCost = 160.00;
             }
         }
-        if (Page.IsValid)
-        {
+        
             NewProgram newProgram = new NewProgram(Int32.Parse(txtKids.Text), Int32.Parse(txtAdults.Text),
                 totalPeople, drpAgeLevel.SelectedValue, "Completed", Convert.ToDateTime(programTime.Text),
                 Convert.ToDateTime(datepicker.Value), txtMiscNotes.Value, drpLocationTypeList.SelectedValue,
