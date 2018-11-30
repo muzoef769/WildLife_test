@@ -120,17 +120,17 @@ public partial class Payment : System.Web.UI.Page
     protected void btnFilter_Click(object sender, EventArgs e)
     {
         //  Set the value of the SearchString so it gets
-        SearchString = txtYear.Text;
+        SearchString = ddlYear.SelectedValue;
     }
-    public string HighlightText(string InputTxt)
-    {
-        string Search_Str = txtYear.Text;
-        // Setup the regular expression and add the Or operator.
-        Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
-        // Highlight keywords by calling the
-        //delegate each time a keyword is found.
-        return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
-    }
+    //public string HighlightText(string InputTxt)
+    //{
+    //    string Search_Str = txtYear.Text;
+    //    // Setup the regular expression and add the Or operator.
+    //    Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
+    //    // Highlight keywords by calling the
+    //    //delegate each time a keyword is found.
+    //    return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
+    //}
 
     public string ReplaceKeyWords(Match m)
     {
@@ -140,11 +140,11 @@ public partial class Payment : System.Web.UI.Page
     protected void dateClear_Click(object sender, EventArgs e)
     {
         //  Simple clean up text to return the Gridview to it's default state
-        txtYear.Text = "";
         SearchString = "";
         allInvGrid.DataBind();
         outInvGrid.DataBind();
         paidGrid.DataBind();
+        canceledInvGrid.DataBind();
 
     }
 
@@ -262,5 +262,37 @@ public partial class Payment : System.Web.UI.Page
         }
 
         ExportToExcel(canceledInvGrid, "Canceled");
+    }
+
+    protected void btnFilterNum_Click(object sender, EventArgs e)
+    {
+        string invNum = txtInvoiceNum.Text;
+
+        outstandingSource.SelectCommand = "SELECT Invoice.InvoiceID, Invoice.InvoiceNumber, Payment.PaymentType, Format(Invoice.DateCreated, 'MM/dd/yyyy') as 'DateCreated', Program.ProgramName, Organization.OrganizationName, Invoice.TotalCost, Invoice.InvoiceStatus " +
+            "FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID INNER JOIN AssignInvoice ON NewProgram.NewProgramID = AssignInvoice.NewProgramID FULL OUTER JOIN Invoice ON AssignInvoice.AssignInvoiceID = Invoice.InvoiceID " +
+            "FULL OUTER JOIN Payment ON Invoice.InvoiceID = Payment.InvoiceID LEFT OUTER JOIN Organization ON Payment.OrganizationID = Organization.OrganizationID WHERE InvoiceStatus = 'Unpaid' AND InvoiceNumber LIKE '%" + invNum + "%'";
+        programSource.SelectCommand = "SELECT Invoice.InvoiceID, Invoice.InvoiceNumber, Payment.PaymentType, Format(Invoice.DateCreated, 'MM/dd/yyyy') as 'DateCreated', Program.ProgramName, Organization.OrganizationName, Invoice.TotalCost, Invoice.InvoiceStatus " +
+            "FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID INNER JOIN AssignInvoice ON NewProgram.NewProgramID = AssignInvoice.NewProgramID FULL OUTER JOIN Invoice ON AssignInvoice.AssignInvoiceID = Invoice.InvoiceID " +
+            "FULL OUTER JOIN Payment ON Invoice.InvoiceID = Payment.InvoiceID LEFT OUTER JOIN Organization ON Payment.OrganizationID = Organization.OrganizationID WHERE InvoiceStatus != 'Canceled' AND InvoiceNumber LIKE '%" + invNum + "%'";
+        paidSource.SelectCommand = "SELECT Invoice.InvoiceID, Invoice.InvoiceNumber, Payment.PaymentType, Format(Invoice.DateCreated, 'MM/dd/yyyy') as 'DateCreated', Program.ProgramName, Organization.OrganizationName, Invoice.TotalCost, Invoice.InvoiceStatus " +
+            "FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID INNER JOIN AssignInvoice ON NewProgram.NewProgramID = AssignInvoice.NewProgramID FULL OUTER JOIN Invoice ON AssignInvoice.AssignInvoiceID = Invoice.InvoiceID " +
+            "FULL OUTER JOIN Payment ON Invoice.InvoiceID = Payment.InvoiceID LEFT OUTER JOIN Organization ON Payment.OrganizationID = Organization.OrganizationID WHERE InvoiceStatus = 'Paid' AND InvoiceNumber LIKE '%" + invNum + "%'";
+        Sqldatasource92.SelectCommand = "SELECT Invoice.InvoiceID, Invoice.InvoiceNumber, Payment.PaymentType, Format(Invoice.DateCreated, 'MM/dd/yyyy') as 'DateCreated', Program.ProgramName, Organization.OrganizationName, Invoice.TotalCost, Invoice.InvoiceStatus " +
+            "FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID INNER JOIN AssignInvoice ON NewProgram.NewProgramID = AssignInvoice.NewProgramID FULL OUTER JOIN Invoice ON AssignInvoice.AssignInvoiceID = Invoice.InvoiceID " +
+            "FULL OUTER JOIN Payment ON Invoice.InvoiceID = Payment.InvoiceID LEFT OUTER JOIN Organization ON Payment.OrganizationID = Organization.OrganizationID WHERE InvoiceStatus = 'Canceled' AND InvoiceNumber LIKE '%" + invNum + "%'";
+
+
+
+    }
+
+    protected void btnClearNum_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtInvoiceNum.Text = "";
+        SearchString = "";
+        allInvGrid.DataBind();
+        outInvGrid.DataBind();
+        paidGrid.DataBind();
+        canceledInvGrid.DataBind();
     }
 }

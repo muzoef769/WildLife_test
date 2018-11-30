@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="AnimalReport.aspx.cs" Inherits="AnimalReport" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="AnimalReport - Copy.aspx.cs" Inherits="AnimalReport" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -112,71 +112,25 @@
 
                     </div>
                 </div>
-                
-
-
-    
-
-
-
-    <%--VIEW REPORT THROUGH GRIDVIEW--%>
-
-
-  
-
-    <asp:UpdatePanel ID="updateOnlinePanel" runat="server">
-                                                <ContentTemplate>
-
-              <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                               
-                                <div class="tab-content">
+                <div class="tab-content">
                     <div id="All" class="tab-pane fade show active">
-                        <div class="table-responsive row">
+                        <div class="table-responsive">
 
-
-
-                            <div class="">
-                    <div class="row mr-auto " style="margin-left:8px; margin-bottom:10px;">
-                        <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " style="padding-left: 15px; border-bottom: none;"  role="tablist">
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link active "  data-toggle="tab" href="#AllGeneral" role="tab" aria-controls="homee" aria-selected="true">General</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link"  data-toggle="tab" href="#AllAnimal" role="tab" aria-controls="home" aria-selected="false">Animal</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link "  data-toggle="tab" href="#AllMonthly" role="tab" aria-controls="profile" aria-selected="false">Monthly</a>
-                            </li>
-                                <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link "  data-toggle="tab" href="#AllAnnual" role="tab" aria-controls="profile" aria-selected="false">Annual</a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </div>
-
-
-                            <div class="col-12 mx-auto d-flex justify-content-center ">
-                                  <div id="AllGeneral" class="tab-pane fade show active">
-
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
+                            <div class="row mx-auto d-flex justify-content-center ">
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
                                         <div class="card-body">
                                             <h5 class="card-title">General Animal Report</h5>
                                             <p>
                                                 Detailed report of all animals and their associated information
                                             </p>
-                                            <div class="col-md-12   Spacing">
+                                            <div class="col-md-4   Spacing">
                                                 <label>Start Date </label>
 
                                                 <asp:TextBox ID="txtAllStart" type="date" runat="server" class="form-control btn-block" Style="background-color: whitesmoke;"></asp:TextBox>
                                                 
                                             </div>
-                                            <div class="col-md-12   Spacing">
+                                            <div class="col-md-4   Spacing">
                                                 <label>End Date </label>
 
                                                 <asp:TextBox ID="txtAllEnd" type="date" runat="server" class="form-control btn-block" Style="background-color: whitesmoke;"></asp:TextBox>
@@ -194,12 +148,10 @@
                                     </div>
                                 </div>
 
-                                      </div>
-                                <%--END of SEARH BY DATE--%>
 
-                                 <div id="AllAnimal" class="tab-pane fade  ">
-                             <div class="col-12">
-                                    <div class="card   AnimalReportCard">
+                                <%--END of SEARH BY DATE--%>
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
                                         <div class="card-body">
                                             <h5 class="card-title">Animal Type Report</h5>
                                             <p>
@@ -224,13 +176,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                     </div>
+
+
+
+
+
+
+
+
+
 
                                 <%--START OF MONTHLY ANIMAL REPORT--%>
-                                <div id="AllMonthly" class="tab-pane fade  ">
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
-                                        <div class="card-body">
+
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
+                                        <div class="card-body ">
                                             <h5 class="card-title">Monthly Animal Report</h5>
                                             <p>
                                                 Monthly Animal Report displays all birds, mammals,
@@ -262,14 +222,14 @@
                                         </div>
                                     </div>
                                 </div>
-     </div>
+
                                 <%--END OF MONTHLY ANIMAL REPORT--%>
 
                                 <%--START OF ANNUAL ANIMAL REPORT--%>
-                                    <div id="AllAnnual" class="tab-pane fade  ">
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
-                                        <div class="card-body">
+
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
+                                        <div id="scrollSpot" class="card-body">
                                             <h5 class="card-title">Annual Animal Report</h5>
                                             <p>
                                                 Annual Animal Report displays all birds, mammals,
@@ -293,14 +253,17 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div></div>
+                            </div>
 
 
 
                             <%--VIEW REPORT THROUGH GRIDVIEW--%>
 
 
-                        
+                            <div class="card-body container-fluid d-flex justify-content-center">
+                            </div>
+
+                            <br />
 
 
 
@@ -309,50 +272,22 @@
                     </div>
 
                     <div id="Online" class="tab-pane fade">
+                        <div class="table-responsive">
 
-                     
-                        <div class="table-responsive row">
-
-
-
-                            <div class="">
-                    <div class="row mr-auto " style="margin-left:8px; margin-bottom:10px;">
-                        <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " style="padding-left: 15px; border-bottom: none;"  role="tablist">
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link active "  data-toggle="tab" href="#OnlineGeneral" role="tab" aria-controls="homee" aria-selected="true">General</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link"  data-toggle="tab" href="#OnlineAnimal" role="tab" aria-controls="home" aria-selected="false">Animal</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link "  data-toggle="tab" href="#OnlineMonthly" role="tab" aria-controls="profile" aria-selected="false">Monthly</a>
-                            </li>
-                                <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link "  data-toggle="tab" href="#OnlineAnnual" role="tab" aria-controls="profile" aria-selected="false">Annual</a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </div>
-
-                            <div class="col-12 mx-auto d-flex justify-content-center ">
-                            
-                                  <div id="OnlineGeneral" class="tab-pane fade show active">
-
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
+                            <div class="row mx-auto d-flex justify-content-center ">
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
                                         <div class="card-body">
                                             <h5 class="card-title">Online General Report</h5>
                                             <p>
                                                 Detailed report of all animals and their associated information
                                             </p>
-                                            <div class="col-md-12  Spacing">
+                                            <div class="col-md-4  Spacing">
                                                 <label>Start Date </label>
 
                                                 <asp:TextBox ID="txtOnlineStart" type="date" runat="server"  class="btn btn-block" Style="background-color: whitesmoke;"></asp:TextBox>
                                             </div>
-                                            <div class="col-md-12  Spacing">
+                                            <div class="col-md-4  Spacing">
                                                 <label>End Date </label>
 
                                                 <asp:TextBox ID="txtOnlineEnd" type="date" runat="server"  class="btn btn-block" Style="background-color: whitesmoke;"></asp:TextBox>
@@ -373,12 +308,10 @@
                                     </div>
                                 </div>
 
-                                      </div>
-                                <%--END of SEARH BY DATE--%>
 
-                                 <div id="OnlineAnimal" class="tab-pane fade  ">
-                             <div class="col-12">
-                                    <div class="card   AnimalReportCard">
+                                <%--END of SEARH BY DATE--%>
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
                                         <div class="card-body">
                                             <h5 class="card-title">Online Type Report</h5>
                                             <p>
@@ -403,12 +336,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                     </div>
+
+
+
+
+
+
+
+
+
 
                                 <%--START OF MONTHLY ANIMAL REPORT--%>
-                                <div id="OnlineMonthly" class="tab-pane fade  ">
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
+
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
                                         <div class="card-body ">
                                             <h5 class="card-title">Online Monthly Report</h5>
                                             <p>
@@ -441,13 +382,13 @@
                                         </div>
                                     </div>
                                 </div>
-     </div>
+
                                 <%--END OF MONTHLY ANIMAL REPORT--%>
 
                                 <%--START OF ANNUAL ANIMAL REPORT--%>
-                                    <div id="OnlineAnnual" class="tab-pane fade  ">
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
+
+                                <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                    <div class="card mx-auto AnimalReportCard">
                                         <div class="card-body">
                                             <h5 class="card-title">Online Annual Report</h5>
                                             <p>
@@ -474,72 +415,40 @@
                                 </div>
                             </div>
 
-                                </div>
+
 
                             <%--VIEW REPORT THROUGH GRIDVIEW--%>
 
 
-                        
+                            <div class="card-body container-fluid d-flex justify-content-center">
+                            </div>
 
-
-
-
-                        </div>
-
-
-
-
+                            <br />
 
 
 
 
 
                         </div>
-                  
+                    </div>
                 
                 <div id="Live" class="tab-pane fade">
-                        <div class="table-responsive row">
+                    <div class="table-responsive">
+                        <div class="row mx-auto d-flex justify-content-center">
 
-
-
-                            <div class="">
-                    <div class="row mr-auto " style="margin-left:8px; margin-bottom:10px;">
-                        <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " style="padding-left: 15px; border-bottom: none;"  role="tablist">
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link active "  data-toggle="tab" href="#LiveGeneral" role="tab" aria-controls="homee" aria-selected="true">General</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link"  data-toggle="tab" href="#LiveAnimal" role="tab" aria-controls="home" aria-selected="false">Animal</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link "  data-toggle="tab" href="#LiveMonthly" role="tab" aria-controls="profile" aria-selected="false">Monthly</a>
-                            </li>
-                                <li class="nav-item ">
-                                <a style="margin-right: 5px; color: black;" class="nav-link "  data-toggle="tab" href="#LiveAnnual" role="tab" aria-controls="profile" aria-selected="false">Annual</a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </div>
-
-
-                            <div class="col-12 mx-auto d-flex justify-content-center ">
-                                  <div id="LiveGeneral" class="tab-pane fade show active">
-
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
-                                        <div class="card-body">
+                            <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                <div class="card mx-auto AnimalReportCard">
+                                    <div class="card-body">
                                         <h5 class="card-title">Live General Report</h5>
                                         <p>
                                             Detailed report of all animals and their associated information
                                         </p>
-                                        <div class="col-md-12   Spacing">
+                                        <div class="col-md-4   Spacing">
                                             <label>Start Date </label>
 
                                             <asp:TextBox ID="txtLiveStart" type="date" runat="server"  class="btn btn-block" Style="background-color: whitesmoke;"></asp:TextBox>
                                         </div>
-                                        <div class="col-md-12  Spacing">
+                                        <div class="col-md-4  Spacing">
                                             <label>End Date </label>
 
                                             <asp:TextBox ID="txtLiveEnd" type="date" runat="server"  class="btn btn-block" Style="background-color: whitesmoke;"></asp:TextBox>
@@ -554,16 +463,14 @@
                                             Text="Generate Report"
                                             OnClick="generateLiveGeneral" />
                                     </div>
-                                    </div>
                                 </div>
+                            </div>
 
-                                      </div>
-                                <%--END of SEARH BY DATE--%>
 
-                                 <div id="LiveAnimal" class="tab-pane fade  ">
-                             <div class="col-12">
-                                    <div class="card   AnimalReportCard">
-                                        <div class="card-body">
+                            <%--END of SEARH BY DATE--%>
+                            <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                <div class="card mx-auto AnimalReportCard">
+                                    <div class="card-body">
                                         <h5 class="card-title">Live Type Report</h5>
                                         <p>
                                             Detailed report of all animals by Animal Type
@@ -585,15 +492,23 @@
                                             Text="Generate Report"
                                             OnClick="generateLiveType" />
                                     </div>
-                                    </div>
                                 </div>
-                                     </div>
+                            </div>
 
-                                <%--START OF MONTHLY ANIMAL REPORT--%>
-                                <div id="LiveMonthly" class="tab-pane fade  ">
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
-                                        <div class="card-body ">
+
+
+
+
+
+
+
+
+
+                            <%--START OF MONTHLY ANIMAL REPORT--%>
+
+                            <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                <div class="card mx-auto AnimalReportCard">
+                                    <div class="card-body ">
                                         <h5 class="card-title">Live Monthly Report</h5>
                                         <p>
                                             Monthly Animal Report displays all birds, mammals,
@@ -623,16 +538,16 @@
                                             Text="Generate Report"
                                             OnClick="generateLiveMonthReport" />
                                     </div>
-                                    </div>
                                 </div>
-     </div>
-                                <%--END OF MONTHLY ANIMAL REPORT--%>
+                            </div>
 
-                                <%--START OF ANNUAL ANIMAL REPORT--%>
-                                    <div id="LiveAnnual" class="tab-pane fade  ">
-                                <div class="col-12">
-                                    <div class="card   AnimalReportCard">
-                                        <div class="card-body">
+                            <%--END OF MONTHLY ANIMAL REPORT--%>
+
+                            <%--START OF ANNUAL ANIMAL REPORT--%>
+
+                            <div class="col-lg-6 col-md- 6 col-s-12 col-xl-6">
+                                <div class="card mx-auto AnimalReportCard">
+                                    <div class="card-body">
                                         <h5 class="card-title">Live Annual Report</h5>
                                         <p>
                                             Annual Animal Report displays all birds, mammals,
@@ -654,55 +569,51 @@
                                             Text="Generate Report"
                                             OnClick="generateLiveAnnualReport" />
                                     </div>
-                                    </div>
                                 </div>
-                            </div></div>
-
-
-
-                            <%--VIEW REPORT THROUGH GRIDVIEW--%>
-
-
-                        
-
-
-
-
+                            </div>
                         </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
                         <%--VIEW REPORT THROUGH GRIDVIEW--%>
 
 
+                        <div class="card-body container-fluid d-flex justify-content-center">
+                        </div>
+
+                        <br />
 
 
 
-                    
+
+
+                    </div>
                 </div>
 
 
             </div>
 
+
+    
+
+
+
+    <%--VIEW REPORT THROUGH GRIDVIEW--%>
+
+
+    <div class="card-body container-fluid d-flex justify-content-center">
+    </div>
+
+    <br />
+
+    <asp:UpdatePanel ID="updateOnlinePanel" runat="server">
+                                                <ContentTemplate>
+
+                                                         <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                               
                                 <div class=" ">
 
             <div class=" mx-auto  ">

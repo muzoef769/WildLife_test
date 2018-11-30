@@ -98,7 +98,11 @@
                                                     HorizontalAlign="Left"
                                                     AllowSorting="True"
                                                     Class="table table-condensed table-bordered table-hover AnimalCard"
-                                                    OnRowDataBound="OnRowDataBound">
+                                                    OnRowDataBound="OnRowDataBound"
+                                                    EmptyDataText="No Records Found"
+                                                    EmptyDataRowStyle-HorizontalAlign="Center"
+                                                    SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
 
 
                                                     <Columns>
@@ -108,7 +112,7 @@
                                                         <asp:BoundField DataField="UserType" HeaderText="User Type" SortExpression="UserType" />
                                                         <%--<asp:BoundField DataField="UserStatus" HeaderText="User Status" SortExpression="UserStatus" />--%>
 
-                                                        <asp:TemplateField HeaderText="Status" HeaderStyle-Width="15%">
+                                                        <asp:TemplateField HeaderText="Status" HeaderStyle-Width="15%"  SortExpression="UserStatus">
                                                             <ItemTemplate>
                                                                 <asp:UpdatePanel runat="server" ID="updateDropDown" UpdateMode="Conditional">
                                                                     <ContentTemplate>
@@ -169,8 +173,10 @@
                                                     CssClass="table table-condensed table-bordered table-hover AnimalCard"
                                                     BackColor="White"
                                                     HorizontalAlign="Left"
-                                                    EmptyDataText="NO VOLUNTEERS NEED TO BE APPROVED"
-                                                    EmptyDataRowStyle-HorizontalAlign="Center">
+                                                    EmptyDataText="No Volunteers Need to Be Approve"
+                                                    EmptyDataRowStyle-HorizontalAlign="Center"
+                                                    SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
                                                     <Columns>
                                                         <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" InsertVisible="False" Visible="false" ReadOnly="True" />--%>
                                                         <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
@@ -232,9 +238,10 @@
                                                     HorizontalAlign="Left"
                                                     AllowSorting="True"
                                                     Class="table table-condensed table-bordered table-hover AnimalCard"
-                                                    EmptyDataText="NO STAFF MEMBERS NEED TO BE APPROVED"
-                                                    EmptyDataRowStyle-HorizontalAlign="Center">
-
+                                                    EmptyDataText="No Staff Members Need to Be Approved"
+                                                    EmptyDataRowStyle-HorizontalAlign="Center"
+                                                    SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                                     <Columns>
                                                         <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" />
