@@ -132,7 +132,7 @@
 
 
                                         <div class="row mx-auto ">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer;">
                                                 <asp:GridView ID="GridView1" runat="server" HeaderStyle-ForeColor="black" ItemStyle-ForeColor="black" AutoGenerateColumns="False" DataKeyNames="AnimalID"
                                                     Class="  table table-condensed table-bordered table-hover AnimalCard" DataSourceID="AnimalSQL" BackColor="White" HorizontalAlign="Left"
                                                     OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1" 

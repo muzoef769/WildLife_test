@@ -59,6 +59,14 @@ public partial class Program : System.Web.UI.Page
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
+
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
         SqlCommand cmd3 = sc.CreateCommand();
@@ -105,6 +113,14 @@ public partial class Program : System.Web.UI.Page
         noteCommand.Parameters.AddWithValue("@NewProgramID", id);
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
+
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
 
         String programString = "SELECT Program.ProgramName FROM Program INNER JOIN NewProgram ON NewProgram.ProgramID = Program.ProgramID WHERE NewProgram.NewProgramID = @NewProgramID";
         SqlCommand commProgramName = sc.CreateCommand();
@@ -169,6 +185,14 @@ public partial class Program : System.Web.UI.Page
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
+
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
 
@@ -215,6 +239,14 @@ public partial class Program : System.Web.UI.Page
         noteCommand.Parameters.AddWithValue("@NewProgramID", id);
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
+
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
@@ -294,18 +326,34 @@ public partial class Program : System.Web.UI.Page
     {
         sc.Open();
         string newNotes = txtNotes.Text;
+        int newPeople = Convert.ToInt32(txtTotPeople.Text);
 
         Int32 newID = Convert.ToInt32(ViewState["NewProgramID"]);
-        string update = "UPDATE dbo.NewProgram set MiscNotes = @newNotes where NewProgramID = @NewProgramID";
+        string update1 = "UPDATE dbo.NewProgram set MiscNotes = @newNotes where NewProgramID = @NewProgramID";
 
         SqlCommand updateNotes = sc.CreateCommand();
         updateNotes.CommandType = CommandType.Text;
-        updateNotes.CommandText = update;
+        updateNotes.CommandText = update1;
         updateNotes.Parameters.AddWithValue("@NewProgramID", newID);
         updateNotes.Parameters.AddWithValue("@newNotes", newNotes);
 
         updateNotes.ExecuteNonQuery();
 
+        string update2 = "UPDATE dbo.NewProgram set TotalPeople = @totalPeople where NewProgramID = @NewProgramID";
+
+        SqlCommand updatePeople = sc.CreateCommand();
+        updatePeople.CommandType = CommandType.Text;
+        updatePeople.CommandText = update2;
+        updatePeople.Parameters.AddWithValue("@NewProgramID", newID);
+        updatePeople.Parameters.AddWithValue("@totalPeople", newPeople);
+
+        updatePeople.ExecuteNonQuery();
+
+        GridView5.DataBind();
+        GridView1.DataBind();
+        GridView2.DataBind();
+        GridView3.DataBind();
+        GridView4.DataBind();
     }
     //ALL
     protected void btnSearchAll_Click(object sender, EventArgs e)

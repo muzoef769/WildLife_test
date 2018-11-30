@@ -158,13 +158,13 @@
                                 Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
                                 OnClick="btnClearAll_Click" />
                                 <div class="row mx-auto d-flex justify-content-center table-responsive">
-                                    <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
+                                    <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 " style="cursor:pointer">
                                         <asp:GridView ID="GridView5" runat="server"
                                            HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="SqlDataSource1" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
                                             AllowSorting="True" OnRowDataBound="GridView5_RowDataBound1" OnSelectedIndexChanged="GridView5_SelectedIndexChanged"
-                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" >
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
 
@@ -261,7 +261,7 @@ ORDER BY np.DateCompleted DESC"
                                 Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
                                 OnClick="btnClearOnline_Click" />
                                 <div class="row mx-auto d-flex justify-content-center ">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer">
                                         <asp:GridView ID="GridView1" runat="server"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
@@ -366,7 +366,7 @@ ORDER BY np.DateCompleted DESC"
                                 Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
                                 OnClick="btnClearOn_Click" />
                                 <div class="row mx-auto d-flex justify-content-center">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer">
                                         <asp:GridView ID="GridView3" runat="server"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
@@ -471,7 +471,7 @@ ORDER BY np.DateCompleted DESC"
                                 Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
                                 OnClick="btnClearOff_Click" />
                                 <div class="row mx-auto d-flex justify-content-center">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer">
                                         <asp:GridView ID="GridView4" runat="server"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
@@ -667,6 +667,13 @@ ORDER BY np.DateCompleted DESC"
                                     <asp:Label ID="lblNotes" runat="server" Text="Notes "></asp:Label>
                                     <br />
                                     <asp:TextBox ID="txtNotes" runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="false" TextMode="multiline" Columns="50" Rows="5"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12  col-md-12 col-s-12 Spacing mr-2">
+                                <div class=" ">
+                                    <asp:Label ID="lblTotPeople" runat="server" Text="Total People "></asp:Label>
+                                    <br />
+                                    <asp:TextBox ID="txtTotPeople" runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="false"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
