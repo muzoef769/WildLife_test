@@ -136,7 +136,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer;">
                                                 <asp:GridView ID="grdOrganizations" HeaderStyle-ForeColor="black" Class=" table table-condensed table-bordered table-hover AnimalCard" DataKeyNames="OrganizationID"
                                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" RowStyle-CssClass="data-row" 
-                                                    OnRowDataBound="grdOrganizations_RowDataBound" OnSelectedIndexChanged="grdOrganizations_SelectedIndexChanged">
+                                                    OnRowDataBound="grdOrganizations_RowDataBound" OnSelectedIndexChanged="grdOrganizations_SelectedIndexChanged" >
 
                                                     <Columns>
                                                         <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
@@ -332,7 +332,7 @@
 
 
                         <div class="col-md-5">
-                            <label for="txtEditCountry" class="label-style">County: </label>
+                            <label for="txtEditCountry" class="label-style">Country: </label>
                         </div>
                         <div class="form-group col-md-6">
                             <asp:TextBox ID="txtEditCountry" runat="server" CssClass="form-control border-dark border-secondary" Style="background-color: whitesmoke;" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>

@@ -115,8 +115,8 @@ public partial class OrganizationView : System.Web.UI.Page
         Address address = new Address(
             (Int32)ViewState["aID"],
             txtEditStreet.Text,
-            txtEditCity.Text,
             drpEditState.SelectedValue,
+            txtEditCity.Text,
             txtEditCounty.Text,
             txtEditCountry.Text,
             txtEditZip.Text,
@@ -125,7 +125,7 @@ public partial class OrganizationView : System.Web.UI.Page
 
 
 
-        string myQuery = "UPDATE [WildlifeCenter].[dbo].[Address] SET [Street] = @Street, [City] = @City, [County] = @County, [State] = @State, [ZipCode] = @ZipCode, [LastUpdated] = @LastUpdated, [LastUpdatedBy] = @LastUpdatedBy WHERE AddressID = @AddressID";
+        string myQuery = "UPDATE [WildlifeCenter].[dbo].[Address] SET [Street] = @Street, [City] = @City,[State] = @State, [County] = @County, [Country] = @Country,  [ZipCode] = @ZipCode, [LastUpdated] = @LastUpdated, [LastUpdatedBy] = @LastUpdatedBy WHERE AddressID = @AddressID";
 
         using (SqlCommand myCommandAddress = new SqlCommand(myQuery, sc))
         {
@@ -133,8 +133,9 @@ public partial class OrganizationView : System.Web.UI.Page
             myCommandAddress.Parameters.AddWithValue("@AddressID", address.getAddressID());
             myCommandAddress.Parameters.AddWithValue("@Street", address.getStreetName());
             myCommandAddress.Parameters.AddWithValue("@City", address.getCity());
+            myCommandAddress.Parameters.AddWithValue("@State", address.getState());
             myCommandAddress.Parameters.AddWithValue("@County", address.getCounty());
-            myCommandAddress.Parameters.AddWithValue("@State", address.getCountry());
+            myCommandAddress.Parameters.AddWithValue("@Country", address.getCountry());
             myCommandAddress.Parameters.AddWithValue("@ZipCode", address.getZipCode());
             myCommandAddress.Parameters.AddWithValue("@LastUpdated", address.getLastUpdated());
             myCommandAddress.Parameters.AddWithValue("@LastUpdatedBy", address.getLastUpdatedBy());
