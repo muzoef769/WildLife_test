@@ -81,9 +81,10 @@ public partial class Default : System.Web.UI.Page
                     System.Data.SqlClient.SqlCommand getStaff = new System.Data.SqlClient.SqlCommand();
                     getStaff.Connection = sc;
 
-                    getStaff.CommandText = "SELECT UserType, UserStatus from [dbo].[User] where Username = @Username and UserType = @UserType";
+                    getStaff.CommandText = "SELECT UserType, UserStatus from [dbo].[User] where Username = @Username and UserType = @UserType and UserStatus = @UserStatus";
                     getStaff.Parameters.AddWithValue("@Username", txtUsername.Text);
                     getStaff.Parameters.AddWithValue("UserType", "Staff");
+                    getStaff.Parameters.AddWithValue("UserStatus", "Active");
 
                     SqlDataReader staffReader = getStaff.ExecuteReader();
 
