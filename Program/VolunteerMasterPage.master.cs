@@ -9,7 +9,10 @@ public partial class VolunteerMasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["Username"] == null || (String)Session["Username"] == "")
+        {
+            Response.Redirect("Error.aspx", false);
+        }
     }
     protected void Session_Start(object sender, EventArgs e)
     {
