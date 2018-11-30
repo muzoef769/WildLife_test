@@ -16,46 +16,7 @@ public partial class Home : System.Web.UI.Page
     string ImageString;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //lblCurrentMonth.Text = DateTime.Today.ToString("MM/dd/yyyy");
-
         System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString);
-
-        //if (Session["Username"] != null)
-        //{
-
-
-        //try
-        //{
-
-        //    sc.Open();
-        //    System.Data.SqlClient.SqlCommand findType = new System.Data.SqlClient.SqlCommand();
-        //    findType.Connection = sc;
-        //    // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-        //    findType.CommandText = "select [UserType] from [dbo].[User] where Username = @Username AND UserType = @UserType";
-
-        //    findType.Parameters.AddWithValue("@Username", Session["Username"]);
-        //    findType.Parameters.AddWithValue("@UserType", "Staff");
-
-
-        //    SqlDataReader reader = findType.ExecuteReader(); // create a reader
-
-
-        //    if (reader.HasRows) // if the username is an Admin, Create User button appears
-        //    {
-        //        while (reader.Read())
-        //        {
-        //            btnUser.Visible = true;
-        //        }
-        //    }
-        //    sc.Close();
-        //}
-        //catch
-        //{
-        //    sc.Close();
-        //    Response.Redirect("Error.aspx", false);
-        //}
-        //}
-
     }
 
     protected void btnUser_Click(object sender, EventArgs e)
@@ -63,24 +24,21 @@ public partial class Home : System.Web.UI.Page
         Response.Redirect("NewUser.aspx", false);
     }
 
-
-
     protected void btnAddModal_Click(object sender, EventArgs e)
     {
 
 
         Animals newAnimal = new Animals(
-           "",
-           "",
-           txtAddName.Text,
-           ddlAddType.SelectedValue.ToString(),
-          ddlAddStatus.SelectedValue,
+           HttpUtility.HtmlEncode(""),
+           HttpUtility.HtmlEncode(""),
+           HttpUtility.HtmlEncode(txtAddName.Text),
+           HttpUtility.HtmlEncode(ddlAddType.SelectedValue),
+           HttpUtility.HtmlEncode(ddlAddStatus.SelectedValue),
            DateTime.Today,
-           Convert.ToString(Session["Fullname"])
-           );
+           HttpUtility.HtmlEncode(Session["UserFullName"].ToString()));
 
         FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
-        ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
+        ImageString = HttpUtility.HtmlEncode("~\\Images\\Animals\\") + FileUpload1.FileName;
 
         string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
         SqlCommand addAnimal = new SqlCommand(creatAnimal, sc);
@@ -112,10 +70,6 @@ public partial class Home : System.Web.UI.Page
                 {
                     updateRow(userName, "Approved");
                 }
-                //else
-                //{
-                //    updateRow(userName, "Not Approved");
-                //}
             }
         }
         catch (Exception)
@@ -136,10 +90,4 @@ public partial class Home : System.Web.UI.Page
         statusGridView.DataBind();
 
     }
-
-    //protected void btnLogOut_Click(object sender, EventArgs e)
-    //{
-    //    Session.Clear();
-    //    Response.Redirect("Default.aspx", true);
-    //}
 }
