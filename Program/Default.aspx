@@ -59,13 +59,15 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <asp:TextBox ID="txtFirstName" class="form-control" Style="background-color: whitesmoke;" placeholder="First name" required="required" runat="server" MaxLength="50"></asp:TextBox>
+                                            <asp:TextBox ID="txtFirstName" class="form-control" Style="background-color: whitesmoke;" placeholder="First name" required="required" runat="server" MaxLength="50" ControlToValidate="txtFirstName"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="firstName" runat="server" ErrorMessage="*" ControlToValidate="txtFirstName" ValidationGroup="SubmitUser"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                             <asp:TextBox ID="txtLastName" class="form-control" Style="background-color: whitesmoke;" placeholder="Last name" required="required" runat="server" MaxLength="50"></asp:TextBox>
-
+                                            <asp:RequiredFieldValidator ID="lastName" runat="server" ErrorMessage="*" ControlToValidate="txtLastName" ValidationGroup="SubmitUser"></asp:RequiredFieldValidator>
+                                        </div>
                                         </div>
                                     </div> </div>
                                 <br />
@@ -74,12 +76,12 @@
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                            <asp:TextBox ID="txtEmail" class="form-control" Style="background-color: whitesmoke;" placeholder="Email" required="required" runat="server" MaxLength="50"></asp:TextBox>
-  </div>
+  </div>    <asp:RequiredFieldValidator ID="Email" runat="server" ErrorMessage="*" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                             <asp:TextBox ID="txtNewUsername" class="form-control" Style="background-color: whitesmoke;" placeholder="Username" required="required" runat="server" MaxLength="50"></asp:TextBox>
-
+                                            <asp:RequiredFieldValidator ID="newUsername" runat="server" ErrorMessage="*" ControlToValidate="txtNewUsername" ValidationGroup="SubmitUser"></asp:RequiredFieldValidator>
                                         </div>
                                     </div> </div>
 
@@ -91,11 +93,13 @@
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                             <input id="txtNewPassword" type="password" class="form-control" Style="background-color: whitesmoke;" placeholder="Password" autocomplete="off" runat="server" clientidmode="Static" required>
-                                        </div>
+                                         <asp:RequiredFieldValidator ID="newPassword" runat="server" ErrorMessage="*" ControlToValidate="txtNewPassword" ValidationGroup="SubmitUser"></asp:RequiredFieldValidator>
+                                            </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                             <input id="txtConfirmPassword" type="password" class="form-control" Style="background-color: whitesmoke;" placeholder="Confirm Password" autocomplete="off" runat="server" clientidmode="Static" required>
+                                              <asp:RequiredFieldValidator ID="confirmPassword" runat="server" ErrorMessage="*" ControlToValidate="txtConfirmPassword" ValidationGroup="SubmitUser"></asp:RequiredFieldValidator>
                                             <div id="errors" class="text-center well" style="font-size: inherit"></div>
 
                                             <asp:CompareValidator
@@ -117,10 +121,11 @@
                                 </div>
                                 <div class="row text-left">
                                     <div class="col-md-4 col-sm-6">
-                                        <asp:RadioButtonList ID="rdoPosition" runat="server">
+                                        <asp:RadioButtonList ID="rdoPosition" runat="server" >
                                             <asp:ListItem>Volunteer</asp:ListItem>
                                             <asp:ListItem>Staff</asp:ListItem>
                                         </asp:RadioButtonList>
+                                        <asp:RequiredFieldValidator ID="position" runat="server" ErrorMessage="*" ControlToValidate="txtConfirmPassword" ValidationGroup="SubmitUser"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
 
@@ -129,7 +134,7 @@
 
                         <div class="row">
                             <div class="form-group col-12 mx-auto">
-                                <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-success btn-block" OnClick="btnRegister_Click" UseSubmitBehavior="false" ValidationGroup="registerValidation" />
+                                <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-success btn-block" OnClick="btnRegister_Click" UseSubmitBehavior="false" ValidationGroup="SubmitUser" />
 
                                 <div class="text-center">
                                     <a class="d-block small mt-3" data-dismiss="modal" href="#" runat="server">Login Page</a>
