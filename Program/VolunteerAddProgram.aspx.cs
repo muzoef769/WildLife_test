@@ -57,12 +57,6 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
     }
 
-    //    protected void BtnAddOrg_Click(object sender, EventArgs e)
-    //    {
-
-    //        Response.Redirect("VolunteerAddOrganization.aspx", true);
-    //    }
-
     protected void DrpContact_SelectedIndexChanged(object sender, EventArgs e)
     {
 
@@ -465,7 +459,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
                 }
             }
 
-            if (drpLocationTypeList.SelectedValue == "Offsite")
+            if (drpLocationTypeList.SelectedValue == "OffSite")
             {
                 Invoice newInvoice = new Invoice(txtInvoice.Text, Find_ProgramCost, Convert.ToDateTime(txtProgramDate), "Unpaid", DateTime.Today, Session["UserFullName"].ToString(), Convert.ToInt32(txtMileage.Text));
                 string invoiceInsert = "Insert into Invoice([InvoiceNumber], [TotalCost], [DateCreated], [InvoiceStatus], [LastUpdated], [LastUpdatedBy], [TotalMileage]) VALUES (" +

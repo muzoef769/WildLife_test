@@ -30,10 +30,7 @@
         <h3 class="box-title">Add Program</h3>
     </div>
 
-
-
     <div class="row" style="">
-
         <div class="SimpleContainer card col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3" style="z-index: 100;">
             <div class=" card-body text-left  rounded cart" style="">
                 <h4>Programs
@@ -85,6 +82,7 @@
                 </p>
             </div>
         </div>
+
         <div class="SimpleContainer card col-sm-12 col-xs-12 col-md-9 col-lg-9 col-xl-9" style="z-index: 100;">
 
             <div class="card">
@@ -118,8 +116,6 @@
                             </asp:UpdatePanel>
                         </ul>
                     </div>
-
-
 
                     <div class="tab-content ">
                         <div id="OrganizationInformation" class="tab-pane fade show active">
@@ -642,4 +638,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>
