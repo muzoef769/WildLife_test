@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Animal" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Animal.aspx.cs" Inherits="Animal" EnableEventValidation="false" %>
+﻿<%@ Page Title="Animals" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Animal.aspx.cs" Inherits="Animal" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
 
@@ -99,7 +99,8 @@
                     <div class=" ">
 
                         <div class=" ml-auto d-flex justify-content-end row" style="margin-right: 16px;">
-                            <asp:TextBox ID="txtSearchAnimal" Placeholder=" Search by Animal" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtSearchAnimal" Placeholder="Search by Name, Type, or Status" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" 
+                                runat="server" AutoPostBack="True" OnTextChanged="txtSearchAnimal_TextChanged"></asp:TextBox>
                             <br class="d-md-none" />
                             <asp:Button
                                 ID="btnSearchAll"
@@ -134,20 +135,22 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                                 <asp:GridView ID="GridView1" runat="server" HeaderStyle-ForeColor="black" ItemStyle-ForeColor="black" AutoGenerateColumns="False" DataKeyNames="AnimalID"
                                                     Class="  table table-condensed table-bordered table-hover AnimalCard" DataSourceID="AnimalSQL" BackColor="White" HorizontalAlign="Left"
-                                                    OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1">
+                                                    OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1" 
+                                                    EmptyDataText="No Animals Found" EmptyDataRowStyle-HorizontalAlign="Center" SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
 
 
 
                                                     <Columns>
-                                                        <asp:BoundField DataField="AnimalID" HeaderText="AnimalID" InsertVisible="False" ReadOnly="True" SortExpression="AnimalID" Visible="False" />
-                                                        <asp:BoundField DataField="AnimalName" HeaderText="AnimalName" SortExpression="AnimalName" />
-                                                        <asp:BoundField DataField="AnimalType" HeaderText="AnimalType" SortExpression="AnimalType" />
+                                                        <asp:BoundField DataField="AnimalID" HeaderText="Animal ID" InsertVisible="False" ReadOnly="True" SortExpression="AnimalID" Visible="False" />
+                                                        <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                                                        <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
                                                         <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                                                         <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" InsertVisible="False" Visible="False" />
-                                                        <asp:BoundField DataField="TotalKids" HeaderText="TotalKids" ReadOnly="True" SortExpression="TotalKids" />
-                                                        <asp:BoundField DataField="TotalAdults" HeaderText="TotalAdults" ReadOnly="True" SortExpression="TotalAdults" />
-                                                        <asp:BoundField DataField="TotalPeople" HeaderText="TotalPeople" ReadOnly="True" SortExpression="TotalPeople" />
-                                                        <asp:BoundField DataField="TotalPrograms" HeaderText="TotalPrograms" SortExpression="TotalPrograms" ReadOnly="True" />
+                                                        <asp:BoundField DataField="TotalKids" HeaderText="Total Kids" ReadOnly="True" SortExpression="TotalKids" />
+                                                        <asp:BoundField DataField="TotalAdults" HeaderText="Total Adults" ReadOnly="True" SortExpression="TotalAdults" />
+                                                        <asp:BoundField DataField="TotalPeople" HeaderText="Total People" ReadOnly="True" SortExpression="TotalPeople" />
+                                                        <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" SortExpression="TotalPrograms" ReadOnly="True" />
                                                         <asp:ImageField DataImageUrlField="Image">
                                                             <ControlStyle Height="50px" Width="50px"></ControlStyle>
                                                         </asp:ImageField>
@@ -167,11 +170,17 @@
                                             runat="server"
                                             ConflictDetection="CompareAllValues"
                                             ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString %>"
+                                            FilterExpression="AnimalName LIKE '%{0}%' OR AnimalType LIKE '{1}%' OR Status LIKE '%{2}%' "
                                             DeleteCommand="DELETE FROM [Animal] WHERE [AnimalID] = @original_AnimalID AND [AnimalName] = @original_AnimalName AND [AnimalType] = @original_AnimalType AND [Status] = @original_Status AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
                                             InsertCommand="INSERT INTO [Animal] ([AnimalName], [AnimalType], [Status], [LastUpdated], [LastUpdatedBy]) VALUES (@AnimalName, @AnimalType, @Status, @LastUpdated, @LastUpdatedBy)"
                                             OldValuesParameterFormatString="original_{0}"
                                             SelectCommand="SELECT Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.Image, SUM(ISNULL(NewProgram.TotalKids, '0')) AS TotalKids, SUM(ISNULL(NewProgram.TotalAdults, '0')) AS TotalAdults, SUM(ISNULL(NewProgram.TotalPeople, '0')) AS TotalPeople, COUNT(AssignAnimal.AssignAnimalID) AS TotalPrograms FROM Animal LEFT OUTER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID LEFT OUTER JOIN NewProgram ON AssignAnimal.NewProgramID = NewProgram.NewProgramID GROUP BY Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.LastUpdatedBy, Animal.Image"
                                             UpdateCommand="UPDATE [Animal] SET [AnimalName] = @AnimalName, [AnimalType] = @AnimalType, [Status] = @Status, [LastUpdated] = @LastUpdated, [LastUpdatedBy] = @LastUpdatedBy WHERE [AnimalID] = @original_AnimalID AND [AnimalName] = @original_AnimalName AND [AnimalType] = @original_AnimalType AND [Status] = @original_Status AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy">
+                                            <FilterParameters>
+                                                <asp:ControlParameter Name="AnimalName" ControlID="txtSearchAnimal" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="AnimalType" ControlID="txtSearchAnimal" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="Status" ControlID="txtSearchAnimal" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                            </FilterParameters>
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_AnimalID" Type="Int32" />
                                                 <asp:Parameter Name="original_AnimalName" Type="String" />

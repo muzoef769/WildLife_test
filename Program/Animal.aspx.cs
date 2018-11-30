@@ -57,7 +57,7 @@ public partial class Animal : System.Web.UI.Page
 
 
     //       );
-        
+
     //    FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
     //    ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
     //    string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
@@ -71,7 +71,7 @@ public partial class Animal : System.Web.UI.Page
     //    addAnimal.Parameters.AddWithValue("@LastUpdated", newAnimal.getLastUpdated());
     //    addAnimal.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"]);
     //    addAnimal.Parameters.AddWithValue("@Image", ImageString);
-        
+
     //    addAnimal.ExecuteNonQuery();
 
     //    txtAddName.Text = " ";
@@ -241,33 +241,33 @@ public partial class Animal : System.Web.UI.Page
     protected void btnSearchAll_Click(object sender, EventArgs e)
     {
         //  Set the value of the SearchString so it gets
-        SearchString = txtSearchAnimal.Text;
-        GridView1.DataSourceID = null;
-        using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
-        {
-            connection.Open();
-            string sql = "SELECT Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.Image, SUM(ISNULL(NewProgram.TotalKids, '0')) AS TotalKids, SUM(ISNULL(NewProgram.TotalAdults, '0')) AS TotalAdults, SUM(ISNULL(NewProgram.TotalPeople, '0')) AS TotalPeople, COUNT(AssignAnimal.AssignAnimalID) AS TotalPrograms FROM Animal LEFT OUTER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID LEFT OUTER JOIN NewProgram ON AssignAnimal.NewProgramID = NewProgram.NewProgramID WHERE Animal.AnimalName LIKE '" + SearchString + "%' GROUP BY Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.LastUpdatedBy, Animal.Image";
-            using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
-            {
-                DataSet data = new DataSet();
-                sda.Fill(data);
-                this.GridView1.DataSource = data;
-                GridView1.DataBind();
-            }
-        }
+        //SearchString = txtSearchAnimal.Text;
+        //GridView1.DataSourceID = null;
+        //using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+        //{
+        //    connection.Open();
+        //    string sql = "SELECT Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.Image, SUM(ISNULL(NewProgram.TotalKids, '0')) AS TotalKids, SUM(ISNULL(NewProgram.TotalAdults, '0')) AS TotalAdults, SUM(ISNULL(NewProgram.TotalPeople, '0')) AS TotalPeople, COUNT(AssignAnimal.AssignAnimalID) AS TotalPrograms FROM Animal LEFT OUTER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID LEFT OUTER JOIN NewProgram ON AssignAnimal.NewProgramID = NewProgram.NewProgramID WHERE Animal.AnimalName LIKE '" + SearchString + "%' GROUP BY Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.LastUpdatedBy, Animal.Image";
+        //    using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
+        //    {
+        //        DataSet data = new DataSet();
+        //        sda.Fill(data);
+        //        this.GridView1.DataSource = data;
+        //        GridView1.DataBind();
+        //    }
+        //}
 
-
+        SearchString = HttpUtility.HtmlEncode(txtSearchAnimal.Text);
 
     }
 
 
-    protected void txtSearchAll_TextChanged(object sender, EventArgs e)
+    protected void txtSearchAnimal_TextChanged(object sender, EventArgs e)
     {
-        SearchString = txtSearchAnimal.Text;
+        SearchString = HttpUtility.HtmlEncode(txtSearchAnimal.Text);
     }
 
 
-    
+
 
     protected void Unnamed2_Click(object sender, EventArgs e)
     {
@@ -284,30 +284,39 @@ public partial class Animal : System.Web.UI.Page
 
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
+        ////  Simple clean up text to return the Gridview to it's default state
+        //txtSearchAnimal.Text = "";
+        //    SearchString = "";
+        //    try
+        //    {
+        //        using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+        //        {
+        //            connection.Open();
+        //            string sql = "SELECT Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.Image, SUM(ISNULL(NewProgram.TotalKids, '0')) AS TotalKids, SUM(ISNULL(NewProgram.TotalAdults, '0')) AS TotalAdults, SUM(ISNULL(NewProgram.TotalPeople, '0')) AS TotalPeople, COUNT(AssignAnimal.AssignAnimalID) AS TotalPrograms FROM Animal LEFT OUTER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID LEFT OUTER JOIN NewProgram ON AssignAnimal.NewProgramID = NewProgram.NewProgramID GROUP BY Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.LastUpdatedBy, Animal.Image";
+        //        using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
+        //            {
+        //                DataSet data = new DataSet();
+        //                sda.Fill(data);
+        //                this.GridView1.DataSource = data;
+        //                GridView1.DataBind();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception E)
+        //    {
+
+        //    }
+        //}
+
+
+
         //  Simple clean up text to return the Gridview to it's default state
         txtSearchAnimal.Text = "";
-            SearchString = "";
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
-                {
-                    connection.Open();
-                    string sql = "SELECT Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.Image, SUM(ISNULL(NewProgram.TotalKids, '0')) AS TotalKids, SUM(ISNULL(NewProgram.TotalAdults, '0')) AS TotalAdults, SUM(ISNULL(NewProgram.TotalPeople, '0')) AS TotalPeople, COUNT(AssignAnimal.AssignAnimalID) AS TotalPrograms FROM Animal LEFT OUTER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID LEFT OUTER JOIN NewProgram ON AssignAnimal.NewProgramID = NewProgram.NewProgramID GROUP BY Animal.AnimalID, Animal.AnimalName, Animal.AnimalType, Animal.Status, Animal.LastUpdatedBy, Animal.Image";
-                using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
-                    {
-                        DataSet data = new DataSet();
-                        sda.Fill(data);
-                        this.GridView1.DataSource = data;
-                        GridView1.DataBind();
-                    }
-                }
-            }
-            catch (Exception E)
-            {
+        SearchString = "";
+        GridView1.DataBind();
 
-            }
-        }
     }
+}
 
 
 

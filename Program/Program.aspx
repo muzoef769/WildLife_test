@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Program.aspx.cs" Inherits="Program" EnableEventValidation="false" %>
+﻿<%@ Page Title="Programs" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Program.aspx.cs" Inherits="Program" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
@@ -173,7 +173,7 @@
                                                 <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" />
                                                 <asp:BoundField DataField="LocationType" HeaderText="Location" SortExpression="LocationType" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
-                                                <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" dataformatstring="{0: MM/dd/yyyy}" htmlencode="false" />
+                                                <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" DataFormatString="{0: MM/dd/yyyy}" HtmlEncode="false" />
 
                                                 <asp:BoundField DataField="NewProgramID" HeaderText="NewProgramID" InsertVisible="False" ReadOnly="True" SortExpression="NewProgramID" Visible="false" />
 
@@ -325,7 +325,7 @@
                                                 <%--<asp:BoundField DataField="ProgramCost" HeaderText="Program Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}" />--%>
                                                 <asp:BoundField DataField="LocationType" HeaderText="Location" SortExpression="LocationType" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
-                                                <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" dataformatstring="{0: MM/dd/yyyy}" htmlencode="false" />
+                                                <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" DataFormatString="{0: MM/dd/yyyy}" HtmlEncode="false" />
 
                                                 <asp:BoundField DataField="NewProgramID" HeaderText="NewProgramID" InsertVisible="False" ReadOnly="True" SortExpression="NewProgramID" Visible="false" />
 
@@ -398,7 +398,7 @@
                                                 <%--<asp:BoundField DataField="ProgramCost" HeaderText="Program Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}" />--%>
                                                 <asp:BoundField DataField="LocationType" HeaderText="Location" SortExpression="LocationType" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
-                                                <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" dataformatstring="{0: MM/dd/yyyy}" htmlencode="false" />
+                                                <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" DataFormatString="{0: MM/dd/yyyy}" HtmlEncode="false" />
 
                                                 <asp:BoundField DataField="NewProgramID" HeaderText="NewProgramID" InsertVisible="False" ReadOnly="True" SortExpression="NewProgramID" Visible="false" />
 
@@ -538,7 +538,7 @@
                                     <ContentTemplate>
 
 
-                                  <div class="text-center">
+                                  <div class="text-left">
                                 <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover"
                                     BackColor="White" AllowPaging="True" AllowSorting="true" OnSorting="GridView2_Sorting" 
                                     HeaderStyle-BackColor="#00c292" HeaderStyle-ForeColor="White" SortedDescendingCellStyle-BackColor="#fddfd6" 

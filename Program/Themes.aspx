@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Themes.aspx.cs" Inherits="Themes" EnableEventValidation="false" %>
+﻿<%@ Page Title="Themes" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Themes.aspx.cs" Inherits="Themes" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
 
@@ -23,13 +23,16 @@
                     <br />
                     <div class="row mx-auto">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 ">
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProgramID" DataSourceID="themeDatasource" BackColor="White" HorizontalAlign="Left" Class="  table table-condensed table-bordered table-hover AnimalCard" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProgramID" DataSourceID="themeDatasource" BackColor="White" 
+                                HorizontalAlign="Left" Class="  table table-condensed table-bordered table-hover AnimalCard" OnRowDataBound="GridView1_RowDataBound1" 
+                                OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="true" SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                    SortedAscendingCellStyle-BackColor="#fddfd6">
                                 <Columns>
                                     <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" InsertVisible="False" SortExpression="ProgramID" Visible="false" />
                                     <asp:BoundField DataField="ProgramName" HeaderText="Theme Name" SortExpression="ProgramName" />
                                     <asp:BoundField DataField="ProgramType" HeaderText="Theme Type" SortExpression="ProgramType" />
                                     <asp:BoundField DataField="Capacity" HeaderText="Capacity" SortExpression="Capacity" />
-                                    <asp:BoundField DataField="ProgramCost" HeaderText="Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}" />
+                                    <asp:BoundField DataField="ProgramCost" HeaderText="Cost" SortExpression="ProgramCost" DataFormatString="{0:C}" />
                                 </Columns>
                                 <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                             </asp:GridView>
