@@ -21,7 +21,6 @@
                 $('#myTab a[href="' + activeTab + '"]').tab('show');
             }
         });
-
     </script>
 
 
