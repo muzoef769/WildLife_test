@@ -42,7 +42,7 @@ public class NewProgram
 
     public NewProgram(int kids, int adults, int people, string ageLevel, string status,
        DateTime timeSlot, DateTime dateCompleted, string notes, string locationType, int programID,
-       DateTime lastUpdated, string lastUpdatedBy, double prgCost)
+       DateTime lastUpdated, string lastUpdatedBy)
     {
 
         setNumKids(kids);
@@ -57,7 +57,6 @@ public class NewProgram
         setProgramID(programID);
         setLastUpdated(lastUpdated);
         setLastUpdatedBy(lastUpdatedBy);
-        setPrgCost(prgCost);
     }
 
 
