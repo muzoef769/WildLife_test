@@ -15,10 +15,6 @@
 
     <%--Beginning container--%>
 
-    <!-- Content -->
-
-    <!-- /Widgets -->
-    <!--  Traffic  -->
     <div class="card-body">
         <h3 class="box-title">Add Organization Info</h3>
     </div>
@@ -294,42 +290,42 @@
                         </div>
                     </div>
 
-                  
+
+                </div>
+                <!-- /# column -->
             </div>
-            <!-- /# column -->
+            <!--  /Traffic -->
+            <div class="clearfix"></div>
+            <!-- Orders -->
+
+
+            <!-- /.orders -->
+            <!-- To Do and Live Chat -->
+
+
+
+            <!-- /To Do and Live Chat -->
+            <!-- Calender Chart Weather  -->
+
+
+
+            <!-- /Calender Chart Weather -->
+            <!-- Modal - Calendar - Add New Event -->
+
+
+            <!-- /#event-modal -->
+            <!-- Modal - Calendar - Add Category -->
+
+
+            <!-- /#add-category -->
         </div>
-        <!--  /Traffic -->
-        <div class="clearfix"></div>
-        <!-- Orders -->
-
-
-        <!-- /.orders -->
-        <!-- To Do and Live Chat -->
-
-
-
-        <!-- /To Do and Live Chat -->
-        <!-- Calender Chart Weather  -->
-
-
-
-        <!-- /Calender Chart Weather -->
-        <!-- Modal - Calendar - Add New Event -->
-
-
-        <!-- /#event-modal -->
-        <!-- Modal - Calendar - Add Category -->
-
-
-        <!-- /#add-category -->
+        <!-- .animated -->
     </div>
-    <!-- .animated -->
-    </div>
-    </div>
-    <!-- /.content -->
+    
+    
     <div class="clearfix"></div>
     <!-- Footer -->
- 
+
 
 
 
@@ -354,7 +350,7 @@
 
                             <div class="col-xl-6 col-lg-12 text-left col-md-12 col-s-12 Spacing">
                                 <label><b>Animals Involved</b> </label>
-                                <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover" BackColor="White">
+                                <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover" BackColor="White" RowStyle-CssClass="data-row">
 
                                     <HeaderStyle ForeColor="Black" BackColor="#339933"></HeaderStyle>
                                 </asp:GridView>

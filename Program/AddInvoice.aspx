@@ -5,9 +5,9 @@
 
 
 
-<body>
-    <!-- Left Panel -->
-    <%--<aside id="left-panel" class="left-panel">
+
+        <!-- Left Panel -->
+        <%--<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -84,189 +84,189 @@
         </header>--%>
         <!-- /#header -->
         <!-- Content -->
-        
-                <!-- /Widgets -->
-                <!--  Traffic  -->
-                <div class="card-body">
-                                <h4 class="box-title">Add Invoice</h4>
-                            </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                               
-                                <div class=" ">
 
-            <div class=" mx-auto  ">
-                <div class="card-body align-content-center">
-                    <div class="row align-content-center">
-                       
+        <!-- /Widgets -->
+        <!--  Traffic  -->
+        <div class="card-body">
+            <h4 class="box-title">Add Invoice</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class=" ">
+
+                            <div class=" mx-auto  ">
+                                <div class="card-body align-content-center">
+                                    <div class="row align-content-center">
+                                    </div>
+                                    <div class="mx-auto table-responsive">
+                                        <div class="row mx-auto">
+
+                                            <div class="col-xl-3 col-lg-3 col-md-3 col-s-12 ">
+                                                <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
+
+                                                <asp:TextBox ID="txtInvoice" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-s-12">
+                                                <asp:Label ID="lblOrganization" runat="server" Text="Desired Organization: "></asp:Label>
+                                                <asp:DropDownList ID="drpInvoiceOrganization" runat="server" class="btn" Style="background-color: whitesmoke;" AutoPostBack="True" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="viewGridView" DataTextField="OrganizationName" DataValueField="OrganizationID"></asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString %>" SelectCommand="SELECT [OrganizationID], [OrganizationName] FROM [Organization]"></asp:SqlDataSource>
+                                            </div>
+
+                                            <div class="col-xl-3 col-lg-3 col-md-3 col-s-12 ">
+                                                <asp:Label runat="server" Text="Program Invoices "></asp:Label>
+                                                <br />
+                                                <asp:DropDownList ID="ProgramListInvoice" runat="server" class="btn btn-block" Style="background-color: whitesmoke;"></asp:DropDownList>
+                                            </div>
+
+
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                                <br />
+                                                <asp:GridView ID="GridView5" runat="server" CssClass=" table table-condensed table-bordered table-hover AnimalCard" AutoPostBack="true" RowStyle-CssClass="data-row">
+                                                    <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
+                                                </asp:GridView>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-auto">
+                                        <div class="col-12">
+
+
+                                            <asp:Button ID="btnAddProgram2Invoice"
+                                                runat="server"
+                                                Text="Add Program to Invoice"
+                                                CssClass="btn btn-block mx-auto d-flex justify-content-center btn-success"
+                                                UseSubmitBehavior="false"
+                                                CauseValidation="true" />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 mx-auto">
+                                    </div>
+
+
 
                                 </div>
-                        <div class="mx-auto table-responsive">
-                        <div class="row mx-auto">
-            
-               <div class="col-xl-3 col-lg-3 col-md-3 col-s-12 ">
-                    <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number: "></asp:Label>
-                 
-                    <asp:TextBox ID="txtInvoice" runat="server" class="form-control"  style="background-color:whitesmoke;"></asp:TextBox>
-                         </div>
-             <div class="col-xl-6 col-lg-6 col-md-6 col-s-12">
-                    <asp:Label ID="lblOrganization" runat="server" Text="Desired Organization: "></asp:Label>
-                    <asp:DropDownList ID="drpInvoiceOrganization" runat="server" class="btn"  style="background-color:whitesmoke;" AutoPostBack="True" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="viewGridView" DataTextField="OrganizationName" DataValueField="OrganizationID"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString %>" SelectCommand="SELECT [OrganizationID], [OrganizationName] FROM [Organization]"></asp:SqlDataSource>
-                     </div>
+                            </div>
 
-                         <div class="col-xl-3 col-lg-3 col-md-3 col-s-12 ">
-                             <asp:Label  runat="server" Text="Program Invoices "></asp:Label>  <br />
-                    <asp:DropDownList ID="ProgramListInvoice" runat="server" class="btn btn-block"  style="background-color:whitesmoke;"></asp:DropDownList>
-                              </div>
-                    
-                
 
-             <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
-                 <br />
-                    <asp:GridView ID="GridView5" runat="server" CssClass=" table table-condensed table-bordered table-hover AnimalCard" AutoPostBack="true">
-                        <HeaderStyle ForeColor="Black" BackColor="#00c292"></HeaderStyle>
-                    </asp:GridView>
+                        </div>
 
-              </div>
-            </div>
-        </div>
-        <div class="row mx-auto">
-            <div class="col-12">
-                
-
-                <asp:Button ID="btnAddProgram2Invoice"
-                    runat="server"
-                    Text="Add Program to Invoice"
-                    CssClass="btn btn-block mx-auto d-flex justify-content-center btn-success"
-                    UseSubmitBehavior="false"
-                    CauseValidation="true"/>
-              
-            </div>
-                    </div>
-                   
-                    <div class="col-md-4 mx-auto">
-                       
                     </div>
 
-
-                     
+                    <div class="card-body"></div>
                 </div>
             </div>
-
-
+            <!-- /# column -->
         </div>
-                               
-                            </div>
-                            
-                            <div class="card-body"></div>
-                        </div>
-                    </div><!-- /# column -->
-                </div>  
-                <!--  /Traffic -->
-                <div class="clearfix"></div>
-                <!-- Orders -->
-              
-
-                <!-- /.orders -->
-                <!-- To Do and Live Chat -->
-               
+        <!--  /Traffic -->
+        <div class="clearfix"></div>
+        <!-- Orders -->
 
 
-                <!-- /To Do and Live Chat -->
-                <!-- Calender Chart Weather  -->
-           
+        <!-- /.orders -->
+        <!-- To Do and Live Chat -->
 
 
-                <!-- /Calender Chart Weather -->
-                <!-- Modal - Calendar - Add New Event -->
-             
 
-                <!-- /#event-modal -->
-                <!-- Modal - Calendar - Add Category -->
-             
+        <!-- /To Do and Live Chat -->
+        <!-- Calender Chart Weather  -->
 
-            <!-- /#add-category -->
-            </div>
+
+
+        <!-- /Calender Chart Weather -->
+        <!-- Modal - Calendar - Add New Event -->
+
+
+        <!-- /#event-modal -->
+        <!-- Modal - Calendar - Add Category -->
+
+
+        <!-- /#add-category -->
+        </div>
             <!-- .animated -->
         </div>
         <!-- /.content -->
         <div class="clearfix"></div>
         <!-- Footer -->
-     
+
         <!-- /.site-footer -->
-    <%--</div>--%>
-    <!-- /#right-panel -->
+        <%--</div>--%>
+        <!-- /#right-panel -->
 
-   
 
-    <!--Local Stuff-->
-    
+
+        <!--Local Stuff-->
+
 
         <div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog " role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Animal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body p-4" id="resultAdd">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Animal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4" id="resultAdd">
 
 
 
-                    <div class="row  ">
+                        <div class="row  ">
 
-                        <div class=" col-md-8">
-                            <h4>Animal Status: </h4>
-                            <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Active</asp:ListItem>
-                                <asp:ListItem>Inactive</asp:ListItem>
-                                <asp:ListItem>Temporarily Inactive</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Type: </h4>
-                            <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Bird</asp:ListItem>
-                                <asp:ListItem>Mammal</asp:ListItem>
-                                <asp:ListItem>Reptile</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Name: </h4>
-                            <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
-                            <h4>Add Image: </h4>
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                            <div class=" col-md-8">
+                                <h4>Animal Status: </h4>
+                                <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
+                                    <asp:ListItem>Active</asp:ListItem>
+                                    <asp:ListItem>Inactive</asp:ListItem>
+                                    <asp:ListItem>Temporarily Inactive</asp:ListItem>
+                                </asp:DropDownList>
+                                <h4>Type: </h4>
+                                <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
+                                    <asp:ListItem>Bird</asp:ListItem>
+                                    <asp:ListItem>Mammal</asp:ListItem>
+                                    <asp:ListItem>Reptile</asp:ListItem>
+                                </asp:DropDownList>
+                                <h4>Name: </h4>
+                                <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
+                                <h4>Add Image: </h4>
+                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                                <br>
+                            </div>
+                            <!-- End  Description -->
+
+
+                        </div>
+                        <div class="row">
                             <br>
                         </div>
-                        <!-- End  Description -->
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <%-- <asp:Button ID="btnAddModal" runat="server" Text="Add" Class="btn btn-primary LoginButton FormButton" UseSubmitBehavior="false" OnClick="btnAddModal_Click"></asp:Button>
+                                --%>
+                            </div>
 
 
-                    </div>
-                    <div class="row">
-                        <br>
-                    </div>
-                    <div class="row">
 
-                        <div class="col-md-2">
-                           <%-- <asp:Button ID="btnAddModal" runat="server" Text="Add" Class="btn btn-primary LoginButton FormButton" UseSubmitBehavior="false" OnClick="btnAddModal_Click"></asp:Button>
-                      --%>  </div>
-
-
+                        </div>
 
                     </div>
-
-                </div>
-                <div class="modal-footer">
-                    <%--                    <button type="button" data-toggle="modal" data-target="#EditModal" class="btn btn-secondary" data-dismiss="modal">Edit</button>--%>
+                    <div class="modal-footer">
+                        <%--                    <button type="button" data-toggle="modal" data-target="#EditModal" class="btn btn-secondary" data-dismiss="modal">Edit</button>--%>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-</body>
+
 
 
 
