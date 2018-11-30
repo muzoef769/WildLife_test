@@ -191,13 +191,10 @@
 
                             <div style="margin-left:16px;">
                              <a class="col-form-label">Year:</a>
-                <asp:DropDownList ID="ddlYearFilter" class="form-control" Style="background-color: whitesmoke; width:10%;" runat="server" OnSelectedIndexChanged="ddlYearFilter_SelectedIndexChanged" AutoPostBack="true">
-                        <asp:ListItem Value="2015">2015</asp:ListItem>
-                        <asp:ListItem Value="2016">2016</asp:ListItem>
-                        <asp:ListItem Value="2017">2017</asp:ListItem>
-                        <asp:ListItem Value="2018">2018</asp:ListItem>
-                    </asp:DropDownList>
-                                </div>
+                                <asp:DropDownList ID="ddlYearFilter" class="form-control" Style="background-color: whitesmoke; width: 10%;" runat="server" OnSelectedIndexChanged="ddlYearFilter_SelectedIndexChanged" AutoPostBack="true" DataSourceID="SqlDataSource2" DataTextField="Column1" DataValueField="Column1">
+                                </asp:DropDownList>
+                                <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:connString %>' SelectCommand="SELECT DISTINCT YEAR(DateCompleted) from dbo.NewProgram"></asp:SqlDataSource>
+                            </div>
                 <br />
 
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12  mx-auto table  table-bordered table-hover AnimalCard " >
@@ -545,10 +542,8 @@
 
                  <div class="ml-auto d-flex justify-content-end row" Style=" margin-right:16px;">
 <%--                       <a style=" margin-right:5px; color:black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#ProgramView" role="tab" aria-controls="profile" aria-selected="false">Start Date</a>--%>
-
                       <input runat="server" Class="btn col-xl-2 col-lg-2 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="startDate" placeholder ="Start Date">
 <%--                      <label>End Date </label>--%>
-
                        <input runat="server" Class="btn col-xl-2 col-lg-2 col-md-3 col-sm-4" Style="background-color: whitesmoke; margin-right:5px;" clientidmode="Static" width="100%" type="date" id="endDate" placeholder ="End Date">
 
                                 <asp:Button runat="server" class="btn btn-success" style="margin-right:5px;" id="dateFilter" OnClick="dateFilter_Click" Text="Filter Between Dates"/>
