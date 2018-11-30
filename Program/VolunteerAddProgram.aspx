@@ -90,6 +90,9 @@
                     <asp:Label ID="lblTotalCostPrice" runat="server" Text="0"></asp:Label></b></span>
                 </p>
             </div>
+            <div class="btn-group col-md-4">
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Program" CssClass="btn btn-primary btn-md btn-block" OnClick="SubmitProgram" />
+                        </div>
         </div>
 
         <div class="SimpleContainer card col-sm-12 col-xs-12 col-md-9 col-lg-9 col-xl-9" style="z-index: 100;">
@@ -640,12 +643,6 @@
                                 <%-- END Button Group - Back/Next Tab--%>
                             </div>
                         </div>
-
-
-                        <div class="btn-group col-md-4">
-                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Program" CssClass="btn btn-primary btn-md btn-block" OnClick="SubmitProgram" />
-                        </div>
-
 
                     </div>
                 </div>

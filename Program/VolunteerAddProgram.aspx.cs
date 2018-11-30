@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -281,7 +282,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
         string value = drpProgramList.SelectedValue;
         if (drpProgramList.SelectedValue == "13" || drpProgramList.SelectedValue == "14" || drpProgramList.SelectedValue == "15" || drpProgramList.SelectedValue == "16" || drpProgramList.SelectedValue == "17" || drpProgramList.SelectedValue == "18")
         {
-            drpLocationTypeList.SelectedValue = "OffSite";
+            drpLocationTypeList.SelectedValue = "Offsite";
             drpLocationTypeList.Enabled = false;
         }
         else
@@ -292,13 +293,13 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
     protected void drpLocationTypeList_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (drpLocationTypeList.SelectedValue == "OffSite")
+        if (drpLocationTypeList.SelectedValue == "Offsite")
         {
             lblMileage.Visible = true;
             txtMileage.Visible = true;
             locationtab.Visible = true;
         }
-        if (drpLocationTypeList.SelectedValue == "OnSite")
+        if (drpLocationTypeList.SelectedValue == "Onsite")
         {
             locationtab.Visible = false;
             lblMileage.Visible = false;
@@ -338,7 +339,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
             cmd3.CommandType = CommandType.Text;
             cmd3.CommandText = grabProgramCost;
             cmd3.Parameters.AddWithValue("@Program_ID", drpProgramList.SelectedValue);
-            if (drpLocationTypeList.SelectedValue == "OffSite")
+            if (drpLocationTypeList.SelectedValue == "Offsite")
             {
                 Find_ProgramCost = Convert.ToInt32(cmd3.ExecuteScalar());
                 lblSubtotalCost.Text = Convert.ToString(Find_ProgramCost);
@@ -477,7 +478,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
                 }
             }
 
-            if (drpLocationTypeList.SelectedValue == "OffSite")
+            if (drpLocationTypeList.SelectedValue == "Offsite")
             {
                 Invoice newInvoice = new Invoice(HttpUtility.HtmlEncode(txtInvoice.Text), Find_ProgramCost, Convert.ToDateTime(HttpUtility.HtmlEncode(txtProgramDate.Text)), "Unpaid", DateTime.Today, HttpUtility.HtmlEncode(Session["UserFullName"].ToString()), Convert.ToInt32(HttpUtility.HtmlEncode(txtMileage.Text)));
                 string invoiceInsert = "Insert into Invoice([InvoiceNumber], [TotalCost], [DateCreated], [InvoiceStatus], [LastUpdated], [LastUpdatedBy], [TotalMileage]) VALUES (" +
