@@ -759,7 +759,7 @@
                 <asp:Button ID="btnExportToExcel"
                     runat="server"
                     Text="Export To Excel"
-                    CssClass="btn mx-auto d-flex justify-content-center btn-success"
+                    CssClass="btn btn-block mx-auto d-flex justify-content-center btn-success"
                     
                     OnClick="btnExportToExcel_Click" />
                 <br />
