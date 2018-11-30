@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="AnimalReport.aspx.cs" Inherits="AnimalReport" EnableEventValidation="false" %>
+﻿<%@ Page Title="Animal Report" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="AnimalReport.aspx.cs" Inherits="AnimalReport" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -721,16 +721,7 @@
         </div>
         <br />
         <div class="row mx-auto">
-            <div class="col-12">
-                <asp:Button ID="btnExportToExcel"
-                    runat="server"
-                    Text="Export To Excel"
-                    CssClass="btn mx-auto d-flex justify-content-center btn-success"
-                    UseSubmitBehavior="false"
-                    CauseValidation="true"
-                    OnClick="ExportToExcel" />
-                <br />
-            </div>
+            
         </div>
     </div>
                                 </div>
@@ -764,6 +755,15 @@
                                                     <asp:AsyncPostBackTrigger ControlID="Button12" EventName="Click" />
                                                 </Triggers>
                                             </asp:UpdatePanel>
+    <div class="col-12">
+                <asp:Button ID="btnExportToExcel"
+                    runat="server"
+                    Text="Export To Excel"
+                    CssClass="btn btn-block mx-auto d-flex justify-content-center btn-success"
+                    
+                    OnClick="btnExportToExcel_Click" />
+                <br />
+            </div>
     <%--END OF ANNUAL ANIMAL REPORT CARD--%>
 </asp:Content>
 

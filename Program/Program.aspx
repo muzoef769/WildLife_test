@@ -22,78 +22,7 @@
             }
         });</script>
 
-    <%--<!-- Content -->
-    <div class="content">
-        <!-- Animated -->
-        <div class="animated fadeIn">--%>
-    <!-- Widgets  -->
-    <%--<div class="row">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="card" data-toggle="modal" data-target="#AddModal">
-                        <div class="card-body">
-                            <div class="stat-widget-five">
-                                <div class="stat-icon dib flat-color-1">
-                                    <i class="fa fa-github-alt"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="text-left dib">
-
-                                        <div class="stat-heading">Add Animal</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <a href="AddProgram.aspx">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-
-                                            <div class="stat-heading">Add Program</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <a href="AddOrganization.aspx">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-
-                                            <div class="stat-heading">Add Organization</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-
-
-
-
-            </div>--%>
-    <!-- /Widgets -->
-    <!--  Traffic  -->
     <div class="card-body">
         <h4 class="box-title">View Program Info</h4>
 
@@ -132,7 +61,14 @@
                         </ul>
                         <br />
                         <div class=" ml-auto d-flex justify-content-end row" style="margin-right: 16px;">
-                            <asp:TextBox ID="txtSearchAll" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="tab-content ">
+                        <div id="All" class="tab-pane fade show active ">
+                            <div class="">
+                                <asp:TextBox ID="txtSearchAll" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
                                 OnTextChanged="txtSearchAll_TextChanged"></asp:TextBox>
                             <br class="d-md-none" />
                             <asp:Button
@@ -150,23 +86,14 @@
                                 Text="Clear"
                                 Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
                                 OnClick="btnClearAll_Click" />
-
-                        </div>
-
-                    </div>
-                    <br />
-                    <div class="tab-content ">
-                        <div id="All" class="tab-pane fade show active ">
-                            <div class="">
-
                                 <div class="row mx-auto d-flex justify-content-center table-responsive">
-                                    <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
+                                    <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 " style="cursor:pointer">
                                         <asp:GridView ID="GridView5" runat="server"
                                            HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="SqlDataSource1" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView5_RowDataBound1" OnSelectedIndexChanged="GridView5_SelectedIndexChanged"
-                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" >
+                                            AllowSorting="True" OnRowDataBound="GridView5_RowDataBound1" OnSelectedIndexChanged="GridView5_SelectedIndexChanged" AutoPostBack="true"
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
 
@@ -244,14 +171,31 @@ ORDER BY np.DateCompleted DESC"
                         </div>
                         <div id="Online" class="tab-pane fade">
                             <div class="table-responsive">
-
+                                <asp:TextBox ID="txtSearchOnline" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                                OnTextChanged="txtSearchOnline_TextChanged"></asp:TextBox>
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnSearchOnline"
+                                runat="server"
+                                CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
+                                Text="Search"
+                                Style="margin-right: 5px;"
+                                OnClick="btnSearchOnline_Click" />
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnClearOnline"
+                                CssClass="btn col-xl-1 col-md-2 col-lg-2 col-sm-2"
+                                runat="server"
+                                Text="Clear"
+                                Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
+                                OnClick="btnClearOnline_Click" />
                                 <div class="row mx-auto d-flex justify-content-center ">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer">
                                         <asp:GridView ID="GridView1" runat="server"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                                            AllowSorting="True" AutoPostBack="true" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
                                             SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
@@ -272,6 +216,7 @@ ORDER BY np.DateCompleted DESC"
                                         <asp:SqlDataSource
                                             ID="ProgramSQL"
                                             runat="server"
+                                            FilterExpression="ProgramName LIKE '%{0}%' OR LocationType LIKE '%{1}%' "
                                             ConflictDetection="CompareAllValues"
                                             ConnectionString="<%$ ConnectionStrings:connString %>"
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
@@ -286,6 +231,12 @@ inner join Organization o on o.OrganizationID = p.OrganizationID
 WHERE upper(np.LocationType)='ONLINE'
 ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
+                                            <FilterParameters>
+                                                <asp:ControlParameter Name="ProgramName" ControlID="txtSearchOnline" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="LocationType" ControlID="txtSearchOnline" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                
+                                                
+                                            </FilterParameters>
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_ProgramID" Type="Int32" />
                                                 <asp:Parameter Name="original_ProgramName" Type="String" />
@@ -325,14 +276,32 @@ ORDER BY np.DateCompleted DESC"
                         </div>
                         <div id="OnSite" class="tab-pane fade">
                             <div class="table-responsive">
+                                <asp:TextBox ID="txtSearchOn" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                                OnTextChanged="txtSearchOn_TextChanged"></asp:TextBox>
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnSearchOn"
+                                runat="server"
+                                CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
+                                Text="Search"
+                                Style="margin-right: 5px;"
+                                OnClick="btnSearchOn_Click" />
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnClearOn"
+                                CssClass="btn col-xl-1 col-md-2 col-lg-2 col-sm-2"
+                                runat="server"
+                                Text="Clear"
+                                Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
+                                OnClick="btnClearOn_Click" />
                                 <div class="row mx-auto d-flex justify-content-center">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer">
                                         <asp:GridView ID="GridView3" runat="server"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL1" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
                                             AllowSorting="True" OnRowDataBound="GridView3_RowDataBound1" OnSelectedIndexChanged="GridView3_SelectedIndexChanged"
-                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" AutoPostBack="true">
 
                                             <Columns>
 
@@ -352,6 +321,7 @@ ORDER BY np.DateCompleted DESC"
                                         <asp:SqlDataSource
                                             ID="ProgramSQL1"
                                             runat="server"
+                                            FilterExpression="ProgramName LIKE '%{0}%' OR LocationType LIKE '%{1}%' "
                                             ConflictDetection="CompareAllValues"
                                             ConnectionString="<%$ ConnectionStrings:connString %>"
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
@@ -366,7 +336,12 @@ inner join Organization o on o.OrganizationID = p.OrganizationID
 WHERE upper(np.LocationType)='ONSITE'
 ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
-
+                                            <FilterParameters>
+                                                <asp:ControlParameter Name="ProgramName" ControlID="txtSearchOn" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="LocationType" ControlID="txtSearchOn" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                
+                                                
+                                            </FilterParameters>
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_ProgramID" Type="Int32" />
                                                 <asp:Parameter Name="original_ProgramName" Type="String" />
@@ -406,13 +381,31 @@ ORDER BY np.DateCompleted DESC"
                         </div>
                         <div id="OffSite" class="tab-pane fade">
                             <div class="table-responsive">
+                                <asp:TextBox ID="txtSearchOff" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                                OnTextChanged="txtSearchOff_TextChanged"></asp:TextBox>
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnSearchOff"
+                                runat="server"
+                                CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
+                                Text="Search"
+                                Style="margin-right: 5px;"
+                                OnClick="btnSearchOff_Click" />
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnClearOff"
+                                CssClass="btn col-xl-1 col-md-2 col-lg-2 col-sm-2"
+                                runat="server"
+                                Text="Clear"
+                                Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
+                                OnClick="btnClearOff_Click" />
                                 <div class="row mx-auto d-flex justify-content-center">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-s-12" style="cursor:pointer">
                                         <asp:GridView ID="GridView4" runat="server"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL2" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView4_RowDataBound1" OnSelectedIndexChanged="GridView4_SelectedIndexChanged"
+                                            AllowSorting="True" OnRowDataBound="GridView4_RowDataBound1" OnSelectedIndexChanged="GridView4_SelectedIndexChanged" AutoPostBack="true"
                                             SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
@@ -433,6 +426,7 @@ ORDER BY np.DateCompleted DESC"
                                         <asp:SqlDataSource
                                             ID="ProgramSQL2"
                                             runat="server"
+                                            FilterExpression="ProgramName LIKE '%{0}%' OR LocationType LIKE '%{1}%' "
                                             ConflictDetection="CompareAllValues"
                                             ConnectionString="<%$ ConnectionStrings:connString %>"
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
@@ -447,7 +441,12 @@ inner join Organization o on o.OrganizationID = p.OrganizationID
 WHERE upper(np.LocationType)='OFFSITE'
 ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
-
+                                            <FilterParameters>
+                                                <asp:ControlParameter Name="ProgramName" ControlID="txtSearchOff" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="LocationType" ControlID="txtSearchOff" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                
+                                                
+                                            </FilterParameters>
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_ProgramID" Type="Int32" />
                                                 <asp:Parameter Name="original_ProgramName" Type="String" />
@@ -491,57 +490,7 @@ ORDER BY np.DateCompleted DESC"
                 <div class="card-body"></div>
             </div>
         </div>
-        <!-- /# column -->
     </div>
-    <!--  /Traffic -->
-    <div class="clearfix"></div>
-    <!-- Orders -->
-
-
-    <!-- /.orders -->
-    <!-- To Do and Live Chat -->
-
-
-
-    <!-- /To Do and Live Chat -->
-    <!-- Calender Chart Weather  -->
-
-
-
-    <!-- /Calender Chart Weather -->
-    <!-- Modal - Calendar - Add New Event -->
-
-
-    <!-- /#event-modal -->
-    <!-- Modal - Calendar - Add Category -->
-
-
-    <!-- /#add-category -->
-    <%-- </div>
-        <!-- .animated -->
-    </div>
-    <!-- /.content -->
-    <div class="clearfix"></div>
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-inner bg-white">
-            <div class="row">
-                <div class="col-sm-6">
-                    Wildlife Center of Virginia
-                </div>
-
-            </div>
-        </div>
-    </footer>--%>
-    <!-- /.site-footer -->
-    <%--</div>--%>
-    <!-- /#right-panel -->
-
-
-
-    <!--Local Stuff-->
-
-
 
 
     <div class="modal" id="ProgramDetailsModal" tabindex="-1" role="dialog">
@@ -572,7 +521,7 @@ ORDER BY np.DateCompleted DESC"
                                   <div class="text-left">
                                 <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover"
                                     BackColor="White" AllowPaging="True" AllowSorting="true" OnSorting="GridView2_Sorting" 
-                                    HeaderStyle-BackColor="#00c292" HeaderStyle-ForeColor="White" SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                    HeaderStyle-BackColor="#00c292" AutoPostBack="true" HeaderStyle-ForeColor="White" SortedDescendingCellStyle-BackColor="#fddfd6" 
                                     SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <%--<HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>--%>
@@ -599,6 +548,13 @@ ORDER BY np.DateCompleted DESC"
                                     <asp:TextBox ID="txtNotes" runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="false" TextMode="multiline" Columns="50" Rows="5"></asp:TextBox>
                                 </div>
                             </div>
+                            <div class="col-xl-12 col-lg-12  col-md-12 col-s-12 Spacing mr-2">
+                                <div class=" ">
+                                    <asp:Label ID="lblTotPeople" runat="server" Text="Total People "></asp:Label>
+                                    <br />
+                                    <asp:TextBox ID="txtTotPeople" runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="false"></asp:TextBox>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -609,49 +565,4 @@ ORDER BY np.DateCompleted DESC"
             </div>
         </div>
     </div>
-
-
-    <%--<div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog " role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Animal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body p-4" id="resultAdd">
-
-
-
-                    <div class="row  ">
-
-                        <div class=" col-md-8">
-                            <h4>Animal Status: </h4>
-                            <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Active</asp:ListItem>
-                                <asp:ListItem>Inactive</asp:ListItem>
-                                <asp:ListItem>Temporarily Inactive</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Type: </h4>
-                            <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Bird</asp:ListItem>
-                                <asp:ListItem>Mammal</asp:ListItem>
-                                <asp:ListItem>Reptile</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Name: </h4>
-                            <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
-                            <h4>Add Image: </h4>
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
-                            <br>
-                        </div>
-                        <!-- End  Description -->
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--%>
-
 </asp:Content>

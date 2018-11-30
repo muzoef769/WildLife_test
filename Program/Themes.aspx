@@ -22,7 +22,7 @@
                     </div>
                     <br />
                     <div class="row mx-auto">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 ">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 " style="cursor:pointer;">
                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProgramID" DataSourceID="themeDatasource" BackColor="White" 
                                 HorizontalAlign="Left" Class="  table table-condensed table-bordered table-hover AnimalCard" OnRowDataBound="GridView1_RowDataBound1" 
                                 OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="true" SortedDescendingCellStyle-BackColor="#fddfd6" RowStyle-CssClass="data-row"

@@ -61,26 +61,31 @@
                                         <div class="form-label-group">
                                             <asp:TextBox ID="txtFirstName" class="form-control" Style="background-color: whitesmoke;" placeholder="First name" required="required" runat="server" MaxLength="50"></asp:TextBox>
                                         </div>
+                                        <asp:RequiredFieldValidator ID="firstName" runat="server" ErrorMessage="*" ControlToValidate="txtFirstName" ValidationGroup="SubmitUser"  ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                             <asp:TextBox ID="txtLastName" class="form-control" Style="background-color: whitesmoke;" placeholder="Last name" required="required" runat="server" MaxLength="50"></asp:TextBox>
-
+                                            <asp:RequiredFieldValidator ID="lastName" runat="server" ErrorMessage="*" ControlToValidate="txtLastName" ValidationGroup="SubmitUser"  ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
-                                    </div> </div>
+                                    </div>
+                                    
+                                </div>
                                 <br />
 
                                  <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                            <asp:TextBox ID="txtEmail" class="form-control" Style="background-color: whitesmoke;" placeholder="Email" required="required" runat="server" MaxLength="50"></asp:TextBox>
-  </div>
+  </div><asp:RequiredFieldValidator ID="Email" runat="server" ErrorMessage="*" ControlToValidate="txtEmail" ValidationGroup="SubmitUser"  ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
+                                     
                                     <div class="col-md-6">
                                         <div class="form-label-group">
                                             <asp:TextBox ID="txtNewUsername" class="form-control" Style="background-color: whitesmoke;" placeholder="Username" required="required" runat="server" MaxLength="50"></asp:TextBox>
 
                                         </div>
+                                        <asp:RequiredFieldValidator ID="newUsername" runat="server" ErrorMessage="*" ControlToValidate="txtNewUsername" ValidationGroup="SubmitUser"  ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div> </div>
 
                                    
@@ -92,6 +97,7 @@
                                         <div class="form-label-group">
                                             <input id="txtNewPassword" type="password" class="form-control" Style="background-color: whitesmoke;" placeholder="Password" autocomplete="off" runat="server" clientidmode="Static" required>
                                         </div>
+                                        <asp:RequiredFieldValidator ID="newPassword" runat="server" ErrorMessage="*" ControlToValidate="txtNewPassword" ValidationGroup="SubmitUser"  ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-label-group">
@@ -108,7 +114,7 @@
                                                 Type="String">
                                             </asp:CompareValidator>
                                         </div>
-
+                                        <asp:RequiredFieldValidator ID="confirmPassword" runat="server" ErrorMessage="*" ControlToValidate="txtConfirmPassword" ValidationGroup="SubmitUser"  ForeColor="Red"></asp:RequiredFieldValidator>
 
                                     </div>
                                     <div class="col-12 text-center" id="JSPassword"></div>
@@ -121,7 +127,9 @@
                                             <asp:ListItem>Volunteer</asp:ListItem>
                                             <asp:ListItem>Staff</asp:ListItem>
                                         </asp:RadioButtonList>
+                                        <asp:RequiredFieldValidator ID="position" runat="server" ErrorMessage="*" ControlToValidate="rdoPosition" ValidationGroup="SubmitUser" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
+                                    
                                 </div>
 
                             </div>
@@ -129,7 +137,7 @@
 
                         <div class="row">
                             <div class="form-group col-12 mx-auto">
-                                <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-success btn-block" OnClick="btnRegister_Click" UseSubmitBehavior="false" ValidationGroup="registerValidation" />
+                                <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-success btn-block" OnClick="btnRegister_Click" UseSubmitBehavior="false" ValidationGroup="SubmitUser" />
 
                                 <div class="text-center">
                                     <a class="d-block small mt-3" data-dismiss="modal" href="#" runat="server">Login Page</a>

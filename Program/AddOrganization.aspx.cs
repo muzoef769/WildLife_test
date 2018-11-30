@@ -24,15 +24,15 @@ public partial class AddOrganization : System.Web.UI.Page
         if (Page.IsValid)
         {
             Address newAddress = new Address(
-                txtStreet.Text,
-                drpState.Text,
-                txtCity.Text,
-                txtCounty.Text,
-                drpCountry.Text,
-                txtZipCode.Text,
+                HttpUtility.HtmlEncode(txtStreet.Text),
+                HttpUtility.HtmlEncode(drpState.Text),
+                HttpUtility.HtmlEncode(txtCity.Text),
+                HttpUtility.HtmlEncode(txtCounty.Text),
+                HttpUtility.HtmlEncode(drpCountry.Text),
+                HttpUtility.HtmlEncode(txtZipCode.Text),
                 "Organization",
                 DateTime.Now,
-                Session["UserFullName"].ToString());
+                HttpUtility.HtmlEncode(Session["UserFullName"].ToString()));
 
 
 
@@ -64,10 +64,10 @@ public partial class AddOrganization : System.Web.UI.Page
                 }
 
                 Organization newOrganization = new Organization(
-                      txtOrgName.Text,
+                      HttpUtility.HtmlEncode(txtOrgName.Text),
                       addressID,
                       DateTime.Now,
-                      Session["UserFullName"].ToString()
+                      HttpUtility.HtmlEncode(Session["UserFullName"].ToString())
                       );
                 string organizationInsert = "INSERT INTO ORGANIZATION (OrganizationName, AddressID, LastUpdated, LastUpdatedBy) VALUES (@OrgName, @AddressID, @LastUpdated, @LastUpdatedBy)";
 
@@ -89,14 +89,14 @@ public partial class AddOrganization : System.Web.UI.Page
                 }
 
                 Contact newContact = new Contact(
-                    txtFirstName.Text,
-                    txtLastName.Text,
-                    txtEmail.Text,
-                    txtPrimaryPhone.Text,
-                    txtSecondaryPhone.Text,
+                    HttpUtility.HtmlEncode(txtFirstName.Text),
+                    HttpUtility.HtmlEncode(txtLastName.Text),
+                    HttpUtility.HtmlEncode(txtEmail.Text),
+                    HttpUtility.HtmlEncode(txtPrimaryPhone.Text),
+                    HttpUtility.HtmlEncode(txtSecondaryPhone.Text),
                     orgID,
                     DateTime.Now,
-                    Session["UserFullName"].ToString());
+                    HttpUtility.HtmlEncode(Session["UserFullName"].ToString()));
 
                 string newContactInsert = "INSERT INTO CONTACT (FirstName, LastName, Email, PrimaryPhoneNumber, SecondaryPhoneNumber, OrganizationID, LastUpdated, LastUpdatedBy) VALUES (@fName, @lName, @email, @primary, @secondary, @orgID, @lastUpdated, @lastUpdatedBy)";
 

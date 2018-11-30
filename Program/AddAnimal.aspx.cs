@@ -15,8 +15,8 @@ public partial class AddAnimal : System.Web.UI.Page
         FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + HttpUtility.HtmlEncode(FileUpload1.FileName)));
         ImageString = "~\\Images\\Animals\\" + HttpUtility.HtmlEncode(FileUpload1.FileName);
         Animals animal = new Animals("", "",
-            HttpUtility.HtmlEncode(txtName.Text), drpAnimalType.SelectedValue, 
-            drpStatus.SelectedValue, DateTime.Today,
+            HttpUtility.HtmlEncode(txtName.Text), HttpUtility.HtmlEncode(drpAnimalType.SelectedValue),
+            HttpUtility.HtmlEncode(drpStatus.SelectedValue), DateTime.Today,
             Session["UserFullName"].ToString(), ImageString);
 
         string insertIntoAnimal = "INSERT INTO Animal(Species, ScientificName, AnimalName, AnimalType, Status, Image, LastUpdated, LastUpdatedBy) VALUES" +

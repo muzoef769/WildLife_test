@@ -1,7 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VolunteerMasterPage.master" AutoEventWireup="true" CodeFile="VolunteerAddProgram.aspx.cs" Inherits="VolunteerAddProgram" %>
-
-
-
+﻿<%@ Page Title="Add Program" Language="C#" MasterPageFile="~/VolunteerMasterPage.master" AutoEventWireup="true" CodeFile="VolunteerAddProgram.aspx.cs" Inherits="VolunteerAddProgram" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <script type="text/javascript">
@@ -21,7 +18,16 @@
                 $('#myTab a[href="' + activeTab + '"]').tab('show');
             }
         });
+        //$('#btnNext1').on('click',function(e) {
+        //    e.preventDefault();
+        //    var $li = $('nav-tabs').find('li'),
+        //        i = $li.siblings('.active').index(),
+        //        max = $li.length;
 
+        //    if(i < max) {
+        //        $li.find('[role="tablist"]').eq(i + 1).tab('show');
+        //    }
+        //});
     </script>
 
 
@@ -223,13 +229,14 @@
                                 </asp:UpdatePanel>
 
                                 <%-- START Button Group - Back/Next Tab--%>
-                                <div class="row mx-auto">
+                                <%--<div class="row mx-auto">
                                     <div class="btn-group col-md-4">
                                     </div>
                                     <div class="btn-group col-md-4">
+                                        <button id="btnNext1" type="button" class="btn btn-primary btn-lg btn-block"></button>
                                         <asp:Button ID="btnNext1" runat="server" Text="Next" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
-                                </div>
+                                </div>--%>
                                 <%-- END Button Group - Back/Next Tab--%>
                             </div>
                         </div>
@@ -298,8 +305,8 @@
                                                 <asp:DropDownList ID="drpLocationTypeList" runat="server" CssClass="form-control" Style="background-color: whitesmoke;"
                                                     OnSelectedIndexChanged="drpLocationTypeList_SelectedIndexChanged" AutoPostBack="true">
                                                     <asp:ListItem>Select Location Type</asp:ListItem>
-                                                    <asp:ListItem>OnSite</asp:ListItem>
-                                                    <asp:ListItem>OffSite</asp:ListItem>
+                                                    <asp:ListItem>Onsite</asp:ListItem>
+                                                    <asp:ListItem>Offsite</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
@@ -322,7 +329,7 @@
 
 
                                 <%-- START Button Group - Back/Next Tab--%>
-                                <div class="row mx-auto">
+                                <%--<div class="row mx-auto">
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
@@ -331,7 +338,7 @@
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnNext2" runat="server" Text="Next" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
-                                </div>
+                                </div>--%>
                                 <%-- END Button Group - Back/Next Tab--%>
                             </div>
                         </div>
@@ -374,6 +381,7 @@
                                             <asp:ListItem>High School</asp:ListItem>
                                             <asp:ListItem>Familes</asp:ListItem>
                                             <asp:ListItem>Adults Only</asp:ListItem>
+                                            <asp:ListItem>College/University</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -402,14 +410,14 @@
                                     </div>
                                 </div>
                                 <%-- START Button Group - Back/Next Tab--%>
-                                <div class="row mx-auto">
+                                <%--<div class="row mx-auto">
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnBack3" runat="server" Text="Back" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnNext3" runat="server" Text="Next" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
-                                </div>
+                                </div>--%>
                                 <%-- END Button Group - Back/Next Tab--%>
                             </div>
                         </div>
@@ -484,7 +492,7 @@
                                 </div>
                                 <br />
                                 <%-- START Button Group - Back/Next Tab--%>
-                                <div class="row mx-auto">
+                                <%--<div class="row mx-auto">
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnBack4" runat="server" Text="Back" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
@@ -492,7 +500,7 @@
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnNext4" runat="server" Text="Next" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
-                                </div>
+                                </div>--%>
                                 <%-- END Button Group - Back/Next Tab--%>
                             </div>
                         </div>
@@ -619,22 +627,23 @@
                                 </asp:UpdatePanel>
 
                                 <%-- START Button Group - Back/Next Tab--%>
-                                <div class="row mx-auto">
+                                <%--<div class="row mx-auto">
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnBack5" runat="server" Text="Back" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
                                     <div class="btn-group col-md-4">
                                         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary btn-md btn-block" />
                                     </div>
-                                </div>
+                                </div>--%>
                                 <%-- END Button Group - Back/Next Tab--%>
                             </div>
                         </div>
-                    </div>
-                    <div class="btn-group col-md-4">
-                        <asp:Button ID="btnSubmit1" runat="server" Text="Submit Program" CssClass="btn btn-primary btn-md btn-block" OnClick="SubmitProgram" />
-                    </div>
 
+
+                        <div class="btn-group col-md-4">
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Program" CssClass="btn btn-primary btn-md btn-block" OnClick="SubmitProgram" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

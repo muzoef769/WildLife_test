@@ -33,12 +33,12 @@ public partial class Themes : System.Web.UI.Page
         }
 
         Programs newTheme = new Programs(
-            txtAddProgramName.Text,
-            ddlAddProgramType.SelectedValue,
+            HttpUtility.HtmlEncode(txtAddProgramName.Text),
+            HttpUtility.HtmlEncode(ddlAddProgramType.SelectedValue),
             themeCost,
-            Convert.ToInt32(txtAddProgramCapacity.Text),
+            Convert.ToInt32(HttpUtility.HtmlEncode(txtAddProgramCapacity.Text)),
             DateTime.Today,
-            Session["UserFullName"].ToString());
+            HttpUtility.HtmlEncode(Session["UserFullName"].ToString()));
 
 
 
@@ -81,11 +81,6 @@ public partial class Themes : System.Web.UI.Page
 
         }
     }
-
-
-
-
-
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -130,16 +125,6 @@ public partial class Themes : System.Web.UI.Page
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -163,17 +148,17 @@ public partial class Themes : System.Web.UI.Page
         else
         {
 
-            capacity = Convert.ToInt32(txtEditCapacity.Text);
+            capacity = Convert.ToInt32(HttpUtility.HtmlEncode(txtEditCapacity.Text));
 
         }
 
         Programs newTheme2 = new Programs(id,
-           txtEditName.Text,
-           ddlEditType.SelectedValue,
+           HttpUtility.HtmlEncode(txtEditName.Text),
+           HttpUtility.HtmlEncode(ddlEditType.SelectedValue),
            themeCost,
           Convert.ToInt32(capacity),
            DateTime.Today,
-           Session["UserFullName"].ToString());
+           HttpUtility.HtmlEncode(Session["UserFullName"].ToString()));
 
 
 
@@ -202,23 +187,6 @@ public partial class Themes : System.Web.UI.Page
 
         }
 
-
-
-
-
         GridView1.DataBind();
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
 }

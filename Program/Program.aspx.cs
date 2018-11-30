@@ -59,6 +59,14 @@ public partial class Program : System.Web.UI.Page
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
+
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
         SqlCommand cmd3 = sc.CreateCommand();
@@ -105,6 +113,14 @@ public partial class Program : System.Web.UI.Page
         noteCommand.Parameters.AddWithValue("@NewProgramID", id);
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
+
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
 
         String programString = "SELECT Program.ProgramName FROM Program INNER JOIN NewProgram ON NewProgram.ProgramID = Program.ProgramID WHERE NewProgram.NewProgramID = @NewProgramID";
         SqlCommand commProgramName = sc.CreateCommand();
@@ -169,6 +185,14 @@ public partial class Program : System.Web.UI.Page
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
+
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
 
@@ -216,6 +240,14 @@ public partial class Program : System.Web.UI.Page
 
         txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
+        string people = "SELECT np.TotalPeople from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand peopleCommand = sc.CreateCommand();
+        peopleCommand.CommandType = CommandType.Text;
+        peopleCommand.CommandText = people;
+        peopleCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtTotPeople.Text = Convert.ToString(peopleCommand.ExecuteScalar());
+
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
 
@@ -232,40 +264,20 @@ public partial class Program : System.Web.UI.Page
         GridView2.DataBind();
     }
 
-    public string HighlightText(string InputTxt)
-    {
-        string Search_Str = HttpUtility.HtmlEncode(txtSearchAll.Text);
-        // Setup the regular expression and add the Or operator.
-        Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
-        // Highlight keywords by calling the
-        //delegate each time a keyword is found.
-        return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
-    }
+    //public string HighlightText(string InputTxt)
+    //{
+    //    string Search_Str = HttpUtility.HtmlEncode(txtSearchAll.Text);
+    //    // Setup the regular expression and add the Or operator.
+    //    Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
+    //    // Highlight keywords by calling the
+    //    //delegate each time a keyword is found.
+    //    return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
+    //}
 
     public string ReplaceKeyWords(Match m)
     {
         return ("<span class=highlight>" + m.Value + "</span>");
     }
-
-    protected void btnSearchAll_Click(object sender, EventArgs e)
-    {
-        //  Set the value of the SearchString so it gets
-        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
-    }
-
-    protected void btnClearAll_Click(object sender, EventArgs e)
-    {
-        //  Simple clean up text to return the Gridview to it's default state
-        txtSearchAll.Text = "";
-        SearchString = "";
-        GridView5.DataBind();
-    }
-
-    protected void txtSearchAll_TextChanged(object sender, EventArgs e)
-    {
-        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
-    }
-
 
     protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -314,17 +326,112 @@ public partial class Program : System.Web.UI.Page
     {
         sc.Open();
         string newNotes = txtNotes.Text;
+        int newPeople = Convert.ToInt32(txtTotPeople.Text);
 
         Int32 newID = Convert.ToInt32(ViewState["NewProgramID"]);
-        string update = "UPDATE dbo.NewProgram set MiscNotes = @newNotes where NewProgramID = @NewProgramID";
+        string update1 = "UPDATE dbo.NewProgram set MiscNotes = @newNotes where NewProgramID = @NewProgramID";
 
         SqlCommand updateNotes = sc.CreateCommand();
         updateNotes.CommandType = CommandType.Text;
-        updateNotes.CommandText = update;
+        updateNotes.CommandText = update1;
         updateNotes.Parameters.AddWithValue("@NewProgramID", newID);
         updateNotes.Parameters.AddWithValue("@newNotes", newNotes);
 
         updateNotes.ExecuteNonQuery();
 
+        string update2 = "UPDATE dbo.NewProgram set TotalPeople = @totalPeople where NewProgramID = @NewProgramID";
+
+        SqlCommand updatePeople = sc.CreateCommand();
+        updatePeople.CommandType = CommandType.Text;
+        updatePeople.CommandText = update2;
+        updatePeople.Parameters.AddWithValue("@NewProgramID", newID);
+        updatePeople.Parameters.AddWithValue("@totalPeople", newPeople);
+
+        updatePeople.ExecuteNonQuery();
+
+        GridView5.DataBind();
+        GridView1.DataBind();
+        GridView2.DataBind();
+        GridView3.DataBind();
+        GridView4.DataBind();
+    }
+    //ALL
+    protected void btnSearchAll_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
+    }
+
+    protected void btnClearAll_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchAll.Text = "";
+        SearchString = "";
+        GridView5.DataBind();
+    }
+
+    protected void txtSearchAll_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
+    }
+
+    //OFFSITE
+    protected void btnSearchOff_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchOff.Text);
+    }
+
+    protected void btnClearOff_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchOff.Text = "";
+        SearchString = "";
+        GridView4.DataBind();
+    }
+
+    protected void txtSearchOff_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchOff.Text);
+    }
+
+    //ONLINE
+    protected void btnSearchOnline_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchOnline.Text);
+    }
+
+    protected void btnClearOnline_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchOnline.Text = "";
+        SearchString = "";
+        GridView1.DataBind();
+    }
+
+    protected void txtSearchOnline_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchOnline.Text);
+    }
+
+    //ONSITE
+    protected void btnSearchOn_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchOn.Text);
+    }
+
+    protected void btnClearOn_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchOn.Text = "";
+        SearchString = "";
+        GridView3.DataBind();
+    }
+
+    protected void txtSearchOn_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchOn.Text);
     }
 }

@@ -41,7 +41,7 @@ public partial class Default : System.Web.UI.Page
         findPass.Connection = sc;
         // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
         findPass.CommandText = "select PasswordHash from [dbo].[Password] where Username = @Username";
-        findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
+        findPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtUsername.Text)));
 
         SqlDataReader reader = findPass.ExecuteReader(); // create a reader
 
@@ -55,7 +55,7 @@ public partial class Default : System.Web.UI.Page
             {
                 string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
 
-                if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
+                if (PasswordHash.ValidatePassword(HttpUtility.HtmlEncode(txtPassword.Text), storedHash)) // if the entered password matches what is stored, it will show success
                 {
                     // Clear Fields
                     txtStatus.ForeColor = Color.White;
@@ -65,14 +65,14 @@ public partial class Default : System.Web.UI.Page
 
                     txtUsername.Enabled = false;
                     txtPassword.Enabled = false;
-                    Session["Username"] = txtUsername.Text;
-                    Session["UserFullName"] = findFullName(txtUsername.Text);
+                    Session["Username"] = HttpUtility.HtmlEncode(txtUsername.Text);
+                    Session["UserFullName"] = findFullName(HttpUtility.HtmlEncode(txtUsername.Text));
 
 
                     getVolunteer.Connection = sc;
 
                     getVolunteer.CommandText = "SELECT UserType, UserStatus from [dbo].[User] where Username = @Username and UserType = @UserType and UserStatus = @UserStatus";
-                    getVolunteer.Parameters.AddWithValue("@Username", txtUsername.Text);
+                    getVolunteer.Parameters.AddWithValue("@Username", HttpUtility.HtmlEncode(txtUsername.Text));
                     getVolunteer.Parameters.AddWithValue("UserType", "Volunteer");
                     getVolunteer.Parameters.AddWithValue("UserStatus", "Active");
 
@@ -82,7 +82,7 @@ public partial class Default : System.Web.UI.Page
                     getStaff.Connection = sc;
 
                     getStaff.CommandText = "SELECT UserType, UserStatus from [dbo].[User] where Username = @Username and UserType = @UserType and UserStatus = @UserStatus";
-                    getStaff.Parameters.AddWithValue("@Username", txtUsername.Text);
+                    getStaff.Parameters.AddWithValue("@Username", HttpUtility.HtmlEncode(txtUsername.Text));
                     getStaff.Parameters.AddWithValue("UserType", "Staff");
                     getStaff.Parameters.AddWithValue("UserStatus", "Active");
 
@@ -100,7 +100,7 @@ public partial class Default : System.Web.UI.Page
                     {
                         while (staffReader.Read())
                         {
-                            Response.Redirect("Home.aspx", false);
+                            Response.Redirect("Manage.aspx", false);
                         }
                     }
                     else
@@ -110,10 +110,6 @@ public partial class Default : System.Web.UI.Page
 
                     volunteerReader.Close();
                     staffReader.Close();
-
-
-
-
                 }
                 else
                 {
@@ -151,16 +147,10 @@ public partial class Default : System.Web.UI.Page
     }
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-
-        //Page.Validate();
-
-        //if (Page.IsValid)
-        //{
-        //    COMMIT VALUES
         try
         {
 
-            ViewState["password"] = txtConfirmPassword.Value;
+            ViewState["password"] = HttpUtility.HtmlEncode(txtConfirmPassword.Value);
 
             String strGetUser = "Select UserID from [dbo].[User] where Username = @Username";
 
@@ -168,7 +158,7 @@ public partial class Default : System.Web.UI.Page
             using (SqlCommand getUser = new SqlCommand(strGetUser, myConnection))
             {
                 myConnection.Open();
-                getUser.Parameters.AddWithValue("@Username", txtNewUsername.Text);
+                getUser.Parameters.AddWithValue("@Username", HttpUtility.HtmlEncode(txtNewUsername.Text));
                 SqlDataReader reader = getUser.ExecuteReader();
 
                 // if the username exists, process will stop
@@ -186,14 +176,14 @@ public partial class Default : System.Web.UI.Page
                 {
                     myConnection.Close();
                     Users newUser = new Users(
-                    txtNewUsername.Text,
-                    txtFirstName.Text,
-                    txtLastName.Text,
-                    rdoPosition.SelectedValue,
+                    HttpUtility.HtmlEncode(txtNewUsername.Text),
+                    HttpUtility.HtmlEncode(txtFirstName.Text),
+                    HttpUtility.HtmlEncode(txtLastName.Text),
+                    HttpUtility.HtmlEncode(rdoPosition.SelectedValue),
                     "Not Approved",
                     DateTime.Now,
-                    txtNewUsername.Text,
-                    txtEmail.Text
+                    HttpUtility.HtmlEncode(txtNewUsername.Text),
+                    HttpUtility.HtmlEncode(txtEmail.Text)
                     );
 
                     String myQuery = "INSERT INTO [WildlifeCenter].[dbo].[User] (FirstName, LastName, Username, UserType, UserStatus, LastUpdated, LastUpdatedBy, Email) VALUES (@firstName, @lastName, @userName, @userType, @status, @lastUpdated, @lastUpdatedBy, @email)";
@@ -228,7 +218,7 @@ public partial class Default : System.Web.UI.Page
 
                         Password newPassword = new Password(
                             newUser.getUserID(),
-                            txtNewUsername.Text,
+                            HttpUtility.HtmlEncode(txtNewUsername.Text),
                             "PBKDF2");
 
                         String myQuery3 = "INSERT INTO [WildlifeCenter].[dbo].[Password] (UserId, Username, PasswordHash) VALUES ((SELECT MAX([UserID]) FROM [WildlifeCenter].[dbo].[User]), @Username, @PasswordHash)";
@@ -238,14 +228,14 @@ public partial class Default : System.Web.UI.Page
                         SqlCommand myCommand3 = new SqlCommand(myQuery3, myConnection);
                         //myCommand3.Parameters.AddWithValue("@UserID", newPassword.getUserID());
                         myCommand3.Parameters.AddWithValue("@Username", newPassword.getUserName());
-                        myCommand3.Parameters.AddWithValue("@PasswordHash", PasswordHash.HashPassword(txtNewPassword.Value));
+                        myCommand3.Parameters.AddWithValue("@PasswordHash", PasswordHash.HashPassword(HttpUtility.HtmlEncode(txtNewPassword.Value)));
 
 
                         myCommand3.ExecuteNonQuery();
                     }
                     catch (Exception E)
                     {
-                        txtNewUsername.Text = E.ToString();
+                        txtNewUsername.Text = HttpUtility.HtmlEncode(E.ToString());
                     }
 
                 }
@@ -272,7 +262,7 @@ public partial class Default : System.Web.UI.Page
         {
             using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
-                string query = "SELECT FirstName + ' ' + LastName as FullName FROM dbo.[User] where Username = '" + username + "'";
+                string query = "SELECT FirstName + ' ' + LastName as FullName FROM dbo.[User] where Username = '" + HttpUtility.HtmlEncode(username) + "'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     connection.Open();

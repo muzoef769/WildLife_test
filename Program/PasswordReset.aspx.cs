@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -28,7 +29,7 @@ public partial class PasswordReset : System.Web.UI.Page
             {
                 if (Convert.ToBoolean(reader["ReturnCode"]))
                 {
-                    SendPasswordResetEmail(reader["Email"].ToString(), txtUserName.Text, reader["UniqueId"].ToString());
+                    SendPasswordResetEmail(reader["Email"].ToString(), HttpUtility.HtmlEncode(txtUserName.Text), reader["UniqueId"].ToString());
                     txtMessage.Text = "An email with instructions to reset your password has been sent to your email.";
                     txtMessage.ForeColor = Color.White;
                 }
@@ -46,14 +47,14 @@ public partial class PasswordReset : System.Web.UI.Page
 
         StringBuilder emailBody = new StringBuilder();
 
-        emailBody.Append("Dear " + UserName + ", <br /><br />");
+        emailBody.Append("Dear " + HttpUtility.HtmlEncode(UserName) + ", <br /><br />");
         emailBody.Append("Please click on the following link to reset your password.");
         emailBody.Append("<br /><br />");
-        emailBody.Append("http://wildlife-site-test.us-east-1.elasticbeanstalk.com//ChangePassword.aspx?uid=" + UniqueId);
+        emailBody.Append("http://wildlife-site-test.us-east-1.elasticbeanstalk.com//ChangePassword.aspx?uid=" + HttpUtility.HtmlEncode(UniqueId));
 
         mailMessage.IsBodyHtml = true;
 
-        mailMessage.Body = emailBody.ToString();
+        mailMessage.Body = HttpUtility.HtmlEncode(emailBody.ToString());
         mailMessage.Subject = "Reset Password";
         SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
 

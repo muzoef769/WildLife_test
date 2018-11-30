@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ using System.Data;
 
 public partial class VolunteerAddProgram : System.Web.UI.Page
 {
+    public double Find_ProgramCost;
     public static int programID;
     double programCost;
     public double mileageCost;
@@ -280,7 +282,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
         string value = drpProgramList.SelectedValue;
         if (drpProgramList.SelectedValue == "13" || drpProgramList.SelectedValue == "14" || drpProgramList.SelectedValue == "15" || drpProgramList.SelectedValue == "16" || drpProgramList.SelectedValue == "17" || drpProgramList.SelectedValue == "18")
         {
-            drpLocationTypeList.SelectedValue = "OffSite";
+            drpLocationTypeList.SelectedValue = "Offsite";
             drpLocationTypeList.Enabled = false;
         }
         else
@@ -291,13 +293,13 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
     protected void drpLocationTypeList_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (drpLocationTypeList.SelectedValue == "OffSite")
+        if (drpLocationTypeList.SelectedValue == "Offsite")
         {
             lblMileage.Visible = true;
             txtMileage.Visible = true;
             locationtab.Visible = true;
         }
-        if (drpLocationTypeList.SelectedValue == "OnSite")
+        if (drpLocationTypeList.SelectedValue == "Onsite")
         {
             locationtab.Visible = false;
             lblMileage.Visible = false;
@@ -320,10 +322,10 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
             int AddressID_from_Organization = Convert.ToInt32(cmd1.ExecuteScalar());
 
-            NewProgram addNewProgram = new NewProgram(Int32.Parse(txtKid.Text), Int32.Parse(txtAdult.Text),
-                Int32.Parse(txtKid.Text) + Int32.Parse(txtAdult.Text), drpAgeLevel.SelectedValue, "Completed",
-                DateTime.Parse(txtProgramTime.Text), DateTime.Parse(txtProgramDate.Text), txtNotes.Text, drpLocationTypeList.SelectedValue,
-                Convert.ToInt32(drpProgramList.SelectedValue), DateTime.Today, Session["UserFullName"].ToString());
+            NewProgram addNewProgram = new NewProgram(Int32.Parse(HttpUtility.HtmlEncode(txtKid.Text)), Int32.Parse(HttpUtility.HtmlEncode(txtAdult.Text)),
+                Int32.Parse(HttpUtility.HtmlEncode(txtKid.Text)) + Int32.Parse(HttpUtility.HtmlEncode(txtAdult.Text)), HttpUtility.HtmlEncode(drpAgeLevel.SelectedValue), "Completed",
+                DateTime.Parse(HttpUtility.HtmlEncode(txtProgramTime.Text)), DateTime.Parse(HttpUtility.HtmlEncode(txtProgramDate.Text)), HttpUtility.HtmlEncode(txtNotes.Text), HttpUtility.HtmlEncode(drpLocationTypeList.SelectedValue),
+                Convert.ToInt32(HttpUtility.HtmlEncode(drpProgramList.SelectedValue)), DateTime.Today, HttpUtility.HtmlEncode(Session["UserFullName"].ToString()));
 
             string grabNewProgramID = "SELECT NewProgramID FROM NewProgram WHERE NewProgramID = (SELECT MAX(NewProgramID) FROM NewProgram)";
             SqlCommand cmd2 = connection.CreateCommand();
@@ -337,8 +339,25 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
             cmd3.CommandType = CommandType.Text;
             cmd3.CommandText = grabProgramCost;
             cmd3.Parameters.AddWithValue("@Program_ID", drpProgramList.SelectedValue);
+            if (drpLocationTypeList.SelectedValue == "Offsite")
+            {
+                Find_ProgramCost = Convert.ToInt32(cmd3.ExecuteScalar());
+                lblSubtotalCost.Text = Convert.ToString(Find_ProgramCost);
+                double mileageCost = Convert.ToInt32(HttpUtility.HtmlEncode(txtMileage.Text)) * .57;
+                lblMileageCost.Text = Convert.ToString(mileageCost);
+                Find_ProgramCost += mileageCost;
+                lblTotalCostPrice.Text = Convert.ToString(Find_ProgramCost);
+                
 
-            int Find_ProgramCost = Convert.ToInt32(cmd3.ExecuteScalar());
+            }
+            else
+            {
+               Find_ProgramCost = Convert.ToInt32(cmd3.ExecuteScalar());
+                lblSubtotalCost.Text = Convert.ToString(Find_ProgramCost);
+                lblTotalCostPrice.Text = Convert.ToString(Find_ProgramCost);
+            }
+
+            lblCartTotal.Text = "1";
 
             string insertIntoNewProgram = "INSERT INTO NewProgram([TotalKids], [TotalAdults]," +
                "[TotalPeople], [AgeLevel], [NewProgramStatus], [TimeSlot]," +
@@ -428,7 +447,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
                     command.Parameters.AddWithValue("@AnimalID", animal);
                     command.Parameters.AddWithValue("@NewProgramID", Find_NewProgramID);
                     command.Parameters.AddWithValue("@LastUpdated", DateTime.Today);
-                    command.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"].ToString()); ///Need to change this
+                    command.Parameters.AddWithValue("@LastUpdatedBy", HttpUtility.HtmlEncode(Session["UserFullName"].ToString())); ///Need to change this
 
                     command.ExecuteNonQuery();
 
@@ -445,23 +464,23 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
                 {
 
 
-                    command.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-                    command.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                    command.Parameters.AddWithValue("@Email", txtEmail.Text);
-                    command.Parameters.AddWithValue("@Primary", txtPrimaryPhone.Text);
-                    command.Parameters.AddWithValue("@Secondary", txtSecondaryPhone.Text);
-                    command.Parameters.AddWithValue("@orgID", drpOrganizationList.SelectedValue);
+                    command.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
+                    command.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
+                    command.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
+                    command.Parameters.AddWithValue("@Primary", HttpUtility.HtmlEncode(txtPrimaryPhone.Text));
+                    command.Parameters.AddWithValue("@Secondary", HttpUtility.HtmlEncode(txtSecondaryPhone.Text));
+                    command.Parameters.AddWithValue("@orgID", HttpUtility.HtmlEncode(drpOrganizationList.SelectedValue));
                     command.Parameters.AddWithValue("@LastUpdated", DateTime.Today);
-                    command.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"].ToString());
+                    command.Parameters.AddWithValue("@LastUpdatedBy", HttpUtility.HtmlEncode(Session["UserFullName"].ToString()));
 
                     command.ExecuteNonQuery();
 
                 }
             }
 
-            if (drpLocationTypeList.SelectedValue == "OffSite")
+            if (drpLocationTypeList.SelectedValue == "Offsite")
             {
-                Invoice newInvoice = new Invoice(txtInvoice.Text, Find_ProgramCost, Convert.ToDateTime(txtProgramDate), "Unpaid", DateTime.Today, Session["UserFullName"].ToString(), Convert.ToInt32(txtMileage.Text));
+                Invoice newInvoice = new Invoice(HttpUtility.HtmlEncode(txtInvoice.Text), Find_ProgramCost, Convert.ToDateTime(HttpUtility.HtmlEncode(txtProgramDate.Text)), "Unpaid", DateTime.Today, HttpUtility.HtmlEncode(Session["UserFullName"].ToString()), Convert.ToInt32(HttpUtility.HtmlEncode(txtMileage.Text)));
                 string invoiceInsert = "Insert into Invoice([InvoiceNumber], [TotalCost], [DateCreated], [InvoiceStatus], [LastUpdated], [LastUpdatedBy], [TotalMileage]) VALUES (" +
                    "@InvoiceNumber, @TotalCost, @DateCreated, @InvoiceStatus, @LastUpdated, @LastUpdatedBy, @Mileage)";
 
@@ -481,7 +500,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
             }
             else
             {
-                Invoice newInvoice = new Invoice(txtInvoice.Text, Find_ProgramCost, Convert.ToDateTime(txtProgramDate.Text), "Unpaid", DateTime.Today, Session["UserFullName"].ToString(), 0);
+                Invoice newInvoice = new Invoice(HttpUtility.HtmlEncode(txtInvoice.Text), Find_ProgramCost, Convert.ToDateTime(HttpUtility.HtmlEncode(txtProgramDate.Text)), "Unpaid", DateTime.Today, HttpUtility.HtmlEncode(Session["UserFullName"].ToString()), 0);
 
                 string invoiceInsert = "Insert into Invoice([InvoiceNumber], [TotalCost], [DateCreated], [InvoiceStatus], [LastUpdated], [LastUpdatedBy], [TotalMileage]) VALUES (" +
                        "@InvoiceNumber, @TotalCost, @DateCreated, @InvoiceStatus, @LastUpdated, @LastUpdatedBy, @Mileage)";
