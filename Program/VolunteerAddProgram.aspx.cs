@@ -461,7 +461,7 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
 
             if (drpLocationTypeList.SelectedValue == "OffSite")
             {
-                Invoice newInvoice = new Invoice(txtInvoice.Text, Find_ProgramCost, Convert.ToDateTime(txtProgramDate), "Unpaid", DateTime.Today, Session["UserFullName"].ToString(), Convert.ToInt32(txtMileage.Text));
+                Invoice newInvoice = new Invoice(txtInvoice.Text, Find_ProgramCost, Convert.ToDateTime(txtProgramDate.Text), "Unpaid", DateTime.Today, Session["UserFullName"].ToString(), Convert.ToInt32(txtMileage.Text));
                 string invoiceInsert = "Insert into Invoice([InvoiceNumber], [TotalCost], [DateCreated], [InvoiceStatus], [LastUpdated], [LastUpdatedBy], [TotalMileage]) VALUES (" +
                    "@InvoiceNumber, @TotalCost, @DateCreated, @InvoiceStatus, @LastUpdated, @LastUpdatedBy, @Mileage)";
 
