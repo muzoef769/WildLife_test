@@ -2506,7 +2506,17 @@ footer.site-footer {
 
 
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+.table-hover tr.data-row:hover {
     color: #fff !important;
     background-color: #FB9678 !important;
+}
+
+.nav-item .nav-link:hover {
+    color: #fff !important;
+    background-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+#logout:hover {
+    color: #fff !important;
+    background-color: rgba(250, 0, 0, 0.3) !important;
 }

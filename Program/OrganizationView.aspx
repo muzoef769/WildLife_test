@@ -134,7 +134,8 @@
                           
                              <div class="row mx-auto ">
             <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
-                 <asp:GridView ID="grdOrganizations"    HeaderStyle-ForeColor="black" Class =" table table-condensed table-bordered table-hover AnimalCard" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" >
+                 <asp:GridView ID="grdOrganizations" HeaderStyle-ForeColor="black" Class =" table table-condensed table-bordered table-hover AnimalCard" runat="server" 
+                     AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" RowStyle-CssClass="data-row" >
    
                   <Columns>
         <asp:BoundField DataField="OrganizationName"  HeaderText="Organization Name" SortExpression="OrganizationName" />

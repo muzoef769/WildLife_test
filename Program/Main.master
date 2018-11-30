@@ -336,7 +336,7 @@
                             <a class="" href="Manage.aspx"><i class="menu-icon fa fa-group"></i>Manage Users</a>
                         </li>
                         <li class="" id="logout">
-                            <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#ff3333" OnClick="Clear_Session" CssClass=""><i class="menu-icon fa fa-sign-out"></i>Logout</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="Clear_Session" CssClass=""><i class="menu-icon fa fa-sign-out"></i>Logout</asp:LinkButton>
                             <%--<a class="text-danger" href="#" runat="server" onserverclick="Clear_Session"><i class="menu-icon fa fa-sign-out"></i>Logout</a>--%>
                         </li>
 

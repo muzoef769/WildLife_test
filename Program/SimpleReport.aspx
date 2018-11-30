@@ -180,7 +180,7 @@
                             </div>
                
                 <div id="simpleTab" class="row table-responsive" style="width: 85%;">
-                    <div class='tableauPlaceholder' id='viz1543387053124' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;63&#47;63KHQT5BQ&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;63KHQT5BQ' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;63&#47;63KHQT5BQ&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543387053124');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    <div class='tableauPlaceholder' id='viz1543387053124' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;63&#47;63KHQT5BQ&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;63KHQT5BQ' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;63&#47;63KHQT5BQ&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543387053124'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                 </div>
                 
                 <div class="">
@@ -201,7 +201,7 @@
                 <br />
 
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12  mx-auto table  table-bordered table-hover AnimalCard " >
-                                            <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both">
+                                            <asp:gridview id="offsiteGrid" headerstyle-forecolor="black" runat="server" autogeneratecolumns="False" datasourceid="source6" gridlines="Both" RowStyle-CssClass="data-row">
                                                <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
@@ -245,7 +245,7 @@
 
                                                 </SelectParameters>
                                             </asp:sqldatasource>
-                                            <asp:gridview id="onlineGrid" runat="server" autogeneratecolumns="False" datasourceid="source5" gridlines="Both" width="1200px" showheader="False">
+                                            <asp:gridview id="onlineGrid" runat="server" autogeneratecolumns="False" datasourceid="source5" gridlines="Both" width="1200px" showheader="False" RowStyle-CssClass="data-row">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
@@ -289,7 +289,7 @@
 
                                                 </SelectParameters>
                                             </asp:sqldatasource>
-                                            <asp:gridview id="onsiteGrid" runat="server" autogeneratecolumns="False" datasourceid="source4" width="1200px" gridlines="Both" showheader="False">
+                                            <asp:gridview id="onsiteGrid" runat="server" autogeneratecolumns="False" datasourceid="source4" width="1200px" gridlines="Both" showheader="False" RowStyle-CssClass="data-row">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
@@ -333,7 +333,7 @@
 
                                                 </SelectParameters>
                                             </asp:sqldatasource>
-                                            <asp:gridview id="totProgramsGrid" runat="server" autogeneratecolumns="False" datasourceid="source7" width="1200px" showheader="False">
+                                            <asp:gridview id="totProgramsGrid" runat="server" autogeneratecolumns="False" datasourceid="source7" width="1200px" showheader="False" RowStyle-CssClass="data-row">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
@@ -381,7 +381,7 @@
 
                                                 </SelectParameters>
                                             </asp:sqldatasource>
-                                            <asp:gridview id="totKidsGrid" runat="server" autogeneratecolumns="False" datasourceid="source2" width="1200px" showheader="False">
+                                            <asp:gridview id="totKidsGrid" runat="server" autogeneratecolumns="False" datasourceid="source2" width="1200px" showheader="False" RowStyle-CssClass="data-row">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
@@ -430,7 +430,7 @@
                                                 </SelectParameters>
 
                                             </asp:sqldatasource>
-                                            <asp:gridview id="totAdultsGrid" runat="server" autogeneratecolumns="False" datasourceid="source3" width="1200px" showheader="false">
+                                            <asp:gridview id="totAdultsGrid" runat="server" autogeneratecolumns="False" datasourceid="source3" width="1200px" showheader="false" RowStyle-CssClass="data-row">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
                                                     <asp:BoundField DataField="YEAR(DateCompleted)" Visible="false" />
@@ -478,7 +478,7 @@
 
                                                 </SelectParameters>
                                             </asp:sqldatasource>
-                                            <asp:gridview id="totPeopleGrid" runat="server" autogeneratecolumns="False" datasourceid="source1" width="1200px" showheader="false">
+                                            <asp:gridview id="totPeopleGrid" runat="server" autogeneratecolumns="False" datasourceid="source1" width="1200px" showheader="false" RowStyle-CssClass="data-row">
                                                 <AlternatingRowStyle BackColor="White" BorderColor="Black" BorderStyle="None" />
                                                 <Columns>
                                                     <asp:BoundField DataField="Year" Visible="false" />
@@ -558,7 +558,8 @@
                 <br />
                 <div class="row mx-auto d-flex justify-content-center table-responsive">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
-                                            <asp:GridView ID="animalGrid" runat="server" Class=" table table-condensed table-bordered table-hover AnimalCard" EnableSortingAndPagingCallbacks="true" AutoGenerateColumns="False" Width="100%" DataSourceID="SqlDataSource48" AllowSorting="True">
+                                            <asp:GridView ID="animalGrid" runat="server" Class=" table table-condensed table-bordered table-hover AnimalCard" EnableSortingAndPagingCallbacks="true" AutoGenerateColumns="False" 
+                                                Width="100%" DataSourceID="SqlDataSource48" AllowSorting="True" RowStyle-CssClass="data-row">
                                             <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                             <Columns>
                                                 <%--<asp:BoundField DataField="DateCompleted" HeaderText="Date" SortExpression="DateCompleted" />--%>
@@ -660,7 +661,7 @@ group by AnimalName"></asp:sqldatasource>
 
                             <div class="col-xl-6 col-lg-12 text-left col-md-12 col-s-12 Spacing">
                                  <label><b>Animals Involved</b> </label>
-                                <asp:GridView ID="GridView2" runat="server" Visible="True"  Class="table table-condensed table-bordered table-hover" BackColor="White" >
+                                <asp:GridView ID="GridView2" runat="server" Visible="True"  Class="table table-condensed table-bordered table-hover" BackColor="White" RowStyle-CssClass="data-row" >
                                     
                                     <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                 </asp:GridView>
