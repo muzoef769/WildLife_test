@@ -116,7 +116,7 @@
                             });
                         </script>
                         <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
-                            <li class="nav-item ">
+                            <li class="nav-item">
                                 <a style="margin-right: 5px; color: black;" class="nav-link active " id="homee-tab" data-toggle="tab" href="#All" role="tab" aria-controls="homee" aria-selected="true">All</a>
                             </li>
                             <li class="nav-item ">
@@ -156,7 +156,7 @@
                     </div>
                     <br />
                     <div class="tab-content ">
-                        <div id="All" class="tab-pane fade show active ">
+                        <div id="All" class="tab-pane fade show active">
                             <div class="">
 
                                 <div class="row mx-auto d-flex justify-content-center table-responsive">
