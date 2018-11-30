@@ -49,8 +49,9 @@ public partial class Program : System.Web.UI.Page
         sc.Open();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView1.SelectedValue.ToString());
+        ViewState["NewProgramID"] = id;
 
-        string notes = "SELECT np.MiscNotes from NewProgram np inner join AssignAnimal aa on aa.NewProgramID = np.NewProgramID INNER JOIN Animal a ON a.AnimalID = aa.AnimalID WHERE aa.NewProgramID = @NewProgramID";
+        string notes = "SELECT np.MiscNotes from NewProgram np WHERE NewProgramID = @NewProgramID";
         SqlCommand noteCommand = sc.CreateCommand();
         noteCommand.CommandType = CommandType.Text;
         noteCommand.CommandText = notes;
@@ -92,10 +93,18 @@ public partial class Program : System.Web.UI.Page
 
     protected void GridView5_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        sc.Open();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView5.SelectedValue.ToString());
         ViewState["NewProgramID"] = id;
+
+        string notes = "SELECT np.MiscNotes from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand noteCommand = sc.CreateCommand();
+        noteCommand.CommandType = CommandType.Text;
+        noteCommand.CommandText = notes;
+        noteCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
         String programString = "SELECT Program.ProgramName FROM Program INNER JOIN NewProgram ON NewProgram.ProgramID = Program.ProgramID WHERE NewProgram.NewProgramID = @NewProgramID";
         SqlCommand commProgramName = sc.CreateCommand();
@@ -103,7 +112,7 @@ public partial class Program : System.Web.UI.Page
         commProgramName.CommandText = programString;
 
         commProgramName.Parameters.AddWithValue("@NewProgramID", id);
-        sc.Open();
+        
         String progName = Convert.ToString(commProgramName.ExecuteScalar());
         
         ViewState["pName"] = progName;
@@ -146,11 +155,19 @@ public partial class Program : System.Web.UI.Page
 
     protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        sc.Open();
 
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView3.SelectedValue.ToString());
         ViewState["NewProgramID"] = id;
+
+        string notes = "SELECT np.MiscNotes from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand noteCommand = sc.CreateCommand();
+        noteCommand.CommandType = CommandType.Text;
+        noteCommand.CommandText = notes;
+        noteCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
@@ -186,9 +203,18 @@ public partial class Program : System.Web.UI.Page
 
     protected void GridView4_SelectedIndexChanged(object sender, EventArgs e)
     {
+        sc.Open();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView4.SelectedValue.ToString());
         ViewState["NewProgramID"] = id;
+
+        string notes = "SELECT np.MiscNotes from NewProgram np WHERE NewProgramID = @NewProgramID";
+        SqlCommand noteCommand = sc.CreateCommand();
+        noteCommand.CommandType = CommandType.Text;
+        noteCommand.CommandText = notes;
+        noteCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
