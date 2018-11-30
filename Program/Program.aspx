@@ -172,6 +172,7 @@
 
                                                 <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" />
                                                 <asp:BoundField DataField="LocationType" HeaderText="Location" SortExpression="LocationType" />
+                                                <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
                                                 <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" DataFormatString="{0: MM/dd/yyyy}" HtmlEncode="false" />
 
@@ -190,7 +191,13 @@
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
                                             InsertCommand="INSERT INTO [Program] ([ProgramName], [ProgramType], [Capacity], [LastUpdated], [LastUpdatedBy]) VALUES (@AnimalName, @AnimalType, @Capacity, @LastUpdated, @LastUpdatedBy)"
                                             OldValuesParameterFormatString="original_{0}"
-                                            SelectCommand="SELECT Program.ProgramName, NewProgram.LocationType, NewProgram.TotalPeople, NewProgram.DateCompleted, NewProgram.NewProgramID FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID ORDER BY NewProgram.DateCompleted DESC"
+                                            SelectCommand="SELECT Program.ProgramName, np.LocationType,o.OrganizationName, np.TotalPeople, np.DateCompleted, np.NewProgramID 
+FROM Program INNER JOIN NewProgram np ON Program.ProgramID = np.ProgramID 
+inner join AssignInvoice ai on ai.NewProgramID = np.NewProgramID
+inner join Invoice i on i.invoiceID = ai.InvoiceID
+inner join Payment p on p.InvoiceID = i.InvoiceID
+inner join Organization o on o.OrganizationID = p.OrganizationID
+ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
                                             <FilterParameters>
                                                 <asp:ControlParameter Name="ProgramName" ControlID="txtSearchAll" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
@@ -252,6 +259,7 @@
                                                 <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" />
                                                 <%--<asp:BoundField DataField="ProgramCost" HeaderText="Program Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}" />--%>
                                                 <asp:BoundField DataField="LocationType" HeaderText="Location" SortExpression="LocationType" />
+                                                <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
                                                 <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" dataformatstring="{0: MM/dd/yyyy}" htmlencode="false" />
 
@@ -269,7 +277,14 @@
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
                                             InsertCommand="INSERT INTO [Program] ([ProgramName], [ProgramType], [Capacity], [LastUpdated], [LastUpdatedBy]) VALUES (@AnimalName, @AnimalType, @Capacity, @LastUpdated, @LastUpdatedBy)"
                                             OldValuesParameterFormatString="original_{0}"
-                                            SelectCommand="SELECT Program.ProgramName, NewProgram.LocationType, NewProgram.TotalPeople, NewProgram.DateCompleted, NewProgram.NewProgramID FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID WHERE upper(NewProgram.LocationType)='ONLINE' ORDER BY NewProgram.DateCompleted DESC"
+                                            SelectCommand="SELECT Program.ProgramName, np.LocationType,o.OrganizationName, np.TotalPeople, np.DateCompleted, np.NewProgramID 
+FROM Program INNER JOIN NewProgram np ON Program.ProgramID = np.ProgramID 
+inner join AssignInvoice ai on ai.NewProgramID = np.NewProgramID
+inner join Invoice i on i.invoiceID = ai.InvoiceID
+inner join Payment p on p.InvoiceID = i.InvoiceID
+inner join Organization o on o.OrganizationID = p.OrganizationID
+WHERE upper(np.LocationType)='ONLINE'
+ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_ProgramID" Type="Int32" />
@@ -324,6 +339,7 @@
                                                 <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" />
                                                 <%--<asp:BoundField DataField="ProgramCost" HeaderText="Program Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}" />--%>
                                                 <asp:BoundField DataField="LocationType" HeaderText="Location" SortExpression="LocationType" />
+                                                <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
                                                 <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" DataFormatString="{0: MM/dd/yyyy}" HtmlEncode="false" />
 
@@ -341,7 +357,14 @@
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
                                             InsertCommand="INSERT INTO [Program] ([ProgramName], [ProgramType], [Capacity], [LastUpdated], [LastUpdatedBy]) VALUES (@AnimalName, @AnimalType, @Capacity, @LastUpdated, @LastUpdatedBy)"
                                             OldValuesParameterFormatString="original_{0}"
-                                            SelectCommand="SELECT Program.ProgramName, NewProgram.LocationType, NewProgram.TotalPeople, NewProgram.DateCompleted, NewProgram.NewProgramID FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID WHERE upper(NewProgram.LocationType)='ONSITE' ORDER BY NewProgram.DateCompleted DESC"
+                                            SelectCommand="SELECT Program.ProgramName, np.LocationType,o.OrganizationName, np.TotalPeople, np.DateCompleted, np.NewProgramID 
+FROM Program INNER JOIN NewProgram np ON Program.ProgramID = np.ProgramID 
+inner join AssignInvoice ai on ai.NewProgramID = np.NewProgramID
+inner join Invoice i on i.invoiceID = ai.InvoiceID
+inner join Payment p on p.InvoiceID = i.InvoiceID
+inner join Organization o on o.OrganizationID = p.OrganizationID
+WHERE upper(np.LocationType)='ONSITE'
+ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
 
                                             <DeleteParameters>
@@ -397,6 +420,7 @@
                                                 <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" />
                                                 <%--<asp:BoundField DataField="ProgramCost" HeaderText="Program Cost" SortExpression="ProgramCost" DataFormatString="${0:###,###,###.00}" />--%>
                                                 <asp:BoundField DataField="LocationType" HeaderText="Location" SortExpression="LocationType" />
+                                                <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
                                                 <asp:BoundField DataField="TotalPeople" HeaderText="Total People" SortExpression="TotalPeople" />
                                                 <asp:BoundField DataField="DateCompleted" HeaderText="Date Completed" SortExpression="DateCompleted" DataFormatString="{0: MM/dd/yyyy}" HtmlEncode="false" />
 
@@ -414,7 +438,14 @@
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
                                             InsertCommand="INSERT INTO [Program] ([ProgramName], [ProgramType], [Capacity], [LastUpdated], [LastUpdatedBy]) VALUES (@AnimalName, @AnimalType, @Capacity, @LastUpdated, @LastUpdatedBy)"
                                             OldValuesParameterFormatString="original_{0}"
-                                            SelectCommand="SELECT Program.ProgramName, NewProgram.LocationType, NewProgram.TotalPeople, NewProgram.DateCompleted, NewProgram.NewProgramID FROM Program INNER JOIN NewProgram ON Program.ProgramID = NewProgram.ProgramID WHERE upper(NewProgram.LocationType)='OFFSITE' ORDER BY NewProgram.DateCompleted DESC"
+                                            SelectCommand="SELECT Program.ProgramName, np.LocationType,o.OrganizationName, np.TotalPeople, np.DateCompleted, np.NewProgramID 
+FROM Program INNER JOIN NewProgram np ON Program.ProgramID = np.ProgramID 
+inner join AssignInvoice ai on ai.NewProgramID = np.NewProgramID
+inner join Invoice i on i.invoiceID = ai.InvoiceID
+inner join Payment p on p.InvoiceID = i.InvoiceID
+inner join Organization o on o.OrganizationID = p.OrganizationID
+WHERE upper(np.LocationType)='OFFSITE'
+ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
 
                                             <DeleteParameters>
@@ -545,7 +576,7 @@
                                     SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <%--<HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>--%>
-                                        </asp:GridView>
+                                </asp:GridView>
 
                                   </div>
                                           </ContentTemplate>
@@ -563,15 +594,16 @@
 
                             <div class="col-xl-12 col-lg-12  col-md-12 col-s-12 Spacing mr-2">
                                 <div class=" ">
-                                    <label><b>Notes </b></label>
+                                    <asp:Label ID="lblNotes" runat="server" Text="Notes "></asp:Label>
                                     <br />
-                                    <textarea runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="readonly"></textarea>
+                                    <asp:TextBox ID="txtNotes" runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="false" TextMode="multiline" Columns="50" Rows="5"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer" style="background-color: whitesmoke">
+                    <asp:Button ID="btnSaveNotes" Text="Save" runat="server" class="btn btn-primary" OnClick="btnSaveNotes_Click" />
                     <button type="button" class="btn btn-success " data-dismiss="modal">Close</button>
                 </div>
             </div>

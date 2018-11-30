@@ -137,7 +137,7 @@
                                                     Class="  table table-condensed table-bordered table-hover AnimalCard" DataSourceID="AnimalSQL" BackColor="White" HorizontalAlign="Left"
                                                     OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1" 
                                                     EmptyDataText="No Animals Found" EmptyDataRowStyle-HorizontalAlign="Center" SortedDescendingCellStyle-BackColor="#fddfd6" 
-                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6" RowStyle-CssClass="data-row">
 
 
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Payment.aspx.cs" Inherits="Payment" EnableEventValidation="false" %>
+﻿<%@ Page Title="Payments" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Payment.aspx.cs" Inherits="Payment" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
 
@@ -8,87 +8,6 @@
 
 
 
-    <!-- Left Panel -->
-    <%--<aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="">
-                         <a class="" href="Home.aspx"> <i class="menu-icon fa fa-laptop"></i>Home</a>
-                    </li>
-                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Reports</a>
-                        <ul class="sub-menu children dropdown-menu">                           
-                            <li><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
-                            <li><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                            <li><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
-                          
-                        </ul>
-                    </li>
-                     <li class="">
-                         <a class="" href="Animal.aspx"> <i class="menu-icon fa fa-github-alt"></i>Animals</a>
-                    </li>
-                   <li class="active">
-                        <a class="" href="Payment.aspx"><i class="menu-icon fa fa-dollar"></i>Payments</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="Program.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
-                    </li>
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-    <!-- Right Panel -->
-    <div id="right-panel" class="right-panel">
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 10px; margin-left: -10px;"></i></a>
-                   <a class="navbar-brand" href="Home.aspx">Wildlife Center of Virginia | <span style="color: #00c292;"> <%:Session["UserFullName"]%> </span></a>
-           
-                </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-                    <div class="header-left">
-                  
-                        <div class="dropdown for-notification">
-                            <ul style="list-style-type: none;">
-                             <li class="nav-item">
-                        <a class="nav-link" style="color: dimgrey;" href="#">Staff</a>
-                    </li>
-                                </ul>
-                        </div>
-
-                        <div class="dropdown for-notification">
-                            
-                                <ul style="list-style-type: none;">
-                        <li class="nav-item">
-                        <asp:Button ID="btnLogOut" runat="server"  Text="Logout" ForeColor="#fb9678" CssClass="btn btn-link" />
-                    
-                    </li>
-
-                        </ul>
-                         
-                        </div>
-                    </div>
-
-                  
-
-                </div>
-            </div>
-        </header>--%>
-    <!-- /#header -->
-    <!-- Content -->
-
-    <!-- /Widgets -->
-    <!--  Traffic  -->
     <div class="card-body">
         <h4 class="box-title">View Payment Info</h4>
     </div>
@@ -128,25 +47,25 @@
 
                         </ul>
                         <br />
-                        <div class="ml-auto d-flex justify-content-end row">
-                            <%--<asp:TextBox ID="txtYear" runat="server" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" Style="margin-right: 5px;" placeholder="Filter By Year (e.g. '2018')"></asp:TextBox>--%>
-                            <asp:DropDownList ID="ddlYear" runat="server" class="form-control" OnSelectedIndexChanged="btnFilter_Click" AutoPostBack="true" AppendDataBoundItems="true" DataSourceID="SqlDataSource1" DataTextField="Column1" DataValueField="Column1">
-                                <asp:ListItem Value="0">--Select Year--</asp:ListItem>
-                            </asp:DropDownList>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
+                            <div class="ml-auto d-flex justify-content-start row">
+
+                                <asp:DropDownList ID="ddlYear" runat="server" class="form-control-plaintext border col col-2 col-xl-1 col-lg-2 col-md-1 col-sm-1 p-1" OnSelectedIndexChanged="btnFilter_Click" AutoPostBack="true" AppendDataBoundItems="true" DataSourceID="SqlDataSource1" DataTextField="Column1" DataValueField="Column1">
+                                    <asp:ListItem Value="0">-Select Year-</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:connString %>' SelectCommand="SELECT DISTINCT YEAR(DateCreated) from dbo.Invoice ORDER BY YEAR(DateCreated)"></asp:SqlDataSource>
 
 
-                            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:connString %>' SelectCommand="SELECT DISTINCT YEAR(DateCreated) from dbo.Invoice ORDER BY YEAR(DateCreated)"></asp:SqlDataSource>
-                            <asp:Button ID="btnFilter" runat="server" class="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2" Style="margin-right: 5px;" Text="Filter By Year" OnClick="btnFilter_Click" />
-                            <asp:Button runat="server" class="btn col-xl-2 col-md-2 col-lg-2 col-sm-2" Style="background-color: #fb9678; color: #fff; margin-right: 32px;" ID="dateClear" OnClick="dateClear_Click" Text="Clear" />
+                                <div class="ml-auto d-flex justify-content-end">
+                                    <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control col col-xl-10 col-lg-3 col-md-4 col-sm-6 p-1" Style="margin-right: 5px;" placeholder="Search Invoice # (e.g. 'TEST123')" OnTextChanged="btnFilterNum_Click" AutoPostBack="true"></asp:TextBox>
+                                    <asp:Button ID="btnFilterNum" runat="server" class="btn btn-success col col-xl-3 col-lg-2 col-md-2 col-sm-2 p-1" Style="margin-right: 5px;" Text="Search" OnClick="btnFilterNum_Click" />
+                                    <asp:Button runat="server" class="btn col col-xl-3 col-md-2 col-lg-2 col-sm-2 p-1" Style="background-color: #fb9678; color: #fff; margin-right: 32px;" ID="btnClearNum" OnClick="btnClearNum_Click" Text="Clear" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="ml-auto d-flex justify-content-end row">
-                            <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" Style="margin-right: 5px;" placeholder="Search Invoice # (e.g. 'TEST123')" OnTextChanged="btnFilterNum_Click" AutoPostBack="true"></asp:TextBox>
-                            <asp:Button ID="btnFilterNum" runat="server" class="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2" Style="margin-right: 5px;" Text="Search" OnClick="btnFilterNum_Click" />
-                            <asp:Button runat="server" class="btn col-xl-2 col-md-2 col-lg-2 col-sm-2" Style="background-color: #fb9678; color: #fff; margin-right: 32px;" ID="btnClearNum" OnClick="btnClearNum_Click" Text="Clear" />
-                        </div>
-
                     </div>
-                    <br />
+
+   
                     <div class="tab-content ">
                         <div id="Outstanding" class="tab-pane fade  ">
                             <div class="">
@@ -155,7 +74,10 @@
                                         <br />
                                         <asp:UpdatePanel ID="outstandingPan" runat="server">
                                             <ContentTemplate>
-                                                <asp:GridView ID="outInvGrid" HeaderStyle-ForeColor="black" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard" DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" EnableSortingAndPagingCallbacks="false" AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="outstandingSource" AllowPaging="True" AllowSorting="True">
+                                                <asp:GridView ID="outInvGrid" HeaderStyle-ForeColor="black" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard"
+                                                    DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" EnableSortingAndPagingCallbacks="false" AutoGenerateEditButton="True"
+                                                    AutoGenerateColumns="False" DataSourceID="outstandingSource" AllowPaging="True" AllowSorting="True"
+                                                    SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" RowStyle-CssClass="data-row">
                                                     <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                     <Columns>
                                                         <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
@@ -180,7 +102,7 @@
                                                                 <asp:Label ID="lblPayTypeOut" runat="server" Text='<%# Bind("PaymentType") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" dataformatstring="{0: MM/dd/yyyy}"/>
+                                                        <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" DataFormatString="{0: MM/dd/yyyy}" />
                                                         <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
                                                         <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
                                                         <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="{0:C}" SortExpression="TotalCost" ReadOnly="true" />
@@ -253,7 +175,9 @@ WHERE InvoiceStatus = 'Unpaid'"
                                     <br />
                                     <asp:UpdatePanel ID="paidPan" runat="server">
                                         <ContentTemplate>
-                                            <asp:GridView ID="paidGrid" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard" HeaderStyle-ForeColor="black" DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="paidSource" AllowPaging="True" AllowSorting="True">
+                                            <asp:GridView ID="paidGrid" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard" HeaderStyle-ForeColor="black"
+                                                DataKeyNames="InvoiceID" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="paidSource"
+                                                AllowPaging="True" AllowSorting="True" SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" RowStyle-CssClass="data-row">
                                                 <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 <Columns>
                                                     <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
@@ -278,7 +202,7 @@ WHERE InvoiceStatus = 'Unpaid'"
                                                             <asp:Label ID="lblPayType" runat="server" Text='<%# Bind("PaymentType") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" dataformatstring="{0: MM/dd/yyyy}"/>
+                                                    <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" DataFormatString="{0: MM/dd/yyyy}" />
                                                     <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
                                                     <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
                                                     <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="{0:C}" SortExpression="TotalCost" ReadOnly="true" />
@@ -344,7 +268,10 @@ WHERE InvoiceStatus = 'Paid'"
                                         <ContentTemplate>
 
 
-                                            <asp:GridView ID="allInvGrid" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard" HeaderStyle-ForeColor="black" DataKeyNames="InvoiceID" AutoGenerateEditButton="True" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateColumns="False" DataSourceID="programSource" AllowPaging="True" AllowSorting="True">
+                                            <asp:GridView ID="allInvGrid" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard" HeaderStyle-ForeColor="black"
+                                                DataKeyNames="InvoiceID" AutoGenerateEditButton="True" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateColumns="False" DataSourceID="programSource"
+                                                AllowPaging="True" AllowSorting="True" SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" RowStyle-CssClass="data-row">
+
                                                 <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 <Columns>
                                                     <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
@@ -369,7 +296,7 @@ WHERE InvoiceStatus = 'Paid'"
                                                             <asp:Label ID="lblPayTypeAll" runat="server" Text='<%# Bind("PaymentType") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" dataformatstring="{0: MM/dd/yyyy}"/>
+                                                    <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" DataFormatString="{0: MM/dd/yyyy}" />
                                                     <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
                                                     <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
                                                     <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="{0:C}" SortExpression="TotalCost" ReadOnly="true" />
@@ -438,7 +365,9 @@ FROM            Program INNER JOIN
                                         <ContentTemplate>
 
 
-                                            <asp:GridView ID="canceledInvGrid" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard" HeaderStyle-ForeColor="black" DataKeyNames="InvoiceID" AutoGenerateEditButton="True" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateColumns="False" DataSourceID="Sqldatasource92" AllowPaging="True" AllowSorting="True">
+                                            <asp:GridView ID="canceledInvGrid" runat="server" Class="  table table-condensed table-bordered table-hover AnimalCard" HeaderStyle-ForeColor="black"
+                                                DataKeyNames="InvoiceID" AutoGenerateEditButton="True" OnRowUpdated="allInvGrid_RowUpdated" AutoGenerateColumns="False" DataSourceID="Sqldatasource92"
+                                                AllowPaging="True" AllowSorting="True" RowStyle-CssClass="data-row">
                                                 <HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>
                                                 <Columns>
                                                     <asp:BoundField DataField="InvoiceID" HeaderText="InvoiceID" SortExpression="InvoiceID" ReadOnly="true" Visible="False" />
@@ -463,7 +392,7 @@ FROM            Program INNER JOIN
                                                             <asp:Label ID="lblPayTypeAll" runat="server" Text='<%# Bind("PaymentType") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" dataformatstring="{0: MM/dd/yyyy}"/>
+                                                    <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" ReadOnly="true" DataFormatString="{0: MM/dd/yyyy}" />
                                                     <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName" ReadOnly="true" />
                                                     <asp:BoundField DataField="OrganizationName" HeaderText="Organization" SortExpression="OrganizationName" ReadOnly="true" />
                                                     <asp:BoundField DataField="TotalCost" HeaderText="Amount" DataFormatString="{0:C}" SortExpression="TotalCost" ReadOnly="true" />
