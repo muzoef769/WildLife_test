@@ -75,7 +75,7 @@ $(document).ready(function() {
                     <ul class="nav navbar-nav">
                        
                         <li class="active">
-                            <a class="" href="VolunteerProgram.aspx"><i class="menu-icon fa fa-book"></i>Program</a>
+                            <a class="" href="VolunteerProgram.aspx"><i class="menu-icon fa fa-book"></i>View Program</a>
                         </li>
                         <li class="" id="addProgram">
                             <a class="" href="VolunteerAddProgram.aspx"><i class="menu-icon pe-7s-id"></i>Add Program</a>
@@ -99,7 +99,7 @@ $(document).ready(function() {
                 <div class="top-left">
                     <div class="navbar-header">
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 21px; margin-left: 0px; font-size: large"></i></a>
-                        <a class="navbar-brand text-dark" href="VolunteerHome.aspx">Wildlife Center of Virginia <b>|</b> <span style="color: #00c292;"><%:Session["UserFullName"]%> </span></a>
+                        <a class="navbar-brand text-dark" href="VolunteerProgram.aspx">Wildlife Center of Virginia <b>|</b> <span style="color: #00c292;"><%:Session["UserFullName"]%> </span></a>
 
                     </div>
                 </div>

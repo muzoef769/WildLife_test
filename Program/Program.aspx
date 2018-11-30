@@ -132,7 +132,14 @@
                         </ul>
                         <br />
                         <div class=" ml-auto d-flex justify-content-end row" style="margin-right: 16px;">
-                            <asp:TextBox ID="txtSearchAll" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="tab-content ">
+                        <div id="All" class="tab-pane fade show active ">
+                            <div class="">
+                                <asp:TextBox ID="txtSearchAll" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
                                 OnTextChanged="txtSearchAll_TextChanged"></asp:TextBox>
                             <br class="d-md-none" />
                             <asp:Button
@@ -150,15 +157,6 @@
                                 Text="Clear"
                                 Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
                                 OnClick="btnClearAll_Click" />
-
-                        </div>
-
-                    </div>
-                    <br />
-                    <div class="tab-content ">
-                        <div id="All" class="tab-pane fade show active ">
-                            <div class="">
-
                                 <div class="row mx-auto d-flex justify-content-center table-responsive">
                                     <div class=" col-xl-12 col-lg-12 col-md-12 col-s-12 col-xs-12 ">
                                         <asp:GridView ID="GridView5" runat="server"
@@ -244,7 +242,24 @@ ORDER BY np.DateCompleted DESC"
                         </div>
                         <div id="Online" class="tab-pane fade">
                             <div class="table-responsive">
-
+                                <asp:TextBox ID="txtSearchOnline" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                                OnTextChanged="txtSearchOnline_TextChanged"></asp:TextBox>
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnSearchOnline"
+                                runat="server"
+                                CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
+                                Text="Search"
+                                Style="margin-right: 5px;"
+                                OnClick="btnSearchOnline_Click" />
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnClearOnline"
+                                CssClass="btn col-xl-1 col-md-2 col-lg-2 col-sm-2"
+                                runat="server"
+                                Text="Clear"
+                                Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
+                                OnClick="btnClearOnline_Click" />
                                 <div class="row mx-auto d-flex justify-content-center ">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                         <asp:GridView ID="GridView1" runat="server"
@@ -272,6 +287,7 @@ ORDER BY np.DateCompleted DESC"
                                         <asp:SqlDataSource
                                             ID="ProgramSQL"
                                             runat="server"
+                                            FilterExpression="ProgramName LIKE '%{0}%' OR LocationType LIKE '%{1}%' "
                                             ConflictDetection="CompareAllValues"
                                             ConnectionString="<%$ ConnectionStrings:connString %>"
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
@@ -286,6 +302,12 @@ inner join Organization o on o.OrganizationID = p.OrganizationID
 WHERE upper(np.LocationType)='ONLINE'
 ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
+                                            <FilterParameters>
+                                                <asp:ControlParameter Name="ProgramName" ControlID="txtSearchOnline" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="LocationType" ControlID="txtSearchOnline" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                
+                                                
+                                            </FilterParameters>
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_ProgramID" Type="Int32" />
                                                 <asp:Parameter Name="original_ProgramName" Type="String" />
@@ -325,6 +347,24 @@ ORDER BY np.DateCompleted DESC"
                         </div>
                         <div id="OnSite" class="tab-pane fade">
                             <div class="table-responsive">
+                                <asp:TextBox ID="txtSearchOn" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                                OnTextChanged="txtSearchOn_TextChanged"></asp:TextBox>
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnSearchOn"
+                                runat="server"
+                                CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
+                                Text="Search"
+                                Style="margin-right: 5px;"
+                                OnClick="btnSearchOn_Click" />
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnClearOn"
+                                CssClass="btn col-xl-1 col-md-2 col-lg-2 col-sm-2"
+                                runat="server"
+                                Text="Clear"
+                                Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
+                                OnClick="btnClearOn_Click" />
                                 <div class="row mx-auto d-flex justify-content-center">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                         <asp:GridView ID="GridView3" runat="server"
@@ -352,6 +392,7 @@ ORDER BY np.DateCompleted DESC"
                                         <asp:SqlDataSource
                                             ID="ProgramSQL1"
                                             runat="server"
+                                            FilterExpression="ProgramName LIKE '%{0}%' OR LocationType LIKE '%{1}%' "
                                             ConflictDetection="CompareAllValues"
                                             ConnectionString="<%$ ConnectionStrings:connString %>"
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
@@ -366,7 +407,12 @@ inner join Organization o on o.OrganizationID = p.OrganizationID
 WHERE upper(np.LocationType)='ONSITE'
 ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
-
+                                            <FilterParameters>
+                                                <asp:ControlParameter Name="ProgramName" ControlID="txtSearchOn" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="LocationType" ControlID="txtSearchOn" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                
+                                                
+                                            </FilterParameters>
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_ProgramID" Type="Int32" />
                                                 <asp:Parameter Name="original_ProgramName" Type="String" />
@@ -406,6 +452,24 @@ ORDER BY np.DateCompleted DESC"
                         </div>
                         <div id="OffSite" class="tab-pane fade">
                             <div class="table-responsive">
+                                <asp:TextBox ID="txtSearchOff" Placeholder=" Program Name or Location" runat="server" type="text" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" AutoPostBack="True"
+                                OnTextChanged="txtSearchOff_TextChanged"></asp:TextBox>
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnSearchOff"
+                                runat="server"
+                                CssClass="btn btn-success col-xl-1 col-lg-2 col-md-2 col-sm-2"
+                                Text="Search"
+                                Style="margin-right: 5px;"
+                                OnClick="btnSearchOff_Click" />
+                            <br class="d-md-none" />
+                            <asp:Button
+                                ID="btnClearOff"
+                                CssClass="btn col-xl-1 col-md-2 col-lg-2 col-sm-2"
+                                runat="server"
+                                Text="Clear"
+                                Style="background-color: #fb9678; color: #fff; margin-right: 5px;"
+                                OnClick="btnClearOff_Click" />
                                 <div class="row mx-auto d-flex justify-content-center">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-s-12">
                                         <asp:GridView ID="GridView4" runat="server"
@@ -433,6 +497,7 @@ ORDER BY np.DateCompleted DESC"
                                         <asp:SqlDataSource
                                             ID="ProgramSQL2"
                                             runat="server"
+                                            FilterExpression="ProgramName LIKE '%{0}%' OR LocationType LIKE '%{1}%' "
                                             ConflictDetection="CompareAllValues"
                                             ConnectionString="<%$ ConnectionStrings:connString %>"
                                             DeleteCommand="DELETE FROM [Program] WHERE [ProgramID] = @original_ProgramID AND [ProgramName] = @original_ProgramName AND [ProgramType] = @original_ProgramType AND [ProgramCost] = @original_ProgramCost AND [Capacity] = @orginial_Capacity AND [LastUpdated] = @original_LastUpdated AND [LastUpdatedBy] = @original_LastUpdatedBy"
@@ -447,7 +512,12 @@ inner join Organization o on o.OrganizationID = p.OrganizationID
 WHERE upper(np.LocationType)='OFFSITE'
 ORDER BY np.DateCompleted DESC"
                                             UpdateCommand="UPDATE [Program] SET [ProgramName] = @ProgramName1 AND [ProgramType] = @ProgramType1 AND [ProgramCost] = @ProgramCost1 AND [Capacity] = @Capacity1 AND [LastUpdated] = @LastUpdated1 AND [LastUpdatedBy] = @LastUpdatedBy1 WHERE [ProgramID] = @ProgramID2 AND [ProgramName] = @ProgramName2 AND [ProgramType] = @ProgramType2 AND [ProgramCost] = @ProgramCost2 AND [Capacity] = @Capacity2 AND [LastUpdated] = @LastUpdated2 AND [LastUpdatedBy] = @LastUpdatedBy2">
-
+                                            <FilterParameters>
+                                                <asp:ControlParameter Name="ProgramName" ControlID="txtSearchOff" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                <asp:ControlParameter Name="LocationType" ControlID="txtSearchOff" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
+                                                
+                                                
+                                            </FilterParameters>
                                             <DeleteParameters>
                                                 <asp:Parameter Name="original_ProgramID" Type="Int32" />
                                                 <asp:Parameter Name="original_ProgramName" Type="String" />

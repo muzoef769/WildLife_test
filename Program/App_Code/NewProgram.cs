@@ -42,6 +42,25 @@ public class NewProgram
 
     public NewProgram(int kids, int adults, int people, string ageLevel, string status,
        DateTime timeSlot, DateTime dateCompleted, string notes, string locationType, int programID,
+       DateTime lastUpdated, string lastUpdatedBy, double prgCost)
+    {
+
+        setNumKids(kids);
+        setNumAdults(adults);
+        setTotalPeople(people);
+        setAgeLevel(ageLevel);
+        setProgramStatus(status);
+        setTimeSlot(timeSlot);
+        setDateCompleted(dateCompleted);
+        setMiscNotes(notes);
+        setLocationType(locationType);
+        setProgramID(programID);
+        setLastUpdated(lastUpdated);
+        setLastUpdatedBy(lastUpdatedBy);
+        setPrgCost(prgCost);
+    }
+    public NewProgram(int kids, int adults, int people, string ageLevel, string status,
+       DateTime timeSlot, DateTime dateCompleted, string notes, string locationType, int programID,
        DateTime lastUpdated, string lastUpdatedBy)
     {
 

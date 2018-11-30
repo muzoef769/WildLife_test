@@ -232,40 +232,20 @@ public partial class Program : System.Web.UI.Page
         GridView2.DataBind();
     }
 
-    public string HighlightText(string InputTxt)
-    {
-        string Search_Str = HttpUtility.HtmlEncode(txtSearchAll.Text);
-        // Setup the regular expression and add the Or operator.
-        Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
-        // Highlight keywords by calling the
-        //delegate each time a keyword is found.
-        return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
-    }
+    //public string HighlightText(string InputTxt)
+    //{
+    //    string Search_Str = HttpUtility.HtmlEncode(txtSearchAll.Text);
+    //    // Setup the regular expression and add the Or operator.
+    //    Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
+    //    // Highlight keywords by calling the
+    //    //delegate each time a keyword is found.
+    //    return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
+    //}
 
     public string ReplaceKeyWords(Match m)
     {
         return ("<span class=highlight>" + m.Value + "</span>");
     }
-
-    protected void btnSearchAll_Click(object sender, EventArgs e)
-    {
-        //  Set the value of the SearchString so it gets
-        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
-    }
-
-    protected void btnClearAll_Click(object sender, EventArgs e)
-    {
-        //  Simple clean up text to return the Gridview to it's default state
-        txtSearchAll.Text = "";
-        SearchString = "";
-        GridView5.DataBind();
-    }
-
-    protected void txtSearchAll_TextChanged(object sender, EventArgs e)
-    {
-        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
-    }
-
 
     protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -326,5 +306,84 @@ public partial class Program : System.Web.UI.Page
 
         updateNotes.ExecuteNonQuery();
 
+    }
+    //ALL
+    protected void btnSearchAll_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
+    }
+
+    protected void btnClearAll_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchAll.Text = "";
+        SearchString = "";
+        GridView5.DataBind();
+    }
+
+    protected void txtSearchAll_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
+    }
+
+    //OFFSITE
+    protected void btnSearchOff_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchOff.Text);
+    }
+
+    protected void btnClearOff_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchOff.Text = "";
+        SearchString = "";
+        GridView4.DataBind();
+    }
+
+    protected void txtSearchOff_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchOff.Text);
+    }
+
+    //ONLINE
+    protected void btnSearchOnline_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchOnline.Text);
+    }
+
+    protected void btnClearOnline_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchOnline.Text = "";
+        SearchString = "";
+        GridView1.DataBind();
+    }
+
+    protected void txtSearchOnline_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchOnline.Text);
+    }
+
+    //ONSITE
+    protected void btnSearchOn_Click(object sender, EventArgs e)
+    {
+        //  Set the value of the SearchString so it gets
+        SearchString = HttpUtility.HtmlEncode(txtSearchOn.Text);
+    }
+
+    protected void btnClearOn_Click(object sender, EventArgs e)
+    {
+        //  Simple clean up text to return the Gridview to it's default state
+        txtSearchOn.Text = "";
+        SearchString = "";
+        GridView3.DataBind();
+    }
+
+    protected void txtSearchOn_TextChanged(object sender, EventArgs e)
+    {
+        SearchString = HttpUtility.HtmlEncode(txtSearchOn.Text);
     }
 }

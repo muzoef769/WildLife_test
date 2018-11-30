@@ -6,15 +6,12 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Text.RegularExpressions;
 using System.Web;
-using System.Drawing;
 
 public partial class VolunteerProgram : System.Web.UI.Page
 {
     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString);
     public static Int32 id;
     private string SearchString = "";
-
-
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -73,9 +70,6 @@ public partial class VolunteerProgram : System.Web.UI.Page
         GridView2.DataBind();
     }
 
-
-
-
     protected void GridView5_RowDataBound1(object sender, GridViewRowEventArgs e)
     {
 
@@ -89,7 +83,6 @@ public partial class VolunteerProgram : System.Web.UI.Page
         }
 
     }
-
 
     protected void GridView5_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -116,7 +109,7 @@ public partial class VolunteerProgram : System.Web.UI.Page
         String progName = Convert.ToString(commProgramName.ExecuteScalar());
 
         ViewState["pName"] = progName;
-        //pName.Text = (String)ViewState["pName"];
+        pName.Text = (String)ViewState["pName"];
         sc.Close();
 
 
@@ -135,9 +128,6 @@ public partial class VolunteerProgram : System.Web.UI.Page
         GridView2.DataSource = dt3;
         GridView2.DataBind();
     }
-
-
-
 
     protected void GridView3_RowDataBound1(object sender, GridViewRowEventArgs e)
     {
@@ -184,8 +174,6 @@ public partial class VolunteerProgram : System.Web.UI.Page
         GridView2.DataSource = dt3;
         GridView2.DataBind();
     }
-
-
 
     protected void GridView4_RowDataBound1(object sender, GridViewRowEventArgs e)
     {
@@ -308,7 +296,6 @@ public partial class VolunteerProgram : System.Web.UI.Page
 
         return newSortDirection;
     }
-
 
     protected void btnSaveNotes_Click(object sender, EventArgs e)
     {
