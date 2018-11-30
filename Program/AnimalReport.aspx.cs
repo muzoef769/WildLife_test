@@ -44,29 +44,28 @@ public partial class AnimalReport : System.Web.UI.Page
         }
 
     }
-    protected void ExportToExcel(object sender, EventArgs e)
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+        /* Verifies that the control is rendered */
+    }
+    protected void ExportToExcel(GridView grid, string prefix)
     {
         Response.Clear();
         Response.Buffer = true;
         Response.ClearContent();
         Response.ClearHeaders();
         Response.Charset = "";
-        string FileName = "Vithal" + DateTime.Now + ".xls";
+        string FileName = prefix + "Report" + DateTime.Now + ".xls";
         StringWriter strwritter = new StringWriter();
         HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
         Response.ContentType = "application/vnd.ms-excel";
         Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
-        grdViewReport.GridLines = GridLines.Both;
-        grdViewReport.HeaderStyle.Font.Bold = true;
-        grdViewReport.RenderControl(htmltextwrtter);
+        grid.GridLines = GridLines.Both;
+        grid.HeaderStyle.Font.Bold = true;
+        grid.RenderControl(htmltextwrtter);
         Response.Write(strwritter.ToString());
         Response.End();
-    }
-    public override void VerifyRenderingInServerForm(Control control)
-    {
-        //required to avoid the runtime error "  
-        //Control 'GridView1' of type 'GridView' must be placed inside a form tag with runat=server."  
     }
     protected void generateAllAnnualReport(object sender, EventArgs e)
     {
@@ -272,5 +271,10 @@ public partial class AnimalReport : System.Web.UI.Page
         }
 
         return newSortDirection;
+    }
+
+    protected void btnExportToExcel_Click(object sender, EventArgs e)
+    {
+        ExportToExcel(grdViewReport, "Animal");
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VolunteerMasterPage.master" AutoEventWireup="true" CodeFile="VolunteerProgram.aspx.cs" Inherits="VolunteerProgram" EnableEventValidation="false" %>
+﻿<%@ Page Title="Programs" Language="C#" MasterPageFile="~/VolunteerMasterPage.master" AutoEventWireup="true" CodeFile="VolunteerProgram.aspx.cs" Inherits="VolunteerProgram" EnableEventValidation="false" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
