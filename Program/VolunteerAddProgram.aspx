@@ -1,7 +1,4 @@
 ﻿<%@ Page Title="Add Program" Language="C#" MasterPageFile="~/VolunteerMasterPage.master" AutoEventWireup="true" CodeFile="VolunteerAddProgram.aspx.cs" Inherits="VolunteerAddProgram" %>
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <script type="text/javascript">
@@ -308,8 +305,8 @@
                                                 <asp:DropDownList ID="drpLocationTypeList" runat="server" CssClass="form-control" Style="background-color: whitesmoke;"
                                                     OnSelectedIndexChanged="drpLocationTypeList_SelectedIndexChanged" AutoPostBack="true">
                                                     <asp:ListItem>Select Location Type</asp:ListItem>
-                                                    <asp:ListItem>OnSite</asp:ListItem>
-                                                    <asp:ListItem>OffSite</asp:ListItem>
+                                                    <asp:ListItem>Onsite</asp:ListItem>
+                                                    <asp:ListItem>Offsite</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
