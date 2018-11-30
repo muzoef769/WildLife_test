@@ -10,6 +10,7 @@ using System.Data;
 
 public partial class VolunteerAddProgram : System.Web.UI.Page
 {
+    public double Find_ProgramCost;
     public static int programID;
     double programCost;
     public double mileageCost;
@@ -337,8 +338,17 @@ public partial class VolunteerAddProgram : System.Web.UI.Page
             cmd3.CommandType = CommandType.Text;
             cmd3.CommandText = grabProgramCost;
             cmd3.Parameters.AddWithValue("@Program_ID", drpProgramList.SelectedValue);
+            if (drpLocationTypeList.SelectedValue == "OffSite")
+            {
+                Find_ProgramCost = Convert.ToInt32(cmd3.ExecuteScalar());
+                Find_ProgramCost += Convert.ToInt32(txtMileage.Text) * .57;
 
-            int Find_ProgramCost = Convert.ToInt32(cmd3.ExecuteScalar());
+            }
+            else
+            {
+               Find_ProgramCost = Convert.ToInt32(cmd3.ExecuteScalar());
+            }
+            
 
             string insertIntoNewProgram = "INSERT INTO NewProgram([TotalKids], [TotalAdults]," +
                "[TotalPeople], [AgeLevel], [NewProgramStatus], [TimeSlot]," +
