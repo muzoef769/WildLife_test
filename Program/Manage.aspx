@@ -102,7 +102,8 @@
                                                     EmptyDataText="No Records Found"
                                                     EmptyDataRowStyle-HorizontalAlign="Center"
                                                     SortedDescendingCellStyle-BackColor="#fddfd6" 
-                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6"
+                                                    RowStyle-CssClass="data-row">
 
 
                                                     <Columns>
@@ -176,7 +177,8 @@
                                                     EmptyDataText="No Volunteers Need to Be Approve"
                                                     EmptyDataRowStyle-HorizontalAlign="Center"
                                                     SortedDescendingCellStyle-BackColor="#fddfd6" 
-                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6"
+                                                    RowStyle-CssClass="data-row">
                                                     <Columns>
                                                         <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" InsertVisible="False" Visible="false" ReadOnly="True" />--%>
                                                         <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
@@ -241,7 +243,8 @@
                                                     EmptyDataText="No Staff Members Need to Be Approved"
                                                     EmptyDataRowStyle-HorizontalAlign="Center"
                                                     SortedDescendingCellStyle-BackColor="#fddfd6" 
-                                                    SortedAscendingCellStyle-BackColor="#fddfd6">
+                                                    SortedAscendingCellStyle-BackColor="#fddfd6"
+                                                    RowStyle-CssClass="data-row">
 
                                                     <Columns>
                                                         <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" />

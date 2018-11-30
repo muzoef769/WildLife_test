@@ -33,7 +33,9 @@
                                 HeaderStyle-ForeColor="black"
                                 ItemStyle-ForeColor="black"
                                 CssClass=" table-responsive-md table table-condensed table-bordered table-hover AnimalCard justify-content-center"
-                                BackColor="White" HorizontalAlign="Center">
+                                BackColor="White" 
+                                HorizontalAlign="Center"
+                                RowStyle-CssClass="data-row">
                                 <Columns>
                                     <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" InsertVisible="False" Visible="false" ReadOnly="True" />--%>
                                     <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" />

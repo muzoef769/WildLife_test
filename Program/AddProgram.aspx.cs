@@ -142,9 +142,12 @@ public partial class AddProgram : System.Web.UI.Page
             drpLocationTypeList.Enabled = false;
             drpLocationTypeList.Items.Add(("Online"));
             drpLocationTypeList.SelectedValue = "Online";
-            txtMileage.Visible = false;
+            txtMileage.Visible = true;
+            txtMileage.Text = "0";
+            txtMileage.ReadOnly = true;
             //lblMileage1.Visible = false;
             txtStreet.Visible = false;
+           
             //lblStreet.Visible = false;
         }
         else
@@ -153,6 +156,7 @@ public partial class AddProgram : System.Web.UI.Page
             drpLocationTypeList.Items.Remove(drpLocationTypeList.Items.FindByValue("Online"));
             drpLocationTypeList.SelectedIndex = 0;
             txtMileage.Visible = true;
+            txtMileage.ReadOnly = false;
         }
 
         if (value == "13" || value == "14" || value == "15" || value == "16" || value == "17" || value == "18")
