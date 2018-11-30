@@ -22,78 +22,7 @@
             }
         });</script>
 
-    <%--<!-- Content -->
-    <div class="content">
-        <!-- Animated -->
-        <div class="animated fadeIn">--%>
-    <!-- Widgets  -->
-    <%--<div class="row">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="card" data-toggle="modal" data-target="#AddModal">
-                        <div class="card-body">
-                            <div class="stat-widget-five">
-                                <div class="stat-icon dib flat-color-1">
-                                    <i class="fa fa-github-alt"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="text-left dib">
-
-                                        <div class="stat-heading">Add Animal</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <a href="AddProgram.aspx">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-
-                                            <div class="stat-heading">Add Program</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <a href="AddOrganization.aspx">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon col-2 dib flat-color-2">
-                                        <i class="pe-7s-add-user"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-
-                                            <div class="stat-heading">Add Organization</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-
-
-
-
-            </div>--%>
-    <!-- /Widgets -->
-    <!--  Traffic  -->
     <div class="card-body">
         <h4 class="box-title">View Program Info</h4>
 
@@ -163,7 +92,7 @@
                                            HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="SqlDataSource1" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView5_RowDataBound1" OnSelectedIndexChanged="GridView5_SelectedIndexChanged"
+                                            AllowSorting="True" OnRowDataBound="GridView5_RowDataBound1" OnSelectedIndexChanged="GridView5_SelectedIndexChanged" AutoPostBack="true"
                                             SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
@@ -266,7 +195,7 @@ ORDER BY np.DateCompleted DESC"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                                            AllowSorting="True" AutoPostBack="true" OnRowDataBound="GridView1_RowDataBound1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
                                             SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
@@ -372,7 +301,7 @@ ORDER BY np.DateCompleted DESC"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL1" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
                                             AllowSorting="True" OnRowDataBound="GridView3_RowDataBound1" OnSelectedIndexChanged="GridView3_SelectedIndexChanged"
-                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
+                                            SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6" AutoPostBack="true">
 
                                             <Columns>
 
@@ -476,7 +405,7 @@ ORDER BY np.DateCompleted DESC"
                                             HeaderStyle-ForeColor="black" DataKeyNames="NewProgramID"
                                             ItemStyle-ForeColor="black" AutoGenerateColumns="False" CssClass="  table table-condensed table-bordered table-hover AnimalCard"
                                             DataSourceID="ProgramSQL2" BackColor="White" HorizontalAlign="Left" EnableSortingAndPagingCallbacks="true"
-                                            AllowSorting="True" OnRowDataBound="GridView4_RowDataBound1" OnSelectedIndexChanged="GridView4_SelectedIndexChanged"
+                                            AllowSorting="True" OnRowDataBound="GridView4_RowDataBound1" OnSelectedIndexChanged="GridView4_SelectedIndexChanged" AutoPostBack="true"
                                             SortedDescendingCellStyle-BackColor="#fddfd6" SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <Columns>
@@ -561,57 +490,7 @@ ORDER BY np.DateCompleted DESC"
                 <div class="card-body"></div>
             </div>
         </div>
-        <!-- /# column -->
     </div>
-    <!--  /Traffic -->
-    <div class="clearfix"></div>
-    <!-- Orders -->
-
-
-    <!-- /.orders -->
-    <!-- To Do and Live Chat -->
-
-
-
-    <!-- /To Do and Live Chat -->
-    <!-- Calender Chart Weather  -->
-
-
-
-    <!-- /Calender Chart Weather -->
-    <!-- Modal - Calendar - Add New Event -->
-
-
-    <!-- /#event-modal -->
-    <!-- Modal - Calendar - Add Category -->
-
-
-    <!-- /#add-category -->
-    <%-- </div>
-        <!-- .animated -->
-    </div>
-    <!-- /.content -->
-    <div class="clearfix"></div>
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-inner bg-white">
-            <div class="row">
-                <div class="col-sm-6">
-                    Wildlife Center of Virginia
-                </div>
-
-            </div>
-        </div>
-    </footer>--%>
-    <!-- /.site-footer -->
-    <%--</div>--%>
-    <!-- /#right-panel -->
-
-
-
-    <!--Local Stuff-->
-
-
 
 
     <div class="modal" id="ProgramDetailsModal" tabindex="-1" role="dialog">
@@ -642,7 +521,7 @@ ORDER BY np.DateCompleted DESC"
                                   <div class="text-left">
                                 <asp:GridView ID="GridView2" runat="server" Visible="True" Class="table table-condensed table-bordered table-hover"
                                     BackColor="White" AllowPaging="True" AllowSorting="true" OnSorting="GridView2_Sorting" 
-                                    HeaderStyle-BackColor="#00c292" HeaderStyle-ForeColor="White" SortedDescendingCellStyle-BackColor="#fddfd6" 
+                                    HeaderStyle-BackColor="#00c292" AutoPostBack="true" HeaderStyle-ForeColor="White" SortedDescendingCellStyle-BackColor="#fddfd6" 
                                     SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <%--<HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>--%>
@@ -686,49 +565,4 @@ ORDER BY np.DateCompleted DESC"
             </div>
         </div>
     </div>
-
-
-    <%--<div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog " role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Animal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body p-4" id="resultAdd">
-
-
-
-                    <div class="row  ">
-
-                        <div class=" col-md-8">
-                            <h4>Animal Status: </h4>
-                            <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Active</asp:ListItem>
-                                <asp:ListItem>Inactive</asp:ListItem>
-                                <asp:ListItem>Temporarily Inactive</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Type: </h4>
-                            <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" AutoCompleteType="Disabled">
-                                <asp:ListItem>Bird</asp:ListItem>
-                                <asp:ListItem>Mammal</asp:ListItem>
-                                <asp:ListItem>Reptile</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Name: </h4>
-                            <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
-                            <h4>Add Image: </h4>
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
-                            <br>
-                        </div>
-                        <!-- End  Description -->
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--%>
-
 </asp:Content>
