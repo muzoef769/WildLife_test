@@ -108,18 +108,18 @@ public partial class OrganizationView : System.Web.UI.Page
 
         Organization org = new Organization(
             (Int32)ViewState["OrgID"],
-            txtEditOrg.Text,
+            HttpUtility.HtmlEncode(txtEditOrg.Text),
             DateTime.Now,
             (String)Session["UserFullName"]);
 
         Address address = new Address(
             (Int32)ViewState["aID"],
-            txtEditStreet.Text,
+            HttpUtility.HtmlEncode(txtEditStreet.Text),
             drpEditState.SelectedValue,
-            txtEditCity.Text,
-            txtEditCounty.Text,
-            txtEditCountry.Text,
-            txtEditZip.Text,
+            HttpUtility.HtmlEncode(txtEditCity.Text),
+            HttpUtility.HtmlEncode(txtEditCounty.Text),
+            HttpUtility.HtmlEncode(txtEditCountry.Text),
+            HttpUtility.HtmlEncode(txtEditZip.Text),
             DateTime.Now,
             (String)Session["UserFullName"]);
 
@@ -178,7 +178,7 @@ public partial class OrganizationView : System.Web.UI.Page
 
     public string HighlightText(string InputTxt)
     {
-        string Search_Str = txtSearchAll.Text;
+        string Search_Str = HttpUtility.HtmlEncode(txtSearchAll.Text);
         // Setup the regular expression and add the Or operator.
         Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
         // Highlight keywords by calling the
@@ -193,87 +193,19 @@ public partial class OrganizationView : System.Web.UI.Page
 
     protected void btnSearchAll_Click(object sender, EventArgs e)
     {
-        //  Set the value of the SearchString so it gets
-        SearchString = txtSearchAll.Text;
-        grdOrganizations.DataSourceID = null;
-        using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
-        {
-            connection.Open();
-            string sql = "SELECT Organization.OrganizationName, Address.Street, Address.State, Address.County, CONCAT(Contact.FirstName + ' ', Contact.LastName) as Name, Contact.Email, Contact.PrimaryPhoneNumber FROM Address INNER JOIN Organization ON Address.AddressID = Organization.AddressID INNER JOIN Contact ON Organization.OrganizationID = Contact.OrganizationID WHERE Organization.OrganizationName LIKE '%" + SearchString + "%'";
-            using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
-            {
-                DataSet data = new DataSet();
-                sda.Fill(data);
-                this.grdOrganizations.DataSource = data;
-                grdOrganizations.DataBind();
-            }
-        }
+        string orgName = Convert.ToString(HttpUtility.HtmlEncode(txtSearchAll.Text));
+
+        SqlDataSource1.SelectCommand = "SELECT Organization.OrganizationName, Address.Street, Address.State, Address.County, (Contact.FirstName + ' '+  Contact.LastName) AS Name, Contact.Email, Contact.PrimaryPhoneNumber, Organization.OrganizationID FROM Address INNER JOIN Organization ON Address.AddressID = Organization.AddressID INNER JOIN Contact ON Organization.OrganizationID = Contact.OrganizationID WHERE Organization.OrganizationName LIKE '%" + orgName + "%'";
+        grdOrganizations.DataBind();
 
     }
 
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
-        //  Simple clean up text to return the Gridview to it's default state
         txtSearchAll.Text = "";
-        SearchString = "";
-        try
-        {
-            using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
-            {
-                connection.Open();
-                string sql = "SELECT Organization.OrganizationName, Address.Street, Address.State, Address.County, CONCAT(Contact.FirstName + ' ', Contact.LastName) as Name, Contact.Email, Contact.PrimaryPhoneNumber FROM Address INNER JOIN Organization ON Address.AddressID = Organization.AddressID INNER JOIN Contact ON Organization.OrganizationID = Contact.OrganizationID";
-                using (SqlDataAdapter sda = new SqlDataAdapter(sql, connection))
-                {
-                    DataSet data = new DataSet();
-                    sda.Fill(data);
-                    this.grdOrganizations.DataSource = data;
-                    grdOrganizations.DataBind();
-                }
-            }
-        }
-        catch (Exception E)
-        {
-
-        }
+        SqlDataSource1.SelectCommand = "SELECT Organization.OrganizationName, Address.Street, Address.State, Address.County, (Contact.FirstName + ' '+  Contact.LastName) AS Name, Contact.Email, Contact.PrimaryPhoneNumber, Organization.OrganizationID FROM Address INNER JOIN Organization ON Address.AddressID = Organization.AddressID INNER JOIN Contact ON Organization.OrganizationID = Contact.OrganizationID";
+        grdOrganizations.DataBind();
     }
-
-    protected void txtSearchAll_TextChanged(object sender, EventArgs e)
-    {
-        SearchString = txtSearchAll.Text;
-    }
-    //protected void btnAddModal_Click(object sender, EventArgs e)
-    //{
-    //    Animals newAnimal = new Animals(
-    //       "",
-    //       "",
-    //       txtAddName.Text,
-    //       ddlAddType.SelectedValue.ToString(),
-    //      ddlAddStatus.SelectedValue,
-    //       DateTime.Today,
-    //       Convert.ToString(Session["Username"])
-    //       );
-
-    //    FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
-    //    ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
-    //    string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
-    //    SqlCommand addAnimal = new SqlCommand(creatAnimal, sc);
-    //    sc.Open();
-    //    addAnimal.Parameters.AddWithValue("@Species", DBNull.Value);
-    //    addAnimal.Parameters.AddWithValue("@ScientificName", DBNull.Value);
-    //    addAnimal.Parameters.AddWithValue("@AnimalName", newAnimal.getAnimalName());
-    //    addAnimal.Parameters.AddWithValue("@AnimalType", newAnimal.getAnimalType());
-    //    addAnimal.Parameters.AddWithValue("@Status", newAnimal.getStatus());
-    //    addAnimal.Parameters.AddWithValue("@LastUpdated", newAnimal.getLastUpdated());
-    //    addAnimal.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"]);
-    //    addAnimal.Parameters.AddWithValue("@Image", ImageString);
-
-    //    addAnimal.ExecuteNonQuery();
-
-    //    txtAddName.Text = " ";
-
-    //    grdOrganizations.DataBind();
-
-    //}
 
     public override void VerifyRenderingInServerForm(Control control)
     {

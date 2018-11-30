@@ -96,8 +96,7 @@
 
                     <div class=" ml-auto d-flex justify-content-end row">
 
-                        <asp:TextBox ID="txtSearchAll" Placeholder="Search by Organization Name" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" runat="server" AutoPostBack="True"
-                            OnTextChanged="txtSearchAll_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txtSearchAll" Placeholder="Search by Organization Name" Style="margin-right: 5px;" class="form-control col-xl-3 col-lg-3 col-md-4 col-sm-6" runat="server" AutoPostBack="True"></asp:TextBox>
                         <asp:Button ID="btnSearchAll"
                             runat="server"
                             Text="Search"
