@@ -39,6 +39,18 @@ public class Address
         setLastUpdated(lastUpdated);
         setLastUpdatedBy(lastUpdatedBy);
     }
+    public Address(int addressID, string streetName, string state, string city, string county, string country, string zipCode, DateTime lastUpdated, string lastUpdatedBy)
+    {
+        setAddressID(addressID);
+        setStreetName(streetName);
+        setState(state);
+        setCity(city);
+        setCounty(county);
+        setCountry(country);
+        setZipCode(zipCode);
+        setLastUpdated(lastUpdated);
+        setLastUpdatedBy(lastUpdatedBy);
+    }
 
     //Getters
     public int getAddressID()

@@ -4,12 +4,26 @@
 
     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             $("#home").removeClass('active');
             $("#org").addClass('active');
 
         });
+
+        $('#btnNext').on('click', function (e) {
+            e.preventDefault();
+            var $li = $('nav-tabs').find('li'),
+                i = $li.siblings('.active').index(),
+                max = $li.length;
+
+            if (i < max) {
+                $li.find('[role="tablist"]').eq(i + 1).tab('show');
+            }
+        });
+
+
+
     </script>
 
 
@@ -24,7 +38,7 @@
                 <div class="card-body">
 
                     <div class=" ">
-                        <script type="text/javascript">
+                        <%-- <script type="text/javascript">
                             $(document).ready(function () {
                                 $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
                                     localStorage.setItem('activeTab', $(e.target).attr('href'));
@@ -34,7 +48,7 @@
                                     $('#myTab a[href="' + activeTab + '"]').tab('show');
                                 }
                             });
-                        </script>
+                        </script>--%>
                         <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
                             <li class="nav-item ">
                                 <a style="margin-right: 5px; color: black;" class="nav-link active " id="homee-tab" data-toggle="tab" href="#Address" role="tab" aria-controls="homee" aria-selected="true">Address</a>
@@ -62,149 +76,151 @@
                     <hr />
                     <div class="tab-content ">
                         <div id="Address" class="tab-pane fade show active ">
-                            <div class="">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-s-12 ">
                                 <div class="card-body">
 
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="txtStreet" class="label-style">Organization Address</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:TextBox ID="txtStreet" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
 
-
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="txtStreet" class="label-style">Organization Address</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtStreet" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
-
-                                        </div>
-                                        <asp:RequiredFieldValidator ID="streetValidator" runat="server" ControlToValidate="txtStreet" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
-
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="dropCountry" class="label-style">Country</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:DropDownList ID="drpCountry" runat="server" CssClass="btn  dropdown-toggle" Style="background-color: whitesmoke;">
-                                                <asp:ListItem>United States</asp:ListItem>
-                                                <asp:ListItem>Canada</asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="txtState" class="label-style">State</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:DropDownList ID="drpState" runat="server" CssClass="btn  dropdown-toggle" Style="background-color: whitesmoke;">
-                                                <asp:ListItem Value="VA">Virginia</asp:ListItem>
-                                                <asp:ListItem Value="AL">Alabama</asp:ListItem>
-                                                <asp:ListItem Value="AK">Alaska</asp:ListItem>
-                                                <asp:ListItem Value="AZ">Arizona</asp:ListItem>
-                                                <asp:ListItem Value="AR">Arkansas</asp:ListItem>
-                                                <asp:ListItem Value="CA">California</asp:ListItem>
-                                                <asp:ListItem Value="CO">Colorado</asp:ListItem>
-                                                <asp:ListItem Value="CT">Connecticut</asp:ListItem>
-                                                <asp:ListItem Value="DC">District of Columbia</asp:ListItem>
-                                                <asp:ListItem Value="DE">Delaware</asp:ListItem>
-                                                <asp:ListItem Value="FL">Florida</asp:ListItem>
-                                                <asp:ListItem Value="GA">Georgia</asp:ListItem>
-                                                <asp:ListItem Value="HI">Hawaii</asp:ListItem>
-                                                <asp:ListItem Value="ID">Idaho</asp:ListItem>
-                                                <asp:ListItem Value="IL">Illinois</asp:ListItem>
-                                                <asp:ListItem Value="IN">Indiana</asp:ListItem>
-                                                <asp:ListItem Value="IA">Iowa</asp:ListItem>
-                                                <asp:ListItem Value="KS">Kansas</asp:ListItem>
-                                                <asp:ListItem Value="KY">Kentucky</asp:ListItem>
-                                                <asp:ListItem Value="LA">Louisiana</asp:ListItem>
-                                                <asp:ListItem Value="ME">Maine</asp:ListItem>
-                                                <asp:ListItem Value="MD">Maryland</asp:ListItem>
-                                                <asp:ListItem Value="MA">Massachusetts</asp:ListItem>
-                                                <asp:ListItem Value="MI">Michigan</asp:ListItem>
-                                                <asp:ListItem Value="MN">Minnesota</asp:ListItem>
-                                                <asp:ListItem Value="MS">Mississippi</asp:ListItem>
-                                                <asp:ListItem Value="MO">Missouri</asp:ListItem>
-                                                <asp:ListItem Value="MT">Montana</asp:ListItem>
-                                                <asp:ListItem Value="NE">Nebraska</asp:ListItem>
-                                                <asp:ListItem Value="NV">Nevada</asp:ListItem>
-                                                <asp:ListItem Value="NH">New Hampshire</asp:ListItem>
-                                                <asp:ListItem Value="NJ">New Jersey</asp:ListItem>
-                                                <asp:ListItem Value="NM">New Mexico</asp:ListItem>
-                                                <asp:ListItem Value="NY">New York</asp:ListItem>
-                                                <asp:ListItem Value="NC">North Carolina</asp:ListItem>
-                                                <asp:ListItem Value="ND">North Dakota</asp:ListItem>
-                                                <asp:ListItem Value="OH">Ohio</asp:ListItem>
-                                                <asp:ListItem Value="OK">Oklahoma</asp:ListItem>
-                                                <asp:ListItem Value="OR">Oregon</asp:ListItem>
-                                                <asp:ListItem Value="PA">Pennsylvania</asp:ListItem>
-                                                <asp:ListItem Value="RI">Rhode Island</asp:ListItem>
-                                                <asp:ListItem Value="SC">South Carolina</asp:ListItem>
-                                                <asp:ListItem Value="SD">South Dakota</asp:ListItem>
-                                                <asp:ListItem Value="TN">Tennessee</asp:ListItem>
-                                                <asp:ListItem Value="TX">Texas</asp:ListItem>
-                                                <asp:ListItem Value="UT">Utah</asp:ListItem>
-                                                <asp:ListItem Value="VT">Vermont</asp:ListItem>
-                                                <asp:ListItem Value="WA">Washington</asp:ListItem>
-                                                <asp:ListItem Value="WV">West Virginia</asp:ListItem>
-                                                <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
-                                                <asp:ListItem Value="WY">Wyoming</asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="txtCity" class="label-style">City</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtCity" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="streetValidator" runat="server" ControlToValidate="txtStreet" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
 
                                         </div>
-                                        <asp:RequiredFieldValidator ID="OrgCityValidator" runat="server" ControlToValidate="txtCity" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
 
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="txtCounty" class="label-style">County</label>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="dropCountry" class="label-style">Country</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:DropDownList ID="drpCountry" runat="server" CssClass="btn  dropdown-toggle" Style="background-color: whitesmoke;">
+                                                    <asp:ListItem>United States</asp:ListItem>
+                                                    <asp:ListItem>Canada</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtCounty" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="txtState" class="label-style">State</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:DropDownList ID="drpState" runat="server" CssClass="btn  dropdown-toggle" Style="background-color: whitesmoke;">
+                                                    <asp:ListItem Value="VA">Virginia</asp:ListItem>
+                                                    <asp:ListItem Value="AL">Alabama</asp:ListItem>
+                                                    <asp:ListItem Value="AK">Alaska</asp:ListItem>
+                                                    <asp:ListItem Value="AZ">Arizona</asp:ListItem>
+                                                    <asp:ListItem Value="AR">Arkansas</asp:ListItem>
+                                                    <asp:ListItem Value="CA">California</asp:ListItem>
+                                                    <asp:ListItem Value="CO">Colorado</asp:ListItem>
+                                                    <asp:ListItem Value="CT">Connecticut</asp:ListItem>
+                                                    <asp:ListItem Value="DC">District of Columbia</asp:ListItem>
+                                                    <asp:ListItem Value="DE">Delaware</asp:ListItem>
+                                                    <asp:ListItem Value="FL">Florida</asp:ListItem>
+                                                    <asp:ListItem Value="GA">Georgia</asp:ListItem>
+                                                    <asp:ListItem Value="HI">Hawaii</asp:ListItem>
+                                                    <asp:ListItem Value="ID">Idaho</asp:ListItem>
+                                                    <asp:ListItem Value="IL">Illinois</asp:ListItem>
+                                                    <asp:ListItem Value="IN">Indiana</asp:ListItem>
+                                                    <asp:ListItem Value="IA">Iowa</asp:ListItem>
+                                                    <asp:ListItem Value="KS">Kansas</asp:ListItem>
+                                                    <asp:ListItem Value="KY">Kentucky</asp:ListItem>
+                                                    <asp:ListItem Value="LA">Louisiana</asp:ListItem>
+                                                    <asp:ListItem Value="ME">Maine</asp:ListItem>
+                                                    <asp:ListItem Value="MD">Maryland</asp:ListItem>
+                                                    <asp:ListItem Value="MA">Massachusetts</asp:ListItem>
+                                                    <asp:ListItem Value="MI">Michigan</asp:ListItem>
+                                                    <asp:ListItem Value="MN">Minnesota</asp:ListItem>
+                                                    <asp:ListItem Value="MS">Mississippi</asp:ListItem>
+                                                    <asp:ListItem Value="MO">Missouri</asp:ListItem>
+                                                    <asp:ListItem Value="MT">Montana</asp:ListItem>
+                                                    <asp:ListItem Value="NE">Nebraska</asp:ListItem>
+                                                    <asp:ListItem Value="NV">Nevada</asp:ListItem>
+                                                    <asp:ListItem Value="NH">New Hampshire</asp:ListItem>
+                                                    <asp:ListItem Value="NJ">New Jersey</asp:ListItem>
+                                                    <asp:ListItem Value="NM">New Mexico</asp:ListItem>
+                                                    <asp:ListItem Value="NY">New York</asp:ListItem>
+                                                    <asp:ListItem Value="NC">North Carolina</asp:ListItem>
+                                                    <asp:ListItem Value="ND">North Dakota</asp:ListItem>
+                                                    <asp:ListItem Value="OH">Ohio</asp:ListItem>
+                                                    <asp:ListItem Value="OK">Oklahoma</asp:ListItem>
+                                                    <asp:ListItem Value="OR">Oregon</asp:ListItem>
+                                                    <asp:ListItem Value="PA">Pennsylvania</asp:ListItem>
+                                                    <asp:ListItem Value="RI">Rhode Island</asp:ListItem>
+                                                    <asp:ListItem Value="SC">South Carolina</asp:ListItem>
+                                                    <asp:ListItem Value="SD">South Dakota</asp:ListItem>
+                                                    <asp:ListItem Value="TN">Tennessee</asp:ListItem>
+                                                    <asp:ListItem Value="TX">Texas</asp:ListItem>
+                                                    <asp:ListItem Value="UT">Utah</asp:ListItem>
+                                                    <asp:ListItem Value="VT">Vermont</asp:ListItem>
+                                                    <asp:ListItem Value="WA">Washington</asp:ListItem>
+                                                    <asp:ListItem Value="WV">West Virginia</asp:ListItem>
+                                                    <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
+                                                    <asp:ListItem Value="WY">Wyoming</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="txtCity" class="label-style">City</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:TextBox ID="txtCity" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="OrgCityValidator" runat="server" ControlToValidate="txtCity" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
 
                                         </div>
-                                        <asp:RequiredFieldValidator ID="OrgCountyValidator" runat="server" ControlToValidate="txtCounty" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
 
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="txtCounty" class="label-style">County</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:TextBox ID="txtCounty" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
 
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label for="txtZipCode" class="label-style">Zip Code</label>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="OrgCountyValidator" runat="server" ControlToValidate="txtCounty" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="txtZipCode" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="txtZipCode" class="label-style">Zip Code</label>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <asp:TextBox ID="txtZipCode" runat="server" class="form-control" Style="background-color: whitesmoke;"></asp:TextBox>
+
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="OrgZipValidator" runat="server" ControlToValidate="txtZipCode" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
 
                                         </div>
-                                        <asp:RequiredFieldValidator ID="OrgZipValidator" runat="server" ControlToValidate="txtZipCode" ErrorMessage="*" ForeColor="Red" ValidationGroup="addOrg"></asp:RequiredFieldValidator>
+                                        <br />
 
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="form-group col-12">
-                                            <button id="btnReturn" type="button" class="btn btn-success btn-block" style="color: white;" onclick="javascript:history.go(-1)">Return</button>
+                                        <div class=" justify-content-start row">
+                                            <button id="btnReturn" type="button" class="btn btn-success col col-2 col-xl-1 col-lg-2 col-md-1 col-sm-1 p-1" style="color: white;" onclick="javascript:history.go(-1)">Return</button>
+
+                                            <div class="text-right  col-10 ">
+                                                <button id="btnNext" type="button" class="btn btn-success col col-lg-1 col-sm-1 p-1" style="color: white;">Next</button>
+                                            </div>
+
+
                                         </div>
-                                        <%--                                                        <div class="col-md-6 text-right mx-auto Spacing">
-                                                            <button id="btnNext" type="button" class="btn btn-success" style="color: white;">Next</button>
-                                                        </div>--%>
-                                    </div>
 
 
 
+
+
+                                    
                                 </div>
-
                             </div>
                         </div>
                         <div id="Contact" class="tab-pane fade">
@@ -277,9 +293,9 @@
                                     </div>
                                 </div>
                                 <br />
-                                <div class="row">
-                                    <div class="form-group col-12">
-                                        <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn btn-block btn-success" OnClick="btnAddOrganization_Click" CausesValidation="true" ValidationGroup="addOrg" />
+                                <div class="row justify-content-end col-12">
+                                    <div class="form-group col col-3 col-sm-auto p-1">
+                                        <asp:Button ID="btnAddOrganization" runat="server" Text="Add Organization" Style="color: white;" CssClass=" btn  btn-success" OnClick="btnAddOrganization_Click" CausesValidation="true" ValidationGroup="addOrg" />
                                     </div>
 
                                     <%--</div>--%>
@@ -321,8 +337,8 @@
         </div>
         <!-- .animated -->
     </div>
-    
-    
+
+
     <div class="clearfix"></div>
     <!-- Footer -->
 

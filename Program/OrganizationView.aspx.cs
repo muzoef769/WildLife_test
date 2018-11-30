@@ -19,11 +19,155 @@ public partial class OrganizationView : System.Web.UI.Page
     public static Int32 id;
     private string SearchString = "";
     string ImageString;
-
+    //public string grdOrganizations;
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
+
+
+    protected void grdOrganizations_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(grdOrganizations, "Select$" + e.Row.RowIndex);
+            e.Row.ToolTip = "Click to select this row.";
+
+
+
+        }
+
+    }
+
+    protected void grdOrganizations_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        sc.Open();
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+        id = Convert.ToInt32(grdOrganizations.SelectedValue.ToString());
+        ViewState["OrgID"] = id;
+        sc.Close();
+
+        String queryOrg = "Select Organization.OrganizationName, Organization.AddressID from [dbo].[Organization] where Organization.OrganizationID = @OrganizationID";
+        String queryAddress = "Select Address.Street, Address.City, Address.State, Address.County, Address.Country, Address.ZipCode from [dbo].[Address] where Address.AddressID = @AddressID";
+
+
+        using (SqlCommand commOrg = new SqlCommand(queryOrg, sc))
+        {
+            sc.Open();
+
+
+            commOrg.Parameters.AddWithValue("@OrganizationID", id);
+            SqlDataReader reader = commOrg.ExecuteReader();
+
+            // if the username exists, process will stop
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    txtEditOrg.Text = reader.GetString(0);
+                    ViewState["aID"] = reader.GetInt32(1);
+
+                }
+            }
+            sc.Close();
+        }
+
+        using (SqlCommand commAddress = new SqlCommand(queryAddress, sc))
+        {
+            sc.Open();
+
+
+            commAddress.Parameters.AddWithValue("@AddressID", (Int32)ViewState["aID"]);
+            SqlDataReader reader = commAddress.ExecuteReader();
+
+            // if the username exists, process will stop
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    txtEditStreet.Text = reader.GetString(0);
+                    txtEditCity.Text = reader.GetString(1);
+                    drpEditState.SelectedValue = reader.GetString(2);
+                    txtEditCounty.Text = reader.GetString(3);
+                    txtEditCountry.Text = reader.GetString(4);
+                    txtEditZip.Text = reader.GetString(5);
+
+                }
+            }
+            sc.Close();
+        }
+
+    }
+
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+
+        Organization org = new Organization(
+            (Int32)ViewState["OrgID"],
+            txtEditOrg.Text,
+            DateTime.Now,
+            (String)Session["UserFullName"]);
+
+        Address address = new Address(
+            (Int32)ViewState["aID"],
+            txtEditStreet.Text,
+            txtEditCity.Text,
+            drpEditState.SelectedValue,
+            txtEditCounty.Text,
+            txtEditCountry.Text,
+            txtEditZip.Text,
+            DateTime.Now,
+            (String)Session["UserFullName"]);
+
+
+
+        string myQuery = "UPDATE [WildlifeCenter].[dbo].[Address] SET [Street] = @Street, [City] = @City, [County] = @County, [State] = @State, [ZipCode] = @ZipCode, [LastUpdated] = @LastUpdated, [LastUpdatedBy] = @LastUpdatedBy WHERE AddressID = @AddressID";
+
+        using (SqlCommand myCommandAddress = new SqlCommand(myQuery, sc))
+        {
+            sc.Open();
+            myCommandAddress.Parameters.AddWithValue("@AddressID", address.getAddressID());
+            myCommandAddress.Parameters.AddWithValue("@Street", address.getStreetName());
+            myCommandAddress.Parameters.AddWithValue("@City", address.getCity());
+            myCommandAddress.Parameters.AddWithValue("@County", address.getCounty());
+            myCommandAddress.Parameters.AddWithValue("@State", address.getCountry());
+            myCommandAddress.Parameters.AddWithValue("@ZipCode", address.getZipCode());
+            myCommandAddress.Parameters.AddWithValue("@LastUpdated", address.getLastUpdated());
+            myCommandAddress.Parameters.AddWithValue("@LastUpdatedBy", address.getLastUpdatedBy());
+            myCommandAddress.ExecuteNonQuery();
+            grdOrganizations.DataBind();
+            sc.Close();
+        }
+
+
+
+        string myQuery2 = "UPDATE [WildlifeCenter].[dbo].[Organization] SET [OrganizationName] = @OrganizationName, [LastUpdated] = @LastUpdated, [LastUpdatedBy] = @LastUpdatedBy WHERE OrganizationID = @OrganizationID";
+
+        using (SqlCommand myCommandOrg = new SqlCommand(myQuery2, sc))
+        {
+            sc.Open();
+
+            myCommandOrg.Parameters.AddWithValue("@OrganizationID", org.getOrgID());
+            myCommandOrg.Parameters.AddWithValue("@OrganizationName", org.getOrgName());
+            myCommandOrg.Parameters.AddWithValue("@LastUpdated", org.getLastUpdated());
+            myCommandOrg.Parameters.AddWithValue("@LastUpdatedBy", org.getLastUpdatedBy());
+            myCommandOrg.ExecuteNonQuery();
+            grdOrganizations.DataBind();
+            sc.Close();
+
+        }
+
+
+
+
+
+
+    }
+
 
     protected void btnAddOrg_Click(object sender, EventArgs e)
     {
@@ -96,39 +240,39 @@ public partial class OrganizationView : System.Web.UI.Page
     {
         SearchString = txtSearchAll.Text;
     }
-    protected void btnAddModal_Click(object sender, EventArgs e)
-    {
-        Animals newAnimal = new Animals(
-           "",
-           "",
-           txtAddName.Text,
-           ddlAddType.SelectedValue.ToString(),
-          ddlAddStatus.SelectedValue,
-           DateTime.Today,
-           Convert.ToString(Session["Username"])
-           );
+    //protected void btnAddModal_Click(object sender, EventArgs e)
+    //{
+    //    Animals newAnimal = new Animals(
+    //       "",
+    //       "",
+    //       txtAddName.Text,
+    //       ddlAddType.SelectedValue.ToString(),
+    //      ddlAddStatus.SelectedValue,
+    //       DateTime.Today,
+    //       Convert.ToString(Session["Username"])
+    //       );
 
-        FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
-        ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
-        string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
-        SqlCommand addAnimal = new SqlCommand(creatAnimal, sc);
-        sc.Open();
-        addAnimal.Parameters.AddWithValue("@Species", DBNull.Value);
-        addAnimal.Parameters.AddWithValue("@ScientificName", DBNull.Value);
-        addAnimal.Parameters.AddWithValue("@AnimalName", newAnimal.getAnimalName());
-        addAnimal.Parameters.AddWithValue("@AnimalType", newAnimal.getAnimalType());
-        addAnimal.Parameters.AddWithValue("@Status", newAnimal.getStatus());
-        addAnimal.Parameters.AddWithValue("@LastUpdated", newAnimal.getLastUpdated());
-        addAnimal.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"]);
-        addAnimal.Parameters.AddWithValue("@Image", ImageString);
+    //    FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
+    //    ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
+    //    string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
+    //    SqlCommand addAnimal = new SqlCommand(creatAnimal, sc);
+    //    sc.Open();
+    //    addAnimal.Parameters.AddWithValue("@Species", DBNull.Value);
+    //    addAnimal.Parameters.AddWithValue("@ScientificName", DBNull.Value);
+    //    addAnimal.Parameters.AddWithValue("@AnimalName", newAnimal.getAnimalName());
+    //    addAnimal.Parameters.AddWithValue("@AnimalType", newAnimal.getAnimalType());
+    //    addAnimal.Parameters.AddWithValue("@Status", newAnimal.getStatus());
+    //    addAnimal.Parameters.AddWithValue("@LastUpdated", newAnimal.getLastUpdated());
+    //    addAnimal.Parameters.AddWithValue("@LastUpdatedBy", Session["UserFullName"]);
+    //    addAnimal.Parameters.AddWithValue("@Image", ImageString);
 
-        addAnimal.ExecuteNonQuery();
+    //    addAnimal.ExecuteNonQuery();
 
-        txtAddName.Text = " ";
+    //    txtAddName.Text = " ";
 
-        grdOrganizations.DataBind();
+    //    grdOrganizations.DataBind();
 
-    }
+    //}
 
     public override void VerifyRenderingInServerForm(Control control)
     {
