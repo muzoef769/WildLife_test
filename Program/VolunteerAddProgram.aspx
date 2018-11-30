@@ -381,6 +381,7 @@
                                             <asp:ListItem>High School</asp:ListItem>
                                             <asp:ListItem>Familes</asp:ListItem>
                                             <asp:ListItem>Adults Only</asp:ListItem>
+                                            <asp:ListItem>College/University</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -642,8 +643,6 @@
                         <div class="btn-group col-md-4">
                             <asp:Button ID="btnSubmit" runat="server" Text="Submit Program" CssClass="btn btn-primary btn-md btn-block" OnClick="SubmitProgram" />
                         </div>
-
-
                     </div>
                 </div>
             </div>
