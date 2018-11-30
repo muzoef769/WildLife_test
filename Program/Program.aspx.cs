@@ -46,13 +46,19 @@ public partial class Program : System.Web.UI.Page
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
+        sc.Open();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView1.SelectedValue.ToString());
 
+        string notes = "SELECT np.MiscNotes from NewProgram np inner join AssignAnimal aa on aa.NewProgramID = np.NewProgramID INNER JOIN Animal a ON a.AnimalID = aa.AnimalID WHERE aa.NewProgramID = @NewProgramID";
+        SqlCommand noteCommand = sc.CreateCommand();
+        noteCommand.CommandType = CommandType.Text;
+        noteCommand.CommandText = notes;
+        noteCommand.Parameters.AddWithValue("@NewProgramID", id);
+
+        txtNotes.Text = Convert.ToString(noteCommand.ExecuteScalar());
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
-
-
 
         SqlCommand cmd3 = sc.CreateCommand();
         cmd3.CommandType = CommandType.Text;
@@ -89,7 +95,7 @@ public partial class Program : System.Web.UI.Page
 
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView5.SelectedValue.ToString());
-
+        ViewState["NewProgramID"] = id;
 
         String programString = "SELECT Program.ProgramName FROM Program INNER JOIN NewProgram ON NewProgram.ProgramID = Program.ProgramID WHERE NewProgram.NewProgramID = @NewProgramID";
         SqlCommand commProgramName = sc.CreateCommand();
@@ -144,6 +150,7 @@ public partial class Program : System.Web.UI.Page
 
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView3.SelectedValue.ToString());
+        ViewState["NewProgramID"] = id;
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
@@ -179,10 +186,9 @@ public partial class Program : System.Web.UI.Page
 
     protected void GridView4_SelectedIndexChanged(object sender, EventArgs e)
     {
-
-
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         id = Convert.ToInt32(GridView4.SelectedValue.ToString());
+        ViewState["NewProgramID"] = id;
 
         string AnimalList = " SELECT Animal.AnimalName, Animal.AnimalType FROM Animal INNER JOIN AssignAnimal ON Animal.AnimalID = AssignAnimal.AnimalID WHERE AssignAnimal.NewProgramID = @NewProgramID";
 
@@ -277,4 +283,22 @@ public partial class Program : System.Web.UI.Page
         return newSortDirection;
     }
 
+
+    protected void btnSaveNotes_Click(object sender, EventArgs e)
+    {
+        sc.Open();
+        string newNotes = txtNotes.Text;
+
+        Int32 newID = Convert.ToInt32(ViewState["NewProgramID"]);
+        string update = "UPDATE dbo.NewProgram set MiscNotes = @newNotes where NewProgramID = @NewProgramID";
+
+        SqlCommand updateNotes = sc.CreateCommand();
+        updateNotes.CommandType = CommandType.Text;
+        updateNotes.CommandText = update;
+        updateNotes.Parameters.AddWithValue("@NewProgramID", newID);
+        updateNotes.Parameters.AddWithValue("@newNotes", newNotes);
+
+        updateNotes.ExecuteNonQuery();
+
+    }
 }

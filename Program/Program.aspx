@@ -576,7 +576,7 @@ ORDER BY np.DateCompleted DESC"
                                     SortedAscendingCellStyle-BackColor="#fddfd6">
 
                                             <%--<HeaderStyle ForeColor="#ffffff" BackColor="#00c292"></HeaderStyle>--%>
-                                        </asp:GridView>
+                                </asp:GridView>
 
                                   </div>
                                           </ContentTemplate>
@@ -594,15 +594,16 @@ ORDER BY np.DateCompleted DESC"
 
                             <div class="col-xl-12 col-lg-12  col-md-12 col-s-12 Spacing mr-2">
                                 <div class=" ">
-                                    <label><b>Notes </b></label>
+                                    <asp:Label ID="lblNotes" runat="server" Text="Notes "></asp:Label>
                                     <br />
-                                    <textarea runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="readonly"></textarea>
+                                    <asp:TextBox ID="txtNotes" runat="server" style="resize: inherit; max-height: 245px; min-width: 100%; border-color:lightgray" readonly="false" TextMode="multiline" Columns="50" Rows="5"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer" style="background-color: whitesmoke">
+                    <asp:Button ID="btnSaveNotes" Text="Save" runat="server" class="btn btn-primary" OnClick="btnSaveNotes_Click" />
                     <button type="button" class="btn btn-success " data-dismiss="modal">Close</button>
                 </div>
             </div>
