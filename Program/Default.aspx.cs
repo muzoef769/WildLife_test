@@ -100,7 +100,7 @@ public partial class Default : System.Web.UI.Page
                     {
                         while (staffReader.Read())
                         {
-                            Response.Redirect("Home.aspx", false);
+                            Response.Redirect("Manage.aspx", false);
                         }
                     }
                     else
