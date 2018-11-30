@@ -616,7 +616,7 @@ public partial class AddProgram : System.Web.UI.Page
     protected void BtnAddProgram_Click(object sender, EventArgs e)
     {
 
-        programID = Convert.ToInt32(drpOrganizationList.SelectedValue); /*Grab ProgramID*/
+        programID = Convert.ToInt32(drpProgramList.SelectedValue); /*Grab ProgramID*/
 
         int totalPeople;
         totalPeople = Convert.ToInt32(txtAdults.Text) + Convert.ToInt32(txtKids.Text);
