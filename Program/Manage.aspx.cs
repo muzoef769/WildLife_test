@@ -18,62 +18,16 @@ public partial class Manage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (!IsPostBack)
-        //{
-        //    foreach (GridViewRow row in allGridView.Rows)
-        //    {
-        //        DropDownList ddl = (row.Cells[5].FindControl("ddlStatus") as DropDownList);
-        //        String status = (row.Cells[5].Text);
-
-
-        //        if (status == "Active")
-        //        {
-        //            ddlStatus.SelectedValue = "Active";
-
-        //        }
-
-        //        if (status == "Inactive")
-        //        {
-        //            ddlStatus.SelectedValue = "Inactive";
-
-
-        //        }
-
-        //        if (status == "Temporarily Inactive")
-        //        {
-        //            ddlStatus.SelectedValue = "Temporarily Inactive";
-
-        //        }
-
-        //        if (status == "Not Approved")
-        //        {
-        //            ddlStatus.SelectedValue = "Not Approved";
-
-        //        }
-
-        //        allGridView.Columns[4].Visible = false;
-        //        ddl.DataBind();
-        //    }
-        //}
-
 
     }
     protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            //Find the DropDownList in the Row.
             DropDownList ddl = (e.Row.FindControl("ddlStatus") as DropDownList);
-            //ddl.DataSource = GetData("SELECT DISTINCT UserStatus FROM [dbo].[User]");
-            //ddl.DataTextField = "UserStatus";
-            //ddl.DataValueField = "UserStatus";
+
             ddl.DataBind();
 
-            //Add Default Item in the DropDownList.
-            //ddl.Items.Insert(0, new ListItem("Inactive"));
-            //ddl.Items.Insert(1, new ListItem("Temporarily Inactive"));
-
-            //Select the Status of User in DropDownList.
             string status = (e.Row.FindControl("lblStatus") as Label).Text;
 
             if (status == "Active")

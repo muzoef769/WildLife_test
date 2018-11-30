@@ -16,8 +16,6 @@ public partial class NewUser : System.Web.UI.Page
 
     }
 
-
-
     protected void btnCreate_Click(object sender, EventArgs e)
     {
 
@@ -35,7 +33,7 @@ public partial class NewUser : System.Web.UI.Page
                 // connect to PBKDF2 database
                 System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString);
 
-                ViewState["password"] = txtConfirmPw.Value;
+                ViewState["password"] = HttpUtility.HtmlEncode(txtConfirmPw.Value);
 
                 String strGetUser = "Select UserID from [dbo].[User] where Username = @Username";
 
@@ -43,7 +41,7 @@ public partial class NewUser : System.Web.UI.Page
                 using (SqlCommand getUser = new SqlCommand(strGetUser, sc))
                 {
                     sc.Open();
-                    getUser.Parameters.AddWithValue("@Username", txtUsername.Text);
+                    getUser.Parameters.AddWithValue("@Username", HttpUtility.HtmlEncode(txtUsername.Text));
                     SqlDataReader reader = getUser.ExecuteReader();
 
                     // if the username exists, process will stop
@@ -63,23 +61,17 @@ public partial class NewUser : System.Web.UI.Page
                         String strCreateUser = "insert into[dbo].[User] values(@FirstName, @LastName, @Username, @UserType, @LastUpdated, @LastUpdatedBy)";
                         using (SqlCommand createUser = new SqlCommand(strCreateUser, sc))
                         {
-                            //try
-                            //{
+
                             sc.Open();
-                            createUser.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-                            createUser.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                            createUser.Parameters.AddWithValue("@Username", txtUsername.Text);
-                            createUser.Parameters.AddWithValue("@UserType", userType.SelectedValue);
+                            createUser.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
+                            createUser.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
+                            createUser.Parameters.AddWithValue("@Username", HttpUtility.HtmlEncode(txtUsername.Text));
+                            createUser.Parameters.AddWithValue("@UserType", HttpUtility.HtmlEncode(userType.SelectedValue));
                             createUser.Parameters.AddWithValue("@LastUpdated", DateTime.Today);
-                            createUser.Parameters.AddWithValue("@LastUpdatedBy", Session["Username"]);
+                            createUser.Parameters.AddWithValue("@LastUpdatedBy", HttpUtility.HtmlEncode(Session["Username"].ToString()));
                             createUser.ExecuteNonQuery();
                             sc.Close();
-                            //}
-                            //catch
-                            //{
-                            //    lblUserStatus.Text = "Error Submiting User Information";
-                            //    sc.Close();
-                            //}
+
 
                         }
 
@@ -91,7 +83,7 @@ public partial class NewUser : System.Web.UI.Page
                             //try
                             //{
                             sc.Open();
-                            setPass.Parameters.AddWithValue("@Username", txtUsername.Text);
+                            setPass.Parameters.AddWithValue("@Username", HttpUtility.HtmlEncode(txtUsername.Text));
                             setPass.Parameters.AddWithValue("@Password", PasswordHash.HashPassword(ViewState["password"].ToString())); // hash entered password
                             setPass.ExecuteNonQuery();
                             sc.Close();
@@ -118,10 +110,6 @@ public partial class NewUser : System.Web.UI.Page
                     sc.Close();
                 }
             }
-            //catch
-            //{
-            //    lblStatus.Text = "Database Error - User not created.";
-            //}
         }
     }
 }

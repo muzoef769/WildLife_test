@@ -146,40 +146,11 @@ public partial class SimpleReport : System.Web.UI.Page
         SqlDataSource48.SelectCommand = "Select distinct AnimalName, count(aa.NewProgramID) as 'Programs', sum(TotalPeople) as 'TotalPeople' from dbo.AssignAnimal aa left outer join dbo.Animal a on a.AnimalID=aa.AnimalID inner join dbo.NewProgram np on np.NewProgramID = aa.NewProgramID WHERE np.DateCompleted >='" + start + "' and np.DateCompleted <='" + end + "' group by AnimalName";
         animalGrid.DataBind();
     }
-    //public string HighlightText(string InputTxt)
-    //{
-    //    string Search_Str = txtYear.Text;
-    //    // Setup the regular expression and add the Or operator.
-    //    Regex RegExp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
-    //    // Highlight keywords by calling the
-    //    //delegate each time a keyword is found.
-    //    return RegExp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
-    //}
 
     public string ReplaceKeyWords(Match m)
     {
         return ("<span class=highlight>" + m.Value + "</span>");
     }
-    //protected void btnFilter_Click(object sender, EventArgs e)
-    //{
-    //    //  Set the value of the SearchString so it gets
-    //    SearchString = Convert.ToString(txtYear.Text);
-    //}
-
-    //protected void dateClear_Click(object sender, EventArgs e)
-    //{
-    //    //  Simple clean up text to return the Gridview to it's default state
-    //    txtYear.Text = "";
-    //    SearchString = "";
-    //    offsiteGrid.DataBind();
-    //    onsiteGrid.DataBind();
-    //    onlineGrid.DataBind();
-    //    totAdultsGrid.DataBind();
-    //    totKidsGrid.DataBind();
-    //    totPeopleGrid.DataBind();
-    //    totProgramsGrid.DataBind();
-
-    //}
 
     protected void ddlYearFilter_SelectedIndexChanged(object sender, EventArgs e)
     {

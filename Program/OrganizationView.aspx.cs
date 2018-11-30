@@ -49,7 +49,7 @@ public partial class OrganizationView : System.Web.UI.Page
     protected void btnSearchAll_Click(object sender, EventArgs e)
     {
         //  Set the value of the SearchString so it gets
-        SearchString = txtSearchAll.Text;
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
         grdOrganizations.DataSourceID = null;
         using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["connString"].ConnectionString))
         {
@@ -94,22 +94,22 @@ public partial class OrganizationView : System.Web.UI.Page
 
     protected void txtSearchAll_TextChanged(object sender, EventArgs e)
     {
-        SearchString = txtSearchAll.Text;
+        SearchString = HttpUtility.HtmlEncode(txtSearchAll.Text);
     }
     protected void btnAddModal_Click(object sender, EventArgs e)
     {
         Animals newAnimal = new Animals(
-           "",
-           "",
-           txtAddName.Text,
-           ddlAddType.SelectedValue.ToString(),
-          ddlAddStatus.SelectedValue,
+           HttpUtility.HtmlEncode(""),
+           HttpUtility.HtmlEncode(""),
+           HttpUtility.HtmlEncode(txtAddName.Text),
+           HttpUtility.HtmlEncode(ddlAddType.SelectedValue),
+          HttpUtility.HtmlEncode(ddlAddStatus.SelectedValue),
            DateTime.Today,
-           Convert.ToString(Session["Username"])
+           HttpUtility.HtmlEncode(Session["Username"].ToString())
            );
 
-        FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + FileUpload1.FileName));
-        ImageString = "~\\Images\\Animals\\" + FileUpload1.FileName;
+        FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + HttpUtility.HtmlEncode(FileUpload1.FileName)));
+        ImageString = "~\\Images\\Animals\\" + HttpUtility.HtmlEncode(FileUpload1.FileName);
         string creatAnimal = "Insert into [dbo].[Animal] values (@Species, @ScientificName, @AnimalName, @AnimalType, @Status, @Image, @LastUpdated, @LastUpdatedBy)";
         SqlCommand addAnimal = new SqlCommand(creatAnimal, sc);
         sc.Open();
