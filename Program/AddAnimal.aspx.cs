@@ -12,8 +12,10 @@ public partial class AddAnimal : System.Web.UI.Page
     }
     protected void BtnAddAnimal(object sender, EventArgs e)
     {
-        FileUpload1.SaveAs(Server.MapPath("Images\\Animals\\" + HttpUtility.HtmlEncode(FileUpload1.FileName)));
+
+        FileUpload1.SaveAs(Server.MapPath("~\\Images\\Animals\\" + HttpUtility.HtmlEncode(FileUpload1.FileName)));
         ImageString = "~\\Images\\Animals\\" + HttpUtility.HtmlEncode(FileUpload1.FileName);
+
         Animals animal = new Animals("", "",
             HttpUtility.HtmlEncode(txtName.Text), HttpUtility.HtmlEncode(drpAnimalType.SelectedValue),
             HttpUtility.HtmlEncode(drpStatus.SelectedValue), DateTime.Today,

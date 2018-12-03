@@ -3,90 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
 
 
-
-
-    <!-- Left Panel -->
-    <%--<aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav" >
-                   
-                    <li class="">
-                        <a href="Home.aspx"><i class="menu-icon fa fa-laptop"></i>Home</a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Reports</a>
-                        <ul class="sub-menu children dropdown-menu">                           
-                            <li><i class="fa fa-github-alt"></i><a href="AnimalReport.aspx">Animal Report</a></li>
-                            <li><i class="fa fa-book"></i><a href="SimpleReport.aspx">Simple Report</a></li>
-                            <li><i class="fa fa-dollar"></i><a href="PaymentReport.aspx">Payments Report</a></li>
-                          
-                        </ul>
-                    </li>
-                    
-                     <li class="active">
-                         <a class="" href="Animal.aspx"> <i class="menu-icon fa fa-github-alt"></i>Animals</a>
-                    </li>
-                   <li class="">
-                        <a class="" href="Payment.aspx"><i class="menu-icon fa fa-dollar"></i>Payments</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="Program.aspx"><i class="menu-icon pe-7s-browser"></i>Programs</a>
-                    </li>
-                     <li class="">
-                        <a class="" href="OrganizationView.aspx"><i class="menu-icon pe-7s-id"></i>Organizations</a>
-                    </li>
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-    <!-- Right Panel -->
-    <div id="right-panel" class="right-panel">
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="margin-right: 10px; margin-left: -10px;"></i></a>
-                   <a class="navbar-brand" href="Home.aspx">Wildlife Center of Virginia | <span style="color: #00c292;"> <%:Session["UserFullName"]%> </span></a>
-           
-                </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-                    <div class="header-left">
-                  
-                        <div class="dropdown for-notification">
-                            <ul style="list-style-type: none;">
-                             <li class="nav-item">
-                        <a class="nav-link" style="color: dimgrey;" href="#">Staff</a>
-                    </li>
-                                </ul>
-                        </div>
-
-                        <div class="dropdown for-notification">
-                            
-                                <ul style="list-style-type: none;">
-                        <li class="nav-item">
-                        <asp:Button ID="btnLogOut" runat="server"  Text="Logout" ForeColor="#fb9678" CssClass="btn btn-link" />
-                    
-                    </li>
-
-                        </ul>
-                         
-                        </div>
-                    </div>
-
-                  
-
-                </div>
-            </div>
-        </header>--%>
-    <!-- /#header -->
-    <!-- Content -->
-
-    <!-- /Widgets -->
     <!--  Traffic  -->
     <div class="card-body">
         <h4 class="box-title">View Animal Info</h4>
@@ -229,114 +145,7 @@
     </div>
     <!--  /Traffic -->
     <div class="clearfix"></div>
-    <!-- Orders -->
-
-
-    <!-- /.orders -->
-    <!-- To Do and Live Chat -->
-
-
-
-    <!-- /To Do and Live Chat -->
-    <!-- Calender Chart Weather  -->
-
-
-
-    <!-- /Calender Chart Weather -->
-    <!-- Modal - Calendar - Add New Event -->
-
-
-    <!-- /#event-modal -->
-    <!-- Modal - Calendar - Add Category -->
-
-
-    <!-- /#add-category -->
-    <%--            </div>
-            <!-- .animated -->
-        </div>--%>
-    <!-- /.content -->
-    <%--        <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6">
-                        Wildlife Center of Virginia
-                    </div>
-
-                </div>
-            </div>
-        </footer>--%>
-    <!-- /.site-footer -->
-    <%--</div>--%>
-    <!-- /#right-panel -->
-
-
-
-    <!--Local Stuff-->
-
-
-
-<%--
-    <div class="modal" id="AddModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Animal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body p-4" id="resultAdd">
-
-
-
-                    <div class="row  ">
-
-                        <div class=" col-md-8">
-                            <h4>Animal Status: </h4>
-                            <asp:DropDownList ID="ddlAddStatus" runat="server" CssClass="form-control-plaintext attributeDropDown" BorderStyle="solid" AutoCompleteType="Disabled">
-                                <asp:ListItem>Active</asp:ListItem>
-                                <asp:ListItem>Inactive</asp:ListItem>
-                                <asp:ListItem>Temporarily Inactive</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Type: </h4>
-                            <asp:DropDownList ID="ddlAddType" runat="server" CssClass="form-control-plaintext attributeDropDown" BorderStyle="solid" AutoCompleteType="Disabled">
-                                <asp:ListItem>Bird</asp:ListItem>
-                                <asp:ListItem>Mammal</asp:ListItem>
-                                <asp:ListItem>Reptile</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Name: </h4>
-                            <asp:TextBox ID="txtAddName" runat="server" CssClass="form-control" AutoCompleteType="Disabled" ReadOnly="False"></asp:TextBox>
-                            <h4>Add Image</h4>
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
-                            <br>
-                        </div>
-                        <!-- End  Description -->
-
-
-                    </div>
-                    <div class="row">
-                        <br>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-md-2">
-                            <asp:Button ID="btnAddModal" runat="server" Text="Add" Class="btn btn-success FormButton" UseSubmitBehavior="false" OnClick="btnAddModal_Click"></asp:Button>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" data-toggle="modal" data-target="#EditModal" class="btn btn-secondary" data-dismiss="modal">Edit</button>
-                </div>
-            </div>
-        </div>
-    </div>--%>
-
+   
 
 
 
@@ -394,37 +203,6 @@
                     </div>
 
 
-
-
-
-
-
-
-     <%--               <div class="row  ">
-
-                        <div class=" col-md-8">
-
-
-                            <h4>Animal Status: </h4>
-                            <asp:DropDownList ID="ddlEditStatus" runat="server" CssClass="form-control-plaintext attributeDropDown">
-                                <asp:ListItem>Active</asp:ListItem>
-                                <asp:ListItem>Inactive</asp:ListItem>
-                                <asp:ListItem>Temporarily Inactive</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Type: </h4>
-                            <asp:DropDownList ID="ddlEditType" runat="server" CssClass="form-control-plaintext attributeDropDown">
-                                <asp:ListItem>Bird</asp:ListItem>
-                                <asp:ListItem>Mammal</asp:ListItem>
-                                <asp:ListItem>Reptile</asp:ListItem>
-                            </asp:DropDownList>
-                            <h4>Name: </h4>
-                            <asp:TextBox ID="txtEditName" runat="server" class="form-control" ReadOnly="false"></asp:TextBox>
-
-                        </div>
-                        <!-- End  Description -->
-
-
-                    </div>--%>
                     <div class="row">
                         <br>
                     </div>
@@ -436,30 +214,11 @@
                 </div>
                 <div class="modal-footer" style="background-color: whitesmoke">
                     <div class="row">
-
                         <div class="col text-right">
                             <asp:Button ID="btnUpdate" runat="server" Text="Update" Class="btn btn-success FormButton" UseSubmitBehavior="false" OnClick="btnUpdate_Click"></asp:Button>
                         </div>
-
-
-
                     </div>
-
                 </div>
-
-
-
-
-
-                <%--    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <div class="col-md-3">
-                            <button data-toggle="modal" data-target="#AnimalModal" data-dismiss="modal" class="btn btn-secondary" type="submit">Return</button>
-                        </div>
-
-
-
-                    </div>--%>
             </div>
         </div>
     </div>

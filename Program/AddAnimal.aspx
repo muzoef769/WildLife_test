@@ -11,8 +11,6 @@
     </script>
 
 
-    <%--    <div class="content">
-        <div class="animated fadeIn">--%>
     <div class="card-body">
         <h3 class="box-title">Add Animal</h3>
     </div>
@@ -21,26 +19,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class=" ">
-                        <%--<script type="text/javascript">
-                                    $(document).ready(function () {
-                                        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-                                            localStorage.setItem('activeTab', $(e.target).attr('href'));
-                                        });
-                                        var activeTab = localStorage.getItem('activeTab');
-                                        if (activeTab) {
-                                            $('#myTab a[href="' + activeTab + '"]').tab('show');
-                                        }
-                                    });
-                                </script>
-                                <ul class="nav nav-tabs  col-xl-12 col-lg-12 col-md-12 col-s-12 " id="myTab" style="padding-left: 15px; border-bottom: none;" role="tablist">
-                                    <li class="nav-item ">
-                                        <a style="margin-right: 5px; color: black;" class="nav-link active " id="homee-tab" data-toggle="tab" href="#AnimalInfo" role="tab" aria-controls="homee" aria-selected="true">Animal Info</a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a style="margin-right: 5px; color: black;" class="nav-link " id="profile-tab" data-toggle="tab" href="#UploadImage" role="tab" aria-controls="profile" aria-selected="false">Upload Image</a>
-                                    </li>
-                                </ul>
-                                <br />--%>
+                        
                     </div>
 
                     <br />
@@ -89,6 +68,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <asp:FileUpload ID="FileUpload1" runat="server" />
+                                            <asp:RequiredFieldValidator runat="server" ID="uploadVal" ControlToValidate="FileUpload1" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <br />
@@ -109,7 +89,5 @@
             </div>
         </div>
     </div>
-    <%--        </div>
-    </div>--%>
 </asp:Content>
 
